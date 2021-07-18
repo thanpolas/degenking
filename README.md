@@ -7,11 +7,20 @@
 Install the module using NPM:
 
 ```
-npm install @alacrity/awesome-lib --save
+npm install @thanpolas/awesome-lib --save
 ```
 
 ## Documentation
 
+
+## Update Node Version
+
+When a new node version is available you need to updated it in the following:
+
+-   `/package.json`
+-   `/.nvmrc`
+-   `/.circleci/config.yml`
+-   `/Dockerfile`
 
 ## Releasing
 
@@ -28,4 +37,4 @@ npm install @alacrity/awesome-lib --save
 
 ## License
 
-Copyright Alacrity Law Limited. All rights reserved.
+Copyright © [Thanos Polychronakis][thanpolas] and Authors, Licensed under ISC.
