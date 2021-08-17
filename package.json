@@ -21,7 +21,11 @@
         "node": "14.15.5"
     },
     "scripts": {
-        "test": "eslint app/**"
+        "test": "eslint app test && jest",
+        "release": "release-it --ci",
+        "release:minor": "release-it minor --ci",
+        "release:major": "release-it major --ci",
+        "eslint": "eslint app test"
     },
     "jest": {
         "coverageReporters": [
@@ -54,6 +58,7 @@
         "jest": "27.0.6",
         "jest-extended": "0.11.5",
         "jest-junit": "12.2.0",
+        "release-it": "14.10.0",
         "prettier": "2.3.2"
     }
 }
