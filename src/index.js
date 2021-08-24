@@ -9,7 +9,7 @@
  */
 
 /**
- * @fileOverview bootstrap and master exporting module.
+ * @fileoverview bootstrap and master exporting module.
  */
 
 const app = module.exports = {};
