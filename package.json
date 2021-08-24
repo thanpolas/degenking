@@ -1,7 +1,7 @@
 {
     "name": "@thanpolas/awesome",
     "version": "0.0.0",
-    "main": "./app/",
+    "main": "./src/",
     "description": "Awesome Lib",
     "homepage": "https://github.com/thanpolas/awesome",
     "bugs": "https://github.com/thanpolas/awesome/issues",
@@ -18,19 +18,26 @@
     },
     "license": "ISC",
     "engines": {
-        "node": "14.15.5"
+        "node": ">=12"
     },
     "scripts": {
-        "test": "eslint app test && jest",
+        "test": "npm run eslint && npm run jest",
+        "eslint": "eslint src test",
+        "jest": "TZ=utc jest",
         "release": "release-it --ci",
         "release:minor": "release-it minor --ci",
-        "release:major": "release-it major --ci",
-        "eslint": "eslint app test"
+        "release:major": "release-it major --ci"
     },
     "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "./src/*.js",
+            "./src/**/*.js"
+        ],
         "coverageReporters": [
-            "html",
-            "text-summary"
+            "json",
+            "html"
         ],
         "roots": [
             "./test/app",
@@ -45,20 +52,20 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "@types/jest": "26.0.24",
-        "eslint": "7.31.0",
+        "@types/jest": "27.0.1",
+        "eslint": "7.32.0",
         "eslint-config-airbnb-base": "14.2.1",
         "eslint-config-prettier": "8.3.0",
-        "eslint-plugin-import": "2.23.4",
-        "eslint-plugin-jest": "24.3.6",
-        "eslint-plugin-jsdoc": "35.4.5",
+        "eslint-plugin-import": "2.24.1",
+        "eslint-plugin-jest": "24.4.0",
+        "eslint-plugin-jsdoc": "36.0.7",
         "eslint-plugin-prettier": "3.4.0",
         "eslint-plugin-security": "1.4.0",
         "expect": "27.0.6",
         "jest": "27.0.6",
         "jest-extended": "0.11.5",
         "jest-junit": "12.2.0",
-        "release-it": "14.10.0",
+        "release-it": "14.11.5",
         "prettier": "2.3.2"
     }
 }
