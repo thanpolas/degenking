@@ -2,10 +2,9 @@
 
 > The awesome lib description
 
+[![NPM Version][npm-image]][npm-url]
 [![CircleCI](https://circleci.com/gh/thanpolas/[...].svg?style=svg)](https://circleci.com/gh/thanpolas/[...])
-[![codecov](https://codecov.io/gh/thanpolas/[...]/branch/develop/graph/badge.svg)](https://codecov.io/gh/thanpolas/[...])
-[![npm version](https://badge.fury.io/js/[...].svg)](https://badge.fury.io/js/[...])
-[![Discord](https://img.shields.io/discord/847075821276758096)](https://discord.gg/GkyEqzJWEY)
+[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/GkyEqzJWEY)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
 ## Install
@@ -44,4 +43,5 @@ When a new node version is available you need to updated it in the following:
 
 Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC](/LICENSE).
 
-[![CircleCI](https://circleci.com/gh/thanpolas/awesomelib/tree/main.svg?style=svg)](https://circleci.com/gh/thanpolas/awesomelib/tree/main)
+[npm-url]: https://npmjs.org/package/@thanpolas/[...]
+[thanpolas]: https://github.com/thanpolas
