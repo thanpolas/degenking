@@ -1,11 +1,11 @@
 {
     "private": false,
-    "name": "@thanpolas/awesome",
+    "name": "@thanpolas/dfk-heroes",
     "version": "0.0.0",
     "main": "./src/",
-    "description": "Awesome Lib",
-    "homepage": "https://github.com/thanpolas/awesome",
-    "bugs": "https://github.com/thanpolas/awesome/issues",
+    "description": "Utility library for fetching and working with DFK Heroes.",
+    "homepage": "https://github.com/degen-heroes/dfk-hero",
+    "bugs": "https://github.com/degen-heroes/dfk-hero/issues",
     "author": {
         "name": "Thanos Polychronakis",
         "email": "thanpolas@gmail.com"
@@ -15,11 +15,11 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/thanpolas/awesome"
+        "url": "https://github.com/degen-heroes/dfk-hero"
     },
     "license": "ISC",
     "engines": {
-        "node": ">=12"
+        "node": ">=16"
     },
     "scripts": {
         "test": "npm run eslint && npm run jest",

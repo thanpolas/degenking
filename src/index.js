@@ -1,8 +1,8 @@
 /**
- * Awesome Lib
- * Awesomesauce and sausages
+ * DeFi Kingdoms Hero
+ * Utility library for fetching and working with DFK Heroes.
  *
- * https://github.com/thanpolas/awesome
+ * https://github.com/degen-heroes/dfk-hero
  *
  * Copyright © Thanos Polychronakis
  * LICENSE on /LICENSE file.
@@ -11,5 +11,3 @@
 /**
  * @fileoverview bootstrap and master exporting module.
  */
-
-const app = module.exports = {};
