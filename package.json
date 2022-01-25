@@ -46,7 +46,7 @@
         ],
         "testEnvironment": "node",
         "setupFilesAfterEnv": [
-            "jest-extended"
+            "jest-extended/all"
         ],
         "globalSetup": "./test/lib/global-setup.test.js",
         "testTimeout": 10000
