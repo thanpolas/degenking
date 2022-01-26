@@ -295,6 +295,7 @@ Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC]
 thanpolas.eth
 
 [npm-url]: https://npmjs.org/package/@thanpolas/dfk-hero
+[npm-image]: https://img.shields.io/npm/v/@thanpolas/dfk-hero.svg
 [thanpolas]: https://github.com/thanpolas
 [ethers-provider]: https://docs.ethers.io/v5/api/providers/
 [hero-object]: #hero-data-object
