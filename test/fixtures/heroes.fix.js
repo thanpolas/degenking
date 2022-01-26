@@ -1,129 +1,18 @@
 /**
- * @fileoverview Fixtures for DFK auction created event.
+ * @fileoverview Fixtures for Hero Object fetched from chain.
  */
 
-exports.heroChainFix = (values) => ({
-  id: values.id || 8562,
-  salesData: {
-    onSale: false,
-    auctionId: null,
-    seller: '',
-    startingPrice: 0,
-    endingPrice: 0,
-    duration: 0,
-    startedAt: 0,
-  },
-  summoningInfo: {
-    summonedTime: '2021-10-20T01:52:59.000Z',
-    nextSummonTime: '2021-11-11T12:57:31.000Z',
-    summonerId: 61,
-    assistantId: 585,
-    summons: 0,
-    maxSummons: 10,
-  },
-  info: {
-    statGenes:
-      '341749717619666252623658600862507294602064242461683257030562556833771854',
-    visualGenes:
-      '60449583138309993953758485558580730192999400285869701374043567031458020',
-    rarity: 1,
-    shiny: false,
-    generation: values?.info?.generation || 1,
-    firstName: 370,
-    lastName: 1665,
-    shinyStyle: 1,
-    class: 3,
-    subClass: 3,
-  },
-  state: {
-    staminaFullAt: 1636657499,
-    hpFullAt: 0,
-    mpFullAt: 0,
-    level: 1,
-    xp: 269,
-    currentQuest: '0x0000000000000000000000000000000000000000',
-    sp: 0,
-    status: 0,
-  },
-  stats: {
-    intelligence: 7,
-    luck: 10,
-    vitality: 6,
-    dexterity: 12,
-    mp: 40,
-    strength: 9,
-    wisdom: 6,
-    agility: 7,
-    endurance: 7,
-    hp: 135,
-    stamina: 25,
-  },
-  primaryStatGrowth: {
-    strength: 5500,
-    wisdom: 2500,
-    agility: 5000,
-    endurance: 6000,
-    intelligence: 4000,
-    luck: 4200,
-    vitality: 5000,
-    dexterity: 8000,
-    hpSm: 2500,
-    hpRg: 5000,
-    hpLg: 2500,
-    mpSm: 3000,
-    mpRg: 4000,
-    mpLg: 3000,
-  },
-  secondaryStatGrowth: {
-    strength: 1375,
-    wisdom: 1025,
-    agility: 1250,
-    endurance: 1500,
-    intelligence: 1000,
-    luck: 1000,
-    vitality: 1250,
-    dexterity: 2000,
-    hpSm: 625,
-    hpRg: 1250,
-    hpLg: 625,
-    mpSm: 750,
-    mpRg: 1000,
-    mpLg: 750,
-  },
-  professions: { mining: 0, gardening: 0, foraging: 0, fishing: 0 },
-  visualGenes: {
-    gender: 'female',
-    headAppendage: 5,
-    backAppendage: 7,
-    background: 'swamp',
-    hairStyle: 4,
-    hairColor: '068483',
-    visualUnknown1: 6,
-    eyeColor: '613d8a',
-    skinColor: 'e6a861',
-    appendageColor: '6f3a3c',
-    backAppendageColor: '830e18',
-    visualUnknown2: 4,
-  },
-  statGenes: {
-    class: 'warrior',
-    subClass: 'warrior',
-    profession: 'mining',
-    passive1: 'Basic1',
-    passive2: 'Basic1',
-    active1: 'Basic6',
-    active2: 'Basic3',
-    statBoost1: 'LCK',
-    statBoost2: 'WIS',
-    statsUnknown1: 3,
-    element: 'light',
-    statsUnknown2: undefined,
-  },
-});
+exports.heroOwnerFix = () => {
+  return '0xc0ffee254729296a45a3885639AC7E10F9d54979';
+};
 
-exports.heroChainFix2 = () => {
+exports.userHeroesFix = () => {
+  return [BigInt(0x2710)];
+};
+
+exports.heroChainFix = () => {
   return {
-    id: 10000,
+    id: BigInt(0x2710),
     salesData: {
       onSale: false,
       auctionId: null,
@@ -134,18 +23,20 @@ exports.heroChainFix2 = () => {
       startedAt: 0,
     },
     summoningInfo: {
-      summonedTime: '2021-10-30T10:05:41.000Z',
-      nextSummonTime: '2021-10-31T10:05:41.000Z',
-      summonerId: 7863,
-      assistantId: 9280,
+      summonedTime: BigInt(0x617d18f5),
+      nextSummonTime: BigInt(0x617e6a75),
+      summonerId: BigInt(0x1eb7),
+      assistantId: BigInt(0x2440),
       summons: 0,
       maxSummons: 8,
     },
     info: {
-      statGenes:
-        '119067243983457416993287681075686535166558725967282153752039019969001550',
-      visualGenes:
-        '170877259812246313110520379850828416478013303294936624136291359945493616',
+      statGenes: BigInt(
+        '0x11407314e03004010ca4318413108730c02501440194e318e5730880384e',
+      ),
+      visualGenes: BigInt(
+        '0x18c23098c510ce6528860902321467094410098e0214a19c4031ca418c70',
+      ),
       rarity: 2,
       shiny: false,
       generation: 2,
@@ -156,11 +47,11 @@ exports.heroChainFix2 = () => {
       subClass: 0,
     },
     state: {
-      staminaFullAt: 1639359217,
-      hpFullAt: 0,
-      mpFullAt: 0,
+      staminaFullAt: BigInt(0x61f1731f),
+      hpFullAt: BigInt(0x00),
+      mpFullAt: BigInt(0x00),
       level: 1,
-      xp: 911,
+      xp: BigInt(0x0392),
       currentQuest: '0x0000000000000000000000000000000000000000',
       sp: 0,
       status: 0,
@@ -210,33 +101,6 @@ exports.heroChainFix2 = () => {
       mpRg: 875,
       mpLg: 375,
     },
-    professions: { mining: 20, gardening: 0, foraging: 2, fishing: 0 },
-    visualGenes: {
-      gender: 'female',
-      headAppendage: 5,
-      backAppendage: 6,
-      background: 'island',
-      hairStyle: 3,
-      hairColor: '62a7e6',
-      visualUnknown1: 1,
-      eyeColor: 'a41e12',
-      skinColor: '7b4a11',
-      appendageColor: 'c5bfa7',
-      backAppendageColor: '2a386d',
-      visualUnknown2: 16,
-    },
-    statGenes: {
-      class: 'pirate',
-      subClass: 'warrior',
-      profession: 'mining',
-      passive1: 'Basic5',
-      passive2: 'Basic2',
-      active1: 'Basic8',
-      active2: 'Basic3',
-      statBoost1: 'INT',
-      statBoost2: 'DEX',
-      statsUnknown1: 5,
-      element: 'lightning',
-    },
+    professions: { mining: 59, gardening: 0, foraging: 2, fishing: 0 },
   };
 };
