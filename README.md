@@ -81,7 +81,7 @@ It will augment the hero object using multiple queries and functions to also
 include sales data, owner profile and decode all stat and visual genes.
 
 -   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
--   **Returns** **{Promise<Array<Object>>}** A Promise with an array of the normalized hero data objects.
+-   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
 
 -   `dfkHero.fetchHeroesByOwnerAndProfessionChain()`
 -   `dfkHero.fetchHeroesByOwnerChain()`
