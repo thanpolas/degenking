@@ -30,10 +30,11 @@ assert.assert = (testObj, optValues) => {
 assert.assertProperties = (testObj) => {
   expect(testObj).toContainAllKeys([
     'rawHero',
-    'type',
+    'source',
+    'id',
     'ownerId',
     'ownerName',
-    'id',
+    'ownerAddress',
     'mainClass',
     'subClass',
     'profession',
@@ -42,6 +43,10 @@ assert.assertProperties = (testObj) => {
     'maxSummons',
     'statBoost1',
     'statBoost2',
+    'active1',
+    'active2',
+    'passive1',
+    'passive2',
     'rarity',
     'rarityStr',
     'mining',
@@ -69,13 +74,34 @@ assert.assertProperties = (testObj) => {
     'luck',
     'vitality',
     'dexterity',
-    'mp',
     'strength',
     'wisdom',
     'agility',
     'endurance',
+    'statsSum',
     'hp',
+    'mp',
     'stamina',
+    'onSale',
+    'auctionId',
+    'seller',
+    'startingPrice',
+    'endingPrice',
+    'startingPriceFormatted',
+    'endingPriceFormatted',
+    'duration',
+    'startedAt',
+    'summonCost',
+    'classTier',
+    'summonMinTears',
+    'summonMaxTears',
+    'currentStamina',
+    'currentRank',
+    'estJewelPerTick',
+    'estJewelPer100Ticks',
+    'mainClassGenes',
+    'subClassGenes',
+    'professionGenes',
   ]);
 };
 
@@ -87,9 +113,10 @@ assert.assertProperties = (testObj) => {
  */
 assert.assertTypes = (testObj) => {
   expect(testObj.rawHero).toBeObject();
-  expect(testObj.type).toBeString();
-  expect(testObj.ownerId).toBeString();
+  expect(testObj.source).toBeString();
+  expect(testObj.ownerId).toBeNumber();
   expect(testObj.ownerName).toBeString();
+  expect(testObj.ownerAddress).toBeString();
   expect(testObj.id).toBeNumber();
   expect(testObj.mainClass).toBeString();
   expect(testObj.subClass).toBeString();
@@ -97,8 +124,14 @@ assert.assertTypes = (testObj) => {
   expect(testObj.generation).toBeNumber();
   expect(testObj.summons).toBeNumber();
   expect(testObj.maxSummons).toBeNumber();
+
   expect(testObj.statBoost1).toBeString();
   expect(testObj.statBoost2).toBeString();
+  expect(testObj.active1).toBeString();
+  expect(testObj.active2).toBeString();
+  expect(testObj.passive1).toBeString();
+  expect(testObj.passive2).toBeString();
+
   expect(testObj.rarity).toBeNumber();
 
   expect(testObj.rarityStr).toBeString();
@@ -134,6 +167,28 @@ assert.assertTypes = (testObj) => {
   expect(testObj.endurance).toBeNumber();
   expect(testObj.hp).toBeNumber();
   expect(testObj.stamina).toBeNumber();
+
+  expect(testObj.statsSum).toBeNumber();
+  expect(testObj.onSale).toBeBoolean();
+  expect(testObj.auctionId).toBeNumber();
+  expect(testObj.seller).toBeString();
+  expect(testObj.startingPrice).toBeNumber();
+  expect(testObj.endingPrice).toBeNumber();
+  expect(testObj.startingPriceFormatted).toBeString();
+  expect(testObj.endingPriceFormatted).toBeString();
+  expect(testObj.duration).toBeNumber();
+  expect(testObj.startedAt).toBeDate();
+  expect(testObj.summonCost).toBeNumber();
+  expect(testObj.classTier).toBeString();
+  expect(testObj.summonMinTears).toBeNumber();
+  expect(testObj.summonMaxTears).toBeNumber();
+  expect(testObj.currentStamina).toBeNumber();
+  expect(testObj.currentRank).toBeNumber();
+  expect(testObj.estJewelPerTick).toBeNumber();
+  expect(testObj.estJewelPer100Ticks).toBeNumber();
+  expect(testObj.mainClassGenes).toBeArray();
+  expect(testObj.subClassGenes).toBeArray();
+  expect(testObj.professionGenes).toBeArray();
 
   // Stat and Visual genes objects
   expect(testObj.statGenes.class).toBeString();
