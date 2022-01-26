@@ -103,7 +103,7 @@ exports.getHeroesChainRaw = async (heroIds, optRetry = 0) => {
 
     await delay(3 * optRetry);
 
-    return exports.getHeroesChain(heroIds, optRetry);
+    return exports.getHeroesChainRaw(heroIds, optRetry);
   }
 };
 
