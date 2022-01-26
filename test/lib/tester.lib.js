@@ -2,6 +2,8 @@
  * @fileoverview Main testing helper lib.
  */
 
+require('../..');
+
 exports.init = () => {};
 
 /**
