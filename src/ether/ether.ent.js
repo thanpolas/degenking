@@ -40,7 +40,7 @@ exports.providerError = async () => {};
  * @return {Promise<Object>} A Promise with an ethers.js contract instance.
  */
 exports.getContractHeroes = async () => {
-  const provider = await exports.getProvider();
+  const { provider } = await exports.getProvider();
   const contract = new ethers.Contract(HEROES_NFT, abiHeroes, provider);
   return contract;
 };
@@ -51,7 +51,7 @@ exports.getContractHeroes = async () => {
  * @return {Promise<Object>} A Promise with an ethers.js contract instance.
  */
 exports.getContractProfile = async () => {
-  const provider = await exports.getProvider();
+  const { provider } = await exports.getProvider();
   const contract = new ethers.Contract(PROFILES, abiProfiles, provider);
   return contract;
 };
@@ -62,7 +62,7 @@ exports.getContractProfile = async () => {
  * @return {Promise<Object>} A Promise with an ethers.js contract instance.
  */
 exports.getContractAuctionSales = async () => {
-  const provider = await exports.getProvider();
+  const { provider } = await exports.getProvider();
   const contract = new ethers.Contract(
     AUCTION_SALES,
     abiAuctionSales,
