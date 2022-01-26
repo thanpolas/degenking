@@ -2,16 +2,14 @@
  * @fileoverview Fetches and processes recessive genes for heroes.
  */
 
-const { GENE_SCIENCE, CHOICES } = require('../constants/constants.const');
-const genesAbi = require('../../../abi/gene-science.abi.json');
-const { asyncMapCap, delay } = require('../utils/helpers');
-
-const log = require('../utils/log.service').get();
+const CHOICES = require('../constants/choices.const');
 
 /**
  * This method will decode the statGenes varible from the DFK API
  * and return an array with the decoded genes which need to be
  * normalized.
+ *
+ * This function was originally implemented by MikeC.
  *
  * @param {string} statGenes String of statGenes from DFK API.
  * @return {Array<Object>} Array of hero genes. Needs to be normalized.
@@ -55,73 +53,6 @@ exports.decodeRecessiveGenesAndNormalize = (heroes) => {
   });
 
   return rgHeroes;
-};
-
-/**
- * Will fetch, decode and normalize recessive genes for heroes.
- * This method will mutate heroes by augmenting them with their recessive genes.
- *
- * @param {Array<Object>} heroes Array of normalized hero objects.
- * @return {Promise<Array<Object>>} Heroes mutated.
- */
-exports.fetchRecessiveGenesAndNormalize = async (heroes) => {
-  const provider = getProvider('harmony');
-
-  const genesContract = new ethers.Contract(GENE_SCIENCE, genesAbi, provider);
-
-  const heroesGenes = await asyncMapCap(
-    heroes,
-    async (hero) => {
-      if (!hero) {
-        return;
-      }
-      const recessiveGenesRaw = await exports.fetchRecessiveGenes(
-        genesContract,
-        hero.statGenesRaw,
-      );
-
-      const recessiveGenesNormalized =
-        exports.normalizeRecessiveGenes(recessiveGenesRaw);
-
-      hero.mainClassGenes = recessiveGenesNormalized.mainClassGenes;
-      hero.subClassGenes = recessiveGenesNormalized.subClassGenes;
-      hero.professionGenes = recessiveGenesNormalized.professionGenes;
-      return hero;
-    },
-    40,
-  );
-
-  return heroesGenes;
-};
-
-/**
- *
- * @param {Object} genesContract The genes contract to query.
- * @param {string} statGenes Hero's statgenes to decode.
- * @param {number} optRetries How many times fetching has failed.
- * @return {Promise<Array<number>>} On chain raw response.
- */
-exports.fetchRecessiveGenes = async (
-  genesContract,
-  statGenes,
-  optRetries = 0,
-) => {
-  try {
-    if (optRetries > config.app.hero_fetch_max_retries) {
-      return [];
-    }
-    const decoded = await genesContract.decode(statGenes);
-    return decoded;
-  } catch (ex) {
-    optRetries += 1;
-    await log.warn(
-      `fetchRecessiveGenes() Failed to fetch. Retry: ${optRetries}`,
-      { error: ex, custom: { statGenes } },
-    );
-    await delay(2 * optRetries);
-
-    return exports.fetchRecessiveGenes(genesContract, statGenes, optRetries);
-  }
 };
 
 /**

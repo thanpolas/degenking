@@ -12,7 +12,8 @@ const {
   shortenRecessiveGenesProfession,
 } = require('./heroes-helpers.ent');
 
-const { ZERO_ADDRESS, QUESTS_REV } = require('../constants/constants.const');
+const { ZERO_ADDRESS } = require('../constants/constants.const');
+const { QUESTS_REV } = require('../constants/addresses.const');
 
 /**
  * Renders the hero to its string representation.

@@ -80,7 +80,7 @@ exports.getHeroesChain = async (heroIds, optRetry = 0) => {
 
         return hero;
       },
-      30,
+      getConfig('concurrentBlockChainRequests'),
     );
 
     return heroes;
