@@ -33,7 +33,7 @@ const log = require('../utils/log.service').get();
  * @return {Promise<Array<Object>>} Normalized heroes.
  */
 exports.getHeroesChain = async (heroIds) => {
-  const heroes = await exports.getHeroesChain(heroIds);
+  const heroes = await exports.getHeroesChainRaw(heroIds);
   const normalizedHeroes = heroes.map(normalizeChainHero);
 
   await decodeRecessiveGenesAndNormalize(normalizedHeroes);
@@ -42,13 +42,13 @@ exports.getHeroesChain = async (heroIds) => {
 };
 
 /**
- * Fetches a set of heroes.
+ * Fetches a set of heroes from the blockchain and returns raw result.
  *
  * @param {Array<string>} heroIds hero IDs.
  * @param {number=} optRetry Retry count.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.getHeroesChain = async (heroIds, optRetry = 0) => {
+exports.getHeroesChainRaw = async (heroIds, optRetry = 0) => {
   try {
     // Force convert hero Ids into numbers
     heroIds = heroIds.map((hid) => Number(hid));
