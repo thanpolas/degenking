@@ -10,8 +10,15 @@ const {
   STAT_GENE_MAP,
   JEWEL_DECIMALS,
   Rarity,
-  SALE_ADDRESS,
-} = require('./constants.const');
+} = require('../constants/constants.const');
+const { AUCTION_SALES } = require('../constants/addresses.const');
+const {
+  getProvider,
+  providerError,
+  getContractHeroes,
+  getContractProfile,
+  getContractAuctionSales,
+} = require('../ether');
 
 const { convertGenes } = require('./decode-genes.ent');
 
@@ -19,7 +26,7 @@ const { calculateRemainingStamina } = require('./heroes-helpers.ent');
 const { getCurrentRank, getEstJewelPerTick } = require('./hero-ranking.ent');
 const { decodeRecessiveGenesAndNormalize } = require('./recessive-genes.ent');
 
-const { asyncMapCap, unixToJsDate, delay } = require('./helpers');
+const { asyncMapCap, unixToJsDate, delay } = require('../utils/helpers');
 const {
   heroSummonCost,
   getHeroTier,
@@ -67,8 +74,8 @@ exports.getHeroesChain = async (heroIds, optRetry = 0) => {
         ]);
 
         let ownerAddress = '';
-        if (ownerOfAddress.toLowerCase() === SALE_ADDRESS) {
-          const salesContract = await getContractSales();
+        if (ownerOfAddress.toLowerCase() === AUCTION_SALES) {
+          const salesContract = await getContractAuctionSales();
           const auction = await salesContract.getAuction(heroId);
           ownerAddress = auction.seller;
         } else {
@@ -113,8 +120,8 @@ exports.getHeroesChain = async (heroIds, optRetry = 0) => {
  */
 exports.getSalesData = async (heroId) => {
   try {
-    const heroesTradeContract = await getContractTrade();
-    const auctionData = await heroesTradeContract.getAuction(heroId);
+    const salesContract = await getContractAuctionSales();
+    const auctionData = await salesContract.getAuction(heroId);
 
     return {
       onSale: true,
@@ -172,7 +179,7 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
       return [];
     }
     const heroesContract = await getContractHeroes();
-    const salesContract = await getContractSales();
+    const salesContract = await getContractAuctionSales();
 
     const [saleIds, heroIds] = await Promise.all([
       salesContract.getUserAuctions(ownerAddress),
