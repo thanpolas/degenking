@@ -1,6 +1,6 @@
 {
     "private": false,
-    "name": "@thanpolas/dfk-heroes",
+    "name": "@thanpolas/dfk-hero",
     "version": "0.0.1",
     "main": "./src/",
     "description": "Utility library for fetching and working with DFK Heroes.",
