@@ -54,6 +54,7 @@
     "dependencies": {
         "@thanpolas/crypto-utils": "^0.4.1",
         "bluebird": "^3.7.2",
+        "date-fns": "^2.28.0",
         "ethers": "^5.5.3",
         "logality": "^3.1.3"
     },
