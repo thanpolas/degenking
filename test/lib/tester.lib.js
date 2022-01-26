@@ -2,7 +2,7 @@
  * @fileoverview Main testing helper lib.
  */
 
-const tester = (module.exports = {});
+exports.init = () => {};
 
 /**
  * Have a Cooldown period between tests.
@@ -10,7 +10,7 @@ const tester = (module.exports = {});
  * @param {number} seconds cooldown in seconds.
  * @return {function} use is beforeEach().
  */
-tester.cooldown = function (seconds) {
+exports.cooldown = function (seconds) {
   return function (done) {
     setTimeout(done, seconds);
   };
