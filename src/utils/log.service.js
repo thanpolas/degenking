@@ -35,16 +35,11 @@ exports.init = function (bootOpts = {}) {
 
   const { appName } = bootOpts;
 
-  let noTimestamp = true;
-  if (bootOpts.logTime) {
-    noTimestamp = false;
-  }
-
   exports.logality = new Logality({
     prettyPrint: {
-      noTimestamp,
-      noFilename: !bootOpts.logFilename,
-      onlyMessage: !bootOpts.logContext,
+      // noTimestamp,
+      // noFilename: !bootOpts.logFilename,
+      // onlyMessage: !bootOpts.logContext,
     },
     minLevel: bootOpts.logOnlyErrors ? 'error' : 'debug',
     appName,
