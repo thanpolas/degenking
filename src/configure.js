@@ -3,6 +3,7 @@
  */
 
 const { ethers } = require('ethers');
+const lodash = require('lodash');
 
 /**
  * @type {Object} Local, default configuration.
@@ -30,4 +31,19 @@ exports._config = {
  */
 exports.get = (key) => {
   return exports._config[key];
+};
+
+/**
+ * Set a key or entire config.
+ *
+ * @param {string|Object} keyOrObj Key to update or entire object.
+ * @param {*=} optVal Value if key is defined.
+ */
+exports.set = (keyOrObj, optVal) => {
+  if (typeof keyOrObj === 'string') {
+    exports._config[keyOrObj] = optVal;
+    return;
+  }
+
+  lodash(keyOrObj, exports._config);
 };
