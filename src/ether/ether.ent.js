@@ -7,6 +7,7 @@ const { ethers } = require('ethers');
 const abiHeroes = require('../abi/heroes.abi.json');
 const abiAuctionSales = require('../abi/auction.abi.json');
 const abiProfiles = require('../abi/profile.abi.json');
+const configuration = require('../configure');
 
 const {
   HEROES_NFT,
@@ -14,7 +15,23 @@ const {
   PROFILES,
 } = require('../constants/addresses.const');
 
-exports.getProvider = async () => {};
+/**
+ * Get a provider object.
+ *
+ * @return {Promise<Object>} A Custom object containing the keys "name" for the
+ *    arbitrary name of the RPC and "provider" that contains the actual
+ *    ethers.js instance.
+ */
+exports.getProvider = async () => {
+  const getProvider = configuration.get('getProvider');
+  return getProvider();
+};
+
+/**
+ * Invoked whenever there is an error when using RPC.
+ *
+ * @return {Promise<void>}
+ */
 exports.providerError = async () => {};
 
 /**
