@@ -38,7 +38,7 @@ exports.normalizeChainHero = (hero) => {
   const { mining, gardening, foraging, fishing } = hero.professions;
   const normalizedHero = {
     rawHero: hero,
-    type: 'chain',
+    source: 'chain',
     id: hero.id,
     ownerId: Number(hero.owner.id),
     ownerName: hero.owner.name,
@@ -139,7 +139,7 @@ exports.normalizeChainHero = (hero) => {
   normalizedHero.summonMinTears = getMinTears(normalizedHero.classTier);
   normalizedHero.summonMaxTears = getMaxTears(
     normalizedHero.level,
-    normalizedHero.classTier,
+    normalizedHero.summonMinTears,
   );
 
   // Calculate remaining stamina
