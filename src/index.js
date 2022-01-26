@@ -25,6 +25,25 @@ logService.init(logParams);
 
 const {
   getHeroesChain,
+  fetchHeroesByOwnerAndProfessionChain,
+  fetchHeroesByOwnerChain,
 } = require('./heroes-fetch/fetch-heroes-blockchain.ent');
 
+const {
+  heroToString,
+  heroesCurrentStats,
+  heroesTableCurrentStats,
+} = require('./heroes-helpers/hero-to-string.ent');
+
+const {
+  decodeRecessiveGenesAndNormalize,
+} = require('./heroes-helpers/recessive-genes.ent');
+
 exports.getHeroesChain = getHeroesChain;
+exports.fetchHeroesByOwnerAndProfessionChain =
+  fetchHeroesByOwnerAndProfessionChain;
+exports.fetchHeroesByOwnerChain = fetchHeroesByOwnerChain;
+exports.heroToString = heroToString;
+exports.heroesCurrentStats = heroesCurrentStats;
+exports.heroesTableCurrentStats = heroesTableCurrentStats;
+exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
