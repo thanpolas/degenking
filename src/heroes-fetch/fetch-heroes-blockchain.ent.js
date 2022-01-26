@@ -19,12 +19,19 @@ const {
   getContractProfile,
   getContractAuctionSales,
 } = require('../ether');
+const { getSalesData } = require('./fetch-heroes-sales-blockchain.ent');
+const { convertGenes } = require('../heroes-helpers/decode-genes.ent');
 
-const { convertGenes } = require('./decode-genes.ent');
-
-const { calculateRemainingStamina } = require('./heroes-helpers.ent');
-const { getCurrentRank, getEstJewelPerTick } = require('./hero-ranking.ent');
-const { decodeRecessiveGenesAndNormalize } = require('./recessive-genes.ent');
+const {
+  calculateRemainingStamina,
+} = require('../heroes-helpers/heroes-helpers.ent');
+const {
+  getCurrentRank,
+  getEstJewelPerTick,
+} = require('../heroes-helpers/hero-ranking.ent');
+const {
+  decodeRecessiveGenesAndNormalize,
+} = require('../heroes-helpers/recessive-genes.ent');
 
 const { asyncMapCap, unixToJsDate, delay } = require('../utils/helpers');
 const {
@@ -32,7 +39,10 @@ const {
   getHeroTier,
   getMinTears,
   getMaxTears,
-} = require('./summon-utils.ent');
+} = require('../heroes-helpers/summon-utils.ent');
+const { get: getConfig } = require('../configure');
+
+const log = require('../utils/log.service').get();
 
 /**
  * Get heroes data from blockchain with normalized data schema.
@@ -70,7 +80,7 @@ exports.getHeroesChain = async (heroIds, optRetry = 0) => {
         const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
           heroesContract.getHero(heroId),
           heroesContract.ownerOf(heroId),
-          exports.getSalesData(heroId),
+          getSalesData(heroId),
         ]);
 
         let ownerAddress = '';
@@ -95,54 +105,23 @@ exports.getHeroesChain = async (heroIds, optRetry = 0) => {
   } catch (ex) {
     optRetry += 1;
     const currentRPC = await getProvider();
-    console.error(
-      'Failed to fetch heroes on BC:',
-      heroIds.join(', '),
-      ' - retry:',
-      optRetry,
-      ' - RPC:',
-      currentRPC.name,
-      ' Error:',
-      ex.message,
-    );
+
+    const logMessage =
+      `Failed to fetch heroes from Blockchain. ` +
+      `- retry: ${optRetry} - RPC: ${currentRPC.name} - ` +
+      `Heroes: ${heroIds.join(', ')}`;
+
+    if (optRetry > getConfig('maxRetries')) {
+      await log.error(`Giving up! ${logMessage}`, { error: ex });
+      throw ex;
+    }
+
+    await log.warn(logMessage, { error: ex });
+    await providerError();
+
     await delay(3 * optRetry);
 
-    await providerError();
     return exports.getHeroesChain(heroIds, optRetry);
-  }
-};
-
-/**
- * Fetches hero sale data.
- *
- * @param {string} heroId The hero id.
- * @return {Promise<Object>} Hero sales data.
- */
-exports.getSalesData = async (heroId) => {
-  try {
-    const salesContract = await getContractAuctionSales();
-    const auctionData = await salesContract.getAuction(heroId);
-
-    return {
-      onSale: true,
-      auctionId: Number(auctionData.auctionId),
-      seller: auctionData.seller,
-      startingPrice: auctionData.startingPrice.toString(),
-      endingPrice: auctionData.endingPrice.toString(),
-      duration: Number(auctionData.duration),
-      startedAt: Number(auctionData.startedAt),
-    };
-  } catch (ex) {
-    // an error means hero is not for sale
-    return {
-      onSale: false,
-      auctionId: null,
-      seller: '',
-      startingPrice: 0,
-      endingPrice: 0,
-      duration: 0,
-      startedAt: 0,
-    };
   }
 };
 
@@ -175,9 +154,6 @@ exports.fetchHeroesByOwnerAndProfessionChain = async (
  */
 exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
   try {
-    if (optRetry > config.app.hero_fetch_max_retries) {
-      return [];
-    }
     const heroesContract = await getContractHeroes();
     const salesContract = await getContractAuctionSales();
 
@@ -192,18 +168,20 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
 
     return heroes;
   } catch (ex) {
-    const currentRPC = await getProvider();
     optRetry += 1;
-    console.error(
-      'Failed to fetch heroes for owner',
-      ownerAddress,
-      ' - retry:',
-      optRetry,
-      ' - RPC: ',
-      currentRPC.name,
-      ' - Error:',
-      ex.message,
-    );
+    const currentRPC = await getProvider();
+
+    const logMessage =
+      `Failed to fetch heroes for owner: ${ownerAddress} - ` +
+      `retry: ${optRetry} - RPC: ${currentRPC.name}`;
+
+    if (optRetry > getConfig('maxRetries')) {
+      await log.error(`Giving up! ${logMessage}`, { error: ex });
+      throw ex;
+    }
+
+    await delay(3 * optRetry);
+    await log.warn(logMessage, { error: ex });
     return exports.fetchHeroesByOwnerChain(ownerAddress, optRetry);
   }
 };
