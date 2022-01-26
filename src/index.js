@@ -18,3 +18,13 @@ const logParams = {
   appName: 'dfk-hero',
 };
 logService.init(logParams);
+
+//
+// WARNING - Require any local packages BELLOW this line
+//
+
+const {
+  getHeroesChain,
+} = require('./heroes-fetch/fetch-heroes-blockchain.ent');
+
+exports.getHeroesChain = getHeroesChain;
