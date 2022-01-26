@@ -3,8 +3,9 @@
  */
 
 const testLib = require('../lib/tester.lib');
+const { getHeroesChain } = require('../..');
 
-describe('Hero Normalized Fetching', () => {
+describe('Fetch Hero Blockchain', () => {
   testLib.init();
 
   // Define the expected, normalized, hero data object.
@@ -82,5 +83,12 @@ describe('Hero Normalized Fetching', () => {
     endurance: 7,
     hp: 145,
     stamina: 25,
+  });
+
+  describe('Happy Path', () => {
+    it('should fetch hero 10000', async () => {
+      const hero = await getHeroesChain(10000);
+      console.log('hero:', hero);
+    });
   });
 });
