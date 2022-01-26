@@ -31,6 +31,18 @@ helpers.delay = (seconds) => {
 };
 
 /**
+ * An async delay in milliseconds.
+ *
+ * @param {number} ms How many seconds to wait.
+ * @return {Promise<void>}
+ */
+helpers.delayMs = (ms) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
+
+/**
  * Convert Unix timestamp to JS Native Date.
  *
  * @param {*} unixTimestamp Unix timestamp.
