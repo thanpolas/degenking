@@ -14,7 +14,6 @@ exports.getSalesData = async (heroId) => {
   try {
     const salesContract = await getContractAuctionSales();
     const auctionData = await salesContract.getAuction(heroId);
-
     return {
       onSale: true,
       auctionId: Number(auctionData.auctionId),
