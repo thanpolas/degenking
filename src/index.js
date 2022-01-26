@@ -39,6 +39,8 @@ const {
   decodeRecessiveGenesAndNormalize,
 } = require('./heroes-helpers/recessive-genes.ent');
 
+const { set: setConfig } = require('./configure');
+
 exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
   fetchHeroesByOwnerAndProfessionChain;
@@ -47,3 +49,9 @@ exports.heroToString = heroToString;
 exports.heroesCurrentStats = heroesCurrentStats;
 exports.heroesTableCurrentStats = heroesTableCurrentStats;
 exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
+exports.config = setConfig;
+
+exports.ADDRESS = require('./constants/addresses.const');
+exports.CHOICES = require('./constants/choices.const');
+exports.CONSTANTS = require('./constants/constants.const');
+exports.POWER_PAIRS = require('./constants/power-pairs.const');
