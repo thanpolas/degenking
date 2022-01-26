@@ -3,8 +3,8 @@
 > Utility library for fetching and working with DFK Heroes.
 
 [![NPM Version][npm-image]][npm-url]
-[![CircleCI](https://circleci.com/gh/degen-heroes/dfk-hero.svg?style=svg)](https://circleci.com/gh/degen-heroes/dfk-hero)
-[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/GkyEqzJWEY)
+[![CircleCI](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main.svg?style=svg)](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main)
+[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/degenheroes)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
 # Install
@@ -273,7 +273,7 @@ When a new node version is available you need to updated it in the following:
 -   `/.nvmrc`
 -   `/.circleci/config.yml`
 
-## Releasing
+# Releasing
 
 1. Update the changelog bellow ("Release History").
 1. Ensure you are on master and your repository is clean.
@@ -281,15 +281,20 @@ When a new node version is available you need to updated it in the following:
     - `npm run release:minor` for minor version jump.
     - `npm run release:major` for major major jump.
 
-## Release History
+# Release History
 
 -   **v0.1.0**, _26/Jan/2022_
     -   Big Bang
 
-## License
+# License
 
 Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC](/LICENSE).
 
-[npm-url]: https://npmjs.org/package/@degen-heroes/dfk-hero
+# Tip Jar
+
+thanpolas.eth
+
+[npm-url]: https://npmjs.org/package/@thanpolas/dfk-hero
 [thanpolas]: https://github.com/thanpolas
 [ethers-provider]: https://docs.ethers.io/v5/api/providers/
+[hero-object]: #hero-data-object
