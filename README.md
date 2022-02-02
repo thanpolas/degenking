@@ -283,6 +283,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.1.1**, _02/Feb/2022_
+    -   Fixes weird require issue with React Applications and a date-fns function.
+    -   Fixes bug in the `fetchHeroesByOwnerChain()` function.
 -   **v0.1.0**, _26/Jan/2022_
     -   Big Bang
 
