@@ -34,10 +34,26 @@ const {
   heroesCurrentStats,
   heroesTableCurrentStats,
 } = require('./heroes-helpers/hero-to-string.ent');
+const {
+  getSalesData,
+} = require('./heroes-fetch/fetch-heroes-sales-blockchain.ent');
 
 const {
   decodeRecessiveGenesAndNormalize,
 } = require('./heroes-helpers/recessive-genes.ent');
+
+const {
+  getStatEmoji,
+  getProfessionEmoji,
+  getClassPairRanks,
+  sortHeroesByRank,
+  calculateRemainingStamina,
+  getProfessionSkills,
+  shortenRecessiveGenesClass,
+  shortenRecessiveGenesProfession,
+} = require('./heroes-helpers/heroes-helpers.ent');
+
+const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
 const { set: setConfig } = require('./configure');
 
@@ -50,6 +66,18 @@ exports.heroesCurrentStats = heroesCurrentStats;
 exports.heroesTableCurrentStats = heroesTableCurrentStats;
 exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
 exports.config = setConfig;
+
+// New commands of 0.2.0
+exports.getSalesData = getSalesData;
+exports.getStatEmoji = getStatEmoji;
+exports.getProfessionEmoji = getProfessionEmoji;
+exports.getClassPairRanks = getClassPairRanks;
+exports.sortHeroesByRank = sortHeroesByRank;
+exports.calculateRemainingStamina = calculateRemainingStamina;
+exports.getProfessionSkills = getProfessionSkills;
+exports.shortenRecessiveGenesClass = shortenRecessiveGenesClass;
+exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
+exports.getRanking = getRanking;
 
 exports.ADDRESS = require('./constants/addresses.const');
 exports.CHOICES = require('./constants/choices.const');
