@@ -35,7 +35,7 @@ By default the library will use the Official Harmony RPC. You may override this
 by configuring dfk-hero:
 
 ```js
-dfkHero.config('getProvider', () => {
+dfkHero.config('getProvider', async () => {
     return {
         name: 'Pokt',
         provider: new ethers.providers.JsonRpcProvider('https://....'),
@@ -44,11 +44,13 @@ dfkHero.config('getProvider', () => {
 ```
 
 What has been done above is to set the configuration key named `getProvider` and
-give it a value of a callback function. This function will be invoked by the
+give it a value of a **callback function**. This function will be invoked by the
 library and it expects to receive an object with two keys:
 
 -   `name` **{string}** An arbitrary name (label) of the RPC.
 -   `provider` **{Object}** [An ethers.js instance of a provider][ethers-provider].
+
+> ℹ️ The callback function can be a Promise returning function.
 
 ### Other Configuration Options
 
@@ -61,7 +63,7 @@ The `config` function accepts an object as well:
 
 ```js
 dfkHero.config({
-    getProvider: () => {
+    getProvider: async () => {
         return {
             name: 'Pokt',
             provider: new ethers.providers.JsonRpcProvider('https://....'),
