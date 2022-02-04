@@ -104,7 +104,6 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
       throw ex;
     }
 
-    await log.debug(logMessage);
     await providerError();
 
     await delay(3 * optRetries);
