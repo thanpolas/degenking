@@ -2,7 +2,7 @@
  * @fileoverview Fetches hero sale data.
  */
 
-const { getContractAuctionSales } = require('../ether');
+const { getProvider, getContractAuctionSales } = require('../ether');
 
 /**
  * Fetches hero sale data.
@@ -12,8 +12,12 @@ const { getContractAuctionSales } = require('../ether');
  */
 exports.getSalesData = async (heroId) => {
   try {
-    const salesContract = await getContractAuctionSales();
-    const auctionData = await salesContract.getAuction(heroId);
+    const currentRPC = await getProvider();
+    const { lastBlockMined } = currentRPC;
+    const salesContract = getContractAuctionSales(currentRPC);
+    const auctionData = await salesContract.getAuction(heroId, {
+      blockTag: lastBlockMined,
+    });
     return {
       onSale: true,
       auctionId: Number(auctionData.auctionId),
