@@ -33,7 +33,14 @@ const log = require('../utils/log.service').get();
  * @return {Promise<Array<Object>>} Normalized heroes.
  */
 exports.getHeroesChain = async (heroIds) => {
-  const heroes = await exports.getHeroesChainRaw(heroIds);
+  const heroes = await asyncMapCap(
+    heroIds,
+    async (heroId) => {
+      return exports.getHeroChain(heroId);
+    },
+    getConfig('concurrentBlockChainRequests'),
+  );
+
   const normalizedHeroes = heroes.map(normalizeChainHero);
 
   await decodeRecessiveGenesAndNormalize(normalizedHeroes);
@@ -42,68 +49,67 @@ exports.getHeroesChain = async (heroIds) => {
 };
 
 /**
- * Fetches a set of heroes from the blockchain and returns raw result.
+ * Fetches a single hero from the blockchain and returns raw result.
  *
- * @param {Array<string>} heroIds hero IDs.
- * @param {number=} optRetry Retry count.
+ * Will retry up to the config's max retries.
+ *
+ * @param {number|string} heroId hero ID.
+ * @param {number=} optRetries Retry count.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.getHeroesChainRaw = async (heroIds, optRetry = 0) => {
+exports.getHeroChain = async (heroId, optRetries = 0) => {
+  const currentRPC = await getProvider();
   try {
-    // Force convert hero Ids into numbers
-    heroIds = heroIds.map((hid) => Number(hid));
+    // Force convert hero Id into number
+    heroId = Number(heroId);
 
-    const heroesContract = await getContractHeroes();
-    const profileContract = await getContractProfile();
+    const { lastBlockMined } = currentRPC;
+    const heroesContract = getContractHeroes(currentRPC);
+    const profileContract = getContractProfile(currentRPC);
 
-    const heroes = await asyncMapCap(
-      heroIds,
-      async (heroId) => {
-        const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
-          heroesContract.getHero(heroId),
-          heroesContract.ownerOf(heroId),
-          getSalesData(heroId),
-        ]);
+    const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
+      heroesContract.getHero(heroId, { blockTag: lastBlockMined }),
+      heroesContract.ownerOf(heroId, { blockTag: lastBlockMined }),
+      getSalesData(heroId),
+    ]);
 
-        let ownerAddress = '';
-        if (ownerOfAddress.toLowerCase() === AUCTION_SALES) {
-          const salesContract = await getContractAuctionSales();
-          const auction = await salesContract.getAuction(heroId);
-          ownerAddress = auction.seller;
-        } else {
-          ownerAddress = ownerOfAddress;
-        }
+    let ownerAddress = '';
+    if (ownerOfAddress.toLowerCase() === AUCTION_SALES) {
+      const salesContract = getContractAuctionSales(currentRPC);
+      const auction = await salesContract.getAuction(heroId, {
+        blockTag: lastBlockMined,
+      });
+      ownerAddress = auction.seller;
+    } else {
+      ownerAddress = ownerOfAddress;
+    }
 
-        const owner = await profileContract.getProfileByAddress(ownerAddress);
-        const hero = processHeroChainData(heroRaw, owner);
-        hero.salesData = heroSalesData;
+    const owner = await profileContract.getProfileByAddress(ownerAddress, {
+      blockTag: lastBlockMined,
+    });
+    const hero = processHeroChainData(heroRaw, owner);
+    hero.salesData = heroSalesData;
 
-        return hero;
-      },
-      getConfig('concurrentBlockChainRequests'),
-    );
-
-    return heroes;
+    return hero;
   } catch (ex) {
-    optRetry += 1;
-    const currentRPC = await getProvider();
+    optRetries += 1;
 
     const logMessage =
-      `Failed to fetch heroes from Blockchain. ` +
-      `- retry: ${optRetry} - RPC: ${currentRPC.name} - ` +
-      `Heroes: ${heroIds.join(', ')}`;
+      `Failed to fetch hero from Blockchain. ` +
+      `- retry: ${optRetries} - RPC: ${currentRPC.name} - ` +
+      `Hero: ${heroId}`;
 
-    if (optRetry > getConfig('maxRetries')) {
+    if (optRetries > getConfig('maxRetries')) {
       await log.error(`Giving up! ${logMessage}`, { error: ex });
       throw ex;
     }
 
-    await log.warn(logMessage, { error: ex });
+    await log.debug(logMessage);
     await providerError();
 
-    await delay(3 * optRetry);
+    await delay(3 * optRetries);
 
-    return exports.getHeroesChainRaw(heroIds, optRetry);
+    return exports.getHeroChain(heroId, optRetries);
   }
 };
 
@@ -136,8 +142,9 @@ exports.fetchHeroesByOwnerAndProfessionChain = async (
  */
 exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
   try {
-    const heroesContract = await getContractHeroes();
-    const salesContract = await getContractAuctionSales();
+    const currentRPC = await getProvider();
+    const heroesContract = getContractHeroes(currentRPC);
+    const salesContract = getContractAuctionSales(currentRPC);
 
     const [saleIds, heroIds] = await Promise.all([
       salesContract.getUserAuctions(ownerAddress),
