@@ -146,7 +146,7 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
 
     const allHeroIds = heroIds.concat(saleIds);
 
-    const heroes = await exports.getHeroesChainNormalized(allHeroIds);
+    const heroes = await exports.getHeroesChain(allHeroIds);
 
     return heroes;
   } catch (ex) {
