@@ -330,6 +330,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.2.0**, _07/Feb/2022_
+    -   Exported new functions (`getSalesData()`, `calculateRemainingStamina()`).
+    -   Will no longer log user fetching failure retries, will only log final failure.
 -   **v0.1.1**, _02/Feb/2022_
     -   Fixes weird require issue with React Applications and a date-fns function.
     -   Fixes bug in the `fetchHeroesByOwnerChain()` function.
