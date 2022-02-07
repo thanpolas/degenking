@@ -3,8 +3,9 @@
 > Utility library for fetching and working with DFK Heroes.
 
 [![NPM Version][npm-image]][npm-url]
+[![codecov](https://codecov.io/gh/degen-heroes/dfk-hero/branch/main/graph/badge.svg?token=L7F7DMRGGO)](https://codecov.io/gh/degen-heroes/dfk-hero)
 [![CircleCI](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main.svg?style=svg)](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main)
-[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/degenheroes)
+[![Discord](https://img.shields.io/discord/911379655154618399?label=Degen%20Heroes%20Discord&color=5865F2)](https://discord.gg/degenheroes)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
 # Install
@@ -35,7 +36,7 @@ By default the library will use the Official Harmony RPC. You may override this
 by configuring dfk-hero:
 
 ```js
-dfkHero.config('getProvider', () => {
+dfkHero.config('getProvider', async () => {
     return {
         name: 'Pokt',
         provider: new ethers.providers.JsonRpcProvider('https://....'),
@@ -44,11 +45,13 @@ dfkHero.config('getProvider', () => {
 ```
 
 What has been done above is to set the configuration key named `getProvider` and
-give it a value of a callback function. This function will be invoked by the
+give it a value of a **callback function**. This function will be invoked by the
 library and it expects to receive an object with two keys:
 
 -   `name` **{string}** An arbitrary name (label) of the RPC.
 -   `provider` **{Object}** [An ethers.js instance of a provider][ethers-provider].
+
+> ℹ️ The callback function can be a Promise returning function.
 
 ### Other Configuration Options
 
@@ -61,7 +64,7 @@ The `config` function accepts an object as well:
 
 ```js
 dfkHero.config({
-    getProvider: () => {
+    getProvider: async () => {
         return {
             name: 'Pokt',
             provider: new ethers.providers.JsonRpcProvider('https://....'),
@@ -140,6 +143,7 @@ Renders the [normalized hero object][hero-object] into a string representation.
     -   `params.showSale` **{boolean}** Show hero sales information.
     -   `params.showQuest` **{boolean}** Show hero quest information.
     -   `params.short` **{boolean}** Short version.
+-   **Returns** **{string}** The string representation of the hero.
 
 ```js
 const { heroToString, getHeroesChain } = require('@thanpolas/dfk-hero');
@@ -148,6 +152,50 @@ const [hero] = await getHeroesChain([10000]);
 const heroStr = await heroToString(hero, { cli: true });
 
 console.log(heroStr);
+```
+
+### getSalesData(heroId)
+
+Queries blockchain and returns auction (sales) data of hero.
+
+-   `heroId` **{string|number}** The hero's id.
+-   **Returns** **{Promise\<Object\>}** A Promise with an object of the sales data.
+
+```js
+const { getSalesData } = require('@thanpolas/dfk-hero');
+
+const salesData = await getSalesData(10000);
+
+console.log(salesData);
+// {
+//       onSale: false,
+//       auctionId: null,
+//       seller: '',
+//       startingPrice: 0,
+//       endingPrice: 0,
+//       duration: 0,
+//       startedAt: 0,
+// };
+```
+
+### calculateRemainingStamina(hero)
+
+Calculates and returns the remaining stamina of the hero.
+
+-   `hero` **{Object}** The normalized hero object.
+-   **Returns** **{number}** Remaining stamina.
+
+```js
+const {
+    calculateRemainingStamina,
+    getHeroesChain,
+} = require('@thanpolas/dfk-hero');
+
+const [hero] = await getHeroesChain([10000]);
+const heroStamina = await calculateRemainingStamina(hero);
+
+console.log(heroStamina);
+// 20
 ```
 
 ## Hero Data Object
@@ -283,6 +331,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.2.0**, _07/Feb/2022_
+    -   Exported new functions (`getSalesData()`, `calculateRemainingStamina()`).
+    -   Will no longer log user fetching failure retries, will only log final failure.
 -   **v0.1.1**, _02/Feb/2022_
     -   Fixes weird require issue with React Applications and a date-fns function.
     -   Fixes bug in the `fetchHeroesByOwnerChain()` function.

@@ -24,7 +24,9 @@ const {
  */
 exports.getProvider = async () => {
   const getProvider = configuration.get('getProvider');
-  return getProvider();
+  const currentRPC = await getProvider();
+
+  return currentRPC;
 };
 
 /**
@@ -37,10 +39,11 @@ exports.providerError = async () => {};
 /**
  * Get the heroes NFT contract.
  *
- * @return {Promise<Object>} A Promise with an ethers.js contract instance.
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} n ethers.js contract instance.
  */
-exports.getContractHeroes = async () => {
-  const { provider } = await exports.getProvider();
+exports.getContractHeroes = (currentRPC) => {
+  const { provider } = currentRPC;
   const contract = new ethers.Contract(HEROES_NFT, abiHeroes, provider);
   return contract;
 };
@@ -48,10 +51,11 @@ exports.getContractHeroes = async () => {
 /**
  * Get the Member Profile contract.
  *
- * @return {Promise<Object>} A Promise with an ethers.js contract instance.
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
  */
-exports.getContractProfile = async () => {
-  const { provider } = await exports.getProvider();
+exports.getContractProfile = (currentRPC) => {
+  const { provider } = currentRPC;
   const contract = new ethers.Contract(PROFILES, abiProfiles, provider);
   return contract;
 };
@@ -59,10 +63,11 @@ exports.getContractProfile = async () => {
 /**
  * Get the Auction Sales contract.
  *
- * @return {Promise<Object>} A Promise with an ethers.js contract instance.
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
  */
-exports.getContractAuctionSales = async () => {
-  const { provider } = await exports.getProvider();
+exports.getContractAuctionSales = (currentRPC) => {
+  const { provider } = currentRPC;
   const contract = new ethers.Contract(
     AUCTION_SALES,
     abiAuctionSales,
