@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@thanpolas/dfk-hero",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "./src/",
     "description": "Utility library for fetching and working with DFK Heroes.",
     "homepage": "https://github.com/degen-heroes/dfk-hero",

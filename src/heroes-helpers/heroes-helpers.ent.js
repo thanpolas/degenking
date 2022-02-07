@@ -3,7 +3,7 @@
  * @fileoverview Generic Hero helpers.
  */
 
-const millisecondsToMinutes = require('date-fns/millisecondsToMinutes');
+const dateFns = require('date-fns');
 
 const { getRanking } = require('./hero-ranking.ent');
 
@@ -216,7 +216,7 @@ exports.calculateRemainingStamina = (hero) => {
   const diffInMilliseconds =
     hero.staminaFullAt.getTime() - currentTime.getTime();
 
-  const diffInMinutes = millisecondsToMinutes(diffInMilliseconds);
+  const diffInMinutes = dateFns.millisecondsToMinutes(diffInMilliseconds);
 
   if (diffInMinutes) {
     const staminaLeft =
