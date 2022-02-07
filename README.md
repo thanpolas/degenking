@@ -3,8 +3,9 @@
 > Utility library for fetching and working with DFK Heroes.
 
 [![NPM Version][npm-image]][npm-url]
+[![codecov](https://codecov.io/gh/degen-heroes/dfk-hero/branch/main/graph/badge.svg?token=L7F7DMRGGO)](https://codecov.io/gh/degen-heroes/dfk-hero)
 [![CircleCI](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main.svg?style=svg)](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main)
-[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/degenheroes)
+[![Discord](https://img.shields.io/discord/911379655154618399?label=Degen%20Heroes%20Discord&color=CBE9F0)](https://discord.gg/degenheroes)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
 # Install
