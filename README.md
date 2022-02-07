@@ -142,6 +142,7 @@ Renders the [normalized hero object][hero-object] into a string representation.
     -   `params.showSale` **{boolean}** Show hero sales information.
     -   `params.showQuest` **{boolean}** Show hero quest information.
     -   `params.short` **{boolean}** Short version.
+-   **Returns** **{string}** The string representation of the hero.
 
 ```js
 const { heroToString, getHeroesChain } = require('@thanpolas/dfk-hero');
@@ -150,6 +151,50 @@ const [hero] = await getHeroesChain([10000]);
 const heroStr = await heroToString(hero, { cli: true });
 
 console.log(heroStr);
+```
+
+### getSalesData(heroId)
+
+Queries blockchain and returns auction (sales) data of hero.
+
+-   `heroId` **{string|number}** The hero's id.
+-   **Returns** **{Promise\<Object\>}** A Promise with an object of the sales data.
+
+```js
+const { getSalesData } = require('@thanpolas/dfk-hero');
+
+const salesData = await getSalesData(10000);
+
+console.log(salesData);
+// {
+//       onSale: false,
+//       auctionId: null,
+//       seller: '',
+//       startingPrice: 0,
+//       endingPrice: 0,
+//       duration: 0,
+//       startedAt: 0,
+// };
+```
+
+### calculateRemainingStamina(hero)
+
+Calculates and returns the remaining stamina of the hero.
+
+-   `hero` **{Object}** The normalized hero object.
+-   **Returns** **{number}** Remaining stamina.
+
+```js
+const {
+    calculateRemainingStamina,
+    getHeroesChain,
+} = require('@thanpolas/dfk-hero');
+
+const [hero] = await getHeroesChain([10000]);
+const heroStamina = await calculateRemainingStamina(hero);
+
+console.log(heroStamina);
+// 20
 ```
 
 ## Hero Data Object
