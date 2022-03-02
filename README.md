@@ -331,6 +331,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.2.1**, _03/Mar/2022_
+    -   Uses profile V2.
 -   **v0.2.0**, _07/Feb/2022_
     -   Exported new functions (`getSalesData()`, `calculateRemainingStamina()`).
     -   Will no longer log user fetching failure retries, will only log final failure.
@@ -346,7 +348,7 @@ Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC]
 
 # Tip Jar
 
-thanpolas.eth
+thanpolas.eth - 0x67221b267cee49427bAa0974ceac988682192977
 
 [npm-url]: https://npmjs.org/package/@thanpolas/dfk-hero
 [npm-image]: https://img.shields.io/npm/v/@thanpolas/dfk-hero.svg
