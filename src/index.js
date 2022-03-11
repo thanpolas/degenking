@@ -52,6 +52,10 @@ const {
   shortenRecessiveGenesClass,
   shortenRecessiveGenesProfession,
 } = require('./heroes-helpers/heroes-helpers.ent');
+const {
+  decodeStatGenes,
+  decodeVisualGenes,
+} = require('./heroes-helpers/decode-genes.ent');
 
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
@@ -78,6 +82,10 @@ exports.getProfessionSkills = getProfessionSkills;
 exports.shortenRecessiveGenesClass = shortenRecessiveGenesClass;
 exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
 exports.getRanking = getRanking;
+
+// New commands of 0.3.0
+exports.decodeStatGenes = decodeStatGenes;
+exports.decodeVisualGenes = decodeVisualGenes;
 
 exports.ADDRESS = require('./constants/addresses.const');
 exports.CHOICES = require('./constants/choices.const');
