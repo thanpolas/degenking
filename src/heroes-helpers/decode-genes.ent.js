@@ -13,17 +13,25 @@ const Choices = require('../constants/choices.const');
 const entity = (module.exports = {});
 
 /**
- * Decode genes manually on CLI.
+ * Helper to decode stat genes.
  *
- * @param {Object} yargs CLI Arguments.
+ * @param {string} geneStr The stats genes string.
+ * @return {Object} The gene map.
  */
-entity.decodeGenes = (yargs) => {
-  const genes = BigInt(yargs.gene);
+entity.decodeStatGenes = (geneStr) => {
+  const geneMap = entity.convertGenes(geneStr, STAT_GENE_MAP);
+  return geneMap;
+};
 
-  const GENE_MAP = yargs.stats ? STAT_GENE_MAP : VISUAL_GENE_MAP;
-
-  const geneMap = entity.convertGenes(genes, GENE_MAP);
-  console.log('Genes:', geneMap);
+/**
+ * Helper to decode visual genes.
+ *
+ * @param {string} geneStr The visual genes string.
+ * @return {Object} The gene map.
+ */
+entity.decodeVisualGenes = (geneStr) => {
+  const geneMap = entity.convertGenes(geneStr, VISUAL_GENE_MAP);
+  return geneMap;
 };
 
 /**
