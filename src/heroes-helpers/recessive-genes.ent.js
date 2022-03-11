@@ -5,7 +5,7 @@
 const CHOICES = require('../constants/choices.const');
 
 /**
- * This method will decode the statGenes varible from the DFK API
+ * This method will decode the statGenes variable from the DFK API
  * and return an array with the decoded genes which need to be
  * normalized.
  *
