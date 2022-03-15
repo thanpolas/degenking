@@ -126,7 +126,25 @@ describe('Fetch Hero Blockchain', () => {
 
       const [hero] = await getHeroesChain([10000]);
 
-      assertHero(hero, expectedValues);
+      assertHero(hero, expectedValues());
+
+      heroesChainMock.heroesBlockchainMockRestore();
+      profileChainMock.profileBlockchainMockRestore();
+      auctionsChainMock.auctionSalesBlockchainMockRestore();
+    });
+
+    it('should fetch hero that has no profile', async () => {
+      heroesChainMock.heroesBlockchainMock();
+      profileChainMock.profileBlockchainThrowMock();
+      auctionsChainMock.auctionSalesBlockchainMock();
+
+      const [hero] = await getHeroesChain([10000]);
+
+      const expectedHero = expectedValues();
+      expectedHero.ownerId = null;
+      expectedHero.ownerName = null;
+      expectedHero.ownerAddress = null;
+      assertHero(hero);
 
       heroesChainMock.heroesBlockchainMockRestore();
       profileChainMock.profileBlockchainMockRestore();
