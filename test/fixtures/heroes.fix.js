@@ -101,6 +101,6 @@ exports.heroChainFix = () => {
       mpRg: 875,
       mpLg: 375,
     },
-    professions: { mining: 59, gardening: 0, foraging: 2, fishing: 0 },
+    professions: { mining: 59, gardening: 0, foraging: 2, fishing: 24 },
   };
 };
