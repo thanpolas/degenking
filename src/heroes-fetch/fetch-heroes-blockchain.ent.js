@@ -84,9 +84,14 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
       ownerAddress = ownerOfAddress;
     }
 
-    const owner = await profileContract.getProfileByAddress(ownerAddress, {
-      blockTag: lastBlockMined,
-    });
+    let owner = null;
+    try {
+      owner = await profileContract.getProfileByAddress(ownerAddress, {
+        blockTag: lastBlockMined,
+      });
+    } catch (ex) {
+      // suppress
+    }
     const hero = processHeroChainData(heroRaw, owner);
     hero.salesData = heroSalesData;
 
