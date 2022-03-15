@@ -5,6 +5,41 @@
 const CHOICES = require('../constants/choices.const');
 
 /**
+ * Decodes recessive genes for a single stat genes raw string.
+ *
+ * @param {string} statGenesRaw Raw stat genes string.
+ * @return {Object} Recessive genes object.
+ */
+exports.decodeRecessiveGeneAndNormalize = (statGenesRaw) => {
+  const recessiveGenesRaw = exports.decodeRecessiveGenes(statGenesRaw);
+  const recessiveGenesNormalized =
+    exports.normalizeRecessiveGenes(recessiveGenesRaw);
+
+  return recessiveGenesNormalized;
+};
+
+/**
+ * Decodes recessive genes using the heroes' raw stat genes integer.
+ *
+ * @param {Array<Object>} heroes The heroes to augment.
+ * @return {Array<Object>} Augmented heroes.
+ */
+exports.decodeRecessiveGenesAndNormalize = (heroes) => {
+  const rgHeroes = heroes.map((hero) => {
+    const recessiveGenesRaw = exports.decodeRecessiveGenes(hero.statGenesRaw);
+    const recessiveGenesNormalized =
+      exports.normalizeRecessiveGenes(recessiveGenesRaw);
+
+    hero.mainClassGenes = recessiveGenesNormalized.mainClassGenes;
+    hero.subClassGenes = recessiveGenesNormalized.subClassGenes;
+    hero.professionGenes = recessiveGenesNormalized.professionGenes;
+    return hero;
+  });
+
+  return rgHeroes;
+};
+
+/**
  * This method will decode the statGenes variable from the DFK API
  * and return an array with the decoded genes which need to be
  * normalized.
@@ -32,27 +67,6 @@ exports.decodeRecessiveGenes = (statGenes) => {
     result[i] = abc.indexOf(buf[i]);
   }
   return result;
-};
-
-/**
- * Decodes recessive genes using the heroes' raw stat genes integer.
- *
- * @param {Array<Object>} heroes The heroes to augment.
- * @return {Array<Object>} Augmented heroes.
- */
-exports.decodeRecessiveGenesAndNormalize = (heroes) => {
-  const rgHeroes = heroes.map((hero) => {
-    const recessiveGenesRaw = exports.decodeRecessiveGenes(hero.statGenesRaw);
-    const recessiveGenesNormalized =
-      exports.normalizeRecessiveGenes(recessiveGenesRaw);
-
-    hero.mainClassGenes = recessiveGenesNormalized.mainClassGenes;
-    hero.subClassGenes = recessiveGenesNormalized.subClassGenes;
-    hero.professionGenes = recessiveGenesNormalized.professionGenes;
-    return hero;
-  });
-
-  return rgHeroes;
 };
 
 /**
