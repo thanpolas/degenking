@@ -392,6 +392,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.2.2**, _15/Mar/2022_
+    -   Will not break if hero belongs to an account that does not have a profile in-game.
+    -   Fixed and tweaked tests.
 -   **v0.2.1**, _03/Mar/2022_
     -   Uses profile V2.
 -   **v0.2.0**, _07/Feb/2022_
