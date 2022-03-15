@@ -40,6 +40,7 @@ const {
 
 const {
   decodeRecessiveGenesAndNormalize,
+  decodeRecessiveGeneAndNormalize,
 } = require('./heroes-helpers/recessive-genes.ent');
 
 const {
@@ -68,6 +69,7 @@ exports.fetchHeroesByOwnerChain = fetchHeroesByOwnerChain;
 exports.heroToString = heroToString;
 exports.heroesCurrentStats = heroesCurrentStats;
 exports.heroesTableCurrentStats = heroesTableCurrentStats;
+exports.decodeRecessiveGeneAndNormalize = decodeRecessiveGeneAndNormalize;
 exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
 exports.config = setConfig;
 
