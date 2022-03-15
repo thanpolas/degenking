@@ -40,9 +40,9 @@ exports.normalizeChainHero = (hero) => {
     rawHero: hero,
     source: 'chain',
     id: hero.id,
-    ownerId: Number(hero.owner.id),
-    ownerName: hero.owner.name,
-    ownerAddress: hero.owner.address.toLowerCase(),
+    ownerId: Number(hero.owner?.id) || null,
+    ownerName: hero.owner?.name,
+    ownerAddress: hero.owner?.address?.toLowerCase(),
     mainClass: hero.statGenes.class,
     subClass: hero.statGenes.subClass,
     profession: hero.statGenes.profession,
@@ -156,18 +156,12 @@ exports.normalizeChainHero = (hero) => {
  * Process raw blockchain hero data into native JS Object.
  *
  * @param {Array} heroData Raw data fetched from blockchain.
- * @param {Array} owner Owner data of the hero.
+ * @param {Array|null} owner Owner data of the hero.
  * @return {Object}
  */
 exports.processHeroChainData = (heroData, owner) => {
   const hero = {
     id: Number(heroData.id),
-    owner: {
-      id: owner._id,
-      address: owner._owner,
-      name: owner._name,
-      createdAt: Number(owner._created),
-    },
     summoningInfo: {
       summonedTime: unixToJsDate(heroData.summoningInfo.summonedTime),
       nextSummonTime: unixToJsDate(heroData.summoningInfo.nextSummonTime),
@@ -249,10 +243,23 @@ exports.processHeroChainData = (heroData, owner) => {
       foraging: heroData.professions.foraging,
       fishing: heroData.professions.fishing,
     },
+
+    owner: {
+      id: null,
+      address: null,
+      name: null,
+      createdAt: null,
+    },
   };
 
   hero.visualGenes = convertGenes(hero.info.visualGenes, VISUAL_GENE_MAP);
   hero.statGenes = convertGenes(hero.info.statGenes, STAT_GENE_MAP);
 
+  if (owner) {
+    hero.owner.id = owner._id;
+    hero.owner.address = owner._owner;
+    hero.owner.name = owner._name;
+    hero.owner.createdAt = Number(owner._created);
+  }
   return hero;
 };

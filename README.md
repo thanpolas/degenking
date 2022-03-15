@@ -198,6 +198,88 @@ console.log(heroStamina);
 // 20
 ```
 
+### decodeStatGenes(statGenes)
+
+Decodes the raw stat genes string.
+
+-   `statGenes` **{string}** The raw stat genes string.
+-   **Returns** **{Object}** The decoded stat genes as per the example bellow.
+
+```js
+const statGenes =
+    '55595053337262517174437940546058771473513094722680050621928661284030532';
+
+const decodedStatGenes = decodeStatGenes(statGenes);
+
+console.log(decodedStatGenes);
+// {
+//   class: 'thief',
+//   subClass: 'wizard',
+//   profession: 'gardening',
+//   passive1: 'Basic1',
+//   passive2: 'Basic2',
+//   active1: 'Basic3',
+//   active2: 'Basic4',
+//   statBoost1: 'INT',
+//   statBoost2: 'LCK',
+//   statsUnknown1: 0,
+//   element: 'fire',
+//   statsUnknown2: 4
+// }
+```
+
+### decodeVisualGenes(visualGenes)
+
+Decodes the raw visuals genes string.
+
+-   `visualGenes` **{string}** The raw visual genes string.
+-   **Returns** **{Object}** The decoded visual genes as per the example bellow.
+
+```js
+const visualGenes =
+    '170877259497388213840353281232231169976585066888929467746175634464967719';
+
+const decodedVisualGenes = decodeStatGenes(visualGenes);
+
+console.log(decodedVisualGenes);
+
+// {
+//   gender: 'female',
+//   headAppendage: 1,
+//   backAppendage: 6,
+//   background: 'plains',
+//   hairStyle: 1,
+//   hairColor: 'd7bc65',
+//   visualUnknown1: 0,
+//   eyeColor: '2494a2',
+//   skinColor: 'e6a861',
+//   appendageColor: 'a0304d',
+//   backAppendageColor: '830e18',
+//   visualUnknown2: 7
+// }
+```
+
+### decodeRecessiveGeneAndNormalize(statGenesRaw)
+
+Decodes the raw stat genes to produce recessive genes.
+
+-   `statGenes` **{string|bigint}** The raw stat genes string or bigint number.
+-   **Returns** **{Object}** The decoded stat genes as per the example bellow.
+
+```js
+const statGenes =
+    '119067243983457416993287681075686535166558725967282153752039019969001550';
+
+const recessiveGenes = decodeStatGenes(statGenes);
+
+console.log(recessiveGenes);
+// {
+//     mainClassGenes: ['pirate','warrior','wizard','thief'],
+//     subClassGenes: ['warrior', 'pirate', 'wizard', 'monk'],
+//     professionGenes: ['mining','gardening','mining','foraging'],
+// }
+```
+
 ## Hero Data Object
 
 <details>
@@ -331,6 +413,11 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.2.2**, _15/Mar/2022_
+    -   Export `decodeStatGenes()` and `decodeVisualGenes()` functions.
+    -   Implement and export `decodeRecessiveGeneAndNormalize()` function.
+    -   Will not break if hero belongs to an account that does not have a profile in-game.
+    -   Fixed and tweaked tests.
 -   **v0.2.1**, _03/Mar/2022_
     -   Uses profile V2.
 -   **v0.2.0**, _07/Feb/2022_

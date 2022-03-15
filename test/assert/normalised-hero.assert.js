@@ -114,9 +114,9 @@ assert.assertProperties = (testObj) => {
 assert.assertTypes = (testObj) => {
   expect(testObj.rawHero).toBeObject();
   expect(testObj.source).toBeString();
-  expect(testObj.ownerId).toBeNumber();
-  expect(testObj.ownerName).toBeString();
-  expect(testObj.ownerAddress).toBeString();
+  // expect(testObj.ownerId).toBeNumber();
+  // expect(testObj.ownerName).toBeString();
+  // expect(testObj.ownerAddress).toBeString();
   expect(testObj.id).toBeNumber();
   expect(testObj.mainClass).toBeString();
   expect(testObj.subClass).toBeString();
@@ -233,6 +233,11 @@ assert.assertValues = (testObj, optValues) => {
   const keys = Object.keys(optValues);
 
   keys.forEach((key) => {
-    expect(testObj[key]).toEqual(optValues[key]);
+    try {
+      expect(testObj[key]).toEqual(optValues[key]);
+    } catch (ex) {
+      console.error(`Key error: ${key}`);
+      throw ex;
+    }
   });
 };

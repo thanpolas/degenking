@@ -4,11 +4,10 @@
  */
 
 const { AUCTION_SALES } = require('../constants/addresses.const');
+const etherEnt = require('../ether');
 const {
   getProvider,
   providerError,
-  getContractHeroes,
-  getContractProfile,
   getContractAuctionSales,
 } = require('../ether');
 const { getSalesData } = require('./fetch-heroes-sales-blockchain.ent');
@@ -64,8 +63,8 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
     heroId = Number(heroId);
 
     const { lastBlockMined } = currentRPC;
-    const heroesContract = getContractHeroes(currentRPC);
-    const profileContract = getContractProfile(currentRPC);
+    const heroesContract = etherEnt.getContractHeroes(currentRPC);
+    const profileContract = etherEnt.getContractProfile(currentRPC);
 
     const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
       heroesContract.getHero(heroId, { blockTag: lastBlockMined }),
@@ -84,9 +83,14 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
       ownerAddress = ownerOfAddress;
     }
 
-    const owner = await profileContract.getProfileByAddress(ownerAddress, {
-      blockTag: lastBlockMined,
-    });
+    let owner = null;
+    try {
+      owner = await profileContract.getProfileByAddress(ownerAddress, {
+        blockTag: lastBlockMined,
+      });
+    } catch (ex) {
+      // suppress
+    }
     const hero = processHeroChainData(heroRaw, owner);
     hero.salesData = heroSalesData;
 
@@ -142,7 +146,7 @@ exports.fetchHeroesByOwnerAndProfessionChain = async (
 exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
   try {
     const currentRPC = await getProvider();
-    const heroesContract = getContractHeroes(currentRPC);
+    const heroesContract = etherEnt.getContractHeroes(currentRPC);
     const salesContract = getContractAuctionSales(currentRPC);
 
     const [saleIds, heroIds] = await Promise.all([

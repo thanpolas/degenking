@@ -40,6 +40,7 @@ const {
 
 const {
   decodeRecessiveGenesAndNormalize,
+  decodeRecessiveGeneAndNormalize,
 } = require('./heroes-helpers/recessive-genes.ent');
 
 const {
@@ -52,6 +53,10 @@ const {
   shortenRecessiveGenesClass,
   shortenRecessiveGenesProfession,
 } = require('./heroes-helpers/heroes-helpers.ent');
+const {
+  decodeStatGenes,
+  decodeVisualGenes,
+} = require('./heroes-helpers/decode-genes.ent');
 
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
@@ -64,6 +69,7 @@ exports.fetchHeroesByOwnerChain = fetchHeroesByOwnerChain;
 exports.heroToString = heroToString;
 exports.heroesCurrentStats = heroesCurrentStats;
 exports.heroesTableCurrentStats = heroesTableCurrentStats;
+exports.decodeRecessiveGeneAndNormalize = decodeRecessiveGeneAndNormalize;
 exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
 exports.config = setConfig;
 
@@ -78,6 +84,10 @@ exports.getProfessionSkills = getProfessionSkills;
 exports.shortenRecessiveGenesClass = shortenRecessiveGenesClass;
 exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
 exports.getRanking = getRanking;
+
+// New commands of 0.3.0
+exports.decodeStatGenes = decodeStatGenes;
+exports.decodeVisualGenes = decodeVisualGenes;
 
 exports.ADDRESS = require('./constants/addresses.const');
 exports.CHOICES = require('./constants/choices.const');
