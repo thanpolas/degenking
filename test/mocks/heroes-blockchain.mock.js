@@ -24,9 +24,7 @@ exports.heroesBlockchainMock = () => {
     getUserHeroes: jest.fn(() => Promise.resolve(userHeroesFix())),
   };
 
-  const heroContractMock = jest.fn(() =>
-    Promise.resolve(heroContractFunctionsMock),
-  );
+  const heroContractMock = jest.fn(() => heroContractFunctionsMock);
 
   etherEnt.getContractHeroes = heroContractMock;
 

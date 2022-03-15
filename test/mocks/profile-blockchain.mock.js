@@ -18,9 +18,25 @@ exports.profileBlockchainMock = () => {
     getProfileByAddress: jest.fn(() => Promise.resolve(getProfileFix())),
   };
 
-  const profileContractMock = jest.fn(() =>
-    Promise.resolve(profileContractFunctionsMock),
-  );
+  const profileContractMock = jest.fn(() => profileContractFunctionsMock);
+
+  etherEnt.getContractProfile = profileContractMock;
+
+  return { profileContractMock, profileContractFunctionsMock };
+};
+
+/**
+ * Mocks profile blockchain to throw an error emulating profile not exists
+ *
+ * @return {Object} The mock objects.
+ */
+exports.profileBlockchainThrowMock = () => {
+  const error = new Error('profile error');
+  const profileContractFunctionsMock = {
+    getProfileByAddress: jest.fn(() => Promise.reject(error)),
+  };
+
+  const profileContractMock = jest.fn(() => profileContractFunctionsMock);
 
   etherEnt.getContractProfile = profileContractMock;
 
