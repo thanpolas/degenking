@@ -259,6 +259,27 @@ console.log(decodedVisualGenes);
 // }
 ```
 
+### decodeRecessiveGeneAndNormalize(statGenesRaw)
+
+Decodes the raw stat genes to produce recessive genes.
+
+-   `statGenes` **{string|bigint}** The raw stat genes string or bigint number.
+-   **Returns** **{Object}** The decoded stat genes as per the example bellow.
+
+```js
+const statGenes =
+    '119067243983457416993287681075686535166558725967282153752039019969001550';
+
+const recessiveGenes = decodeStatGenes(statGenes);
+
+console.log(recessiveGenes);
+// {
+//     mainClassGenes: ['pirate','warrior','wizard','thief'],
+//     subClassGenes: ['warrior', 'pirate', 'wizard', 'monk'],
+//     professionGenes: ['mining','gardening','mining','foraging'],
+// }
+```
+
 ## Hero Data Object
 
 <details>
@@ -393,6 +414,8 @@ When a new node version is available you need to updated it in the following:
 # Release History
 
 -   **v0.2.2**, _15/Mar/2022_
+    -   Export `decodeStatGenes()` and `decodeVisualGenes()` functions.
+    -   Implement and export `decodeRecessiveGeneAndNormalize()` function.
     -   Will not break if hero belongs to an account that does not have a profile in-game.
     -   Fixed and tweaked tests.
 -   **v0.2.1**, _03/Mar/2022_
