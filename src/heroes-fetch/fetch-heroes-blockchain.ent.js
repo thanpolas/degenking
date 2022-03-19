@@ -11,6 +11,7 @@ const {
   getContractAuctionSales,
 } = require('../ether');
 const { getSalesData } = require('./fetch-heroes-sales-blockchain.ent');
+const { getProfileByAddress } = require('./owner-profile.ent');
 
 const {
   processHeroChainData,
@@ -64,7 +65,6 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
 
     const { lastBlockMined } = currentRPC;
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
-    const profileContract = etherEnt.getContractProfile(currentRPC);
 
     const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
       heroesContract.getHero(heroId, { blockTag: lastBlockMined }),
@@ -78,20 +78,13 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
       const auction = await salesContract.getAuction(heroId, {
         blockTag: lastBlockMined,
       });
-      ownerAddress = auction.seller;
+      ownerAddress = auction.seller.toLowerCase();
     } else {
-      ownerAddress = ownerOfAddress;
+      ownerAddress = ownerOfAddress.toLowerCase();
     }
 
-    let owner = null;
-    try {
-      owner = await profileContract.getProfileByAddress(ownerAddress, {
-        blockTag: lastBlockMined,
-      });
-    } catch (ex) {
-      // suppress
-    }
-    const hero = processHeroChainData(heroRaw, owner);
+    const owner = await getProfileByAddress(ownerAddress);
+    const hero = processHeroChainData(heroRaw, owner, ownerAddress);
     hero.salesData = heroSalesData;
 
     return hero;

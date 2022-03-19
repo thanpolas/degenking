@@ -280,6 +280,32 @@ console.log(recessiveGenes);
 // }
 ```
 
+### getProfileByAddress(address)
+
+Will query the blockchain, profile contract, for the member data that belong to the provided address.
+
+-   `address` **{string}** The address to query by, accepts both checksum and lowercased addresses.
+-   **Returns** **{Promise<Object|null>}** Will return a normalized response or null if not found.
+
+```js
+const { getProfileByAddress } = require('@thanpolas/dfk-hero');
+
+const profile = await getProfileByAddress(
+    '0x67221b267cee49427bAa0974ceac988682192977',
+);
+
+console.log(profile);
+//   {
+//     id: 0,
+//     owner: '0x67221b267cee49427baa0974ceac988682192977',
+//     name: 'Degen Heroes',
+//     created: new Date('2022-02-11T15:00:57.000Z'),
+//     picId: 0,
+//     heroId: 1,
+//     points: 0,
+//   }
+```
+
 ## Hero Data Object
 
 <details>
@@ -413,6 +439,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.3.0**, _19/Mar/2022_
+    -   Implemented and exported `getProfileByAddress()` function.
+    -   Fixed a minor issue on profile propagation when profile not found on hero query.
 -   **v0.2.2**, _15/Mar/2022_
     -   Export `decodeStatGenes()` and `decodeVisualGenes()` functions.
     -   Implement and export `decodeRecessiveGeneAndNormalize()` function.

@@ -60,6 +60,8 @@ const {
 
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
+const { getProfileByAddress } = require('./heroes-fetch/owner-profile.ent');
+
 const { set: setConfig } = require('./configure');
 
 exports.getHeroesChain = getHeroesChain;
@@ -93,3 +95,6 @@ exports.ADDRESS = require('./constants/addresses.const');
 exports.CHOICES = require('./constants/choices.const');
 exports.CONSTANTS = require('./constants/constants.const');
 exports.POWER_PAIRS = require('./constants/power-pairs.const');
+
+// New command[s] 19/Mar/2021
+exports.getProfileByAddress = getProfileByAddress;
