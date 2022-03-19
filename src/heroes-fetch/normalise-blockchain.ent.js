@@ -156,10 +156,11 @@ exports.normalizeChainHero = (hero) => {
  * Process raw blockchain hero data into native JS Object.
  *
  * @param {Array} heroData Raw data fetched from blockchain.
- * @param {Array|null} owner Owner data of the hero.
+ * @param {Object|null} owner Owner profile data of the hero.
+ * @param {string} ownerAddress Address of the owner of the hero.
  * @return {Object}
  */
-exports.processHeroChainData = (heroData, owner) => {
+exports.processHeroChainData = (heroData, owner, ownerAddress) => {
   const hero = {
     id: Number(heroData.id),
     summoningInfo: {
@@ -246,7 +247,7 @@ exports.processHeroChainData = (heroData, owner) => {
 
     owner: {
       id: null,
-      address: null,
+      address: ownerAddress,
       name: null,
       createdAt: null,
     },
@@ -256,10 +257,10 @@ exports.processHeroChainData = (heroData, owner) => {
   hero.statGenes = convertGenes(hero.info.statGenes, STAT_GENE_MAP);
 
   if (owner) {
-    hero.owner.id = owner._id;
-    hero.owner.address = owner._owner;
-    hero.owner.name = owner._name;
-    hero.owner.createdAt = Number(owner._created);
+    hero.owner.id = owner.id;
+    hero.owner.address = owner.owner;
+    hero.owner.name = owner.name;
+    hero.owner.createdAt = Number(owner.created);
   }
   return hero;
 };
