@@ -1,11 +1,11 @@
 {
     "private": false,
-    "name": "@thanpolas/dfk-hero",
+    "name": "@thanpolas/degenking",
     "version": "0.3.0",
     "main": "./src/",
     "description": "Utility library for fetching and working with DFK Heroes.",
-    "homepage": "https://github.com/degen-heroes/dfk-hero",
-    "bugs": "https://github.com/degen-heroes/dfk-hero/issues",
+    "homepage": "https://github.com/degen-heroes/degenking",
+    "bugs": "https://github.com/degen-heroes/degenking/issues",
     "author": {
         "name": "Thanos Polychronakis",
         "email": "thanpolas@gmail.com"
@@ -15,7 +15,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/degen-heroes/dfk-hero"
+        "url": "https://github.com/degen-heroes/degenking"
     },
     "license": "ISC",
     "engines": {
