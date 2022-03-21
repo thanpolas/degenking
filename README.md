@@ -1,10 +1,10 @@
-# DeFi Kingdoms Hero
+# Degenking
 
-> Utility library for fetching and working with DFK Heroes.
+> Unofficial [DeFi Kingdoms][dfk] SDK
 
 [![NPM Version][npm-image]][npm-url]
-[![codecov](https://codecov.io/gh/degen-heroes/dfk-hero/branch/main/graph/badge.svg?token=L7F7DMRGGO)](https://codecov.io/gh/degen-heroes/dfk-hero)
-[![CircleCI](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main.svg?style=svg)](https://circleci.com/gh/degen-heroes/dfk-hero/tree/main)
+[![codecov](https://codecov.io/gh/degen-heroes/degenking/branch/main/graph/badge.svg?token=L7F7DMRGGO)](https://codecov.io/gh/degen-heroes/degenking)
+[![CircleCI](https://circleci.com/gh/degen-heroes/degenking/tree/main.svg?style=svg)](https://circleci.com/gh/degen-heroes/degenking/tree/main)
 [![Discord](https://img.shields.io/discord/911379655154618399?label=Degen%20Heroes%20Discord&color=5865F2)](https://discord.gg/degenheroes)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
@@ -13,7 +13,7 @@
 Install the module using NPM:
 
 ```
-npm install @thanpolas/dfk-hero --save
+npm install @thanpolas/degenking --save
 ```
 
 # Documentation
@@ -21,7 +21,7 @@ npm install @thanpolas/dfk-hero --save
 ## Quick Start
 
 ```js
-const { getHeroesChain } = require('@thanpolas/dfk-hero');
+const { getHeroesChain } = require('@thanpolas/degenking');
 
 const [hero] = await getHeroesChain([10000]);
 
@@ -33,7 +33,7 @@ console.log(hero);
 ### Configuring RPC
 
 By default the library will use the Official Harmony RPC. You may override this
-by configuring dfk-hero:
+by configuring degenking:
 
 ```js
 dfkHero.config('getProvider', async () => {
@@ -87,7 +87,7 @@ include sales data, owner profile and decode all stat and visual genes.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
 
 ```js
-const { getHeroesChain } = require('@thanpolas/dfk-hero');
+const { getHeroesChain } = require('@thanpolas/degenking');
 
 const [hero] = await getHeroesChain([10000]);
 
@@ -104,7 +104,7 @@ Fetches and normalizes heroes based on the owner.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
 
 ```js
-const { fetchHeroesByOwnerChain } = require('@thanpolas/dfk-hero');
+const { fetchHeroesByOwnerChain } = require('@thanpolas/degenking');
 
 const heroes = await fetchHeroesByOwnerChain(myAddress);
 
@@ -120,7 +120,9 @@ Fetches and normalizes heroes based on the owner and profession.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects filtered by profession.
 
 ```js
-const { fetchHeroesByOwnerAndProfessionChain } = require('@thanpolas/dfk-hero');
+const {
+    fetchHeroesByOwnerAndProfessionChain,
+} = require('@thanpolas/degenking');
 
 const myAddress = '0x....';
 const heroes = await fetchHeroesByOwnerAndProfessionChain(myAddress, 'mining');
@@ -146,7 +148,7 @@ Renders the [normalized hero object][hero-object] into a string representation.
 -   **Returns** **{string}** The string representation of the hero.
 
 ```js
-const { heroToString, getHeroesChain } = require('@thanpolas/dfk-hero');
+const { heroToString, getHeroesChain } = require('@thanpolas/degenking');
 
 const [hero] = await getHeroesChain([10000]);
 const heroStr = await heroToString(hero, { cli: true });
@@ -162,7 +164,7 @@ Queries blockchain and returns auction (sales) data of hero.
 -   **Returns** **{Promise\<Object\>}** A Promise with an object of the sales data.
 
 ```js
-const { getSalesData } = require('@thanpolas/dfk-hero');
+const { getSalesData } = require('@thanpolas/degenking');
 
 const salesData = await getSalesData(10000);
 
@@ -189,7 +191,7 @@ Calculates and returns the remaining stamina of the hero.
 const {
     calculateRemainingStamina,
     getHeroesChain,
-} = require('@thanpolas/dfk-hero');
+} = require('@thanpolas/degenking');
 
 const [hero] = await getHeroesChain([10000]);
 const heroStamina = await calculateRemainingStamina(hero);
@@ -288,7 +290,7 @@ Will query the blockchain, profile contract, for the member data that belong to 
 -   **Returns** **{Promise<Object|null>}** Will return a normalized response or null if not found.
 
 ```js
-const { getProfileByAddress } = require('@thanpolas/dfk-hero');
+const { getProfileByAddress } = require('@thanpolas/degenking');
 
 const profile = await getProfileByAddress(
     '0x67221b267cee49427bAa0974ceac988682192977',
@@ -466,8 +468,9 @@ Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC]
 
 thanpolas.eth - 0x67221b267cee49427bAa0974ceac988682192977
 
-[npm-url]: https://npmjs.org/package/@thanpolas/dfk-hero
-[npm-image]: https://img.shields.io/npm/v/@thanpolas/dfk-hero.svg
+[npm-url]: https://npmjs.org/package/@thanpolas/degenking
+[npm-image]: https://img.shields.io/npm/v/@thanpolas/degenking.svg
 [thanpolas]: https://github.com/thanpolas
 [ethers-provider]: https://docs.ethers.io/v5/api/providers/
 [hero-object]: #hero-data-object
+[dfk]: https://defikingdoms.com
