@@ -75,7 +75,7 @@ dfkHero.config({
 });
 ```
 
-## Available Commands
+## Heroes API
 
 ### dfkHero.getHeroesChain(heroIds)
 
@@ -154,30 +154,6 @@ const [hero] = await getHeroesChain([10000]);
 const heroStr = await heroToString(hero, { cli: true });
 
 console.log(heroStr);
-```
-
-### getSalesData(heroId)
-
-Queries blockchain and returns auction (sales) data of hero.
-
--   `heroId` **{string|number}** The hero's id.
--   **Returns** **{Promise\<Object\>}** A Promise with an object of the sales data.
-
-```js
-const { getSalesData } = require('@thanpolas/degenking');
-
-const salesData = await getSalesData(10000);
-
-console.log(salesData);
-// {
-//       onSale: false,
-//       auctionId: null,
-//       seller: '',
-//       startingPrice: 0,
-//       endingPrice: 0,
-//       duration: 0,
-//       startedAt: 0,
-// };
 ```
 
 ### calculateRemainingStamina(hero)
@@ -308,7 +284,7 @@ console.log(profile);
 //   }
 ```
 
-## Hero Data Object
+### Hero Data Object
 
 <details>
   <summary><span style="font-size: 1.5em;">Click here to expand the full Hero Data Object.</span></summary>
@@ -421,6 +397,34 @@ const hero = {
 
 </details>
 
+## Auctions API
+
+### getSalesAuctionChainByHeroId(heroId)
+
+Queries blockchain and returns auction (sales) data of hero.
+
+-   `heroId` **{string|number}** The hero's id.
+-   **Returns** **{Promise\<Object\>}** A Promise with an object of the sales data.
+
+```js
+const { getSalesAuctionChainByHeroId } = require('@thanpolas/degenking');
+
+const salesData = await getSalesAuctionChainByHeroId(10000);
+
+console.log(salesData);
+// {
+//       onSale: false,
+//       auctionId: null,
+//       seller: '',
+//       startingPrice: 0,
+//       endingPrice: 0,
+//       duration: 0,
+//       startedAt: 0,
+// };
+```
+
+> **DEPRECATION WARN**: This function was used to be called `getSalesData()` which will be deprecated by v0.5.0.
+
 # Maintenance and Contributing
 
 ## Update Node Version
@@ -441,6 +445,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.4.0**, _21/Mar/2022_
+    -   Renamed package from "dfk-hero" to "degenking".
+    -   Renamed `getSalesData()` to `getSalesAuctionChainByHeroId()` and deprecated `getSalesData()`, which will be deleted on v0.5.0.
 -   **v0.3.0**, _19/Mar/2022_
     -   Implemented and exported `getProfileByAddress()` function.
     -   Fixed a minor issue on profile propagation when profile not found on hero query.
