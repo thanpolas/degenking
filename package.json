@@ -1,11 +1,11 @@
 {
     "private": false,
-    "name": "@thanpolas/dfk-hero",
+    "name": "@thanpolas/degenking",
     "version": "0.3.0",
     "main": "./src/",
-    "description": "Utility library for fetching and working with DFK Heroes.",
-    "homepage": "https://github.com/degen-heroes/dfk-hero",
-    "bugs": "https://github.com/degen-heroes/dfk-hero/issues",
+    "description": "Unofficial DeFi Kingdoms SDK.",
+    "homepage": "https://github.com/degen-heroes/degenking",
+    "bugs": "https://github.com/degen-heroes/degenking/issues",
     "author": {
         "name": "Thanos Polychronakis",
         "email": "thanpolas@gmail.com"
@@ -15,7 +15,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/degen-heroes/dfk-hero"
+        "url": "https://github.com/degen-heroes/degenking"
     },
     "license": "ISC",
     "engines": {
@@ -53,6 +53,7 @@
     },
     "dependencies": {
         "@thanpolas/crypto-utils": "^0.4.1",
+        "axios": "^0.26.1",
         "bluebird": "^3.7.2",
         "date-fns": "^2.28.0",
         "ethers": "^5.5.3",
