@@ -11,6 +11,8 @@ const lodash = require('lodash');
 exports._config = {
   maxRetries: 6,
   concurrentBlockChainRequests: 30,
+  gqlEndpoint:
+    'https://defi-kingdoms-community-api-gateway-co06z8vi.uc.gateway.dev/graphql',
   getProvider: () => {
     const provider = new ethers.providers.JsonRpcProvider(
       'https://api.harmony.one/',
