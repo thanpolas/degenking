@@ -3,7 +3,7 @@
     "name": "@thanpolas/degenking",
     "version": "0.3.0",
     "main": "./src/",
-    "description": "Utility library for fetching and working with DFK Heroes.",
+    "description": "Unofficial DeFi Kingdoms SDK.",
     "homepage": "https://github.com/degen-heroes/degenking",
     "bugs": "https://github.com/degen-heroes/degenking/issues",
     "author": {
