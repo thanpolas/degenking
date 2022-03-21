@@ -35,8 +35,9 @@ const {
   heroesTableCurrentStats,
 } = require('./heroes-helpers/hero-to-string.ent');
 const {
-  getSalesData,
-} = require('./heroes-fetch/fetch-heroes-sales-blockchain.ent');
+  getSalesAuctionChainByHeroId,
+  getSalesAuctionGqlByAuctionId,
+} = require('./auctions/query-auctions.ent');
 
 const {
   decodeRecessiveGenesAndNormalize,
@@ -76,7 +77,6 @@ exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
 exports.config = setConfig;
 
 // New commands of 0.2.0
-exports.getSalesData = getSalesData;
 exports.getStatEmoji = getStatEmoji;
 exports.getProfessionEmoji = getProfessionEmoji;
 exports.getClassPairRanks = getClassPairRanks;
@@ -86,6 +86,8 @@ exports.getProfessionSkills = getProfessionSkills;
 exports.shortenRecessiveGenesClass = shortenRecessiveGenesClass;
 exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
 exports.getRanking = getRanking;
+// *** DEPRECATE ***
+exports.getSalesData = getSalesAuctionChainByHeroId;
 
 // New commands of 0.3.0
 exports.decodeStatGenes = decodeStatGenes;
@@ -98,3 +100,7 @@ exports.POWER_PAIRS = require('./constants/power-pairs.const');
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
+
+// New command[s] 21/Mar/2021
+exports.getSalesAuctionChainByHeroId = getSalesAuctionChainByHeroId;
+exports.getSalesAuctionGqlByAuctionId = getSalesAuctionGqlByAuctionId;
