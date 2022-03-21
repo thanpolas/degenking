@@ -10,7 +10,9 @@ const {
   providerError,
   getContractAuctionSales,
 } = require('../ether');
-const { getSalesData } = require('./fetch-heroes-sales-blockchain.ent');
+const {
+  getSalesAuctionChainByHeroId,
+} = require('../auctions/query-auctions.ent');
 const { getProfileByAddress } = require('./owner-profile.ent');
 
 const {
@@ -69,7 +71,7 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
     const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
       heroesContract.getHero(heroId, { blockTag: lastBlockMined }),
       heroesContract.ownerOf(heroId, { blockTag: lastBlockMined }),
-      getSalesData(heroId),
+      getSalesAuctionChainByHeroId(heroId),
     ]);
 
     let ownerAddress = '';
