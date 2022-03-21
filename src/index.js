@@ -2,7 +2,7 @@
  * DeFi Kingdoms Hero
  * Utility library for fetching and working with DFK Heroes.
  *
- * https://github.com/degen-heroes/dfk-hero
+ * https://github.com/degen-heroes/degenking
  *
  * Copyright © Thanos Polychronakis
  * LICENSE on /LICENSE file.
@@ -15,7 +15,7 @@
 const logService = require('./utils/log.service');
 
 const logParams = {
-  appName: 'dfk-hero',
+  appName: 'degenking',
 };
 logService.init(logParams);
 

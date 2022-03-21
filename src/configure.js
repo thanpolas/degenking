@@ -1,5 +1,5 @@
 /**
- * @fileoverview Configuration of dfk-heroes.
+ * @fileoverview Configuration of degenking.
  */
 
 const { ethers } = require('ethers');
