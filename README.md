@@ -111,6 +111,22 @@ const heroes = await fetchHeroesByOwnerChain(myAddress);
 console.log(heroes);
 ```
 
+### fetchHeroIdsByOwnerChain(ownerAddress)
+
+Fetches hero IDs of all heroes owned by the owner address.
+
+-   `ownerAddress` **{string}** The owner's address.
+-   **Returns** **{Promise\<Array\<string\>\>}** A Promise with an array of the hero ids.
+
+```js
+const { fetchHeroIdsByOwnerChain } = require('@thanpolas/degenking');
+
+const heroIds = await fetchHeroIdsByOwnerChain(myAddress);
+
+console.log(heroIds);
+// ['1', '2', '3', '4']
+```
+
 ### fetchHeroesByOwnerAndProfessionChain(ownerAddress, profession)
 
 Fetches and normalizes heroes based on the owner and profession.
