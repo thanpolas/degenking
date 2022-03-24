@@ -140,16 +140,7 @@ exports.fetchHeroesByOwnerAndProfessionChain = async (
  */
 exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
   try {
-    const currentRPC = await getProvider();
-    const heroesContract = etherEnt.getContractHeroes(currentRPC);
-    const salesContract = getContractAuctionSales(currentRPC);
-
-    const [saleIds, heroIds] = await Promise.all([
-      salesContract.getUserAuctions(ownerAddress),
-      heroesContract.getUserHeroes(ownerAddress),
-    ]);
-
-    const allHeroIds = heroIds.concat(saleIds);
+    const allHeroIds = await exports.fetchHeroIdsByOwnerChain(ownerAddress);
 
     const heroes = await exports.getHeroesChain(allHeroIds);
 
@@ -170,5 +161,46 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
     await delay(3 * optRetry);
     await log.warn(logMessage, { error: ex });
     return exports.fetchHeroesByOwnerChain(ownerAddress, optRetry);
+  }
+};
+
+/**
+ * Fetches hero IDs by owner.
+ *
+ * @param {string} ownerAddress The owner's address to fetch - lowercased.
+ * @param {number=} optRetry Retry count.
+ * @return {Promise<Array<string>>} Fetched hero ids.
+ */
+exports.fetchHeroIdsByOwnerChain = async (ownerAddress, optRetry = 0) => {
+  try {
+    const currentRPC = await getProvider();
+    const heroesContract = etherEnt.getContractHeroes(currentRPC);
+    const salesContract = getContractAuctionSales(currentRPC);
+
+    const [saleIds, heroIds] = await Promise.all([
+      salesContract.getUserAuctions(ownerAddress),
+      heroesContract.getUserHeroes(ownerAddress),
+    ]);
+
+    const allHeroIds = heroIds.concat(saleIds);
+
+    return allHeroIds;
+  } catch (ex) {
+    optRetry += 1;
+    const currentRPC = await getProvider();
+
+    const logMessage =
+      `fetchHeroIdsByOwnerChain() :: Failed to fetch hero ids for owner: ` +
+      `${ownerAddress} - ` +
+      `retry: ${optRetry} - RPC: ${currentRPC.name}`;
+
+    if (optRetry > getConfig('maxRetries')) {
+      await log.error(`Giving up! ${logMessage}`, { error: ex });
+      throw ex;
+    }
+
+    await delay(3 * optRetry);
+    await log.warn(logMessage, { error: ex });
+    return exports.fetchHeroIdsByOwnerChain(ownerAddress, optRetry);
   }
 };

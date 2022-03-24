@@ -111,6 +111,22 @@ const heroes = await fetchHeroesByOwnerChain(myAddress);
 console.log(heroes);
 ```
 
+### fetchHeroIdsByOwnerChain(ownerAddress)
+
+Fetches hero IDs of all heroes owned by the owner address.
+
+-   `ownerAddress` **{string}** The owner's address.
+-   **Returns** **{Promise\<Array\<string\>\>}** A Promise with an array of the hero ids.
+
+```js
+const { fetchHeroIdsByOwnerChain } = require('@thanpolas/degenking');
+
+const heroIds = await fetchHeroIdsByOwnerChain(myAddress);
+
+console.log(heroIds);
+// ['1', '2', '3', '4']
+```
+
 ### fetchHeroesByOwnerAndProfessionChain(ownerAddress, profession)
 
 Fetches and normalizes heroes based on the owner and profession.
@@ -445,6 +461,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.4.1**, _24/Mar/2022_
+    -   Implemented the `fetchHeroIdsByOwnerChain()` function.
 -   **v0.4.0**, _21/Mar/2022_
     -   Renamed package from "dfk-hero" to "degenking".
     -   Renamed `getSalesData()` to `getSalesAuctionChainByHeroId()` and deprecated `getSalesData()`, which will be deleted on v0.5.0.
