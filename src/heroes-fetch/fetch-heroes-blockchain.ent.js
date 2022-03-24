@@ -169,7 +169,7 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
  *
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
  * @param {number=} optRetry Retry count.
- * @return {Promise<Array<string>>} Fetched hero ids.
+ * @return {Promise<Array<number>>} Fetched hero ids.
  */
 exports.fetchHeroIdsByOwnerChain = async (ownerAddress, optRetry = 0) => {
   try {
@@ -184,7 +184,9 @@ exports.fetchHeroIdsByOwnerChain = async (ownerAddress, optRetry = 0) => {
 
     const allHeroIds = heroIds.concat(saleIds);
 
-    return allHeroIds;
+    const allHeroIdsNorm = allHeroIds.map((heroId) => Number(heroId));
+
+    return allHeroIdsNorm;
   } catch (ex) {
     optRetry += 1;
     const currentRPC = await getProvider();
