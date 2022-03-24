@@ -461,6 +461,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.4.1**, _24/Mar/2022_
+    -   Implemented the `fetchHeroIdsByOwnerChain()` function.
 -   **v0.4.0**, _21/Mar/2022_
     -   Renamed package from "dfk-hero" to "degenking".
     -   Renamed `getSalesData()` to `getSalesAuctionChainByHeroId()` and deprecated `getSalesData()`, which will be deleted on v0.5.0.
