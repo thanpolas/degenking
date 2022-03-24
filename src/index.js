@@ -27,6 +27,7 @@ const {
   getHeroesChain,
   fetchHeroesByOwnerAndProfessionChain,
   fetchHeroesByOwnerChain,
+  fetchHeroIdsByOwnerChain,
 } = require('./heroes-fetch/fetch-heroes-blockchain.ent');
 
 const {
@@ -69,6 +70,7 @@ exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
   fetchHeroesByOwnerAndProfessionChain;
 exports.fetchHeroesByOwnerChain = fetchHeroesByOwnerChain;
+exports.fetchHeroIdsByOwnerChain = fetchHeroIdsByOwnerChain;
 exports.heroToString = heroToString;
 exports.heroesCurrentStats = heroesCurrentStats;
 exports.heroesTableCurrentStats = heroesTableCurrentStats;
