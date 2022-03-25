@@ -441,6 +441,24 @@ console.log(salesData);
 
 > **DEPRECATION WARN**: This function was used to be called `getSalesData()` which will be deprecated by v0.5.0.
 
+## Jewel
+
+### fetchLockedJewelByOwnerChain(address)
+
+Fetches the locked jewel of an address from the blockchain.
+
+-   `address` **{string}** The owner's address to fetch locked jewel for.
+-   **Returns** **{Promise\<number\>}** A Promise with the locked jewel in human readable number format.
+
+```js
+const { fetchLockedJewelByOwnerChain } = require('@thanpolas/degenking');
+
+const lockedJewel = await fetchLockedJewelByOwnerChain('0x....');
+
+console.log(lockedJewel);
+// 12.9
+```
+
 # Maintenance and Contributing
 
 ## Update Node Version
@@ -461,6 +479,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.4.3**, _25/Mar/2022_
+    -   Added function to fetch the locked jewel of an address `fetchLockedJewelByOwnerChain()`.
 -   **v0.4.2**, _24/Mar/2022_
     -   Implemented the `fetchHeroIdsByOwnerChain()` function.
 -   **v0.4.0**, _21/Mar/2022_

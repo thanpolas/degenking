@@ -60,6 +60,10 @@ const {
   decodeVisualGenes,
 } = require('./heroes-helpers/decode-genes.ent');
 
+const {
+  fetchLockedJewelByOwnerChain,
+} = require('./jewel/fetch-locked-jewel-blockchain.ent');
+
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
 const { getProfileByAddress } = require('./heroes-fetch/owner-profile.ent');
@@ -106,3 +110,5 @@ exports.getProfileByAddress = getProfileByAddress;
 // New command[s] 21/Mar/2021
 exports.getSalesAuctionChainByHeroId = getSalesAuctionChainByHeroId;
 exports.getSalesAuctionGqlByAuctionId = getSalesAuctionGqlByAuctionId;
+
+exports.fetchLockedJewelByOwnerChain = fetchLockedJewelByOwnerChain;

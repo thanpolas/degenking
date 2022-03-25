@@ -7,12 +7,14 @@ const { ethers } = require('ethers');
 const abiHeroes = require('../abi/heroes.abi.json');
 const abiAuctionSales = require('../abi/auction.abi.json');
 const abiProfiles = require('../abi/profile.abi.json');
+const abiJewel = require('../abi/jewel.abi.json');
 const configuration = require('../configure');
 
 const {
   HEROES_NFT,
   AUCTION_SALES,
   PROFILES,
+  JEWELTOKEN,
 } = require('../constants/addresses.const');
 
 /**
@@ -73,5 +75,17 @@ exports.getContractAuctionSales = (currentRPC) => {
     abiAuctionSales,
     provider,
   );
+  return contract;
+};
+
+/**
+ * Get the Jewel contract.
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getContractJewel = (currentRPC) => {
+  const { provider } = currentRPC;
+  const contract = new ethers.Contract(JEWELTOKEN, abiJewel, provider);
   return contract;
 };
