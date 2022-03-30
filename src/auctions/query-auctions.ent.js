@@ -7,7 +7,10 @@ const { gqlQuery } = require('../graphql/gql-query.ent');
 const {
   saleAuctionByAuctionId,
 } = require('../graphql/queries/sale-auctions.gql');
-const { unixToJsDate } = require('../utils/helpers');
+const { unixToJsDate, delay } = require('../utils/helpers');
+const { get: getConfig } = require('../configure');
+
+const log = require('../utils/log.service').get();
 
 /**
  * Fetches sale auction data by hero id from blockchain.
@@ -50,32 +53,65 @@ exports.getSalesAuctionChainByHeroId = async (heroId) => {
  * Fetches sale auction data by auction id from GQL endpoint.
  *
  * @param {string} auctionId The auction id.
+ * @param {boolean=} persist Set to true to keep retrying until a result
+ *    is returned.
+ * @param {number=} retries retry count.
  * @return {Promise<Object|void>} Auction data or empty if not found.
  */
-exports.getSalesAuctionGqlByAuctionId = async (auctionId) => {
-  const res = await gqlQuery(saleAuctionByAuctionId, { auctionId });
+exports.getSalesAuctionGqlByAuctionId = async (
+  auctionId,
+  persist = false,
+  retries = 0,
+) => {
+  try {
+    const res = await gqlQuery(saleAuctionByAuctionId, { auctionId });
 
-  if (!res?.data?.saleAuctions?.length) {
-    return;
+    if (!res?.data?.saleAuctions?.length) {
+      if (persist) {
+        await delay(1);
+        return exports.getSalesAuctionGqlByAuctionId(
+          auctionId,
+          persist,
+          retries,
+        );
+      }
+      return;
+    }
+
+    const [auctionData] = res.data.saleAuctions;
+
+    const auctionDataNorm = {
+      auctionId: Number(auctionData.id),
+      sellerAddress: auctionData.seller.owner.toLowerCase(),
+      sellerName: auctionData.seller.name,
+      heroId: Number(auctionData.tokenId.id),
+      startingPrice: auctionData.startingPrice,
+      endingPrice: auctionData.endingPrice,
+      duration: auctionData.duration,
+      startedAt: unixToJsDate(auctionData.startedAt),
+      endedAt: unixToJsDate(auctionData.endedAt),
+      buyerAddress: auctionData.winner?.owner?.toLowerCase() || null,
+      buyerName: auctionData.winner?.name || null,
+      open: auctionData.open,
+      purchasePrice: auctionData.purchasePrice,
+    };
+
+    return auctionDataNorm;
+  } catch (ex) {
+    retries += 1;
+
+    const logMessage =
+      `Failed to fetch auction from GQL. ` +
+      `- retry: ${retries} - ` +
+      `AuctionId: ${auctionId}`;
+
+    if (retries > getConfig('maxRetries')) {
+      await log.error(`Giving up! ${logMessage}`, { error: ex });
+      throw ex;
+    }
+
+    await delay(retries);
+
+    return exports.getSalesAuctionGqlByAuctionId(auctionId, persist, retries);
   }
-
-  const [auctionData] = res.data.saleAuctions;
-
-  const auctionDataNorm = {
-    auctionId: Number(auctionData.id),
-    sellerAddress: auctionData.seller.owner.toLowerCase(),
-    sellerName: auctionData.seller.name,
-    heroId: Number(auctionData.tokenId.id),
-    startingPrice: auctionData.startingPrice,
-    endingPrice: auctionData.endingPrice,
-    duration: auctionData.duration,
-    startedAt: unixToJsDate(auctionData.startedAt),
-    endedAt: unixToJsDate(auctionData.endedAt),
-    buyerAddress: auctionData.winner?.owner?.toLowerCase() || null,
-    buyerName: auctionData.winner?.name || null,
-    open: auctionData.open,
-    purchasePrice: auctionData.purchasePrice,
-  };
-
-  return auctionDataNorm;
 };

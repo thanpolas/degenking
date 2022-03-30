@@ -441,6 +441,37 @@ console.log(salesData);
 
 > **DEPRECATION WARN**: This function was used to be called `getSalesData()` which will be deprecated by v0.5.0.
 
+### getSalesAuctionGqlByAuctionId(auctionId, persist)
+
+Queries the GraphQL API for a sales auction based on auction id.
+
+-   `auctionId` **{string|number}** The auction id to query for.
+-   `persist` **{boolean=}** Optionally, set to true to force the function to keep retrying in case of an empty result. Use in cases when a sale has just happened to give time to the GQL to indexe the auction.
+-   **Returns** **{Promise\<Object\>}** A Promise with a normalized, rich response.
+
+```js
+const { getSalesAuctionGqlByAuctionId } = require('@thanpolas/degenking');
+
+const auctionData = await getSalesAuctionGqlByAuctionId(1029620);
+
+console.log(auctionData);
+//  {
+//     auctionId: 1029620,
+//     sellerAddress: '0xcf45c7227db5577dbbefec665821f06981243b63',
+//     sellerName: 'Introverse',
+//     heroId: 52261,
+//     startingPrice: '55000000000000000000',
+//     endingPrice: '55000000000000000000',
+//     duration: 60,
+//     startedAt: new Date('2022-03-21T14:27:36.000Z'),
+//     endedAt: new Date('2022-03-21T14:27:36.000Z'),
+//     buyerAddress: '0x9e30ba74500a2a66e7884d623d409563a38ef687',
+//     buyerName: 'Ariana Sundae',
+//     open: false,
+//     purchasePrice: '55000000000000000000',
+//   }
+```
+
 ## Jewel
 
 ### fetchLockedJewelByOwnerChain(address)
@@ -479,6 +510,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.4.4**, _30/Mar/2022_
+    -   Added "persist" argument on `getSalesAuctionGqlByAuctionId()` function.
 -   **v0.4.3**, _25/Mar/2022_
     -   Added function to fetch the locked jewel of an address `fetchLockedJewelByOwnerChain()`.
 -   **v0.4.2**, _24/Mar/2022_
