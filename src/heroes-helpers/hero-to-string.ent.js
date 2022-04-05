@@ -27,10 +27,16 @@ const { QUESTS_REV } = require('../constants/addresses.const');
  * @param {boolean} params.showSale Show hero sales information.
  * @param {boolean} params.showQuest Show hero quest information.
  * @param {boolean} params.short Short version.
+ * @param {boolean} params.tiny Tiny version.
  * @return {string}
  */
 exports.heroToString = (hero, params = {}) => {
-  const heroParts = exports._getHeroParts(hero, params);
+  let heroParts = [];
+  if (params.tiny) {
+    heroParts = exports._getHeroPartsTiny(hero);
+  } else {
+    heroParts = exports._getHeroParts(hero, params);
+  }
 
   const heroString = exports._renderHeroParts(heroParts, params);
   return heroString;
@@ -75,6 +81,29 @@ exports.heroesCurrentStats = (heroes) => {
       S: `${hero.stamina}/${hero.currentStamina}`,
     };
   });
+};
+
+/**
+ * Produce tiny parts of hero.
+ *
+ * @param {Object} hero Hero data object.
+ * @return {Array} An array of hero parts to be rendered.
+ * @private
+ */
+exports._getHeroPartsTiny = (hero) => {
+  const profEmoji = getProfessionEmoji(hero.profession);
+  const shiny = hero.shiny ? ' Shiny' : '';
+
+  const heroParts = [];
+  heroParts.push(['id', hero.id]);
+  heroParts.push(`G${hero.generation}${shiny}`);
+  heroParts.push(`${profEmoji} ${hero.profession}`);
+  heroParts.push(`${hero.mainClass}:${hero.subClass}`);
+  heroParts.push(`${hero.rarityStr}`);
+  heroParts.push(`${hero.summons}/${hero.maxSummons}`);
+  heroParts.push(`L${hero.level}`);
+
+  return heroParts;
 };
 
 /**
