@@ -161,6 +161,7 @@ Renders the [normalized hero object][hero-object] into a string representation.
     -   `params.showSale` **{boolean}** Show hero sales information.
     -   `params.showQuest` **{boolean}** Show hero quest information.
     -   `params.short` **{boolean}** Short version.
+    -   `params.tiny` **{boolean}** Tiny version.
 -   **Returns** **{string}** The string representation of the hero.
 
 ```js
@@ -510,6 +511,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.4.5**, _05/Apr/2022_
+    -   Implemented `tiny` rendering of hero to string.
 -   **v0.4.4**, _30/Mar/2022_
     -   Added "persist" argument on `getSalesAuctionGqlByAuctionId()` function.
 -   **v0.4.3**, _25/Mar/2022_
