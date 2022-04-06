@@ -14,6 +14,16 @@ const {
 
 const log = require('../utils/log.service').get();
 
+/**
+ * Stamina Potion Consumption.
+ *
+ * @param {string} consumableAddress Address of consumable (potion).
+ * @param {number|string|bigint} heroId Hero id that will consume.
+ * @param {string=} optGasPrice Gas price in wei.
+ * @param {number=} optRetries Retry count.
+ * @return {Promise<Object|void>} A Promise with normalized response of the
+ *    "ItemConsumed" event.
+ */
 exports.consumePotion = async (
   consumableAddress,
   heroId,
