@@ -6,9 +6,7 @@ const { getSigner, getContractConsumable } = require('../ether');
 const { get: getConfig } = require('../configure');
 const { delay } = require('../utils/helpers');
 const { CONSUMABLE_REV } = require('../constants/addresses.const');
-const {
-  normalizeHeroUpdateEvent,
-} = require('../heroes-helpers/normalize-hero-update-event.ent');
+
 const {
   processHeroChainData,
   normalizeChainHero,
