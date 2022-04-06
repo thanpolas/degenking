@@ -36,7 +36,7 @@ By default the library will use the Official Harmony RPC. You may override this
 by configuring degenking:
 
 ```js
-dfkHero.config('getProvider', async () => {
+degenKing.config('getProvider', async () => {
     return {
         name: 'Pokt',
         provider: new ethers.providers.JsonRpcProvider('https://....'),
@@ -53,6 +53,23 @@ library and it expects to receive an object with two keys:
 
 > ℹ️ The callback function can be a Promise returning function.
 
+### Configuring Signer
+
+For the operations that require signing transactions, it is expected that you
+pass an [ethers.js signer object][ethers-signer], along with the name of the
+RPC endpoint used. In particular, the signer object,
+[should be a wallet][ethers-wallet].
+
+```js
+degenKing.config('getSigner', async () => {
+    const provider = new ethers.providers.JsonRpcProvider('https://....');
+    return {
+        name: 'dfkchain-official',
+        wallet: new ethers.Wallet(privateKey, provider),
+    };
+});
+```
+
 ### Other Configuration Options
 
 -   `maxRetries` **{number}** Default: 6 - Define how many times the queries will retry on fail until they give up.
@@ -63,7 +80,7 @@ library and it expects to receive an object with two keys:
 The `config` function accepts an object as well:
 
 ```js
-dfkHero.config({
+degenKing.config({
     getProvider: async () => {
         return {
             name: 'Pokt',
@@ -77,7 +94,7 @@ dfkHero.config({
 
 ## Heroes API
 
-### dfkHero.getHeroesChain(heroIds)
+### getHeroesChain(heroIds)
 
 Will fetch and normalize heroes from the blockchain using provided hero ids.
 It will augment the hero object using multiple queries and functions to also
@@ -555,3 +572,5 @@ thanpolas.eth - 0x67221b267cee49427bAa0974ceac988682192977
 [ethers-provider]: https://docs.ethers.io/v5/api/providers/
 [hero-object]: #hero-data-object
 [dfk]: https://defikingdoms.com
+[ethers-signer]: https://docs.ethers.io/v5/api/signer/
+[ethers-wallet]: https://docs.ethers.io/v5/api/signer/#Wallet
