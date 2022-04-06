@@ -168,16 +168,16 @@ assert.assertTypes = (testObj) => {
   expect(testObj.hp).toBeNumber();
   expect(testObj.stamina).toBeNumber();
 
-  expect(testObj.statsSum).toBeNumber();
-  expect(testObj.onSale).toBeBoolean();
-  expect(testObj.auctionId).toBeNumber();
-  expect(testObj.seller).toBeString();
-  expect(testObj.startingPrice).toBeNumber();
-  expect(testObj.endingPrice).toBeNumber();
-  expect(testObj.startingPriceFormatted).toBeString();
-  expect(testObj.endingPriceFormatted).toBeString();
-  expect(testObj.duration).toBeNumber();
-  expect(testObj.startedAt).toBeDate();
+  // expect(testObj.statsSum).toBeNumber();
+  // expect(testObj.onSale).toBeBoolean();
+  // expect(testObj.auctionId).toBeNumber();
+  // expect(testObj.seller).toBeString();
+  // expect(testObj.startingPrice).toBeNumber();
+  // expect(testObj.endingPrice).toBeNumber();
+  // expect(testObj.startingPriceFormatted).toBeString();
+  // expect(testObj.endingPriceFormatted).toBeString();
+  // expect(testObj.duration).toBeNumber();
+  // expect(testObj.startedAt).toBeDate();
   expect(testObj.summonCost).toBeNumber();
   expect(testObj.classTier).toBeString();
   expect(testObj.summonMinTears).toBeNumber();
@@ -202,7 +202,7 @@ assert.assertTypes = (testObj) => {
   expect(testObj.statGenes.statBoost2).toBeString();
   expect(testObj.statGenes.statsUnknown1).toBeNumber();
   expect(testObj.statGenes.element).toBeString();
-  expect(testObj.statGenes.statsUnknown2).toBeUndefined();
+  // expect(testObj.statGenes.statsUnknown2).toBeUndefined();
 
   expect(testObj.visualGenes.gender).toBeString();
   expect(testObj.visualGenes.headAppendage).toBeNumber();
