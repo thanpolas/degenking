@@ -32,13 +32,14 @@ const {
  * Produce a normalized, JS Native representation of the hero object.
  *
  * @param {Object} hero blockchain originated hero.
+ * @param {string=} source The source of the data.
  * @return {Object} Normalized hero.
  */
-exports.normalizeChainHero = (hero) => {
+exports.normalizeChainHero = (hero, source = 'chain') => {
   const { mining, gardening, foraging, fishing } = hero.professions;
   const normalizedHero = {
     rawHero: hero,
-    source: 'chain',
+    source,
     id: hero.id,
     ownerId: Number(hero.owner?.id) || null,
     ownerName: hero.owner?.name,
@@ -102,37 +103,48 @@ exports.normalizeChainHero = (hero) => {
     hp: hero.stats.hp,
     mp: hero.stats.mp,
     stamina: hero.stats.stamina,
+    // Sales
+    onSale: null,
+    auctionId: null,
+    seller: null,
+    startingPrice: null,
+    endingPrice: null,
+    startingPriceFormatted: null,
+    endingPriceFormatted: null,
+    duration: null,
+    startedAt: null,
+  };
 
-    // Sales Data
-    onSale: hero.salesData.onSale,
-    auctionId: Number(hero.salesData.auctionId),
-    seller: hero.salesData.seller,
-    startingPrice: Number(
+  // Fill sales Data if it exists
+  if (hero.salesData) {
+    normalizedHero.onSale = hero.salesData.onSale;
+    normalizedHero.auctionId = Number(hero.salesData.auctionId);
+    normalizedHero.seller = hero.salesData.seller;
+    normalizedHero.startingPrice = Number(
       tokenToFixed(hero.salesData.startingPrice, JEWEL_DECIMALS),
-    ),
-    endingPrice: Number(
+    );
+    normalizedHero.endingPrice = Number(
       tokenToFixed(hero.salesData.endingPrice, JEWEL_DECIMALS),
-    ),
-    startingPriceFormatted: tokenToFixed(
+    );
+    normalizedHero.startingPriceFormatted = tokenToFixed(
       hero.salesData.startingPrice,
       JEWEL_DECIMALS,
       {
         format: true,
       },
-    ),
+    );
 
-    endingPriceFormatted: tokenToFixed(
+    normalizedHero.endingPriceFormatted = tokenToFixed(
       hero.salesData.endingPrice,
       JEWEL_DECIMALS,
       {
         format: true,
       },
-    ),
+    );
 
-    duration: Number(hero.salesData.duration),
-    startedAt: unixToJsDate(hero.salesData.startedAt),
-  };
-
+    normalizedHero.duration = Number(hero.salesData.duration);
+    normalizedHero.startedAt = unixToJsDate(hero.salesData.startedAt);
+  }
   // Summoning data
   normalizedHero.summonCost = heroSummonCost(normalizedHero);
   normalizedHero.classTier = getHeroTier(hero.mainClass);
@@ -148,6 +160,12 @@ exports.normalizeChainHero = (hero) => {
   normalizedHero.currentRank = getCurrentRank(normalizedHero);
   normalizedHero.estJewelPerTick = getEstJewelPerTick(normalizedHero);
   normalizedHero.estJewelPer100Ticks = getEstJewelPerTick(normalizedHero, 100);
+
+  if (source !== 'chain') {
+    normalizedHero.mainClassGenes = [];
+    normalizedHero.subClassGenes = [];
+    normalizedHero.professionGenes = [];
+  }
 
   return normalizedHero;
 };
