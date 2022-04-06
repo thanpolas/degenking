@@ -588,6 +588,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.0**, _06/Apr/2022_
+    -   Introduces signer configuration.
+    -   Implements `consumePotion()` for potion consumpion by heroes.
 -   **v0.4.5**, _05/Apr/2022_
     -   Implemented `tiny` rendering of hero to string.
 -   **v0.4.4**, _30/Mar/2022_
