@@ -431,6 +431,66 @@ const hero = {
 
 </details>
 
+### consumePotion(consumableAddress, heroId, optGasPrice)
+
+Consumes a potion for the given hero. Does not approve consumption, you have to do it manually (for now).
+
+-   `consumableAddress` **{string}** Address of consumable potion. Use the available constants enumerated bellow.
+-   `heroId` **{string}** The hero id that will consume the potion.
+-   `optGasPrice` **{string=}** Optionally, define a custom gas price to consume in wei.
+-   **Returns** **{Promise\<Object|void\>}** A Promise with a normalized data object from the "ItemConsumed" event, or empty if fetching the TX receipt failed (very edge case).
+
+```js
+const { ADDRESS, consumePotion, config } = require('@thanpolas/degenking');
+
+// Get the stamina vial address, which will be consumed.
+const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+
+// Add a signer, see relevant documentation on implementation details.
+degenKing.config('getSigner', getSignerImplementation);
+
+// Invoke consumption
+const response = await consumePotion(CONSUMABLE_STAMINA_VIAL, heroId);
+
+console.log(response);
+// {
+//     playerAddress: '0x.....',
+//     itemAddress: '0x....',
+//     itemName: 'CONSUMABLE_STAMINA_VIAL',
+//     heroId: 100000,
+//     oldHero: {
+//         // Normalized hero object representing state
+//         // of hero before consumption
+//     },
+//     newHero: {
+//         // Normalized hero object representing state
+//         // of hero after consumption
+//     }
+// }
+```
+
+#### Consumable Constants
+
+Consumable potion addresses are available as constants on the `ADDRESS` constant:
+
+```js
+const { ADDRESS } = require('@thanpolas/degenking');
+
+// All the available potions to consume
+const {
+    CONSUMABLE_HEALTH_VIAL,
+    CONSUMABLE_FULL_HEALTH_POTION,
+    CONSUMABLE_MANA_VIAL,
+    CONSUMABLE_FULL_MANA_POTION,
+    CONSUMABLE_STAMINA_VIAL,
+    CONSUMABLE_ANTI_POISON_POTION,
+    CONSUMABLE_ANTI_BLINDING_POTION,
+    CONSUMABLE_MAGIC_RESISTANCE_POTION,
+    CONSUMABLE_TOUGHNESS_POTION,
+    CONSUMABLE_SWIFTNESS_POTION,
+} = ADDRESS;
+```
+
 ## Auctions API
 
 ### getSalesAuctionChainByHeroId(heroId)
