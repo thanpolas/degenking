@@ -491,6 +491,27 @@ const {
 } = ADDRESS;
 ```
 
+### consumableBalance(address, consumableAddress)
+
+Get balance of the consumable item for the given address.
+
+-   `address` **{string}** The address to query for.
+-   `consumableAddress` **{string}** The address of the consumable to fetch balance for.
+-   **Returns** **{Promise\<number\>}** A Promise with the balance of potions.
+
+```js
+const { ADDRESS, consumableBalance } = require('@thanpolas/degenking');
+
+// Get the stamina vial address, which will be consumed.
+const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+
+const myAddress = '0x.....';
+
+const balance = await consumableBalance(myAddress, CONSUMABLE_STAMINA_VIAL);
+console.log(balance);
+// 10
+```
+
 ## Auctions API
 
 ### getSalesAuctionChainByHeroId(heroId)
@@ -591,6 +612,7 @@ When a new node version is available you need to updated it in the following:
 -   **v0.5.0**, _06/Apr/2022_
     -   Introduces signer configuration.
     -   Implements `consumePotion()` for potion consumpion by heroes.
+    -   Implements `consumableBalance()` for balance of potions.
 -   **v0.4.5**, _05/Apr/2022_
     -   Implemented `tiny` rendering of hero to string.
 -   **v0.4.4**, _30/Mar/2022_
