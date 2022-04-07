@@ -4,31 +4,61 @@
 
 const { ethers } = require('ethers');
 
+const configuration = require('../configure');
+
 const abiHeroes = require('../abi/heroes.abi.json');
 const abiAuctionSales = require('../abi/auction.abi.json');
 const abiProfiles = require('../abi/profile.abi.json');
 const abiJewel = require('../abi/jewel.abi.json');
-const configuration = require('../configure');
+const abiConsumable = require('../abi/consumable.abi.json');
 
 const {
   HEROES_NFT,
   AUCTION_SALES,
   PROFILES,
   JEWELTOKEN,
+  CONSUMABLE_ADDRESS,
 } = require('../constants/addresses.const');
 
 /**
  * Get a provider object.
  *
+ * @param {string=} optPrivKey Optionally define a private key to get a signer
+ *    provider (wallet).
  * @return {Promise<Object>} A Custom object containing the keys "name" for the
  *    arbitrary name of the RPC and "provider" that contains the actual
  *    ethers.js instance.
  */
-exports.getProvider = async () => {
+exports.getProvider = async (optPrivKey) => {
   const getProvider = configuration.get('getProvider');
   const currentRPC = await getProvider();
 
+  if (optPrivKey) {
+    const signerRpc = exports._getSigner(currentRPC, optPrivKey);
+    return signerRpc;
+  }
+
   return currentRPC;
+};
+
+/**
+ * Produces and returns the signer RPC Object.
+ *
+ * @param {Object} currentRPC RPC Object.
+ * @param {string} privKey The Private key.
+ * @return {Object} Signer RPC Object.
+ * @private
+ */
+exports._getSigner = (currentRPC, privKey) => {
+  // create a new object so there is no mutation of passed object.
+  const signerRpc = {
+    name: currentRPC.name,
+    provider: currentRPC.provider,
+    lastBlockMined: currentRPC.lastBlockMined,
+    isSigner: true,
+    signer: new ethers.Wallet(privKey, currentRPC.provider),
+  };
+  return signerRpc;
 };
 
 /**
@@ -87,5 +117,22 @@ exports.getContractAuctionSales = (currentRPC) => {
 exports.getContractJewel = (currentRPC) => {
   const { provider } = currentRPC;
   const contract = new ethers.Contract(JEWELTOKEN, abiJewel, provider);
+  return contract;
+};
+
+/**
+ * Get the Consumables contract.
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getContractConsumable = (currentRPC) => {
+  const { provider, signer } = currentRPC;
+  const useProvider = signer || provider;
+  const contract = new ethers.Contract(
+    CONSUMABLE_ADDRESS,
+    abiConsumable,
+    useProvider,
+  );
   return contract;
 };

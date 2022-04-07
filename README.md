@@ -36,7 +36,7 @@ By default the library will use the Official Harmony RPC. You may override this
 by configuring degenking:
 
 ```js
-dfkHero.config('getProvider', async () => {
+degenKing.config('getProvider', async () => {
     return {
         name: 'Pokt',
         provider: new ethers.providers.JsonRpcProvider('https://....'),
@@ -63,7 +63,7 @@ library and it expects to receive an object with two keys:
 The `config` function accepts an object as well:
 
 ```js
-dfkHero.config({
+degenKing.config({
     getProvider: async () => {
         return {
             name: 'Pokt',
@@ -77,7 +77,7 @@ dfkHero.config({
 
 ## Heroes API
 
-### dfkHero.getHeroesChain(heroIds)
+### getHeroesChain(heroIds)
 
 Will fetch and normalize heroes from the blockchain using provided hero ids.
 It will augment the hero object using multiple queries and functions to also
@@ -414,6 +414,85 @@ const hero = {
 
 </details>
 
+### consumePotion(consumableAddress, heroId, privKey, optGasPrice)
+
+Consumes a potion for the given hero. Does not approve consumption, you have to do it manually (for now).
+
+-   `consumableAddress` **{string}** Address of consumable potion. Use the available constants enumerated bellow.
+-   `heroId` **{string}** The hero id that will consume the potion.
+-   `privKey` **{string}** The private key to sign the transaction with.
+-   `optGasPrice` **{string=}** Optionally, define a custom gas price to consume in wei.
+-   **Returns** **{Promise\<Object|void\>}** A Promise with a normalized data object from the "ItemConsumed" event, or empty if fetching the TX receipt failed (very edge case).
+
+```js
+const { ADDRESS, consumePotion } = require('@thanpolas/degenking');
+
+// Get the stamina vial address, which will be consumed.
+const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+
+// Invoke consumption
+const response = await consumePotion(CONSUMABLE_STAMINA_VIAL, heroId, privKey);
+
+console.log(response);
+// {
+//     playerAddress: '0x.....',
+//     itemAddress: '0x....',
+//     itemName: 'CONSUMABLE_STAMINA_VIAL',
+//     heroId: 100000,
+//     oldHero: {
+//         // Normalized hero object representing state
+//         // of hero before consumption
+//     },
+//     newHero: {
+//         // Normalized hero object representing state
+//         // of hero after consumption
+//     }
+// }
+```
+
+#### Consumable Constants
+
+Consumable potion addresses are available as constants on the `ADDRESS` constant:
+
+```js
+const { ADDRESS } = require('@thanpolas/degenking');
+
+// All the available potions to consume
+const {
+    CONSUMABLE_HEALTH_VIAL,
+    CONSUMABLE_FULL_HEALTH_POTION,
+    CONSUMABLE_MANA_VIAL,
+    CONSUMABLE_FULL_MANA_POTION,
+    CONSUMABLE_STAMINA_VIAL,
+    CONSUMABLE_ANTI_POISON_POTION,
+    CONSUMABLE_ANTI_BLINDING_POTION,
+    CONSUMABLE_MAGIC_RESISTANCE_POTION,
+    CONSUMABLE_TOUGHNESS_POTION,
+    CONSUMABLE_SWIFTNESS_POTION,
+} = ADDRESS;
+```
+
+### consumableBalance(address, consumableAddress)
+
+Get balance of the consumable item for the given address.
+
+-   `address` **{string}** The address to query for.
+-   `consumableAddress` **{string}** The address of the consumable to fetch balance for.
+-   **Returns** **{Promise\<number\>}** A Promise with the balance of potions.
+
+```js
+const { ADDRESS, consumableBalance } = require('@thanpolas/degenking');
+
+// Get the stamina vial address, which will be consumed.
+const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+
+const myAddress = '0x.....';
+
+const balance = await consumableBalance(myAddress, CONSUMABLE_STAMINA_VIAL);
+console.log(balance);
+// 10
+```
+
 ## Auctions API
 
 ### getSalesAuctionChainByHeroId(heroId)
@@ -511,6 +590,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.0**, _06/Apr/2022_
+    -   Implements `consumePotion()` for potion consumpion by heroes.
+    -   Implements `consumableBalance()` for balance of potions.
 -   **v0.4.5**, _05/Apr/2022_
     -   Implemented `tiny` rendering of hero to string.
 -   **v0.4.4**, _30/Mar/2022_
@@ -555,3 +637,5 @@ thanpolas.eth - 0x67221b267cee49427bAa0974ceac988682192977
 [ethers-provider]: https://docs.ethers.io/v5/api/providers/
 [hero-object]: #hero-data-object
 [dfk]: https://defikingdoms.com
+[ethers-signer]: https://docs.ethers.io/v5/api/signer/
+[ethers-wallet]: https://docs.ethers.io/v5/api/signer/#Wallet

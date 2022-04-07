@@ -8,6 +8,7 @@ exports.ONE_DECIMALS = 18;
 exports.JEWEL_DECIMALS = 18;
 exports.GOLD_DECIMALS = 3;
 exports.RUNES_DECIMALS = 0;
+exports.CONSUMABLE_DECIMALS = 0;
 
 exports.Rarity = ['Common', 'Uncommon', 'Rare', 'Legendary', 'Mythic'];
 

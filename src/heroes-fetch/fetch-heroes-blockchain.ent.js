@@ -43,7 +43,7 @@ exports.getHeroesChain = async (heroIds) => {
     getConfig('concurrentBlockChainRequests'),
   );
 
-  const normalizedHeroes = heroes.map(normalizeChainHero);
+  const normalizedHeroes = heroes.map((hero) => normalizeChainHero(hero));
 
   await decodeRecessiveGenesAndNormalize(normalizedHeroes);
 
