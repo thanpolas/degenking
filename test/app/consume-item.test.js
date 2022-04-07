@@ -6,7 +6,7 @@ const { ethers } = require('ethers');
 
 const testLib = require('../lib/tester.lib');
 
-const consumePotionEnt = require('../../src/consumeable/consume-potion.ent');
+const consumePotionEnt = require('../../src/consumable/consume-potion.ent');
 const consumableAbi = require('../../src/abi/consumable.abi.json');
 const { itemConsumedEventFix } = require('../fixtures/consumable.fix');
 const { assert: assertHero } = require('../assert/normalised-hero.assert');
