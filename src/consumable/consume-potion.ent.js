@@ -41,7 +41,7 @@ exports.consumePotion = async (
       txOpts.gasPrice = optGasPrice;
     }
 
-    const tx = await consumableContract();
+    const tx = await consumableContract.consumeItem(consumableAddress, heroId);
 
     const receipt = await exports._getReceipt(tx);
     if (!receipt) {
@@ -69,12 +69,17 @@ exports.consumePotion = async (
       throw ex;
     }
 
+    await log.error(`consumePotion() :: Error. Retry ${optRetries}`, {
+      error: ex,
+    });
+
     await delay(optRetries);
 
     return exports.consumePotion(
       consumableAddress,
       heroId,
       optGasPrice,
+      privKey,
       optRetries,
     );
   }
