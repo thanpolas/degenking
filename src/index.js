@@ -60,7 +60,8 @@ const {
   decodeVisualGenes,
 } = require('./heroes-helpers/decode-genes.ent');
 
-const { consumePotion } = require('./consumeable/consume-potion.ent');
+const { consumePotion } = require('./consumable/consume-potion.ent');
+const { consumableBalance } = require('./consumable/consumable-balance.ent');
 
 const {
   fetchLockedJewelByOwnerChain,
@@ -116,3 +117,4 @@ exports.getSalesAuctionGqlByAuctionId = getSalesAuctionGqlByAuctionId;
 exports.fetchLockedJewelByOwnerChain = fetchLockedJewelByOwnerChain;
 
 exports.consumePotion = consumePotion;
+exports.consumableBalance = consumableBalance;
