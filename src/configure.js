@@ -23,9 +23,6 @@ exports._config = {
       provider,
     };
   },
-  getSigner: () => {
-    throw new Error('Signer not defined. Use config() to define one');
-  },
 };
 
 /**

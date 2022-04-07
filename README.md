@@ -53,23 +53,6 @@ library and it expects to receive an object with two keys:
 
 > ℹ️ The callback function can be a Promise returning function.
 
-### Configuring Signer
-
-For the operations that require signing transactions, it is expected that you
-pass an [ethers.js signer object][ethers-signer], along with the name of the
-RPC endpoint used. In particular, the signer object,
-[should be a wallet][ethers-wallet].
-
-```js
-degenKing.config('getSigner', async () => {
-    const provider = new ethers.providers.JsonRpcProvider('https://....');
-    return {
-        name: 'dfkchain-official',
-        wallet: new ethers.Wallet(privateKey, provider),
-    };
-});
-```
-
 ### Other Configuration Options
 
 -   `maxRetries` **{number}** Default: 6 - Define how many times the queries will retry on fail until they give up.
@@ -431,26 +414,24 @@ const hero = {
 
 </details>
 
-### consumePotion(consumableAddress, heroId, optGasPrice)
+### consumePotion(consumableAddress, heroId, privKey, optGasPrice)
 
 Consumes a potion for the given hero. Does not approve consumption, you have to do it manually (for now).
 
 -   `consumableAddress` **{string}** Address of consumable potion. Use the available constants enumerated bellow.
 -   `heroId` **{string}** The hero id that will consume the potion.
+-   `privKey` **{string}** The private key to sign the transaction with.
 -   `optGasPrice` **{string=}** Optionally, define a custom gas price to consume in wei.
 -   **Returns** **{Promise\<Object|void\>}** A Promise with a normalized data object from the "ItemConsumed" event, or empty if fetching the TX receipt failed (very edge case).
 
 ```js
-const { ADDRESS, consumePotion, config } = require('@thanpolas/degenking');
+const { ADDRESS, consumePotion } = require('@thanpolas/degenking');
 
 // Get the stamina vial address, which will be consumed.
 const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
 
-// Add a signer, see relevant documentation on implementation details.
-degenKing.config('getSigner', getSignerImplementation);
-
 // Invoke consumption
-const response = await consumePotion(CONSUMABLE_STAMINA_VIAL, heroId);
+const response = await consumePotion(CONSUMABLE_STAMINA_VIAL, heroId, privKey);
 
 console.log(response);
 // {
@@ -610,7 +591,6 @@ When a new node version is available you need to updated it in the following:
 # Release History
 
 -   **v0.5.0**, _06/Apr/2022_
-    -   Introduces signer configuration.
     -   Implements `consumePotion()` for potion consumpion by heroes.
     -   Implements `consumableBalance()` for balance of potions.
 -   **v0.4.5**, _05/Apr/2022_

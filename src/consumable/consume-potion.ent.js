@@ -2,7 +2,7 @@
  * @fileoverview Stamina Potion Consumption.
  */
 
-const { getSigner, getContractConsumable } = require('../ether');
+const { getProvider, getContractConsumable } = require('../ether');
 const { get: getConfig } = require('../configure');
 const { delay } = require('../utils/helpers');
 const { CONSUMABLE_REV } = require('../constants/addresses.const');
@@ -19,6 +19,7 @@ const log = require('../utils/log.service').get();
  *
  * @param {string} consumableAddress Address of consumable (potion).
  * @param {number|string|bigint} heroId Hero id that will consume.
+ * @param {string} privKey Account's private key.
  * @param {string=} optGasPrice Gas price in wei.
  * @param {number=} optRetries Retry count.
  * @return {Promise<Object|void>} A Promise with normalized response of the
@@ -27,12 +28,13 @@ const log = require('../utils/log.service').get();
 exports.consumePotion = async (
   consumableAddress,
   heroId,
+  privKey,
   optGasPrice,
   optRetries = 0,
 ) => {
-  const signer = await getSigner();
+  const signerRpc = await getProvider(privKey);
   try {
-    const consumableContract = getContractConsumable(signer);
+    const consumableContract = getContractConsumable(signerRpc);
 
     const txOpts = {};
     if (optGasPrice) {
@@ -57,7 +59,7 @@ exports.consumePotion = async (
 
     const logMessage =
       `Failed consume potion ${consumableAddress}. ` +
-      `- retry: ${optRetries} - RPC: ${signer.name} - ` +
+      `- retry: ${optRetries} - RPC: ${signerRpc.name} - ` +
       `Hero: ${heroId}`;
 
     if (optRetries > getConfig('maxRetries')) {
