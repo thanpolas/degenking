@@ -73,6 +73,10 @@ const { getProfileByAddress } = require('./heroes-fetch/owner-profile.ent');
 
 const { set: setConfig } = require('./configure');
 
+const {
+  normalizeChainHero,
+} = require('./heroes-fetch/normalise-blockchain.ent');
+
 exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
   fetchHeroesByOwnerAndProfessionChain;
@@ -118,3 +122,4 @@ exports.fetchLockedJewelByOwnerChain = fetchLockedJewelByOwnerChain;
 
 exports.consumePotion = consumePotion;
 exports.consumableBalance = consumableBalance;
+exports.normalizeChainHero = normalizeChainHero;
