@@ -185,9 +185,6 @@ exports.normalizeGqlHero = (hero, source = 'graphql') => {
   const { mainClassGenes, subClassGenes, professionGenes } =
     decodeRecessiveGeneAndNormalize(hero.statGenes);
 
-  mainClassGenes.shift();
-  subClassGenes.shift();
-  professionGenes.shift();
   normalizedHero.mainClassGenes = mainClassGenes;
   normalizedHero.subClassGenes = subClassGenes;
   normalizedHero.professionGenes = professionGenes;
