@@ -590,6 +590,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.2**, _15/Apr/2022_
+    -   Implement `queryAssistingAuctionsAllGql()`.
+    -   Expose `logality`.
 -   **v0.5.1**, _15/Apr/2022_
     -   Exposes `normalizeChainHero` function that normalizes raw hero blockchain data.
 -   **v0.5.0**, _06/Apr/2022_

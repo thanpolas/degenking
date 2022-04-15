@@ -19,6 +19,8 @@ const logParams = {
 };
 logService.init(logParams);
 
+const log = logService.get();
+
 //
 // WARNING - Require any local packages BELLOW this line
 //
@@ -62,7 +64,9 @@ const {
 
 const { consumePotion } = require('./consumable/consume-potion.ent');
 const { consumableBalance } = require('./consumable/consumable-balance.ent');
-
+const {
+  queryAssistingAuctionsAllGql,
+} = require('./auctions/assisting-auctions.ent');
 const {
   fetchLockedJewelByOwnerChain,
 } = require('./jewel/fetch-locked-jewel-blockchain.ent');
@@ -122,4 +126,7 @@ exports.fetchLockedJewelByOwnerChain = fetchLockedJewelByOwnerChain;
 
 exports.consumePotion = consumePotion;
 exports.consumableBalance = consumableBalance;
+exports.queryAssistingAuctionsAllGql = queryAssistingAuctionsAllGql;
+
+exports.logality = log;
 exports.normalizeChainHero = normalizeChainHero;
