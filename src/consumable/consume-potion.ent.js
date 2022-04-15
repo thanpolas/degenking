@@ -8,7 +8,6 @@ const { delay } = require('../utils/helpers');
 const { CONSUMABLE_REV } = require('../constants/addresses.const');
 
 const {
-  processHeroChainData,
   normalizeChainHero,
 } = require('../heroes-fetch/normalise-blockchain.ent');
 
@@ -128,15 +127,17 @@ exports._getReceipt = async (tx, optRetries = 0) => {
 exports._normalizeEvent = (consumeEvent) => {
   const { player, item, heroId, oldHero, newHero } = consumeEvent.args;
 
-  const oldHeroProcessed = processHeroChainData(oldHero, null, player);
   const oldHeroNormalized = normalizeChainHero(
-    oldHeroProcessed,
+    oldHero,
+    null,
+    player,
     'ItemConsumed',
   );
 
-  const newHeroProcessed = processHeroChainData(newHero, null, player);
   const newHeroNormalized = normalizeChainHero(
-    newHeroProcessed,
+    newHero,
+    null,
+    player,
     'ItemConsumed',
   );
 
