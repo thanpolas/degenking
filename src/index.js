@@ -77,6 +77,10 @@ const { getProfileByAddress } = require('./heroes-fetch/owner-profile.ent');
 
 const { set: setConfig } = require('./configure');
 
+const {
+  normalizeChainHero,
+} = require('./heroes-fetch/normalise-blockchain.ent');
+
 exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
   fetchHeroesByOwnerAndProfessionChain;
@@ -125,3 +129,4 @@ exports.consumableBalance = consumableBalance;
 exports.queryAssistingAuctionsAllGql = queryAssistingAuctionsAllGql;
 
 exports.logality = log;
+exports.normalizeChainHero = normalizeChainHero;

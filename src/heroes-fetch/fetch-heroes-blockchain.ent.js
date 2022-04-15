@@ -17,7 +17,7 @@ const { getProfileByAddress } = require('./owner-profile.ent');
 
 const {
   processHeroChainData,
-  normalizeChainHero,
+  normalizeChainProcessedHero,
 } = require('./normalise-blockchain.ent');
 const {
   decodeRecessiveGenesAndNormalize,
@@ -43,7 +43,9 @@ exports.getHeroesChain = async (heroIds) => {
     getConfig('concurrentBlockChainRequests'),
   );
 
-  const normalizedHeroes = heroes.map((hero) => normalizeChainHero(hero));
+  const normalizedHeroes = heroes.map((hero) =>
+    normalizeChainProcessedHero(hero),
+  );
 
   await decodeRecessiveGenesAndNormalize(normalizedHeroes);
 

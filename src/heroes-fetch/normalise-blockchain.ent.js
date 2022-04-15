@@ -29,13 +29,36 @@ const {
 } = require('../heroes-helpers/summon-utils.ent');
 
 /**
+ * Process raw blockchain hero data into native JS Object.
+ *
+ * @param {Array} heroData Raw data fetched from blockchain.
+ * @param {Object|null} owner Owner profile data of the hero.
+ * @param {string=} ownerAddress Address of the owner of the hero.
+ * @param {string=} source The source of the data.
+ * @return {Object}
+ */
+exports.normalizeChainHero = (heroData, owner, ownerAddress, source) => {
+  const processedHero = exports.processHeroChainData(
+    heroData,
+    owner,
+    ownerAddress,
+  );
+  const normalizedHero = exports.normalizeChainProcessedHero(
+    processedHero,
+    source,
+  );
+
+  return normalizedHero;
+};
+
+/**
  * Produce a normalized, JS Native representation of the hero object.
  *
  * @param {Object} hero blockchain originated hero.
  * @param {string=} source The source of the data.
  * @return {Object} Normalized hero.
  */
-exports.normalizeChainHero = (hero, source = 'chain') => {
+exports.normalizeChainProcessedHero = (hero, source = 'chain') => {
   const { mining, gardening, foraging, fishing } = hero.professions;
   const normalizedHero = {
     rawHero: hero,
@@ -175,7 +198,7 @@ exports.normalizeChainHero = (hero, source = 'chain') => {
  *
  * @param {Array} heroData Raw data fetched from blockchain.
  * @param {Object|null} owner Owner profile data of the hero.
- * @param {string} ownerAddress Address of the owner of the hero.
+ * @param {string=} ownerAddress Address of the owner of the hero.
  * @return {Object}
  */
 exports.processHeroChainData = (heroData, owner, ownerAddress) => {
