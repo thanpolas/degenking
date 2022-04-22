@@ -590,6 +590,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.3**, _22/Apr/2022_
+    -   Added new questing contract addresses.
 -   **v0.5.2**, _15/Apr/2022_
     -   Implement `queryAssistingAuctionsAllGql()`.
     -   Expose `logality`.
