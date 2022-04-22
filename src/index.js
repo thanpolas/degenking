@@ -75,6 +75,12 @@ const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
 const { getProfileByAddress } = require('./heroes-fetch/owner-profile.ent');
 
+const {
+  questResolve,
+  isQuestNew,
+  isTrainingQuest,
+} = require('./quests/quest-utils.ent');
+
 const { set: setConfig } = require('./configure');
 
 const {
@@ -130,3 +136,7 @@ exports.queryAssistingAuctionsAllGql = queryAssistingAuctionsAllGql;
 
 exports.logality = log;
 exports.normalizeChainHero = normalizeChainHero;
+
+exports.questResolve = questResolve;
+exports.isQuestNew = isQuestNew;
+exports.isTrainingQuest = isTrainingQuest;
