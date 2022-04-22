@@ -23,6 +23,37 @@ exports.QUESTS_REV = {
   '0x13e74e4e64805e7fda381c9bef1e77cd16086e56': 'LCK_TRAIN',
 };
 
+/** @const {Array<string>} TRAINING_QUESTS All the training quests */
+exports.TRAINING_QUESTS = [
+  '0xf60af3a32bb94e395e17c70ab695d968f37bd2e4',
+  '0xfa20b218927b0f57a08196743488c7c790a5625b',
+  '0xcb594a24d802cdf65000a84dc0059dde11c9d15f',
+  '0x347097454fa1931a4e80dcdebb31f29fc355cbce',
+  '0xe03fd4e2f6421b1251297240ce5248508c9104ed',
+  '0x2174bbefbefbd766326a7c7538f93a78db3ed449',
+  '0x6176eede1ae9127d59266f197ad598653e4f8c92',
+  '0x13e74e4e64805e7fda381c9bef1e77cd16086e56',
+];
+
+/** @enum {boolean} Determines which quest types need to be handled by new questing */
+exports.QUESTS_HANDLER_NEW = {
+  '0xe4154b6e5d240507f9699c730a496790a722df19': false,
+  '0x569e6a4c2e3af31b337be00657b4c040c828dd73': false,
+  '0x6ff019415ee105acf2ac52483a33f5b43eadb8d0': false,
+  '0x35e9adf3f63deee6a266494bb0ad7627472a518f': false,
+
+  '0xb465f4590095dad50fee6ee0b7c6700ac2b04df8': true,
+  '0xadffd2a255b3792873a986895c6312e8fbacfc8b': true,
+  '0xf60af3a32bb94e395e17c70ab695d968f37bd2e4': true,
+  '0xfa20b218927b0f57a08196743488c7c790a5625b': true,
+  '0xcb594a24d802cdf65000a84dc0059dde11c9d15f': true,
+  '0x347097454fa1931a4e80dcdebb31f29fc355cbce': true,
+  '0xe03fd4e2f6421b1251297240ce5248508c9104ed': true,
+  '0x2174bbefbefbd766326a7c7538f93a78db3ed449': true,
+  '0x6176eede1ae9127d59266f197ad598653e4f8c92': true,
+  '0x13e74e4e64805e7fda381c9bef1e77cd16086e56': true,
+};
+
 exports.WELL_QUEST_ADDRESS_OLD = '0x0548214a0760a897af53656f4b69dbad688d8f29';
 exports.QUEST_FORAGING_OLD = '0x3132c76acf2217646fb8391918d28a16bd8a8ef4';
 exports.QUEST_FISHING_OLD = '0xe259e8386d38467f0e7ffedb69c3c9c935dfaefc';
@@ -71,6 +102,9 @@ exports.SUMMON_ADDRESS = '0xa2D001C829328aa06a2DB2740c05ceE1bFA3c6bb';
 exports.SALE_ADDRESS = '0x13a65b9f8039e2c032bc022171dc05b30c3f2892';
 exports.WELL_QUEST_ADDRESS = '0xf5ff69f4ac4a851730668b93fc408bc1c49ef4ce';
 exports.RUNES = '0x66F5BfD910cd83d3766c4B39d13730C911b2D286';
+
+exports.MEDITATION_CONTRACT = '0x0594d86b2923076a2316eaea4e1ca286daa142c1';
+exports.NEW_SUMMON_CONTRACT = '0xf4d3ae202c9ae516f7eb1db5aff19bf699a5e355';
 
 exports.CONSUMABLE_ADDRESS = '0x38e76972bd173901b5e5e43ba5cb464293b80c31';
 
