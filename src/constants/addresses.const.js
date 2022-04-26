@@ -6,54 +6,6 @@ exports.HEROES_NFT = '0x5F753dcDf9b1AD9AabC1346614D1f4746fd6Ce5C';
 exports.AUCTION_SALES = '0x13a65b9f8039e2c032bc022171dc05b30c3f2892';
 exports.PROFILES = '0x6391F796D56201D279a42fD3141aDa7e26A3B4A5';
 
-exports.QUESTS_REV = {
-  '0xb465f4590095dad50fee6ee0b7c6700ac2b04df8': 'FORAGING',
-  '0xadffd2a255b3792873a986895c6312e8fbacfc8b': 'FISHING',
-  '0xe4154b6e5d240507f9699c730a496790a722df19': 'GARDENING',
-  '0x569e6a4c2e3af31b337be00657b4c040c828dd73': 'MINING_GOLD',
-  '0x6ff019415ee105acf2ac52483a33f5b43eadb8d0': 'MINING_JEWEL',
-  '0x35e9adf3f63deee6a266494bb0ad7627472a518f': 'WISHING_WELL',
-  '0xf60af3a32bb94e395e17c70ab695d968f37bd2e4': 'STR_TRAIN',
-  '0xfa20b218927b0f57a08196743488c7c790a5625b': 'AGI_TRAIN',
-  '0xcb594a24d802cdf65000a84dc0059dde11c9d15f': 'END_TRAIN',
-  '0x347097454fa1931a4e80dcdebb31f29fc355cbce': 'WIS_TRAIN',
-  '0xe03fd4e2f6421b1251297240ce5248508c9104ed': 'DEX_TRAIN',
-  '0x2174bbefbefbd766326a7c7538f93a78db3ed449': 'VIT_TRAIN',
-  '0x6176eede1ae9127d59266f197ad598653e4f8c92': 'INT_TRAIN',
-  '0x13e74e4e64805e7fda381c9bef1e77cd16086e56': 'LCK_TRAIN',
-};
-
-/** @const {Array<string>} TRAINING_QUESTS All the training quests */
-exports.TRAINING_QUESTS = [
-  '0xf60af3a32bb94e395e17c70ab695d968f37bd2e4',
-  '0xfa20b218927b0f57a08196743488c7c790a5625b',
-  '0xcb594a24d802cdf65000a84dc0059dde11c9d15f',
-  '0x347097454fa1931a4e80dcdebb31f29fc355cbce',
-  '0xe03fd4e2f6421b1251297240ce5248508c9104ed',
-  '0x2174bbefbefbd766326a7c7538f93a78db3ed449',
-  '0x6176eede1ae9127d59266f197ad598653e4f8c92',
-  '0x13e74e4e64805e7fda381c9bef1e77cd16086e56',
-];
-
-/** @enum {boolean} Determines which quest types need to be handled by new questing */
-exports.QUESTS_HANDLER_NEW = {
-  '0xe4154b6e5d240507f9699c730a496790a722df19': false,
-  '0x569e6a4c2e3af31b337be00657b4c040c828dd73': false,
-  '0x6ff019415ee105acf2ac52483a33f5b43eadb8d0': false,
-  '0x35e9adf3f63deee6a266494bb0ad7627472a518f': false,
-
-  '0xb465f4590095dad50fee6ee0b7c6700ac2b04df8': true,
-  '0xadffd2a255b3792873a986895c6312e8fbacfc8b': true,
-  '0xf60af3a32bb94e395e17c70ab695d968f37bd2e4': true,
-  '0xfa20b218927b0f57a08196743488c7c790a5625b': true,
-  '0xcb594a24d802cdf65000a84dc0059dde11c9d15f': true,
-  '0x347097454fa1931a4e80dcdebb31f29fc355cbce': true,
-  '0xe03fd4e2f6421b1251297240ce5248508c9104ed': true,
-  '0x2174bbefbefbd766326a7c7538f93a78db3ed449': true,
-  '0x6176eede1ae9127d59266f197ad598653e4f8c92': true,
-  '0x13e74e4e64805e7fda381c9bef1e77cd16086e56': true,
-};
-
 exports.WELL_QUEST_ADDRESS_OLD = '0x0548214a0760a897af53656f4b69dbad688d8f29';
 exports.QUEST_FORAGING_OLD = '0x3132c76acf2217646fb8391918d28a16bd8a8ef4';
 exports.QUEST_FISHING_OLD = '0xe259e8386d38467f0e7ffedb69c3c9c935dfaefc';
@@ -88,6 +40,66 @@ exports.QUEST_VIT_ADDRESS = '0x2174bbefbefbd766326a7c7538f93a78db3ed449';
 exports.QUEST_INT_ADDRESS = '0x6176eede1ae9127d59266f197ad598653e4f8c92';
 // Moe
 exports.QUEST_LCK_ADDRESS = '0x13e74e4e64805e7fda381c9bef1e77cd16086e56';
+
+// An enumerated version of training quests
+exports.TRAINING_QUESTS = {
+  STR: exports.QUEST_STR_ADDRESS,
+  AGI: exports.QUEST_AGI_ADDRESS,
+  END: exports.QUEST_END_ADDRESS,
+  WIS: exports.QUEST_WIS_ADDRESS,
+  DEX: exports.QUEST_DEX_ADDRESS,
+  VIT: exports.QUEST_VIT_ADDRESS,
+  INT: exports.QUEST_INT_ADDRESS,
+  LCK: exports.QUEST_LCK_ADDRESS,
+};
+
+exports.QUESTS_REV = {
+  [exports.QUEST_FORAGING]: 'FORAGING',
+  [exports.QUEST_FISHING]: 'FISHING',
+  [exports.QUEST_GARDENING]: 'GARDENING',
+  [exports.QUEST_MINING_GOLD]: 'MINING_GOLD',
+  [exports.QUEST_MINING_JEWEL]: 'MINING_JEWEL',
+  [exports.QUEST_WISHING_WELL]: 'WISHING_WELL',
+  [exports.QUEST_STR_ADDRESS]: 'STR_TRAIN',
+  [exports.QUEST_AGI_ADDRESS]: 'AGI_TRAIN',
+  [exports.QUEST_END_ADDRESS]: 'END_TRAIN',
+  [exports.QUEST_WIS_ADDRESS]: 'WIS_TRAIN',
+  [exports.QUEST_DEX_ADDRESS]: 'DEX_TRAIN',
+  [exports.QUEST_VIT_ADDRESS]: 'VIT_TRAIN',
+  [exports.QUEST_INT_ADDRESS]: 'INT_TRAIN',
+  [exports.QUEST_LCK_ADDRESS]: 'LCK_TRAIN',
+};
+
+/** @const {Array<string>} TRAINING_QUESTS All the training quests */
+exports.TRAINING_QUESTS_AR = [
+  exports.QUEST_STR_ADDRESS,
+  exports.QUEST_AGI_ADDRESS,
+  exports.QUEST_END_ADDRESS,
+  exports.QUEST_WIS_ADDRESS,
+  exports.QUEST_DEX_ADDRESS,
+  exports.QUEST_VIT_ADDRESS,
+  exports.QUEST_INT_ADDRESS,
+  exports.QUEST_LCK_ADDRESS,
+];
+
+/** @enum {boolean} Determines which quest types need to be handled by new questing */
+exports.QUESTS_HANDLER_NEW = {
+  [exports.QUEST_GARDENING]: false,
+  [exports.QUEST_MINING_GOLD]: false,
+  [exports.QUEST_MINING_JEWEL]: false,
+  [exports.QUEST_WISHING_WELL]: false,
+
+  [exports.QUEST_FORAGING]: true,
+  [exports.QUEST_FISHING]: true,
+  [exports.QUEST_STR_ADDRESS]: true,
+  [exports.QUEST_AGI_ADDRESS]: true,
+  [exports.QUEST_END_ADDRESS]: true,
+  [exports.QUEST_WIS_ADDRESS]: true,
+  [exports.QUEST_DEX_ADDRESS]: true,
+  [exports.QUEST_VIT_ADDRESS]: true,
+  [exports.QUEST_INT_ADDRESS]: true,
+  [exports.QUEST_LCK_ADDRESS]: true,
+};
 
 exports.UNISWAPV2FACTORY = '0x9014B937069918bd319f80e8B3BB4A2cf6FAA5F7';
 exports.UNISWAPV2ROUTER = '020x24ad62502d1C652Cc7684081169D04896aC20f30';
