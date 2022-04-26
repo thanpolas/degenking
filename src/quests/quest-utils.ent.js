@@ -5,7 +5,7 @@
 const {
   QUESTS_REV,
   QUESTS_HANDLER_NEW,
-  TRAINING_QUESTS,
+  TRAINING_QUESTS_AR,
 } = require('../constants/addresses.const');
 
 /**
@@ -35,5 +35,5 @@ exports.isQuestNew = (questAddress) => {
  * @return {boolean} True if quest is training type.
  */
 exports.isTrainingQuest = (questAddress) => {
-  return TRAINING_QUESTS.includes(questAddress.toLowerCase);
+  return TRAINING_QUESTS_AR.includes(questAddress.toLowerCase());
 };
