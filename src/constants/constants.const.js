@@ -2,6 +2,14 @@
  * @fileoverview DeFi kingdoms constants.
  */
 
+const {
+  QUEST_MINING_GOLD,
+  QUEST_MINING_JEWEL,
+  QUEST_FISHING,
+  QUEST_FORAGING,
+  QUEST_GARDENING,
+} = require('./addresses.const');
+
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 exports.xJEWEL_DECIMALS = 18;
 exports.ONE_DECIMALS = 18;
@@ -19,13 +27,47 @@ exports.PROFESSIONS = {
   FISHING: 'fishing',
 };
 
-// All available quest types
+/** @enum {Array<string>} Map profession values to profession quest addresses */
+exports.PROFESSIONS_TO_QUESTS = {
+  [exports.PROFESSIONS.MINING]: [QUEST_MINING_GOLD, QUEST_MINING_JEWEL],
+  [exports.PROFESSIONS.GARDENING]: [QUEST_GARDENING],
+  [exports.PROFESSIONS.FORAGING]: [QUEST_FORAGING],
+  [exports.PROFESSIONS.FISHING]: [QUEST_FISHING],
+};
+
+// All available quest types - values must map to existing addresses in the
+// addresses.const.js module
 exports.QUEST_TYPES = {
-  MINING_GOLD: 'mining_gold',
-  MINING_JEWEL: 'mining_jewel',
-  GARDENING: 'gardening',
-  FORAGING: 'foraging',
-  FISHING: 'fishing',
+  MINING_GOLD: 'QUEST_MINING_GOLD',
+  MINING_JEWEL: 'QUEST_MINING_JEWEL',
+  GARDENING: 'QUEST_GARDENING',
+  FORAGING: 'QUEST_FORAGING',
+  FISHING: 'QUEST_FISHING',
+  TRAINING_STR: 'QUEST_STR_ADDRESS',
+  TRAINING_AGI: 'QUEST_AGI_ADDRESS',
+  TRAINING_END: 'QUEST_END_ADDRESS',
+  TRAINING_WIS: 'QUEST_WIS_ADDRESS',
+  TRAINING_DEX: 'QUEST_DEX_ADDRESS',
+  TRAINING_VIT: 'QUEST_VIT_ADDRESS',
+  TRAINING_INT: 'QUEST_INT_ADDRESS',
+  TRAINING_LCK: 'QUEST_LCK_ADDRESS',
+};
+
+/** @enum {string} All quest types and how they map to a profesison */
+exports.QUEST_TYPES_PROFESSIONS = {
+  MINING_GOLD: 'QUEST_MINING_GOLD',
+  MINING_JEWEL: 'QUEST_MINING_JEWEL',
+  GARDENING: 'QUEST_GARDENING',
+  FORAGING: 'QUEST_FORAGING',
+  FISHING: 'QUEST_FISHING',
+  TRAINING_STR: 'QUEST_STR_ADDRESS',
+  TRAINING_AGI: 'QUEST_AGI_ADDRESS',
+  TRAINING_END: 'QUEST_END_ADDRESS',
+  TRAINING_WIS: 'QUEST_WIS_ADDRESS',
+  TRAINING_DEX: 'QUEST_DEX_ADDRESS',
+  TRAINING_VIT: 'QUEST_VIT_ADDRESS',
+  TRAINING_INT: 'QUEST_INT_ADDRESS',
+  TRAINING_LCK: 'QUEST_LCK_ADDRESS',
 };
 
 exports.PROFESSIONS_AR = ['mining', 'gardening', 'foraging', 'fishing'];
