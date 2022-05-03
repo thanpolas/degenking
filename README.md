@@ -592,6 +592,7 @@ When a new node version is available you need to updated it in the following:
 
 -   **v0.5.6**, _03/May/2022_
     -   Exposed the Hero Summoning Utility functions: `heroSummonCost()`, `heroSummonMinTears()`, `calculateHeroSummonCost()`, `getHeroTier()`, `getMinTears()`, `getMaxTears()`, `areHeroesRelated()`.
+    -   Upgraded all dependencies to latest.
 -   **v0.5.5**, _27/Apr/2022_
     -   Fixed broken `isTrainingQuest()`.
     -   Refactoring of address constants and new enumerations on constants.
