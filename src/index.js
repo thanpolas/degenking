@@ -81,6 +81,16 @@ const {
   isTrainingQuest,
 } = require('./quests/quest-utils.ent');
 
+const {
+  heroSummonCost,
+  heroSummonMinTears,
+  calculateHeroSummonCost,
+  getHeroTier,
+  getMinTears,
+  getMaxTears,
+  areHeroesRelated,
+} = require('./heroes-helpers/summon-utils.ent');
+
 const { set: setConfig } = require('./configure');
 
 const {
@@ -140,3 +150,11 @@ exports.normalizeChainHero = normalizeChainHero;
 exports.questResolve = questResolve;
 exports.isQuestNew = isQuestNew;
 exports.isTrainingQuest = isTrainingQuest;
+
+exports.heroSummonCost = heroSummonCost;
+exports.heroSummonMinTears = heroSummonMinTears;
+exports.calculateHeroSummonCost = calculateHeroSummonCost;
+exports.getHeroTier = getHeroTier;
+exports.getMinTears = getMinTears;
+exports.getMaxTears = getMaxTears;
+exports.areHeroesRelated = areHeroesRelated;
