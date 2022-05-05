@@ -23,7 +23,7 @@ exports.class = {
   6: 'monk',
   7: 'pirate',
   8: 'berserker',
-  9: 'sheer',
+  9: 'seer',
   16: 'paladin',
   17: 'darkKnight',
   18: 'summoner',
