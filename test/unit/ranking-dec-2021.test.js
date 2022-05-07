@@ -34,24 +34,24 @@ describe('Ranking Heroes', () => {
   describe('Happy Path', () => {
     test('Should return expected ranking for hero 1', () => {
       const rank = heroRankingEnt.getRanking(hero1);
-      expect(rank.mining).toEqual(55);
-      expect(rank.gardening).toEqual(13);
-      expect(rank.foraging).toEqual(26);
-      expect(rank.fishing).toEqual(38);
+      expect(rank.mining).toEqual(51);
+      expect(rank.gardening).toEqual(12);
+      expect(rank.foraging).toEqual(24);
+      expect(rank.fishing).toEqual(35);
     });
     test('Should return expected ranking for hero 2', () => {
       const rank = heroRankingEnt.getRanking(hero2);
-      expect(rank.mining).toEqual(79);
-      expect(rank.gardening).toEqual(27);
-      expect(rank.foraging).toEqual(21);
-      expect(rank.fishing).toEqual(16);
+      expect(rank.mining).toEqual(73);
+      expect(rank.gardening).toEqual(24);
+      expect(rank.foraging).toEqual(19);
+      expect(rank.fishing).toEqual(14);
     });
     test('Should return expected ranking for hero 3', () => {
       const rank = heroRankingEnt.getRanking(hero3);
-      expect(rank.mining).toEqual(86);
-      expect(rank.gardening).toEqual(24);
-      expect(rank.foraging).toEqual(39);
-      expect(rank.fishing).toEqual(31);
+      expect(rank.mining).toEqual(79);
+      expect(rank.gardening).toEqual(22);
+      expect(rank.foraging).toEqual(35);
+      expect(rank.fishing).toEqual(28);
     });
   });
 });

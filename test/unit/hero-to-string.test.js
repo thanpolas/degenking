@@ -14,7 +14,7 @@ describe('hero-to-string', () => {
       const heroStr = heroToStringEnt.heroToString(heroNormalized1Fix());
       expect(heroStr).toEqual(
         '**Owner**:Ceebs - **10000** - **G2** - **⛏️ mining** - ' +
-          '**pirate:warrior** - **Rare(2)** - **⛏️ 60%, 👨‍🌾 12%, 🌳 38%, 🎣 43%**' +
+          '**pirate:warrior** - **Rare(2)** - **⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%**' +
           ' - **CR**:37 - **JM**:32.7488 - **B1**:INT 🌳 - **B2**:DEX 🌳 - ' +
           '**RGMC**:WAR, WIZ, THF - **RGSC**:PIR, WIZ, MON - **RGP**:👨‍🌾, ⛏️, 🌳' +
           ' - **XP**:914 - **L**:1 - **PS**:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - **MS**:8' +
@@ -39,7 +39,7 @@ describe('hero-to-string', () => {
       });
       expect(heroStr).toEqual(
         'Owner:Ceebs - 10000 - G2 - ⛏️ mining - ' +
-          'pirate:warrior - Rare(2) - ⛏️ 60%, 👨‍🌾 12%, 🌳 38%, 🎣 43%' +
+          'pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%' +
           ' - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - ' +
           'RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳' +
           ' - XP:914 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - MS:8' +

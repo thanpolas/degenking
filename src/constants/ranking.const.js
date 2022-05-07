@@ -42,7 +42,7 @@ exports.STAT_GROWTH_P = {
     luck: 4000.0,
     strength: 8000.0,
     wisdom: 2000.0,
-    vitality: 6500.0
+    vitality: 6500.0,
   },
   darkKnight: {
     agilityGrowthP: 3500.0,
@@ -142,7 +142,7 @@ exports.STAT_GROWTH_P = {
     luck: 3500.0,
     strength: 3000.0,
     wisdom: 8000.0,
-    vitality: 5000.0
+    vitality: 5000.0,
   },
   shapeshifter: {
     agility: 8000.0,
@@ -152,7 +152,7 @@ exports.STAT_GROWTH_P = {
     luck: 5500.0,
     strength: 4000.0,
     wisdom: 4500.0,
-    vitality: 6500.0
+    vitality: 6500.0,
   },
   summoner: {
     agilityGrowthP: 5000.0,
