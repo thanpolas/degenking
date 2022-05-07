@@ -4,10 +4,10 @@
 
 //  max and min scores for profession (including statboost2 and rarity)
 exports.MAXES = {
-  mining: 20850.0,
-  gardening: 19600.0,
-  foraging: 18350.0,
-  fishing: 18975.0,
+  mining: 21850.0,
+  gardening: 20600.0,
+  foraging: 19350.0,
+  fishing: 19975.0,
 };
 exports.MINS = {
   mining: 10000.0,
@@ -16,10 +16,10 @@ exports.MINS = {
   fishing: 8750.0,
 };
 exports.SCALE = {
-  mining: 10850.0,
-  gardening: 10225.0,
-  foraging: 9600.0,
-  fishing: 10225.0,
+  mining: 11850.0,
+  gardening: 11225.0,
+  foraging: 10600.0,
+  fishing: 11225.0,
 };
 
 //  json of statGrowthP
@@ -33,6 +33,16 @@ exports.STAT_GROWTH_P = {
     strengthGrowthP: 5500.0,
     wisdomGrowthP: 2500.0,
     vitalityGrowthP: 5000.0,
+  },
+  berserker: {
+    agility: 5500.0,
+    dexterity: 6000.0,
+    endurance: 6000.0,
+    intelligence: 2000.0,
+    luck: 4000.0,
+    strength: 8000.0,
+    wisdom: 2000.0,
+    vitality: 6500.0
   },
   darkKnight: {
     agilityGrowthP: 3500.0,
@@ -123,6 +133,26 @@ exports.STAT_GROWTH_P = {
     strengthGrowthP: 4000.0,
     wisdomGrowthP: 9000.0,
     vitalityGrowthP: 6000.0,
+  },
+  seer: {
+    agility: 5500.0,
+    dexterity: 3000.0,
+    endurance: 5000.0,
+    intelligence: 7000.0,
+    luck: 3500.0,
+    strength: 3000.0,
+    wisdom: 8000.0,
+    vitality: 5000.0
+  },
+  shapeshifter: {
+    agility: 8000.0,
+    dexterity: 7000.0,
+    endurance: 5500.0,
+    intelligence: 2500.0,
+    luck: 5500.0,
+    strength: 4000.0,
+    wisdom: 4500.0,
+    vitality: 6500.0
   },
   summoner: {
     agilityGrowthP: 5000.0,
