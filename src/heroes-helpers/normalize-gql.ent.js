@@ -146,7 +146,7 @@ exports.normalizeGqlHero = (hero, source = 'graphql') => {
   if (normalizedHero.onRent) {
     normalizedHero.rentalData.auctionId = Number(hero.assistingAuction.id);
     normalizedHero.rentalData.owner =
-      hero.assistingAuction.seller.owner.toLowerCase();
+      hero.assistingAuction.seller?.owner?.toLowerCase();
     normalizedHero.rentalData.startingPrice = Number(
       tokenToFixed(hero.assistingAuction.startingPrice, JEWEL_DECIMALS),
     );
