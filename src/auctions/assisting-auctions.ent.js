@@ -63,6 +63,10 @@ exports._parseCriteria = (criteria) => {
     }
   }
 
+  if (criteria.summonsRemaining) {
+    gqlQueryAr.push(`summonsRemaining_gte: "${criteria.summonsRemaining}"`);
+  }
+
   const gqlWhere = gqlQueryAr.join(',');
   return gqlWhere;
 };
