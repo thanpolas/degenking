@@ -590,6 +590,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.8**, _08/May/2022_
+    -   Fixed spelling mistake for "seer", thanks cicles!
+    -   Updated ranking system to incorporate seers and berserkers, thanks p2c2e!
 -   **v0.5.7**, _05/May/2022_
     -   New classes, traits and choices added (Sheer & Berserker).
 -   **v0.5.6**, _03/May/2022_
