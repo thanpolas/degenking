@@ -590,6 +590,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.10**, _08/May/2022_
+    -   Fix ranking tests and lint ranking.
 -   **v0.5.9**, _08/May/2022_
     -   More robust assistant when on rental, thanks Anton!
 -   **v0.5.8**, _08/May/2022_
