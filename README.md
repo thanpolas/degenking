@@ -590,6 +590,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.11**, _10/May/2022_
+    -   Fixed CV hero ranking.
 -   **v0.5.10**, _08/May/2022_
     -   Fix ranking tests and lint ranking.
 -   **v0.5.9**, _08/May/2022_
