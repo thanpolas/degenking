@@ -4,6 +4,7 @@
 const testLib = require('../lib/tester.lib');
 
 const heroRankingEnt = require('../../src/heroes-helpers/hero-ranking.ent');
+const { cvHeroNormalized1Fix } = require('../fixtures/heroes.fix');
 
 const hero1 = {
   id: 71052,
@@ -52,6 +53,16 @@ describe('Ranking Heroes', () => {
       expect(rank.gardening).toEqual(22);
       expect(rank.foraging).toEqual(35);
       expect(rank.fishing).toEqual(28);
+    });
+
+    test('Should return expected ranking for Crystalvale hero', () => {
+      const heroCV = cvHeroNormalized1Fix();
+      const rank = heroRankingEnt.getRanking(heroCV);
+
+      expect(rank.mining).toEqual(24);
+      expect(rank.gardening).toEqual(66);
+      expect(rank.foraging).toEqual(47);
+      expect(rank.fishing).toEqual(31);
     });
   });
 });
