@@ -1,0 +1,2506 @@
+[
+    {
+        "key": "ambertaffy",
+        "name": "Ambertaffy",
+        "description": "It bends but it doesn’t break. Doesn’t taste great, though.",
+        "image": "./static/media/ambertaffy.82f1ddad.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0x6e1bC01Cc52D165B357c42042cF608159A2B81c1",
+            "1666700000": "0xf644bc484724f964531242992178BC6C5B33C4a3"
+        },
+        "tokenSymbol": "DFKAMBRTFY",
+        "salesPrice": 12.5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "antipoisonPotion",
+        "name": "Anti-poison Potion",
+        "description": "The potion courses through the blood, neutralizing toxins and rendering them harmless. Grants immunity to poison while it remains in the body.",
+        "image": "./static/media/antipoison-potion.d36cff7e.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0xA1f8b0E88c51a45E152934686270DDF4E3356278",
+            "1666700000": "0xaf278b61cdF5B5119b5386f4E91F8D0a1495b864"
+        },
+        "tokenSymbol": "DFKANTPSN",
+        "marketPrice": 3000,
+        "craftingIngredients": [
+            {
+                "item": "ironscale",
+                "quantity": 2
+            },
+            {
+                "item": "ambertaffy",
+                "quantity": 2
+            },
+            {
+                "item": "spiderFruit",
+                "quantity": 3
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 5
+            },
+            {
+                "item": "goldPile",
+                "quantity": 300
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "atonementCrystal",
+        "name": "Atonement Crystal",
+        "description": "Applies bonus when leveling up a hero:<ul><li>+35 Bonus to HP</li><li>+10 Bonus to MP</li></ul>",
+        "image": "./static/media/atonement-crystal.6e770e37.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x27dC6AaaD95580EdF25F8B9676f1B984e09e413d",
+            "1666700000": "0x0F798BDA7777F59138Ef8E7Ad03DC98EFa3D207d"
+        },
+        "tokenSymbol": "DFKATONECR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "atonementCrystalLesser",
+        "name": "Lesser Atonement Crystal",
+        "description": "Applies bonus when leveling up a hero:<ul><li>+15 Bonus to HP</li></ul>",
+        "image": "./static/media/atonement-crystal-lesser.6f0d63b1.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x1f3F655079b70190cb79cE5bc5AE5F19dAf2A6Cf",
+            "1666700000": "0x351D17791c396128163185a8512aC9edC820C03A"
+        },
+        "tokenSymbol": "DFKLATONECR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "atonementCrystalGreater",
+        "name": "Greater Atonement Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+1 to two random, mutually exclusive, stats</li><li>+1% to Primary Stat Growth of those same stats</li><li>+2% to Secondary Stat Growth of those same stats</li></ul>",
+        "image": "./static/media/atonement-crystal-greater.fcbed45e.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x17f3B5240C4A71a3BBF379710f6fA66B9b51f224",
+            "1666700000": "0xE02A5D2b8d08D9Da01164669A4838f7aC040DAEF"
+        },
+        "tokenSymbol": "DFKGATONECR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "blindnessPotion",
+        "name": "Anti-blinding Potion",
+        "description": "Interacts with the magical energies that cause blinding, rendering them powerless and restoring sight. Grants immunity to blindness while the effects linger.",
+        "image": "./static/media/blindness-potion.21315270.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x1771dEc8D9A29F30d82443dE0a69e7b6824e2F53",
+            "1666700000": "0x9D2C253a10738A8b2762b4cd17F3F98F39F86167"
+        },
+        "tokenSymbol": "DFKANTBLND",
+        "marketPrice": 3000,
+        "craftingIngredients": [
+            {
+                "item": "lanterneye",
+                "quantity": 2
+            },
+            {
+                "item": "darkweed",
+                "quantity": 7
+            },
+            {
+                "item": "milkweed",
+                "quantity": 2
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 5
+            },
+            {
+                "item": "goldPile",
+                "quantity": 300
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "bloater",
+        "name": "Bloater",
+        "description": "This plump fish sells for its weight in gold...but it’s mostly hot air.",
+        "image": "./static/media/bloater.8f9391d1.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0x78aED65A2Cc40C7D8B0dF1554Da60b38AD351432",
+            "1666700000": "0x87543cC8E5120fe9494B09d4908cAe7dADB7C90a"
+        },
+        "tokenSymbol": "DFKBLOATER",
+        "salesPrice": 2.5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "bluestem",
+        "name": "Bluestem",
+        "description": "Beautiful leaves. Why does blue always remind you of mana?",
+        "image": "./static/media/bluestem.0a2a55e0.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0xAC5c49Ff7E813dE1947DC74bbb1720c353079ac9",
+            "1666700000": "0xF7C247D04A346f86CCE9Afa8919CbE2B365187C1"
+        },
+        "tokenSymbol": "DFKBLUESTEM",
+        "salesPrice": 5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "breatheRune",
+        "name": "Breathe Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/breathe-rune.8df0cc25.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "chaosCrystal",
+        "name": "Chaos Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for random stat</li><li>+30% to Secondary Stat Growth roll for random stat</li></ul>",
+        "image": "./static/media/chaos-crystal.baadce4b.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x45B53E55b5c0A10fdd4fE2079a562d5702F3A033",
+            "1666700000": "0x0c60d9A0a69E7c50f8113a98f9bAB30AD66614a3"
+        },
+        "tokenSymbol": "DFKCHSCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "chaosCrystalLesser",
+        "name": "Lesser Chaos Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for random stat</li><li>+15% to Secondary Stat Growth roll for random stat</li></ul>",
+        "image": "./static/media/chaos-crystal-lesser.c3215739.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xa509c34306AdF6168268A213Cc47D336630bf101",
+            "1666700000": "0xF71c52DABB711f2cdaf2e6dA68654f2E927dbb23"
+        },
+        "tokenSymbol": "DFKLCHSCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "chaosCrystalGreater",
+        "name": "Greater Chaos Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for a random stat</li><li>+45% to Secondary Stat Growth roll for a random stat</li></ul>",
+        "image": "./static/media/chaos-crystal-greater.b4dfb286.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x423bbec25e4888967baeDB7B4EC5b0465Fa3B87D",
+            "1666700000": "0xe7BE74dB003E74427Fd0C74b9f9B8D72A7a7E83E"
+        },
+        "tokenSymbol": "DFKGCHSCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "chaosStone",
+        "name": "Chaos Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 bonus to a random stat</li><li>+5% to Primary Stat Growth of that stat</li><li>+13% to Secondary Stat Growth of that stat</li></ul>",
+        "image": "./static/media/chaos-stone.2e81e719.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x3633F956410163A98D58D2D928B38C64A488654e",
+            "1666700000": "0x564C20F0E257531464B3c1AB9e827b74C95BC9e2"
+        },
+        "tokenSymbol": "DFKCHSST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "chaosStoneLesser",
+        "name": "Lesser Chaos Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 bonus to a random stat</li><li>+3% to Primary Stat Growth of that stat</li><li>+5% to Secondary Stat Growth of that stat</li></ul>",
+        "image": "./static/media/chaos-stone-lesser.75d6dd29.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x6D4f4bC32df561a35C05866051CbE9C92759Da29",
+            "1666700000": "0x971f32b88Afa7981894a51cE7e19d997A291062a"
+        },
+        "tokenSymbol": "DFKLCHSST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 2000
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "manaPotion",
+                "quantity": 1
+            },
+            {
+                "item": "sailfish",
+                "quantity": 1
+            },
+            {
+                "item": "ambertaffy",
+                "quantity": 1
+            },
+            {
+                "item": "bluestem",
+                "quantity": 1
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "chaosStoneGreater",
+        "name": "Greater Chaos Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 bonus to a random stat</li><li>+7% to Primary Stat Growth of that stat</li><li>+21% to Secondary Stat Growth of that stat</li></ul>",
+        "image": "./static/media/chaos-stone-greater.5c17e5b5.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x2fB31FF9E9945c5c1911386865cD666b2C5dfeB6",
+            "1666700000": "0xBf52D66907BE64B904081670D246375e828581e8"
+        },
+        "tokenSymbol": "DFKGCHSST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "courageRune",
+        "name": "Courage Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/courage-rune.0bfb9a9d.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "crystal",
+        "name": "CRYSTAL",
+        "description": "You find yourself subconsciously shaking this bag, just to hear the jingle and jangle.",
+        "image": "./static/media/crystal-token.8ea540ce.png",
+        "type": "hidden",
+        "addresses": {
+            "335": "0xa5c47B4bEb35215fB0CF0Ea6516F9921591c3aCE",
+            "53935": "0x04b9dA42306B023f3572e106B11D82aAd9D32EBb"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "darkweed",
+        "name": "Darkweed",
+        "description": "A root, always found in dark places, that can deliver others from darkness.",
+        "image": "./static/media/darkweed.f370e715.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0x68EA4640C5ce6cC0c9A1F17B7b882cB1cBEACcd7",
+            "1666700000": "0x70E1EF5418448EA3f2AfCd8D22CBC1cb53988A9a"
+        },
+        "tokenSymbol": "DFKDRKWD",
+        "salesPrice": 10,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "defiagra",
+        "name": "Defiagra",
+        "description": "A truly astounding item.",
+        "image": "./static/media/defiagra.3e720dfa.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "defiagraPlus",
+        "name": "Defiagra Plus",
+        "description": "A truly astounding item.",
+        "image": "./static/media/defiagra-plus.a91aa79d.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "energyRune",
+        "name": "Energy Rune ",
+        "description": "A truly astounding item.",
+        "image": "./static/media/energy-rune.2b66221a.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPages",
+        "name": "Pages of the Eternal Story",
+        "description": "A weathered page with strange and wondrous legends, written with exquisite penmanship.",
+        "image": "./static/media/eternal-story-page.8b7c8de3.png",
+        "type": "collection",
+        "addresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "tokenSymbol": "DFKLFINCR",
+        "isConsumable": false,
+        "collectionItems": [
+            "eternalStoryPageOne",
+            "eternalStoryPageTwo",
+            "eternalStoryPageThree",
+            "eternalStoryPageFour",
+            "eternalStoryPageFive",
+            "eternalStoryPageSix",
+            "eternalStoryPageSeven",
+            "eternalStoryPageEight",
+            "eternalStoryPageNine",
+            "eternalStoryPageTen"
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageOne",
+        "name": "Eternal Story Page One",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-1.5a5c934a.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            0
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageTwo",
+        "name": "Eternal Story Page Two",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-2.302f9e68.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            1
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageThree",
+        "name": "Eternal Story Page Three",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-3.27e2125a.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            2
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageFour",
+        "name": "Eternal Story Page Four",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-4.4153f861.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            3
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageFive",
+        "name": "Eternal Story Page Five",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-5.3aba3aca.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            4
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageSix",
+        "name": "Eternal Story Page Six",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-6.09341d1e.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            5
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageSeven",
+        "name": "Eternal Story Page Seven",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-7.544bbfd5.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            6
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageEight",
+        "name": "Eternal Story Page Eight",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-8.35a0be96.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            7
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageNine",
+        "name": "Eternal Story Page Nine",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-9.fdb8943d.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            8
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "eternalStoryPageTen",
+        "name": "Eternal Story Page Ten",
+        "description": "A decorative page weathered with time and torn from a book, detailing the creatures who inhabit the world of Gaia.",
+        "image": "./static/media/eternal-story-page-10.b2e10ecf.png",
+        "type": "subcollection",
+        "addresses": {},
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "customEvents": [
+            {
+                "label": "View Page",
+                "methods": [
+                    {
+                        "args": [
+                            9
+                        ]
+                    },
+                    {
+                        "args": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        ],
+        "quantity": 0
+    },
+    {
+        "key": "finesseCrystal",
+        "name": "Finesse Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for DEX</li><li>+30% to Secondary Stat Growth roll for DEX</li></ul>",
+        "image": "./static/media/finesse-crystal.299e7d3b.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xc6A58eFc320A7aFDB1cD662eaf6de10Ee17103F2",
+            "1666700000": "0x720412b43E6eA9f061Cd6D89B491F29D415ab4ff"
+        },
+        "tokenSymbol": "DFKFINCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "finesseCrystalLesser",
+        "name": "Lesser Finesse Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for DEX</li><li>+15% to Secondary Stat Growth roll for DEX</li></ul>",
+        "image": "./static/media/finesse-crystal-lesser.6b780d1e.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x39927A2CEE5580d63A163bc402946C7600300373",
+            "1666700000": "0x25117B22Ee77fEE82813A864785704cfEd9e37C5"
+        },
+        "tokenSymbol": "DFKLFINCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "finesseCrystalGreater",
+        "name": "Greater Finesse Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for DEX</li><li>+45% to Secondary Stat Growth roll for DEX</li></ul>",
+        "image": "./static/media/finesse-crystal-greater.3225657b.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xd1f789f6f8a3ee3fb94adBE3e82f43AAb51759Ee",
+            "1666700000": "0x83228013148950efB09f042fc096E4177Abb080a"
+        },
+        "tokenSymbol": "DFKGFINCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "finesseStone",
+        "name": "Finesse Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 DEX</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/finesse-stone.1cb76f2a.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xD0B689Cb5DE0c15792Aa456C89D64038C1F2EedC",
+            "1666700000": "0x16cc1683243CAEB45B840720aF86b24916457EB9"
+        },
+        "tokenSymbol": "DFKFINST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "finesseStoneLesser",
+        "name": "Lesser Finesse Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 DEX</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/finesse-stone-lesser.818a1ec4.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xbb5614D466b77d50DdEd994892DFe6F0ACA4eEbb",
+            "1666700000": "0x7F8037ce1973E8DE88640B86bD40B8F79e08E39E"
+        },
+        "tokenSymbol": "DFKLFINST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 2000
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "magicResistPotion",
+                "quantity": 1
+            },
+            {
+                "item": "staminaPotion",
+                "quantity": 1
+            },
+            {
+                "item": "lanterneye",
+                "quantity": 1
+            },
+            {
+                "item": "swiftThistle",
+                "quantity": 1
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "finesseStoneGreater",
+        "name": "Greater Finesse Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 DEX</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/finesse-stone-greater.d2792d07.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x20f10ef23Cdc11Fa55E6B3703d88f19A7B345D15",
+            "1666700000": "0x4F5815d68fab431431Ee36c1a18dA41d36125bB1"
+        },
+        "tokenSymbol": "DFKGFINST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortitudeCrystal",
+        "name": "Fortitude Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for END</li><li>+30% to Secondary Stat Growth roll for END</li></ul>",
+        "image": "./static/media/fortitude-crystal.62ad1b30.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x603919AEB55EB13F9CDE94274fC54ab2Bd2DecE7",
+            "1666700000": "0x352E42f246a9ca79139D4Cfc7817494DC7EDaCf7"
+        },
+        "tokenSymbol": "DFKFRTICR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortitudeCrystalLesser",
+        "name": "Lesser Fortitude Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for END</li><li>+15% to Secondary Stat Growth roll for END</li></ul>",
+        "image": "./static/media/fortitude-crystal-lesser.31580e70.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x3017609B9A59B77B708D783835B6fF94a3D9E337",
+            "1666700000": "0x5a57Ca33DEc5A63132235d9a0e3dac3cdc5c5003"
+        },
+        "tokenSymbol": "DFKLFRTICR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortitudeCrystalGreater",
+        "name": "Greater Fortitude Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for END</li><li>+45% to Secondary Stat Growth roll for END</li></ul>",
+        "image": "./static/media/fortitude-crystal-greater.eaa97bec.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xFE41BFf925eD88f688332b12746ef1Da68FD4CF2",
+            "1666700000": "0x148EDF7473fB413e9c37896Fc6De1b5dA24f946F"
+        },
+        "tokenSymbol": "DFKGFRTICR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortitudeStone",
+        "name": "Fortitude Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 END</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/fortitude-stone.5e22a819.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x17Fa96ba9d9C29e4B96d29A7e89a4E7B240E3343",
+            "1666700000": "0xD7D89A1457B40570166e46c449CabD661Dbe0e76"
+        },
+        "tokenSymbol": "DFKFRTIST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortitudeStoneLesser",
+        "name": "Lesser Fortitude Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 END</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/fortitude-stone-lesser.d998b423.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x1f57eb682377f5Ad6276b9315412920BdF9530f6",
+            "1666700000": "0xF71c3fe9388DebDE97798ddA84939c70CFEa516D"
+        },
+        "tokenSymbol": "DFKLFRTIST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 3600
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "healthPotion",
+                "quantity": 1
+            },
+            {
+                "item": "toughnessPotion",
+                "quantity": 1
+            },
+            {
+                "item": "rockroot",
+                "quantity": 6
+            },
+            {
+                "item": "bluestem",
+                "quantity": 6
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortitudeStoneGreater",
+        "name": "Greater Fortitude Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 END</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/fortitude-stone-greater.fa001c4b.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x27AF2A00B42Dcc0084A6Dc99169efbFE98eb140C",
+            "1666700000": "0x90D1f603BdAd4eC33aA385406Fe79d3C28832C5d"
+        },
+        "tokenSymbol": "DFKGFRTIST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortuneCrystal",
+        "name": "Fortune Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for LCK</li><li>+30% to Secondary Stat Growth roll for LCK</li></ul>",
+        "image": "./static/media/fortune-crystal.ca3706d0.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x6D777C64f0320d8A5b31BE0FdeB694007Fc3ed45",
+            "1666700000": "0x554f36cA3aEffC9792E7368af516F687F94c22Cb"
+        },
+        "tokenSymbol": "DFKFRTUCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortuneCrystalLesser",
+        "name": "Lesser Fortune Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for LCK</li><li>+15% to Secondary Stat Growth roll for LCK</li></ul>",
+        "image": "./static/media/fortune-crystal-lesser.b722b258.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x13AF184aEA970Fe79E3BB7A1B0B156B195fB1f40",
+            "1666700000": "0xD36Ce1d217F2Bb548a0bf256686380619Fe897cC"
+        },
+        "tokenSymbol": "DFKLFRTUCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortuneCrystalGreater",
+        "name": "Greater Fortune Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for LCK</li><li>+45% to Secondary Stat Growth roll for LCK</li></ul>",
+        "image": "./static/media/fortune-crystal-greater.54b87327.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x2bC1112337B90bF8c5b9422bC1e98193a9C3d1f4",
+            "1666700000": "0x670fB2d0cD645BD094aEcdDfEcbfA68Ab01A5aEf"
+        },
+        "tokenSymbol": "DFKGFRTUCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortuneStone",
+        "name": "Fortune Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 LCK</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/fortune-stone.59836814.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x5da2EffE9857DcEcB786E13566Ff37B92e1E6862",
+            "1666700000": "0x7EE9e78557c10B0aE149506f51104D88a73B957f"
+        },
+        "tokenSymbol": "DFKFRTUST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortuneStoneLesser",
+        "name": "Lesser Fortune Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 LCK</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/fortune-stone-lesser.8c4ca3a7.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x6D6eA1D2Dc1Df6Eaa2153f212d25Cf92d13Be628",
+            "1666700000": "0x8B460a535f5Ac6D056b2F1CeBC44792eFE80a8CC"
+        },
+        "tokenSymbol": "DFKLFRTUST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 3600
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "manaPotion",
+                "quantity": 1
+            },
+            {
+                "item": "magicResistPotion",
+                "quantity": 1
+            },
+            {
+                "item": "sailfish",
+                "quantity": 2
+            },
+            {
+                "item": "darkweed",
+                "quantity": 4
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "fortuneStoneGreater",
+        "name": "Greater Fortune Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 LCK</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/fortune-stone-greater.be3635da.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x7f26CB2BBBcFCE8e5866cc02a887A591E1Adc02A",
+            "1666700000": "0x4FaaCc95D81E861016051dA3dcCC525C89098B0c"
+        },
+        "tokenSymbol": "DFKGFRTUST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "gaiasTears",
+        "name": "Gaia’s Tears",
+        "description": "A crystal that, when attuned properly, can summon heroes from faraway lands.",
+        "image": "./static/media/gaias-tear.078e8107.png",
+        "type": "summon",
+        "addresses": {
+            "335": "0x5829A860284f4c800a60ccDa4157e8dde0C32D30",
+            "53935": "0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278",
+            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04",
+            "1666700000": "0xf0e28E7c46F307954490fB1134c8D437e23D55fb"
+        },
+        "tokenSymbol": "DFKTEARS",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "goldBag",
+        "name": "Gold",
+        "description": "You find yourself subconsciously shaking this bag, just to hear the jingle and jangle.",
+        "image": "./static/media/gold-bag.99997d77.png",
+        "type": "hidden",
+        "addresses": {
+            "1666600000": "0x3a4EDcf3312f44EF027acfd8c21382a5259936e7",
+            "1666700000": "0x24B46b91E0862221D39dd30FAAd63999717860Ab"
+        },
+        "tokenSymbol": "",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "goldIngot",
+        "name": "Gold Ingot",
+        "description": "A truly astounding item.",
+        "image": "./static/media/gold-ingot.b37feb80.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "goldNuggetRaw",
+        "name": "Raw Gold Nugget",
+        "description": "A truly astounding item.",
+        "image": "./static/media/gold-nugget-raw.72b75c1c.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "goldPile",
+        "name": "Gold Pile",
+        "description": "A truly astounding item.",
+        "image": "./static/media/gold-pile.f6ef631a.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x3a4EDcf3312f44EF027acfd8c21382a5259936e7",
+            "1666700000": "0x24B46b91E0862221D39dd30FAAd63999717860Ab"
+        },
+        "tokenSymbol": "DFKGOLD",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "goldvein",
+        "name": "Goldvein",
+        "description": "Brings a whole new level to variegated leaves. Quite valuable.",
+        "image": "./static/media/goldvein.1c61b16c.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0x600541aD6Ce0a8b5dae68f086D46361534D20E80",
+            "1666700000": "0xCDDbE7Aeb5a87C5b815abDf07e25D0aA024C9E68"
+        },
+        "tokenSymbol": "DFKGLDVN",
+        "salesPrice": 100,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "healthPotion",
+        "name": "Health Vial",
+        "description": "First aid for the adventuring Hero. Heals minor wounds and restores some Hit Points to a Hero instantly.",
+        "image": "./static/media/health-potion.08520fa1.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x2789F04d22a845dC854145d3c289240517f2BcF0",
+            "1666700000": "0x2314891F7c5EccF899d1Dc6c35A971c23e7E9c31"
+        },
+        "tokenSymbol": "DFKHLTHPTN",
+        "marketPrice": 3000,
+        "craftingIngredients": [
+            {
+                "item": "ironscale",
+                "quantity": 8
+            },
+            {
+                "item": "rockroot",
+                "quantity": 8
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 5
+            },
+            {
+                "item": "goldPile",
+                "quantity": 300
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "healthPotionLarge",
+        "name": "Full Health Potion",
+        "description": "Wounds magically close while broken bones and torn muscles knit together in seconds. Restores a Hero’s HP fully.",
+        "image": "./static/media/health-potion-large.b5109dc8.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x87361363A75c9A6303ce813D0B2656c34B68FF52",
+            "1666700000": "0xbD1CF764D09378b387B0f052099978fD7f658B60"
+        },
+        "tokenSymbol": "DFKFHLTHPTN",
+        "craftingIngredients": [
+            {
+                "item": "shimmerskin",
+                "quantity": 2
+            },
+            {
+                "item": "rockroot",
+                "quantity": 10
+            },
+            {
+                "item": "ambertaffy",
+                "quantity": 3
+            },
+            {
+                "item": "healthPotion",
+                "quantity": 4
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 20
+            },
+            {
+                "item": "goldPile",
+                "quantity": 3000
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "heroEgg",
+        "name": "Hero Egg",
+        "description": "You can feel power seeping from this egg.",
+        "image": "./static/media/hero-egg.fd6c889e.png",
+        "type": "summon",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "hopeRune",
+        "name": "Hope Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/hope-rune.7523fe78.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "insightCrystal",
+        "name": "Insight Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for WIS</li><li>+30% to Secondary Stat Growth roll for WIS</li></ul>",
+        "image": "./static/media/insight-crystal.016dd205.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x117E60775584CdfA4f414E22b075F31cC9c3207C",
+            "1666700000": "0xD2c6C2caC41Ef18816f439c048B323cd202Af45b"
+        },
+        "tokenSymbol": "DFKINSCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "insightCrystalLesser",
+        "name": "Lesser Insight Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for WIS</li><li>+15% to Secondary Stat Growth roll for WIS</li></ul>",
+        "image": "./static/media/insight-crystal-lesser.c8a2c90e.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xc63b76f710e9973b8989678eb16234CfADc8D9DB",
+            "1666700000": "0x26Bd14dE3ad724E5E889cE5726Cc374463Ecee9D"
+        },
+        "tokenSymbol": "DFKLINSCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "insightCrystalGreater",
+        "name": "Greater Insight Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for WIS</li><li>+45% to Secondary Stat Growth roll for WIS</li></ul>",
+        "image": "./static/media/insight-crystal-greater.5752c2d5.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x90454DbF13846CF960abc0F583c319B06aB3F280",
+            "1666700000": "0xf9a37D029bE5D96A33C9D6e985F1F896804ee3F6"
+        },
+        "tokenSymbol": "DFKGINSCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "insightStone",
+        "name": "Insight Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 WIS</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/insight-stone.7ddd6df6.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x9D71Bb9C781FC2eBdD3d6cb709438e3c71200149",
+            "1666700000": "0x9138b74BeE92AC3c45BbA24389BF913BA3a42Ba2"
+        },
+        "tokenSymbol": "DFKINSST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "insightStoneLesser",
+        "name": "Lesser Insight Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 WIS</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/insight-stone-lesser.e2221c70.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x762b98B3758d0A5Eb95B3E4A1E2914Ce0A80D99c",
+            "1666700000": "0x2cB6b2Cb1976F2c964C39614c5D549280482fd9f"
+        },
+        "tokenSymbol": "DFKLINSST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 4000
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "antipoisonPotion",
+                "quantity": 1
+            },
+            {
+                "item": "blindnessPotion",
+                "quantity": 1
+            },
+            {
+                "item": "shimmerskin",
+                "quantity": 1
+            },
+            {
+                "item": "spiderFruit",
+                "quantity": 5
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "insightStoneGreater",
+        "name": "Greater Insight Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 WIS</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/insight-stone-greater.a82618c9.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x40654Da5a038963fA9750AF352ae9d3b1da2baD0",
+            "1666700000": "0x706820E32fbdCdc52d2866dB096E6dF8C1b6175A"
+        },
+        "tokenSymbol": "DFKGINSST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "ironIngot",
+        "name": "Iron Ingot",
+        "description": "A truly astounding item.",
+        "image": "./static/media/iron-ingot.98d21b59.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "ironNuggetRaw",
+        "name": "Raw Iron Nugget",
+        "description": "A truly astounding item.",
+        "image": "./static/media/iron-nugget-raw.1e0cc41d.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "ironscale",
+        "name": "Ironscale",
+        "description": "The Knight of the Lake. Its scales are as hard as armor.",
+        "image": "./static/media/ironscale.62564a89.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0xe4Cfee5bF05CeF3418DA74CFB89727D8E4fEE9FA",
+            "1666700000": "0x9578C39Dd4B56407C36aF3718D90a54e8422a706"
+        },
+        "tokenSymbol": "DFKIRONSCALE",
+        "salesPrice": 5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "jewelBag",
+        "name": "Jewel",
+        "description": "You find yourself subconsciously shaking this bag, just to hear the jingle and jangle.",
+        "image": "./static/media/jewel-bag.3b0423e2.png",
+        "type": "hidden",
+        "addresses": {
+            "1666600000": "0x72Cb10C6bfA5624dD07Ef608027E366bd690048F",
+            "1666700000": "0x63882d0438AdA0dD76ed2E6B7C2D53A55284A557"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "lanterneye",
+        "name": "Lanterneye",
+        "description": "Known to have a connection to magic. Don’t go toward the light...",
+        "image": "./static/media/lanterneye.017618fb.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0x8Bf4A0888451C6b5412bCaD3D9dA3DCf5c6CA7BE",
+            "1666700000": "0x555174F89aF046F3972607b1a39dE8949d26c4E0"
+        },
+        "tokenSymbol": "DFKLANTERNEYE",
+        "salesPrice": 5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mokshaRune",
+        "name": "Moksha Rune",
+        "description": "The rune pulses in your palm, the burdens on your mind witness liberation...",
+        "image": "./static/media/moksha-rune.0a594fe4.gif",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x8F655142104478724bbC72664042EA09EBbF7B38",
+            "1666700000": "0x3e36768498A678bF3b36D2aF5d3d5974dC6d209a"
+        },
+        "tokenSymbol": "DFKMOKSHA",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "lightRune",
+        "name": "Light Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/light-rune.5f705ddc.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "magicResistPotion",
+        "name": "Magic Resistance Potion",
+        "description": "Infuses the body with magically-resistant particles, reducing the effectiveness of magical attacks for a duration.",
+        "image": "./static/media/magic-resist-potion.840988c2.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x7e120334D9AFFc0982719A4eacC045F78BF41C68",
+            "1666700000": "0x9B589B52Ed702197b4A793B435cc119AAC1c376d"
+        },
+        "tokenSymbol": "DFKMGCRSPTN",
+        "craftingIngredients": [
+            {
+                "item": "lanterneye",
+                "quantity": 8
+            },
+            {
+                "item": "milkweed",
+                "quantity": 2
+            },
+            {
+                "item": "bluestem",
+                "quantity": 4
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 10
+            },
+            {
+                "item": "goldPile",
+                "quantity": 500
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "manaPotion",
+        "name": "Mana Vial",
+        "description": "Contains raw magical energy in a tasty liquid form. Restores some Mana to a Hero instantly.",
+        "image": "./static/media/mana-potion.b2618256.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x19b020001AB0C12Ffa93e1FDeF90c7C37C8C71ef",
+            "1666700000": "0x7457513C38089CC565fe543268DEe85aB0C738A3"
+        },
+        "tokenSymbol": "DFKMNPTN",
+        "marketPrice": 3000,
+        "craftingIngredients": [
+            {
+                "item": "lanterneye",
+                "quantity": 8
+            },
+            {
+                "item": "bluestem",
+                "quantity": 4
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 5
+            },
+            {
+                "item": "goldPile",
+                "quantity": 300
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "manaPotionLarge",
+        "name": "Full Mana Potion",
+        "description": "Magical energy courses through a Hero’s body as their Mana Points are fully restored.",
+        "image": "./static/media/mana-potion-large.8d385fbb.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0xDc2C698aF26Ff935cD1c50Eef3a4A933C62AF18D",
+            "1666700000": "0xaf4cB190B6Ec0c63706B2158a0A73071C1599d18"
+        },
+        "tokenSymbol": "DFKFMNPTN",
+        "craftingIngredients": [
+            {
+                "item": "lanterneye",
+                "quantity": 5
+            },
+            {
+                "item": "shimmerskin",
+                "quantity": 2
+            },
+            {
+                "item": "bluestem",
+                "quantity": 10
+            },
+            {
+                "item": "manaPotion",
+                "quantity": 4
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 20
+            },
+            {
+                "item": "goldPile",
+                "quantity": 3000
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "milkweed",
+        "name": "Milkweed",
+        "description": "Pure white, like its namesake. Feeder of butterflies and provider of magic resistance.",
+        "image": "./static/media/milkweed.05c8a7c6.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0xc0214b37FCD01511E6283Af5423CF24C96BB9808",
+            "1666700000": "0x17A1d68BEDd3aBE09ddB0551baF97386fDd5dbEB"
+        },
+        "tokenSymbol": "DFKMILKWEED",
+        "salesPrice": 12.5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mightCrystal",
+        "name": "Might Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for STR</li><li>+30% to Secondary Stat Growth roll for STR</li></ul>",
+        "image": "./static/media/might-crystal.4570c918.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xb368f69bE6eDa74700763672AEB2Ae63f3d20AE6",
+            "1666700000": "0x26b31ECe9BfdC5b1692a3D4362DB654607598236"
+        },
+        "tokenSymbol": "DFKMGHTCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mightCrystalLesser",
+        "name": "Lesser Might Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for STR</li><li>+15% to Secondary Stat Growth roll for STR</li></ul>",
+        "image": "./static/media/might-crystal-lesser.2e93bc53.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xaB464901AFBc61bAC440a97Fa568aC42885Da58B",
+            "1666700000": "0x2DE38B2cd4E76E8ff2d03515363480df69531511"
+        },
+        "tokenSymbol": "DFKLMGHTCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mightCrystalGreater",
+        "name": "Greater Might Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for STR</li><li>+45% to Secondary Stat Growth roll for STR</li></ul>",
+        "image": "./static/media/might-crystal-greater.67c2f3c5.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xdFA5aE156AD4590A0061E9c4E8cc5bd60bc775c7",
+            "1666700000": "0x026CaD2dc3d83E8D5E4390bD6e0FaE147eDda9aD"
+        },
+        "tokenSymbol": "DFKGMGHTCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mightStone",
+        "name": "Might Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 STR</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/might-stone.aff50d27.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xE7F6ea1cE7BbEbC9F2Cf080010dd938d2D8D8B1b",
+            "1666700000": "0x677028bcDbdb4A5bCDc49fEa97517566b0021C0f"
+        },
+        "tokenSymbol": "DFKMGHTST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mightStoneLesser",
+        "name": "Lesser Might Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 STR</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/might-stone-lesser.89e91a9e.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xe4E7C0c693d8A7FC159776a993495378705464A7",
+            "1666700000": "0x6382781FE94CAadC71027c0457c9CbEff06e204c"
+        },
+        "tokenSymbol": "DFKLMGHTST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 3600
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "healthPotion",
+                "quantity": 1
+            },
+            {
+                "item": "toughnessPotion",
+                "quantity": 1
+            },
+            {
+                "item": "rockroot",
+                "quantity": 8
+            },
+            {
+                "item": "spiderFruit",
+                "quantity": 3
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "mightStoneGreater",
+        "name": "Greater Might Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 STR</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/might-stone-greater.c75ac016.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x2bc05bf05E273a2276F19a8Bd6738e742A5685b3",
+            "1666700000": "0x0513f27Af88cCc9cFEB0093A3e370fE793BF0F94"
+        },
+        "tokenSymbol": "DFKGMGHTST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "omRune",
+        "name": "Om Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/om-rune.1afc0eef.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "petEggBlack",
+        "name": "Black Pet Egg",
+        "description": "You think this egg might have been incubated too long.",
+        "image": "./static/media/pet-egg-black.fa414c9c.png",
+        "type": "pet",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "petEggBlue",
+        "name": "Blue Pet Egg",
+        "description": "An aquatic-looking egg.",
+        "image": "./static/media/pet-egg-blue.ee9b43cc.png",
+        "type": "pet",
+        "addresses": {
+            "1666600000": "0x9678518e04Fe02FB30b55e2D0e554E26306d0892",
+            "1666700000": "0x9D9675170946eAffb3A750DB75AB4B559cC91668"
+        },
+        "tokenSymbol": "DFKBLUEEGG",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "petEggGolden",
+        "name": "Golden Pet Egg",
+        "description": "Looks like real gold. Is it though?",
+        "image": "./static/media/pet-egg-golden.ea582de7.gif",
+        "type": "pet",
+        "addresses": {
+            "1666600000": "0x9edb3Da18be4B03857f3d39F83e5C6AAD67bc148",
+            "1666700000": "0x7b81c426162977525084dEe06Cb9D73F8A9fD77e"
+        },
+        "tokenSymbol": "DFKGOLDEGG",
+        "marketPrice": 50000,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "petEggGreen",
+        "name": "Green Pet Egg",
+        "description": "If you put your ear against it, you can hear a soft noise.",
+        "image": "./static/media/pet-egg-green.01ce8e5c.png",
+        "type": "pet",
+        "addresses": {
+            "1666600000": "0x6d605303e9Ac53C59A3Da1ecE36C9660c7A71da5",
+            "1666700000": "0xa5fFbff0b47B05cAd7Ab217Ea103F546a4Dae31F"
+        },
+        "tokenSymbol": "DFKGREENEGG",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "petEggGrey",
+        "name": "Grey Pet Egg",
+        "description": "An egg that reminds you of the forest.",
+        "image": "./static/media/pet-egg-grey.378fcc8d.png",
+        "type": "pet",
+        "addresses": {
+            "1666600000": "0x95d02C1Dc58F05A015275eB49E107137D9Ee81Dc",
+            "1666700000": "0x2dd97351F41411B2fAf0FbEb4235737815c7857b"
+        },
+        "tokenSymbol": "DFKGREGG",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "petEggYellow",
+        "name": "Yellow Pet Egg",
+        "description": "You sense something slumbering inside.",
+        "image": "./static/media/pet-egg-yellow.00351af6.png",
+        "type": "pet",
+        "addresses": {
+            "1666600000": "0x3dB1fd0Ad479A46216919758144FD15A21C3e93c",
+            "1666700000": "0x6D02EF7f7686c3330a40A0AD9218b66A957C9405"
+        },
+        "tokenSymbol": "DFKYELOWEGG",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "pureRune",
+        "name": "Pure Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/pure-rune.43e23de6.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "ragweed",
+        "name": "Ragweed",
+        "description": "A lousy allergen and irritant. Highly invasive. Sells for a bounty.",
+        "image": "./static/media/ragweed.fc716588.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0x043F9bd9Bb17dFc90dE3D416422695Dd8fa44486",
+            "1666700000": "0xa81D367C63F3e737688337fcbF4236Ce91f05347"
+        },
+        "tokenSymbol": "DFKRGWD",
+        "salesPrice": 2.5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "redgill",
+        "name": "Redgill",
+        "description": "Fetches a decent price in gold. A staple in Adelyn fish chowder.",
+        "image": "./static/media/redgill.a5d5da27.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0xc5891912718ccFFcC9732D1942cCD98d5934C2e1",
+            "1666700000": "0x59d94005ea7E8E5d44c265Fa64de7A5A34BD6F13"
+        },
+        "tokenSymbol": "DFKREDGILL",
+        "salesPrice": 15,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "redleaf",
+        "name": "Redleaf",
+        "description": "A popular decoration, there’s a reasonable market demand for these.",
+        "image": "./static/media/redleaf.15f7a64f.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0x094243DfABfBB3E6F71814618ace53f07362a84c",
+            "1666700000": "0x219f1576Ff3CaD0Eb12FC9C52E66656Db164b330"
+        },
+        "tokenSymbol": "DFKRDLF",
+        "salesPrice": 15,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "rock",
+        "name": "Rock",
+        "description": "You are overcome with the desire to paint some eyes on it.",
+        "image": "./static/media/rock.8525b613.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "rockroot",
+        "name": "Rockroot",
+        "description": "Linked to healing. Its ability to grow in such inhospitable conditions is remarkable.",
+        "image": "./static/media/rockroot.e4bc78d8.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0x6B10Ad6E3b99090De20bF9f95F960addC35eF3E2",
+            "1666700000": "0x449C417faB9a54e9343Bb48667CB7A495fC7ac25"
+        },
+        "tokenSymbol": "DFKRCKRT",
+        "salesPrice": 5,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "sailfish",
+        "name": "Sailfish",
+        "description": "Its dorsal fin resembles a sail, and it’s an incredibly fast swimmer.",
+        "image": "./static/media/sailfish.2a546668.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0xb80A07e13240C31ec6dc0B5D72Af79d461dA3A70",
+            "1666700000": "0x9b794f8a2E89Ad6954ACe9454E832d467121F48a"
+        },
+        "tokenSymbol": "DFKSAILFISH",
+        "salesPrice": 50,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "shimmerskin",
+        "name": "Shimmerskin",
+        "description": "The iridescent beauty of its scales hints at great power.",
+        "image": "./static/media/shimmerskin.ebb8c557.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0x372CaF681353758f985597A35266f7b330a2A44D",
+            "1666700000": "0xced132D80E18c8553aF415E27e9f79f32f3E4De3"
+        },
+        "tokenSymbol": "DFKSHIMMERSKIN",
+        "salesPrice": 60,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "shvasRune",
+        "name": "Shvas Rune",
+        "description": "This rune pulses with power. Watching it, you begin to breathe in its rhythm...",
+        "image": "./static/media/shvas-rune.9e089d50.gif",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x66F5BfD910cd83d3766c4B39d13730C911b2D286",
+            "1666700000": "0x457A99042D3ba3b61A036f3dC801243670c87c51"
+        },
+        "tokenSymbol": "DFKSHVAS",
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "silverfin",
+        "name": "Silverfin",
+        "description": "High market price. Prized for its meat. Pan-sear and flavor with cinnamon.",
+        "image": "./static/media/silverfin.8456009c.png",
+        "type": "scrap",
+        "addresses": {
+            "1666600000": "0x2493cfDAcc0f9c07240B5B1C4BE08c62b8eEff69",
+            "1666700000": "0xD6a6fc0279f915BCA59bf9BCf6F8619aa9eda756"
+        },
+        "tokenSymbol": "DFKSILVERFIN",
+        "salesPrice": 100,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "soulRune",
+        "name": "Soul Rune",
+        "description": "A truly astounding item.",
+        "image": "./static/media/soul-rune.db93b9d6.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "spiderFruit",
+        "name": "Spiderfruit",
+        "description": "Might look like poison, but it can actually save you from it.",
+        "image": "./static/media/spider-fruit.cdcc50c5.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0x19B9F05cdE7A61ab7aae5b0ed91aA62FF51CF881",
+            "1666700000": "0x8808b672760db9fFc87aB26682D8368d31d29e54"
+        },
+        "tokenSymbol": "DFKSPIDRFRT",
+        "salesPrice": 10,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "staminaPotion",
+        "name": "Stamina Vial",
+        "description": "A quick pick-me-up in a convenient, single-serving bottle. Energizes a Hero, restoring 25 Stamina instantaneously.",
+        "image": "./static/media/stamina-potion.2ec4fd96.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x959ba19508827d1ed2333B1b503Bd5ab006C710e",
+            "1666700000": "0x4b8a24950c91886d49B8156B24fb3DB4f90D7930"
+        },
+        "tokenSymbol": "DFKSTMNPTN",
+        "craftingIngredients": [
+            {
+                "item": "shimmerskin",
+                "quantity": 1
+            },
+            {
+                "item": "swiftThistle",
+                "quantity": 1
+            },
+            {
+                "item": "darkweed",
+                "quantity": 2
+            },
+            {
+                "item": "spiderFruit",
+                "quantity": 2
+            },
+            {
+                "item": "milkweed",
+                "quantity": 2
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 10
+            },
+            {
+                "item": "goldPile",
+                "quantity": 2000
+            }
+        ],
+        "isConsumable": true,
+        "quantity": 0
+    },
+    {
+        "key": "staminaPotionLarge",
+        "name": "Stamina Pot",
+        "description": "Restores a good amount of stamina.",
+        "image": "./static/media/stamina-potion-large.11bfcba4.gif",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "stoneBlockChiseled",
+        "name": "Chiseled Stone Block",
+        "description": "A truly astounding item.",
+        "image": "./static/media/stone-block-chiseled.6a9b9026.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessCrystal",
+        "name": "Swiftness Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for AGI</li><li>+30% to Secondary Stat Growth roll for AGI</li></ul>",
+        "image": "./static/media/swiftness-crystal.6df440d6.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x5d7f20e3B0f1406Bf038175218eA7e9B4838908c",
+            "1666700000": "0x9D3180dbd920a0148e256A330bc371437A6C2Ca4"
+        },
+        "tokenSymbol": "DFKSWFTCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessCrystalLesser",
+        "name": "Lesser Swiftness Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for AGI</li><li>+15% to Secondary Stat Growth roll for AGI</li></ul>",
+        "image": "./static/media/swiftness-crystal-lesser.f9c99e38.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xf5c26F2F34E9245C3A9ea0B0e7Ea7B33E6404Da0",
+            "1666700000": "0x6371C5c57C6169d39e6460891cB55b2647197785"
+        },
+        "tokenSymbol": "DFKLSWFTCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessCrystalGreater",
+        "name": "Greater Swiftness Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for AGI</li><li>+45% to Secondary Stat Growth roll for AGI</li></ul>",
+        "image": "./static/media/swiftness-crystal-greater.b261d035.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x1e38e63227D52CBaDA2f0c11bE04feD64154ea37",
+            "1666700000": "0x46f743832447f621a34472C69E0456836820520c"
+        },
+        "tokenSymbol": "DFKGSWFTCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessStone",
+        "name": "Swiftness Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 AGI</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/swiftness-stone.9d600c4a.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x08f362517aD4119d93bBCd20825c2E4119abB495",
+            "1666700000": "0xB33dD42899864a9C01f680f95Fb86C4bbC65e2FA"
+        },
+        "tokenSymbol": "DFKSWFTST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessStoneLesser",
+        "name": "Lesser Swiftness Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 AGI</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/swiftness-stone-lesser.ff8b515b.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xd9A8abC0Ce1ADC23F1c1813986c9a9C21C9e7510",
+            "1666700000": "0x9c5CED9F39C196B8d4bB1cB32d76fd18598f77cD"
+        },
+        "tokenSymbol": "DFKLSWFTST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 4000
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "manaPotion",
+                "quantity": 1
+            },
+            {
+                "item": "blindnessPotion",
+                "quantity": 1
+            },
+            {
+                "item": "sailfish",
+                "quantity": 1
+            },
+            {
+                "item": "swiftThistle",
+                "quantity": 2
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessStoneGreater",
+        "name": "Greater Swiftness Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 AGI</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/swiftness-stone-greater.705d1854.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xA1a56D20e4ba3fd2FB91c80f611ECa43c1311Afe",
+            "1666700000": "0x5686Aab9729ef000d25889c49db5EEeDF555988e"
+        },
+        "tokenSymbol": "DFKGSWFTST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftnessPotion",
+        "name": "Swiftness Potion",
+        "description": "Time itself seems to stretch and slow as reaction time is enhanced. Increases a Hero’s agility temporarily.",
+        "image": "./static/media/swiftness-potion.d02d4783.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0x872dD1595544CE22ad1e0174449C7ECE6F0bb01b",
+            "1666700000": "0x2724b01CcCE03e9c10B8a8Dfa4e850A22B4e908B"
+        },
+        "tokenSymbol": "DFKSWFTPTN",
+        "craftingIngredients": [
+            {
+                "item": "sailfish",
+                "quantity": 2
+            },
+            {
+                "item": "swiftThistle",
+                "quantity": 2
+            },
+            {
+                "item": "magicResistPotion",
+                "quantity": 1
+            },
+            {
+                "item": "toughnessPotion",
+                "quantity": 1
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 20
+            },
+            {
+                "item": "goldPile",
+                "quantity": 3000
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "swiftThistle",
+        "name": "Swift-Thistle",
+        "description": "The purple flowers are known to enhance speed when used correctly, hence the name.",
+        "image": "./static/media/swift-thistle.cf67e409.png",
+        "type": "ingredient",
+        "addresses": {
+            "1666600000": "0xCdfFe898E687E941b124dfB7d24983266492eF1d",
+            "1666700000": "0x3dc5DbE4eB979762Bbed0C559D0bfB4778582357"
+        },
+        "tokenSymbol": "DFKSWFTHSL",
+        "salesPrice": 75,
+        "featuredMetric": true,
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "toughnessPotion",
+        "name": "Toughness Potion",
+        "description": "Hardens skin and strengthens bone. Increases a Hero’s defense against physical damage for a period of time.",
+        "image": "./static/media/toughness-potion.389d4af8.png",
+        "type": "potion",
+        "addresses": {
+            "1666600000": "0xFb03c364969a0bB572Ce62b8Cd616A7DDEb4c09A",
+            "1666700000": "0xdF0bD83eA9D7ffA04f9515383E24Cd607b0DD932"
+        },
+        "tokenSymbol": "DFKTFNSPTN",
+        "craftingIngredients": [
+            {
+                "item": "ironscale",
+                "quantity": 8
+            },
+            {
+                "item": "ambertaffy",
+                "quantity": 7
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 10
+            },
+            {
+                "item": "goldPile",
+                "quantity": 500
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "vigorCrystal",
+        "name": "Vigor Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for VIT</li><li>+30% to Secondary Stat Growth roll for VIT</li></ul>",
+        "image": "./static/media/vigor-crystal.ca82d749.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xBbA50bD111DC586Fd1f2B1476B6eC505800A3FD0",
+            "1666700000": "0xFe168C31fa552a3164e1CC9914bCb7A2f6F3ee25"
+        },
+        "tokenSymbol": "DFKVGRCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "vigorCrystalLesser",
+        "name": "Lesser Vigor Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for VIT</li><li>+15% to Secondary Stat Growth roll for VIT</li></ul>",
+        "image": "./static/media/vigor-crystal-lesser.2021eacf.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x0d8403E47445DB9E316E36F476dacD5827220Bdd",
+            "1666700000": "0xc4BEBAE1e32E49f5851fA20797EB5892d8FA52A0"
+        },
+        "tokenSymbol": "DFKLVGRCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "vigorCrystalGreater",
+        "name": "Greater Vigor Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for VIT</li><li>+45% to Secondary Stat Growth roll for VIT</li></ul>",
+        "image": "./static/media/vigor-crystal-greater.88c1436c.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x5292dbce7eC2e10dd500984A163A5aE8abA585Ce",
+            "1666700000": "0x6881d8c1628C15d7BfcBe52098db175AF4eA936e"
+        },
+        "tokenSymbol": "DFKGVGRCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "vigorStone",
+        "name": "Vigor Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 VIT</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/vigor-stone.c1336984.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x9df75917aC9747B4A70fa033E4b0182d85B62857",
+            "1666700000": "0xDa8a43B05196A9235c81508e90f0393c4C88201c"
+        },
+        "tokenSymbol": "DFKVGRST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "vigorStoneLesser",
+        "name": "Lesser Vigor Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 VIT</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/vigor-stone-lesser.78e6cc80.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xB00CbF5Cd5e7b321436C2D3d8078773522D2F073",
+            "1666700000": "0x0ff7A912CA06607531d25F31B586822aAc997405"
+        },
+        "tokenSymbol": "DFKLVGRST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 2000
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "healthPotion",
+                "quantity": 1
+            },
+            {
+                "item": "staminaPotion",
+                "quantity": 1
+            },
+            {
+                "item": "sailfish",
+                "quantity": 1
+            },
+            {
+                "item": "rockroot",
+                "quantity": 4
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "vigorStoneGreater",
+        "name": "Greater Vigor Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 VIT</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/vigor-stone-greater.8daf871f.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x00a2E2F8Feb81FDB7205992B5Abd2a801b419394",
+            "1666700000": "0x9d02e773D0AAe3601c0baC2f0a8a199D50162F12"
+        },
+        "tokenSymbol": "DFKGVGRST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "wisdomRune",
+        "name": "Wisdom Rune",
+        "description": "Opens your mind and expands your senses.",
+        "image": "./static/media/wisdom-rune.f4db3ec3.png",
+        "type": "rune",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "witCrystal",
+        "name": "Wit Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+10% to Primary Stat Growth roll for INT</li><li>+30% to Secondary Stat Growth roll for INT</li></ul>",
+        "image": "./static/media/wit-crystal.04d093e1.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x3619fc2386FbBC19DDC39d29A72457e758CFAD69",
+            "1666700000": "0xC1bb514E55b861afEff2E9413Cd37638e3994186"
+        },
+        "tokenSymbol": "DFKWITCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "witCrystalLesser",
+        "name": "Lesser Wit Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+5% to Primary Stat Growth roll for INT</li><li>+15% to Secondary Stat Growth roll for INT</li></ul>",
+        "image": "./static/media/wit-crystal-lesser.680dff32.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0x17ff2016c9ecCFBF4Fc4DA6EF95Fe646D2c9104F",
+            "1666700000": "0x436Aa99f5024DbeD2BeF82aB4B1b675ed1746A96"
+        },
+        "tokenSymbol": "DFKLWITCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "witCrystalGreater",
+        "name": "Greater Wit Crystal",
+        "description": "Applies the following temporary modifiers when leveling:<ul><li>+15% to Primary Stat Growth roll for INT</li><li>+45% to Secondary Stat Growth roll for INT</li></ul>",
+        "image": "./static/media/wit-crystal-greater.78dc3755.gif",
+        "type": "crystal",
+        "addresses": {
+            "1666600000": "0xbaAb8dB69a2FdC0b88B2B3F6F75Fa8899680c43B",
+            "1666700000": "0x070f589f24BCCef071a99BedD1737e0CF0919DaE"
+        },
+        "tokenSymbol": "DFKGWITCR",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "witStone",
+        "name": "Wit Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+6 INT</li><li>+5% to Primary Stat Growth</li><li>+13% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/wit-stone.0fd14c0d.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x939Ea05C81aAC48F7C10BdB08615082B82C80c63",
+            "1666700000": "0x3287a5E500E2131D972f67cB04b113483277d339"
+        },
+        "tokenSymbol": "DFKWITST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "witStoneLesser",
+        "name": "Lesser Wit Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+4 INT</li><li>+3% to Primary Stat Growth</li><li>+5% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/wit-stone-lesser.90cd1a56.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0x4Ff7A020ec1100D36d5C81F3D4815F2e9C704b59",
+            "1666700000": "0xc8FF011e1cE1FC3F4450730FCec45c1b4CF5f00f"
+        },
+        "tokenSymbol": "DFKLWITST",
+        "craftingIngredients": [
+            {
+                "item": "goldPile",
+                "quantity": 4000
+            },
+            {
+                "item": "gaiasTears",
+                "quantity": 50
+            },
+            {
+                "item": "antipoisonPotion",
+                "quantity": 1
+            },
+            {
+                "item": "blindnessPotion",
+                "quantity": 1
+            },
+            {
+                "item": "shimmerskin",
+                "quantity": 2
+            },
+            {
+                "item": "darkweed",
+                "quantity": 3
+            },
+            {
+                "item": "shvasRune",
+                "quantity": 2
+            }
+        ],
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "witStoneGreater",
+        "name": "Greater Wit Stone",
+        "description": "Applies bonus to new Hero when summoning:<ul><li>+8 INT</li><li>+7% to Primary Stat Growth</li><li>+21% to Secondary Stat Growth</li></ul>",
+        "image": "./static/media/wit-stone-greater.a40e2b9a.gif",
+        "type": "stone",
+        "addresses": {
+            "1666600000": "0xa6e86F2b43Ae73cfB09A3bA779AeB8Fd48417ba0",
+            "1666700000": "0xc4B03E7432FADc938994588b9f78f6667a5d0eF9"
+        },
+        "tokenSymbol": "DFKGWITST",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "woodBeamRefined",
+        "name": "Refined Wood Beam",
+        "description": "A truly astounding item.",
+        "image": "./static/media/wood-beam-refined.edf071d8.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    },
+    {
+        "key": "woodPlankRefined",
+        "name": "Refined Wood Plank",
+        "description": "A truly astounding item.",
+        "image": "./static/media/wood-plank-refined.fbffa02c.png",
+        "type": "material",
+        "addresses": {
+            "1666600000": "0x0000000000000000000000000000000000000001",
+            "1666700000": "0x0000000000000000000000000000000000000001"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "quantity": 0
+    }
+]
