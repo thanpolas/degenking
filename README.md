@@ -590,6 +590,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.5.12**, _10/May/2022_
+    -   Added and exported `ALL_ITEMS` as fetched from DFK frontend source.
+    -   Added and exported `abiItems` (the Items ABI).
 -   **v0.5.11**, _10/May/2022_
     -   Fixed CV hero ranking.
 -   **v0.5.10**, _08/May/2022_
