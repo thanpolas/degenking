@@ -130,6 +130,7 @@ exports.ADDRESS = require('./constants/addresses.const');
 exports.CHOICES = require('./constants/choices.const');
 exports.CONSTANTS = require('./constants/constants.const');
 exports.POWER_PAIRS = require('./constants/power-pairs.const');
+exports.ALL_ITEMS = require('./constants/all-items.json');
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
@@ -158,3 +159,7 @@ exports.getHeroTier = getHeroTier;
 exports.getMinTears = getMinTears;
 exports.getMaxTears = getMaxTears;
 exports.areHeroesRelated = areHeroesRelated;
+
+// ABIs
+
+exports.abiItems = require('./abi/items.abi.json');
