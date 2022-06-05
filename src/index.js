@@ -96,6 +96,7 @@ const { set: setConfig } = require('./configure');
 const {
   normalizeChainHero,
 } = require('./heroes-fetch/normalise-blockchain.ent');
+const { queryQuest, fetchQuestData } = require('./quests/quest-query.ent');
 
 exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
@@ -159,6 +160,10 @@ exports.getHeroTier = getHeroTier;
 exports.getMinTears = getMinTears;
 exports.getMaxTears = getMaxTears;
 exports.areHeroesRelated = areHeroesRelated;
+
+// Quests
+exports.queryQuest = queryQuest;
+exports.fetchQuestData = fetchQuestData;
 
 // ABIs
 
