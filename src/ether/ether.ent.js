@@ -11,6 +11,8 @@ const abiAuctionSales = require('../abi/auction.abi.json');
 const abiProfiles = require('../abi/profile.abi.json');
 const abiJewel = require('../abi/jewel.abi.json');
 const abiConsumable = require('../abi/consumable.abi.json');
+const abiQuestCoreV1 = require('../abi/quest-core-v1.abi.json');
+const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 
 const {
   HEROES_NFT,
@@ -18,6 +20,8 @@ const {
   PROFILES,
   JEWELTOKEN,
   CONSUMABLE_ADDRESS,
+  QUEST_CORE_V1_CONTRACT,
+  QUEST_CORE_V2_CONTRACT,
 } = require('../constants/addresses.const');
 
 /**
@@ -117,6 +121,38 @@ exports.getContractAuctionSales = (currentRPC) => {
 exports.getContractJewel = (currentRPC) => {
   const { provider } = currentRPC;
   const contract = new ethers.Contract(JEWELTOKEN, abiJewel, provider);
+  return contract;
+};
+
+/**
+ * Get the Quest Core V1 contract.
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getQuestCoreV1 = (currentRPC) => {
+  const { provider } = currentRPC;
+  const contract = new ethers.Contract(
+    QUEST_CORE_V1_CONTRACT,
+    abiQuestCoreV1,
+    provider,
+  );
+  return contract;
+};
+
+/**
+ * Get the Quest Core V2 contract.
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getQuestCoreV2 = (currentRPC) => {
+  const { provider } = currentRPC;
+  const contract = new ethers.Contract(
+    QUEST_CORE_V2_CONTRACT,
+    abiQuestCoreV2,
+    provider,
+  );
   return contract;
 };
 
