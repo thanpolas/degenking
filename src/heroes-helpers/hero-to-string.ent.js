@@ -84,6 +84,22 @@ exports.heroesCurrentStats = (heroes) => {
 };
 
 /**
+ * Will convert a hero object to a human readable string focused on quest values.
+ *
+ * @param {Object} hero A normalized hero obejct.
+ * @return {string} Human readable hero.
+ * @private
+ */
+exports.heroQuestStr = (hero) => {
+  const questing = hero.currentQuest === ZERO_ADDRESS ? 'N' : 'Q';
+  const heroStr =
+    `${hero.id}-${hero.currentStamina}-` +
+    `${hero.estJewelPer100Ticks}J-R:${hero.currentRank}-${questing}`;
+
+  return heroStr;
+};
+
+/**
  * Produce tiny parts of hero.
  *
  * @param {Object} hero Hero data object.
