@@ -570,6 +570,73 @@ console.log(lockedJewel);
 // 12.9
 ```
 
+## Questing API
+
+### queryQuest(questId)
+
+Fetches rich information from on-chain about a specific quest id. There are a few interesting things happening behind the scenes with this one:
+
+-   It will determine if the questId belongs to QuestCoreV1 (gardening and mining) or the newest QuestCoreV2 (Training Quests, foraging, fishing) and normalize accordingly.
+-   If the quest is Gardening, it will also fetch the pool the quest was on.
+-   If the quest is V2, it will query for the heroes (not available on the V2 quest query function).
+-   It will fetch the heroes' data **at the time the quest started** by performing an archival query.
+
+*   `questId` **{string|number}** The quest id to query for.
+*   **Returns** **{Promise\<Object\>}** A Promise with the rich normalized quest data.
+
+```js
+const { queryQuest } = require('@thanpolas/degenking');
+
+const questData = await queryQuest(100000);
+
+console.log(questData);
+```
+
+#### queryQuest() Response
+
+```js
+{
+  version: 1, // QuestCore Version
+  id: 100000, // Quest id
+  // Quest contract address
+  questAddress: '0x569E6a4c2e3aF31B337Be00657B4C040C828Dd73',
+  // Quest contract address lowercased
+  questAddressLower: '0x569e6a4c2e3af31b337be00657b4c040c828dd73',
+  // Quest name
+  questName: 'MINING_GOLD',
+  // Player's address
+  playerAddress: '0x0000000000000000000000000000000000000000',
+  // Player's address lowercase
+  playerAddressLower: '0x0000000000000000000000000000000000000000',
+  // In game name of the player (profile)
+  profileName: 'ingamename'
+  startBlock: 27383000, // Block number rquest started
+  startAtTime: 2022-06-04T21:51:23.000Z, // Native JS data
+  completeAtTime: 2022-06-05T00:01:23.000Z, // Native JS data
+  attempts: 1, // Quest Attempts
+  // Quest Status:
+  // 1: In Progress
+  // 2: Complete
+  status: 2,
+  // Array of hero ids
+  heroIds: [ 49162, 128862, 146194, 146091, 159853, 173313 ],
+  // Array of full objects of heroes as fetched from the chain
+  // at the time of the "startBlock" value.
+  allHeroes: [{}]
+  // String representation of heroes optimized for questing, as an Array
+  heroesQuestAr: [
+    'id:49162 Stam:14 JPT100:37.76978J R:104 Q:Y',
+    'id:128862 Stam:14 JPT100:37.02038J R:94 Q:Y',
+    'id:146194 Stam:13 JPT100:36.27098J R:84 Q:Y',
+    'id:146091 Stam:13 JPT100:36.1211J R:82 Q:Y',
+    'id:159853 Stam:13 JPT100:35.82134J R:78 Q:Y',
+    'id:173313 Stam:26 JPT100:33.4982J R:47 Q:Y'
+  ],
+  // String representation of heroes optimized for questing, as a string
+  heroesQuestStr: 'id:49162 Stam:14 JPT100:37.76978J R:104 Q:Y, id:128862 Stam:14 JPT100:37.02038J R:94 Q:Y, id:146194 Stam:13 JPT100:36.27098J R:84 Q:Y, id:146091 Stam:13 JPT100:36.1211J R:82 Q:Y, id:159853 Stam:13 JPT100:35.82134J R:78 Q:Y, id:173313 Stam:26 JPT100:33.4982J R:47 Q:Y',
+}
+```
+
 # Maintenance and Contributing
 
 ## Update Node Version
