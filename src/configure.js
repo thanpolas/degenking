@@ -23,6 +23,16 @@ exports._config = {
       provider,
     };
   },
+  getArchivalProvider: () => {
+    const provider = new ethers.providers.JsonRpcProvider(
+      'https://a.api.s0.t.hmny.io/',
+    );
+
+    return {
+      name: 'archival-hmny',
+      provider,
+    };
+  },
 };
 
 /**

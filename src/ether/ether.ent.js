@@ -46,6 +46,20 @@ exports.getProvider = async (optPrivKey) => {
 };
 
 /**
+ * Get an archival RPC provider object (only one exists at the moment).
+ *
+ * @return {Promise<Object>} A Custom object containing the keys "name" for the
+ *    arbitrary name of the RPC and "provider" that contains the actual
+ *    ethers.js instance.
+ */
+exports.getArchivalProvider = async () => {
+  const getProvider = configuration.get('getArchivalProvider');
+  const currentRPC = await getProvider();
+
+  return currentRPC;
+};
+
+/**
  * Produces and returns the signer RPC Object.
  *
  * @param {Object} currentRPC RPC Object.
