@@ -91,10 +91,10 @@ exports.heroesCurrentStats = (heroes) => {
  * @private
  */
 exports.heroQuestStr = (hero) => {
-  const questing = hero.currentQuest === ZERO_ADDRESS ? 'N' : 'Q';
+  const questing = hero.currentQuest === ZERO_ADDRESS ? 'N' : 'Y';
   const heroStr =
-    `${hero.id}-${hero.currentStamina}-` +
-    `${hero.estJewelPer100Ticks}J-R:${hero.currentRank}-${questing}`;
+    `id:${hero.id} Stam:${hero.currentStamina} ` +
+    `JPT100:${hero.estJewelPer100Ticks}J R:${hero.currentRank} Q:${questing}`;
 
   return heroStr;
 };
