@@ -21,6 +21,7 @@ const {
 const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 const { heroQuestStr } = require('../heroes-helpers/hero-to-string.ent');
 const { PoolsIndexedByPid } = require('../constants/garden-pools.const');
+const { getProfileByAddress } = require('../heroes-fetch/owner-profile.ent');
 
 /**
  * Queries the blockchain to fetch all available data of a
@@ -31,8 +32,16 @@ const { PoolsIndexedByPid } = require('../constants/garden-pools.const');
  */
 exports.queryQuest = async (questId) => {
   const questData = await exports.fetchQuestData(questId);
-  await exports.getQuestHeroData(questData);
-  await exports.getGardeningData(questData);
+
+  const [, , profileData] = await Promise.all([
+    exports.getQuestHeroData(questData),
+    exports.getGardeningData(questData),
+    getProfileByAddress(questData.playerAddress),
+  ]);
+
+  if (profileData) {
+    questData.profileName = profileData.name;
+  }
 
   return questData;
 };
@@ -86,18 +95,18 @@ exports.normalizeQuestV1 = (rawQuestDataV1) => {
     version: 1,
     id: Number(rawQuestDataV1.id),
     questAddress: rawQuestDataV1.quest,
-    questAddressLower: rawQuestDataV1.quest.toLowerCase(),
+    questAddressLower: rawQuestDataV1.quest?.toLowerCase(),
     playerAddress: rawQuestDataV1.player,
-    playerAddressLower: rawQuestDataV1.player.toLowerCase(),
+    playerAddressLower: rawQuestDataV1.player?.toLowerCase(),
 
-    startBlock: unixToJsDate(rawQuestDataV1.startBlock),
+    startBlock: Number(rawQuestDataV1.startBlock),
     startAtTime: unixToJsDate(rawQuestDataV1.startTime),
     completeAtTime: unixToJsDate(rawQuestDataV1.completeAtTime),
     attempts: rawQuestDataV1.attempts,
     status: rawQuestDataV1.status,
 
     // Only V1
-    heroIds: rawQuestDataV1.heroes.map((heroId) => Number(heroId)),
+    heroIds: rawQuestDataV1.heroes?.map((heroId) => Number(heroId)),
   };
 
   questData.questName = QUESTS_REV[questData.questAddressLower];
@@ -117,9 +126,9 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
 
     id: Number(rawQuestDataV2.id),
     questAddress: rawQuestDataV2.questAddress,
-    questAddressLower: rawQuestDataV2.questAddress.toLowerCase(),
+    questAddressLower: rawQuestDataV2.questAddress?.toLowerCase(),
     playerAddress: rawQuestDataV2.player,
-    playerAddressLower: rawQuestDataV2.player.toLowerCase(),
+    playerAddressLower: rawQuestDataV2.player?.toLowerCase(),
 
     startBlock: Number(rawQuestDataV2.startBlock),
     startAtTime: unixToJsDate(rawQuestDataV2.startAtTime),
@@ -153,10 +162,15 @@ exports.getQuestHeroData = async (questData) => {
 
   const { heroIds } = questData;
 
-  const heroes = await getHeroesChain(heroIds);
+  const heroes = await getHeroesChain(heroIds, {
+    blockMinedAt: questData.startAtTime,
+    blockNumber: questData.startBlock,
+  });
 
   questData.allHeroes = heroes;
   const allHeroesStr = heroes.map(heroQuestStr);
+
+  questData.heroesQuestAr = allHeroesStr;
   questData.heroesQuestStr = allHeroesStr.join(', ');
 };
 
