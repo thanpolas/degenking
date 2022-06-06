@@ -84,6 +84,9 @@ It will augment the hero object using multiple queries and functions to also
 include sales data, owner profile and decode all stat and visual genes.
 
 -   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
+-   `params` **{Object=}** Parameters for fetching the hero.
+-   `params.blockNumber` **{number=}** Query hero state at particular block number.
+-   `params.blockMinedAt` **{Date=}** Pass a mining date of block to help with stamina and relevant time-sensitive calculations.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
 
 ```js
@@ -162,6 +165,7 @@ Renders the [normalized hero object][hero-object] into a string representation.
     -   `params.showQuest` **{boolean}** Show hero quest information.
     -   `params.short` **{boolean}** Short version.
     -   `params.tiny` **{boolean}** Tiny version.
+    -   `params.quest` **{boolean}** Optimized for Quest reporting.
 -   **Returns** **{string}** The string representation of the hero.
 
 ```js
@@ -657,6 +661,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.0**, _06/Jun/2022_
+    -   Added the `queryQuest()` function to fetch data about questing.
+    -   Added the "quest" rendering in `heroToString()` function.
+    -   Now supports querying for a state of a hero in the past.
 -   **v0.5.12**, _10/May/2022_
     -   Added and exported `ALL_ITEMS` as fetched from DFK frontend source.
     -   Added and exported `abiItems` (the Items ABI).
