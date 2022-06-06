@@ -4,8 +4,6 @@
 
 const Bluebird = require('bluebird');
 
-const helpers = (module.exports = {});
-
 /**
  * Executes concurrently the Function "fn" against all the  items in the array.
  * Throttles of concurrency to 5.
@@ -17,7 +15,7 @@ const helpers = (module.exports = {});
  * @param {number=} concurrency The concurrency, default 5.
  * @return {Promise<*>}
  */
-helpers.asyncMapCap = (items, fn, concurrency = 5) =>
+exports.asyncMapCap = (items, fn, concurrency = 5) =>
   Bluebird.map(items, fn, { concurrency });
 
 /**
@@ -26,8 +24,8 @@ helpers.asyncMapCap = (items, fn, concurrency = 5) =>
  * @param {number} seconds How many seconds to wait.
  * @return {Promise<void>}
  */
-helpers.delay = (seconds) => {
-  return helpers.delayMs(seconds * 1000);
+exports.delay = (seconds) => {
+  return exports.delayMs(seconds * 1000);
 };
 
 /**
@@ -36,7 +34,7 @@ helpers.delay = (seconds) => {
  * @param {number} ms How many seconds to wait.
  * @return {Promise<void>}
  */
-helpers.delayMs = (ms) => {
+exports.delayMs = (ms) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
@@ -48,6 +46,25 @@ helpers.delayMs = (ms) => {
  * @param {*} unixTimestamp Unix timestamp.
  * @return {Date} JS Native Date.
  */
-helpers.unixToJsDate = (unixTimestamp) => {
+exports.unixToJsDate = (unixTimestamp) => {
   return new Date(Number(unixTimestamp) * 1000);
+};
+
+/**
+ * Will index an array of objects into an object using the designated
+ * property of the objects as the index pivot. The created objects will be
+ * objects, overwritting any duplicate indexed items.
+ *
+ * @param {Array<Object>} arrayItems The array with objects to index.
+ * @param {string} indexCol The column to index by.
+ * @return {Object<Array<Object>>} Indexed array as an object of Arrays.
+ */
+exports.indexArrayToObject = (arrayItems, indexCol) => {
+  const indexed = {};
+
+  arrayItems.forEach((arrayItem) => {
+    const itemId = arrayItem[indexCol];
+    indexed[itemId] = arrayItem;
+  });
+  return indexed;
 };

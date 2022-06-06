@@ -28,9 +28,14 @@ const { QUESTS_REV } = require('../constants/addresses.const');
  * @param {boolean} params.showQuest Show hero quest information.
  * @param {boolean} params.short Short version.
  * @param {boolean} params.tiny Tiny version.
+ * @param {boolean} params.quest Optimized for quest reporting.
  * @return {string}
  */
 exports.heroToString = (hero, params = {}) => {
+  if (params.quest) {
+    return exports.heroQuestStr(hero);
+  }
+
   let heroParts = [];
   if (params.tiny) {
     heroParts = exports._getHeroPartsTiny(hero);
@@ -81,6 +86,22 @@ exports.heroesCurrentStats = (heroes) => {
       S: `${hero.stamina}/${hero.currentStamina}`,
     };
   });
+};
+
+/**
+ * Will convert a hero object to a human readable string focused on quest values.
+ *
+ * @param {Object} hero A normalized hero obejct.
+ * @return {string} Human readable hero.
+ * @private
+ */
+exports.heroQuestStr = (hero) => {
+  const questing = hero.currentQuest === ZERO_ADDRESS ? 'N' : 'Y';
+  const heroStr =
+    `id:${hero.id} Stam:${hero.currentStamina} ` +
+    `JPT100:${hero.estJewelPer100Ticks}J R:${hero.currentRank} Q:${questing}`;
+
+  return heroStr;
 };
 
 /**

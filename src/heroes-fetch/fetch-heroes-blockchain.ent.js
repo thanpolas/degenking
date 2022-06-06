@@ -4,9 +4,11 @@
  */
 
 const { AUCTION_SALES } = require('../constants/addresses.const');
+const { DATA_SOURCES } = require('../constants/constants.const');
 const etherEnt = require('../ether');
 const {
   getProvider,
+  getArchivalProvider,
   providerError,
   getContractAuctionSales,
 } = require('../ether');
@@ -32,19 +34,23 @@ const log = require('../utils/log.service').get();
  * Get heroes data from blockchain with normalized data schema.
  *
  * @param {Array<string>} heroIds hero IDs.
+ * @param {Object=} params Parameters for fetching the heroes.
+ * @param {number=} params.blockNumber Query hero state at particular block number.
+ * @param {Date=} params.blockMinedAt Pass a mining date of block to help with
+ *    stamina calculations and relevant time-sensitive properties.
  * @return {Promise<Array<Object>>} Normalized heroes.
  */
-exports.getHeroesChain = async (heroIds) => {
+exports.getHeroesChain = async (heroIds, params = {}) => {
   const heroes = await asyncMapCap(
     heroIds,
     async (heroId) => {
-      return exports.getHeroChain(heroId);
+      return exports.getHeroChain(heroId, params);
     },
     getConfig('concurrentBlockChainRequests'),
   );
 
   const normalizedHeroes = heroes.map((hero) =>
-    normalizeChainProcessedHero(hero),
+    normalizeChainProcessedHero(hero, DATA_SOURCES.CHAIN, params),
   );
 
   await decodeRecessiveGenesAndNormalize(normalizedHeroes);
@@ -58,21 +64,30 @@ exports.getHeroesChain = async (heroIds) => {
  * Will retry up to the config's max retries.
  *
  * @param {number|string} heroId hero ID.
+ * @param {Object=} params Parameters for fetching the heroes.
+ * @param {number=} params.blockNumber Query hero state at particular block number.
  * @param {number=} optRetries Retry count.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.getHeroChain = async (heroId, optRetries = 0) => {
-  const currentRPC = await getProvider();
+exports.getHeroChain = async (heroId, params = {}, optRetries = 0) => {
+  let currentRPC = await getProvider();
   try {
     // Force convert hero Id into number
     heroId = Number(heroId);
 
-    const { lastBlockMined } = currentRPC;
+    // Determine which block to query the hero for
+    let { lastBlockMined: blockToQuery } = currentRPC;
+    if (params.blockNumber) {
+      blockToQuery = params.blockNumber;
+      // Switch to archival RPC provider for this query
+      currentRPC = await getArchivalProvider();
+    }
+
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
 
     const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
-      heroesContract.getHero(heroId, { blockTag: lastBlockMined }),
-      heroesContract.ownerOf(heroId, { blockTag: lastBlockMined }),
+      heroesContract.getHero(heroId, { blockTag: blockToQuery }),
+      heroesContract.ownerOf(heroId, { blockTag: blockToQuery }),
       getSalesAuctionChainByHeroId(heroId),
     ]);
 
@@ -80,7 +95,7 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
     if (ownerOfAddress.toLowerCase() === AUCTION_SALES) {
       const salesContract = getContractAuctionSales(currentRPC);
       const auction = await salesContract.getAuction(heroId, {
-        blockTag: lastBlockMined,
+        blockTag: blockToQuery,
       });
       ownerAddress = auction.seller.toLowerCase();
     } else {
@@ -109,7 +124,7 @@ exports.getHeroChain = async (heroId, optRetries = 0) => {
 
     await delay(3 * optRetries);
 
-    return exports.getHeroChain(heroId, optRetries);
+    return exports.getHeroChain(heroId, params, optRetries);
   }
 };
 

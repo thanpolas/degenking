@@ -10,6 +10,12 @@ const {
   QUEST_GARDENING,
 } = require('./addresses.const');
 
+/** @enum {string} Enumerate all available data sources */
+exports.DATA_SOURCES = {
+  CHAIN: 'chain',
+  GQL_API_V7: 'gql_api_v7',
+};
+
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 exports.xJEWEL_DECIMALS = 18;
 exports.ONE_DECIMALS = 18;

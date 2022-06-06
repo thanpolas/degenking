@@ -5,6 +5,7 @@
 const { tokenToFixed } = require('@thanpolas/crypto-utils');
 
 const {
+  DATA_SOURCES,
   VISUAL_GENE_MAP,
   STAT_GENE_MAP,
   JEWEL_DECIMALS,
@@ -56,9 +57,19 @@ exports.normalizeChainHero = (heroData, owner, ownerAddress, source) => {
  *
  * @param {Object} hero blockchain originated hero.
  * @param {string=} source The source of the data.
+ * @param {Object=} params Parameters for fetching the heroes.
+ * @param {number=} params.blockNumber Query hero state at particular block number.
+ * @param {Date=} params.blockMinedAt Pass a mining date of block to help with
+ *    stamina calculations and relevant time-sensitive properties.
  * @return {Object} Normalized hero.
  */
-exports.normalizeChainProcessedHero = (hero, source = 'chain') => {
+exports.normalizeChainProcessedHero = (
+  hero,
+  source = DATA_SOURCES.CHAIN,
+  params = {},
+) => {
+  const nowDateUse = params.blockMinedAt ? params.blockMinedAt : new Date();
+
   const { mining, gardening, foraging, fishing } = hero.professions;
   const normalizedHero = {
     rawHero: hero,
@@ -178,7 +189,10 @@ exports.normalizeChainProcessedHero = (hero, source = 'chain') => {
   );
 
   // Calculate remaining stamina
-  normalizedHero.currentStamina = calculateRemainingStamina(normalizedHero);
+  normalizedHero.currentStamina = calculateRemainingStamina(
+    normalizedHero,
+    nowDateUse,
+  );
   // Ranks
   normalizedHero.currentRank = getCurrentRank(normalizedHero);
   normalizedHero.estJewelPerTick = getEstJewelPerTick(normalizedHero);
