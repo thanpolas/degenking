@@ -203,11 +203,11 @@ exports.getClassRankAndProfession = (heroClass) => {
  * Calculates remaining stamina for hero.
  *
  * @param {Object} hero The hero to calculate for.
+ * @param {Date=} currentTime Time to use for calculating the stamina.
  * @return {number} Remaining stamina of hero.
  */
-exports.calculateRemainingStamina = (hero) => {
+exports.calculateRemainingStamina = (hero, currentTime = new Date()) => {
   const MINUTES_PER_STAMINA_POINT = 20;
-  const currentTime = new Date();
 
   if (!hero.staminaFullAt || hero.staminaFullAt <= currentTime) {
     return hero.stamina;
