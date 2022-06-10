@@ -16,10 +16,16 @@ exports.atonementCrystalLesser = find(allItems, {
 exports.atonementCrystalGreater = find(allItems, {
   key: 'atonementCrystalGreater',
 });
+exports.atonementCrystal.stat = 'HP+';
+exports.atonementCrystalLesser.stat = 'HP+';
+exports.atonementCrystalGreater.stat = 'HP+';
 
 exports.chaosCrystal = find(allItems, { key: 'chaosCrystal' });
 exports.chaosCrystalLesser = find(allItems, { key: 'chaosCrystalLesser' });
 exports.chaosCrystalGreater = find(allItems, { key: 'chaosCrystalGreater' });
+exports.chaosCrystal.stat = 'random';
+exports.chaosCrystalLesser.stat = 'random';
+exports.chaosCrystalGreater.stat = 'random';
 
 exports.finesseCrystal = find(allItems, { key: 'finesseCrystal' });
 exports.finesseCrystalLesser = find(allItems, { key: 'finesseCrystalLesser' });
