@@ -4,7 +4,11 @@
 
 const { tokenToFixed } = require('@thanpolas/crypto-utils');
 
-const { JEWEL_DECIMALS, Rarity } = require('../constants/constants.const');
+const {
+  JEWEL_DECIMALS,
+  Rarity,
+  ZERO_ADDRESS,
+} = require('../constants/constants.const');
 
 const { calculateRemainingStamina } = require('./heroes-helpers.ent');
 const { getCurrentRank, getEstJewelPerTick } = require('./hero-ranking.ent');
@@ -66,6 +70,7 @@ exports.normalizeGqlHero = (hero, source = 'graphql') => {
     hpFullAt: unixToJsDate(hero.hpFullAt),
     mpFullAt: unixToJsDate(hero.mpFullAt),
     currentQuest: hero.currentQuest,
+    isQuesting: hero.currentQuest !== ZERO_ADDRESS,
     sp: hero.sp,
     status: hero.status,
 

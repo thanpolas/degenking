@@ -82,6 +82,7 @@ describe('Fetch Hero Blockchain', () => {
     hpFullAt: new Date('1970-01-01T00:00:00.000Z'),
     mpFullAt: new Date('1970-01-01T00:00:00.000Z'),
     currentQuest: '0x0000000000000000000000000000000000000000',
+    isQuesting: false,
     sp: 0,
     status: 0,
     intelligence: 7,
