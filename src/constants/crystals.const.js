@@ -131,6 +131,13 @@ exports.autoLevelupChoices = [
 ];
 
 /**
+ * Extract only the keys of the crystals in an array.
+ */
+exports.autoLevelupChoicesKeys = exports.autoLevelupChoices.map(
+  (levelupObj) => levelupObj.key,
+);
+
+/**
  * Crystal choices when leveling up.
  */
 exports.levelupChoices = [
