@@ -379,6 +379,7 @@ const hero = {
     hpFullAt: 1970-01-01T00:00:00.000Z,
     mpFullAt: 1970-01-01T00:00:00.000Z,
     currentQuest: '0x0000000000000000000000000000000000000000',
+    isQuesting: false,
     sp: 0,
     status: 0,
     intelligence: 5,
@@ -661,6 +662,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.1**, _10/Jun/2022_
+    -   Created the CRYSTALS constants.
+    -   Added the `isQuesting` boolean property on the normalized hero object.
 -   **v0.6.0**, _06/Jun/2022_
     -   Added the `queryQuest()` function to fetch data about questing.
     -   Added the "quest" rendering in `heroToString()` function.

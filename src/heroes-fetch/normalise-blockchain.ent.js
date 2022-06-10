@@ -10,6 +10,7 @@ const {
   STAT_GENE_MAP,
   JEWEL_DECIMALS,
   Rarity,
+  ZERO_ADDRESS,
 } = require('../constants/constants.const');
 const { convertGenes } = require('../heroes-helpers/decode-genes.ent');
 
@@ -112,6 +113,8 @@ exports.normalizeChainProcessedHero = (
     hpFullAt: unixToJsDate(hero.state.hpFullAt),
     mpFullAt: unixToJsDate(hero.state.mpFullAt),
     currentQuest: hero.state.currentQuest,
+    isQuesting: hero.state.currentQuest !== ZERO_ADDRESS,
+
     sp: hero.state.sp,
     status: hero.state.status,
 

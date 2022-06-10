@@ -68,6 +68,7 @@ assert.assertProperties = (testObj) => {
     'hpFullAt',
     'mpFullAt',
     'currentQuest',
+    'isQuesting',
     'sp',
     'status',
     'intelligence',
@@ -154,6 +155,7 @@ assert.assertTypes = (testObj) => {
   expect(testObj.hpFullAt).toBeDate();
   expect(testObj.mpFullAt).toBeDate();
   expect(testObj.currentQuest).toBeString();
+  expect(testObj.isQuesting).toBeBoolean();
   expect(testObj.sp).toBeNumber();
   expect(testObj.status).toBeNumber();
   expect(testObj.intelligence).toBeNumber();
