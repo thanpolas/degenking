@@ -141,9 +141,9 @@ exports.autoLevelupChoicesKeys = exports.autoLevelupChoices.map(
  * Crystal choices when leveling up.
  */
 exports.levelupChoices = [
+  exports.atonementCrystalLesser,
   exports.atonementCrystal,
-  exports.atonementCrystalLesseratonementCrystal,
-  exports.atonementCrystalGreateratonementCrystal,
+  exports.atonementCrystalGreater,
 ].concat(exports.autoLevelupChoices);
 
 /**
