@@ -16,6 +16,11 @@ exports.DATA_SOURCES = {
   GQL_API_V7: 'gql_api_v7',
 };
 
+/** @enum {string} EVM Network ids */
+exports.NETWORK_IDS = {
+  HARMONY: '1666600000',
+};
+
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 exports.xJEWEL_DECIMALS = 18;
 exports.ONE_DECIMALS = 18;
