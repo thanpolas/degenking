@@ -153,6 +153,13 @@ exports.STAT_MEDITATION_MAP = {
   10: 'stamina',
 };
 
+exports.MEDITATION_UPDATE_TYPE_MAP = {
+  0: 'primary',
+  1: 'secondary',
+  2: 'bonus',
+  3: 'rarity',
+};
+
 exports.STAT_MEDITATION_MAP_REV = {
   str: 0,
   agi: 1,
