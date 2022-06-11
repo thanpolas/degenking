@@ -662,6 +662,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.3**, _11/Jun/2022_
+    -   Added the `MEDITATION_UPDATE_TYPE_MAP` on CONSTANTS.
 -   **v0.6.2**, _11/Jun/2022_
     -   Removed the greater crystals from the levelup set as they are too rare to be used and discord will only allow 25 choices (were 27 items with the greater crystals).
 -   **v0.6.1**, _10/Jun/2022_
