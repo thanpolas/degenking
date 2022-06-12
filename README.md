@@ -662,6 +662,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.4**, _12/Jun/2022_
+    -   A few more enumerations and constants of Quest types.
 -   **v0.6.3**, _11/Jun/2022_
     -   Added the `MEDITATION_UPDATE_TYPE_MAP` on CONSTANTS.
 -   **v0.6.2**, _11/Jun/2022_
