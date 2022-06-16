@@ -37,6 +37,11 @@ const {
   heroesCurrentStats,
   heroesTableCurrentStats,
 } = require('./heroes-helpers/hero-to-string.ent');
+
+const {
+  heroesDbToNorm,
+  heroDbToNorm,
+} = require('./heroes-helpers/db-to-norm.ent');
 const {
   getSalesAuctionChainByHeroId,
   getSalesAuctionGqlByAuctionId,
@@ -161,6 +166,9 @@ exports.getHeroTier = getHeroTier;
 exports.getMinTears = getMinTears;
 exports.getMaxTears = getMaxTears;
 exports.areHeroesRelated = areHeroesRelated;
+
+exports.heroesDbToNorm = heroesDbToNorm;
+exports.heroDbToNorm = heroDbToNorm;
 
 // Quests
 exports.queryQuest = queryQuest;
