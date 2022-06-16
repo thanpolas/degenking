@@ -704,6 +704,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.5**, _12/Jun/2022_
+    -   Added the `heroDbToNorm()` and `heroesDbToNorm()` functions, which will be used in the future.
+    -   Added some rendering examples of hero-to-string.
 -   **v0.6.4**, _12/Jun/2022_
     -   A few more enumerations and constants of Quest types.
 -   **v0.6.3**, _11/Jun/2022_
