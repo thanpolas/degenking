@@ -184,8 +184,8 @@ exports._getHeroParts = (hero, params) => {
   } else {
     heroParts.push('No Skills');
   }
-  heroParts.push(['MS', hero.maxSummons]);
-  heroParts.push(['S', hero.summons]);
+
+  heroParts.push(['SMN', `${hero.summons}/${hero.maxSummons}`]);
 
   if (params.showActivePassive) {
     heroParts.push(['A1', `${hero?.active1[0]}${hero.active1?.slice(-1)}`]);
