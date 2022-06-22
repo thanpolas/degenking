@@ -108,7 +108,7 @@ exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
 
     return hero;
   } catch (ex) {
-    await catchErrorRetry({
+    await catchErrorRetry(log, {
       ex,
       retries,
       errorMessage: `getHeroChain() - RPC: ${currentRPC.name} - Hero: ${heroId}`,
@@ -195,7 +195,7 @@ exports.fetchHeroIdsByOwnerChain = async (ownerAddress, retries = 0) => {
 
     return allHeroIdsNorm;
   } catch (ex) {
-    await catchErrorRetry({
+    await catchErrorRetry(log, {
       ex,
       retries,
       errorMessage:
