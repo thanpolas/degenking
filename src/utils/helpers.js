@@ -29,6 +29,21 @@ exports.delay = (seconds) => {
 };
 
 /**
+ * Error specific delay function that incorporates retry count for
+ * ever increasing the delay and a maximum delay to act as a stopgap.
+ *
+ * @param {number} retry Retry count of errors.
+ * @param {number=} maxDelay Maximum delay in seconds.
+ * @param {number=} delayMultiplier Multiplier of retries to calculate delay.
+ * @return {Promise<void>}
+ */
+exports.errorDelay = (retry, maxDelay = 20, delayMultiplier = 1) => {
+  const secondsToDelay = retry * delayMultiplier;
+  const delayActual = secondsToDelay <= maxDelay ? secondsToDelay : maxDelay;
+  return exports.delay(delayActual);
+};
+
+/**
  * An async delay in milliseconds.
  *
  * @param {number} ms How many seconds to wait.

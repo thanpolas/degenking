@@ -92,7 +92,7 @@ exports.catchErrorRetry = async (log, params) => {
  * @return {string|void}
  */
 exports.parseRpcError = (exception) => {
-  const body = exception?.error?.error?.body;
+  const body = exception?.error?.error?.body || exception?.error?.body;
   if (!body) {
     return;
   }

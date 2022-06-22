@@ -34,7 +34,7 @@ exports.fetchLockedJewelByOwnerChain = async (ownerAddress, retries = 0) => {
     await catchErrorRetry(log, {
       ex,
       retries,
-      errorMessage: 'fetchLockedJewelByOwnerChain()',
+      errorMessage: `fetchLockedJewelByOwnerChain() - RPC: ${currentRPC.name}`,
       retryFunction: exports.fetchLockedJewelByOwnerChain,
       retryArguments: [ownerAddress],
       doNotThrow: null,
