@@ -161,7 +161,10 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress) => {
 
     const heroes = await exports.getHeroesChain(allHeroIds);
 
-    return heroes;
+    // ensure valid hero objects are returned
+    const actualHeroes = heroes.filter((hero) => !!hero?.id);
+
+    return actualHeroes;
   } catch (ex) {
     await log.error(`fetchHeroesByOwnerChain() Error`, { error: ex });
   }
