@@ -9,7 +9,6 @@ const etherEnt = require('../ether');
 const {
   getProvider,
   getArchivalProvider,
-  providerError,
   getContractAuctionSales,
 } = require('../ether');
 const {
@@ -27,6 +26,7 @@ const {
 
 const { asyncMapCap, delay } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
+const { catchErrorRetry } = require('../utils/error-handler');
 
 const log = require('../utils/log.service').get();
 
@@ -66,10 +66,10 @@ exports.getHeroesChain = async (heroIds, params = {}) => {
  * @param {number|string} heroId hero ID.
  * @param {Object=} params Parameters for fetching the heroes.
  * @param {number=} params.blockNumber Query hero state at particular block number.
- * @param {number=} optRetries Retry count.
+ * @param {number=} retries Retry count.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.getHeroChain = async (heroId, params = {}, optRetries = 0) => {
+exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
   let currentRPC = await getProvider();
   try {
     // Force convert hero Id into number
@@ -108,23 +108,13 @@ exports.getHeroChain = async (heroId, params = {}, optRetries = 0) => {
 
     return hero;
   } catch (ex) {
-    optRetries += 1;
-
-    const logMessage =
-      `Failed to fetch hero from Blockchain. ` +
-      `- retry: ${optRetries} - RPC: ${currentRPC.name} - ` +
-      `Hero: ${heroId}`;
-
-    if (optRetries > getConfig('maxRetries')) {
-      await log.error(`Giving up! ${logMessage}`, { error: ex });
-      throw ex;
-    }
-
-    await providerError();
-
-    await delay(3 * optRetries);
-
-    return exports.getHeroChain(heroId, params, optRetries);
+    await catchErrorRetry(log, {
+      ex,
+      retries,
+      errorMessage: `getHeroChain() - RPC: ${currentRPC.name} - Hero: ${heroId}`,
+      retryFunction: exports.getHeroChain,
+      retryArguments: [heroId, params],
+    });
   }
 };
 
@@ -185,12 +175,12 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
  * Fetches hero IDs by owner.
  *
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
- * @param {number=} optRetry Retry count.
+ * @param {number=} retries Retry count.
  * @return {Promise<Array<number>>} Fetched hero ids.
  */
-exports.fetchHeroIdsByOwnerChain = async (ownerAddress, optRetry = 0) => {
+exports.fetchHeroIdsByOwnerChain = async (ownerAddress, retries = 0) => {
+  const currentRPC = await getProvider();
   try {
-    const currentRPC = await getProvider();
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
     const salesContract = getContractAuctionSales(currentRPC);
 
@@ -205,21 +195,14 @@ exports.fetchHeroIdsByOwnerChain = async (ownerAddress, optRetry = 0) => {
 
     return allHeroIdsNorm;
   } catch (ex) {
-    optRetry += 1;
-    const currentRPC = await getProvider();
-
-    const logMessage =
-      `fetchHeroIdsByOwnerChain() :: Failed to fetch hero ids for owner: ` +
-      `${ownerAddress} - ` +
-      `retry: ${optRetry} - RPC: ${currentRPC.name}`;
-
-    if (optRetry > getConfig('maxRetries')) {
-      await log.error(`Giving up! ${logMessage}`, { error: ex });
-      throw ex;
-    }
-
-    await delay(3 * optRetry);
-    await log.warn(logMessage, { error: ex });
-    return exports.fetchHeroIdsByOwnerChain(ownerAddress, optRetry);
+    await catchErrorRetry(log, {
+      ex,
+      retries,
+      errorMessage:
+        `fetchHeroIdsByOwnerChain() - RPC: ${currentRPC.name} - ` +
+        `ownerAddress: ${ownerAddress}`,
+      retryFunction: exports.fetchHeroIdsByOwnerChain,
+      retryArguments: [ownerAddress],
+    });
   }
 };

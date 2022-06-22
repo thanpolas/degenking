@@ -8,8 +8,8 @@ const { ethers } = require('ethers');
 const erc20Abi = require('../abi/erc20-generic.abi.json');
 const { CONSUMABLE_DECIMALS } = require('../constants/constants.const');
 const { getProvider } = require('../ether');
-const { get: getConfig } = require('../configure');
-const { delay } = require('../utils/helpers');
+const { catchErrorRetry } = require('../utils/error-handler');
+
 const log = require('../utils/log.service').get();
 
 /**
@@ -17,17 +17,13 @@ const log = require('../utils/log.service').get();
  *
  * @param {string} address The address to query for.
  * @param {string} consumableAddress The consumable address.
- * @param {number=} optRetries Retry count.
+ * @param {number=} retries Retry count.
  * @return {Promise<number>} A Promise with the balance.
  */
-exports.consumableBalance = async (
-  address,
-  consumableAddress,
-  optRetries = 0,
-) => {
+exports.consumableBalance = async (address, consumableAddress, retries = 0) => {
+  const currentRPC = await getProvider();
+  const { provider } = currentRPC;
   try {
-    const { provider } = await getProvider();
-
     const contract = new ethers.Contract(consumableAddress, erc20Abi, provider);
 
     const balance = await contract.balanceOf(address);
@@ -40,24 +36,14 @@ exports.consumableBalance = async (
 
     return value;
   } catch (ex) {
-    optRetries += 1;
-
-    if (optRetries > getConfig('maxRetries')) {
-      await log.error(
-        `Error on consumableBalance(), Giving up after ${optRetries}.`,
-        {
-          error: ex,
-          custom: {
-            address,
-            consumableAddress,
-          },
-        },
-      );
-      throw ex;
-    }
-
-    await delay(optRetries);
-
-    return exports.consumableBalance(address, consumableAddress, optRetries);
+    await catchErrorRetry(log, {
+      ex,
+      retries,
+      errorMessage:
+        `consumableBalance() - RPC: ${currentRPC.name} - ` +
+        `ownerAddress: ${address} - ConsumableAddress: ${consumableAddress}`,
+      retryFunction: exports.consumableBalance,
+      retryArguments: [address, consumableAddress],
+    });
   }
 };

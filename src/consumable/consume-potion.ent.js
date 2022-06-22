@@ -10,6 +10,7 @@ const { CONSUMABLE_REV } = require('../constants/addresses.const');
 const {
   normalizeChainHero,
 } = require('../heroes-fetch/normalise-blockchain.ent');
+const { catchErrorRetry } = require('../utils/error-handler');
 
 const log = require('../utils/log.service').get();
 
@@ -20,7 +21,7 @@ const log = require('../utils/log.service').get();
  * @param {number|string|bigint} heroId Hero id that will consume.
  * @param {string} privKey Account's private key.
  * @param {string=} optGasPrice Gas price in wei.
- * @param {number=} optRetries Retry count.
+ * @param {number=} retries Retry count.
  * @return {Promise<Object|void>} A Promise with normalized response of the
  *    "ItemConsumed" event.
  */
@@ -29,7 +30,7 @@ exports.consumePotion = async (
   heroId,
   privKey,
   optGasPrice,
-  optRetries = 0,
+  retries = 0,
 ) => {
   const signerRpc = await getProvider(privKey);
   try {
@@ -54,33 +55,15 @@ exports.consumePotion = async (
     const response = exports._normalizeEvent(consumeEvent);
     return response;
   } catch (ex) {
-    optRetries += 1;
-
-    const logMessage =
-      `Failed consume potion ${consumableAddress}. ` +
-      `- retry: ${optRetries} - RPC: ${signerRpc.name} - ` +
-      `Hero: ${heroId}`;
-
-    if (optRetries > getConfig('maxRetries')) {
-      await log.error(`consumePotion() :: Giving up! ${logMessage}`, {
-        error: ex,
-      });
-      throw ex;
-    }
-
-    await log.error(`consumePotion() :: Error. Retry ${optRetries}`, {
-      error: ex,
+    await catchErrorRetry(log, {
+      ex,
+      retries,
+      errorMessage:
+        `consumePotion() - RPC: ${signerRpc.name} - ` +
+        `heroId: ${heroId} - consumableAddress: ${consumableAddress}`,
+      retryFunction: exports.consumePotion,
+      retryArguments: [consumableAddress, heroId, privKey, optGasPrice],
     });
-
-    await delay(optRetries);
-
-    return exports.consumePotion(
-      consumableAddress,
-      heroId,
-      optGasPrice,
-      privKey,
-      optRetries,
-    );
   }
 };
 
