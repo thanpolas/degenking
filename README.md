@@ -704,6 +704,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.6**, _22/Jun/2022_
+    -   Introduced `catchErrorRetry()` error handling helper.
+    -   Added `parseRpcError()` function.
 -   **v0.6.5**, _12/Jun/2022_
     -   Added the `heroDbToNorm()` and `heroesDbToNorm()` functions, which will be used in the future.
     -   Added some rendering examples of hero-to-string.
