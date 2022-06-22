@@ -24,7 +24,7 @@ const {
   decodeRecessiveGenesAndNormalize,
 } = require('../heroes-helpers/recessive-genes.ent');
 
-const { asyncMapCap, delay } = require('../utils/helpers');
+const { asyncMapCap } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
 const { catchErrorRetry } = require('../utils/error-handler');
 
@@ -38,24 +38,35 @@ const log = require('../utils/log.service').get();
  * @param {number=} params.blockNumber Query hero state at particular block number.
  * @param {Date=} params.blockMinedAt Pass a mining date of block to help with
  *    stamina calculations and relevant time-sensitive properties.
+ * @param {number=} retries retries count.
  * @return {Promise<Array<Object>>} Normalized heroes.
  */
-exports.getHeroesChain = async (heroIds, params = {}) => {
-  const heroes = await asyncMapCap(
-    heroIds,
-    async (heroId) => {
-      return exports.getHeroChain(heroId, params);
-    },
-    getConfig('concurrentBlockChainRequests'),
-  );
+exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
+  try {
+    const heroes = await asyncMapCap(
+      heroIds,
+      async (heroId) => {
+        return exports.getHeroChain(heroId, params);
+      },
+      getConfig('concurrentBlockChainRequests'),
+    );
 
-  const normalizedHeroes = heroes.map((hero) =>
-    normalizeChainProcessedHero(hero, DATA_SOURCES.CHAIN, params),
-  );
+    const normalizedHeroes = heroes.map((hero) =>
+      normalizeChainProcessedHero(hero, DATA_SOURCES.CHAIN, params),
+    );
 
-  await decodeRecessiveGenesAndNormalize(normalizedHeroes);
+    await decodeRecessiveGenesAndNormalize(normalizedHeroes);
 
-  return normalizedHeroes;
+    return normalizedHeroes;
+  } catch (ex) {
+    await catchErrorRetry(log, {
+      ex,
+      retries,
+      errorMessage: `getHeroesChain()`,
+      retryFunction: exports.getHeroesChain,
+      retryArguments: [heroIds, params],
+    });
+  }
 };
 
 /**
@@ -142,10 +153,9 @@ exports.fetchHeroesByOwnerAndProfessionChain = async (
  * Fetches heroes by owner.
  *
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
- * @param {number=} optRetry Retry count.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
+exports.fetchHeroesByOwnerChain = async (ownerAddress) => {
   try {
     const allHeroIds = await exports.fetchHeroIdsByOwnerChain(ownerAddress);
 
@@ -153,21 +163,7 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress, optRetry = 0) => {
 
     return heroes;
   } catch (ex) {
-    optRetry += 1;
-    const currentRPC = await getProvider();
-
-    const logMessage =
-      `Failed to fetch heroes for owner: ${ownerAddress} - ` +
-      `retry: ${optRetry} - RPC: ${currentRPC.name}`;
-
-    if (optRetry > getConfig('maxRetries')) {
-      await log.error(`Giving up! ${logMessage}`, { error: ex });
-      throw ex;
-    }
-
-    await delay(3 * optRetry);
-    await log.warn(logMessage, { error: ex });
-    return exports.fetchHeroesByOwnerChain(ownerAddress, optRetry);
+    await log.error(`fetchHeroesByOwnerChain() Error`, { error: ex });
   }
 };
 
@@ -184,10 +180,16 @@ exports.fetchHeroIdsByOwnerChain = async (ownerAddress, retries = 0) => {
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
     const salesContract = getContractAuctionSales(currentRPC);
 
-    const [saleIds, heroIds] = await Promise.all([
+    const response = await Promise.all([
       salesContract.getUserAuctions(ownerAddress),
       heroesContract.getUserHeroes(ownerAddress),
     ]);
+
+    if (!response) {
+      throw new Error(`Got an empty response`);
+    }
+
+    const [saleIds, heroIds] = response;
 
     const allHeroIds = heroIds.concat(saleIds);
 
