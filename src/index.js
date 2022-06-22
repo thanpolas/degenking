@@ -96,6 +96,8 @@ const {
   areHeroesRelated,
 } = require('./heroes-helpers/summon-utils.ent');
 
+const { catchErrorRetry, parseRpcError } = require('./utils/error-handler');
+
 const { set: setConfig } = require('./configure');
 
 const {
@@ -169,6 +171,9 @@ exports.areHeroesRelated = areHeroesRelated;
 
 exports.heroesDbToNorm = heroesDbToNorm;
 exports.heroDbToNorm = heroDbToNorm;
+
+exports.catchErrorRetry = catchErrorRetry;
+exports.parseRpcError = parseRpcError;
 
 // Quests
 exports.queryQuest = queryQuest;
