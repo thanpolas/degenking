@@ -704,6 +704,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.8**, _22/Jun/2022_
+    -   Integrated all RPC fetching functions with catchErrorRetry function().
 -   **v0.6.7**, _22/Jun/2022_
     -   Add the errorDelay() helper
     -   Better heuristics on RPC error parsing.
