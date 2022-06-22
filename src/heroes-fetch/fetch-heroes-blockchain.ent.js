@@ -43,6 +43,9 @@ const log = require('../utils/log.service').get();
  */
 exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
   try {
+    if (!heroIds?.length) {
+      return [];
+    }
     const heroes = await asyncMapCap(
       heroIds,
       async (heroId) => {
@@ -51,7 +54,10 @@ exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
       getConfig('concurrentBlockChainRequests'),
     );
 
-    const normalizedHeroes = heroes.map((hero) =>
+    // ensure valid hero objects are returned
+    const actualHeroes = heroes.filter((hero) => !!hero?.id);
+
+    const normalizedHeroes = actualHeroes.map((hero) =>
       normalizeChainProcessedHero(hero, DATA_SOURCES.CHAIN, params),
     );
 
@@ -159,14 +165,20 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress) => {
   try {
     const allHeroIds = await exports.fetchHeroIdsByOwnerChain(ownerAddress);
 
+    if (!allHeroIds?.length) {
+      return [];
+    }
+
     const heroes = await exports.getHeroesChain(allHeroIds);
 
-    // ensure valid hero objects are returned
-    const actualHeroes = heroes.filter((hero) => !!hero?.id);
+    if (!heroes?.length) {
+      return [];
+    }
 
-    return actualHeroes;
+    return heroes;
   } catch (ex) {
     await log.error(`fetchHeroesByOwnerChain() Error`, { error: ex });
+    return [];
   }
 };
 
