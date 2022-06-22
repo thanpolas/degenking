@@ -704,6 +704,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.11**, _22/Jun/2022_
+    -   More robust hero fetching functions.
 -   **v0.6.10**, _22/Jun/2022_
     -   Ensure actual hero objects are returned from `fetchHeroesByOwnerChain()`.
 -   **v0.6.9**, _22/Jun/2022_
