@@ -96,6 +96,10 @@ const {
   areHeroesRelated,
 } = require('./heroes-helpers/summon-utils.ent');
 
+const {
+  calculateRuneRequirements,
+} = require('./heroes-helpers/rune-requirements.ent');
+
 const { catchErrorRetry, parseRpcError } = require('./utils/error-handler');
 
 const { set: setConfig } = require('./configure');
@@ -174,6 +178,8 @@ exports.heroDbToNorm = heroDbToNorm;
 
 exports.catchErrorRetry = catchErrorRetry;
 exports.parseRpcError = parseRpcError;
+
+exports.calculateRuneRequirements = calculateRuneRequirements;
 
 // Quests
 exports.queryQuest = queryQuest;
