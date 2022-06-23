@@ -143,6 +143,7 @@ exports.CHOICES = require('./constants/choices.const');
 exports.CONSTANTS = require('./constants/constants.const');
 exports.POWER_PAIRS = require('./constants/power-pairs.const');
 exports.ALL_ITEMS = require('./constants/all-items.json');
+exports.ITEM_TYPES = require('./constants/item-types.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 
 // New command[s] 19/Mar/2021

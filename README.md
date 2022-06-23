@@ -727,6 +727,7 @@ When a new node version is available you need to updated it in the following:
 
 -   **v0.6.12**, _23/Jun/2022_
     -   Added `calculateRuneRequirements()` function.
+    -   Add and expose `ITEM_TYPES` constants.
 -   **v0.6.11**, _22/Jun/2022_
     -   More robust hero fetching functions.
 -   **v0.6.10**, _22/Jun/2022_
