@@ -15,7 +15,7 @@ exports._config = {
     'https://defi-kingdoms-community-api-gateway-co06z8vi.uc.gateway.dev/graphql',
   getProvider: () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      'https://rpc.foxswap.fi/',
+      'https://api.harmony.one/',
     );
 
     return {

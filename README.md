@@ -239,6 +239,27 @@ console.log(heroStamina);
 // 20
 ```
 
+### calculateRuneRequirements(level)
+
+Calculates the needed runes to level up a hero at the provided level.
+
+-   `level` **{number}** The level of the hero.
+-   **Returns** **{Array\<Object\>}** An array of rune objects.
+
+```js
+const { calculateRuneRequirements } = require('@thanpolas/degenking');
+
+const requiredRunes = calculateRuneRequirements(30);
+
+console.log(requiredRunes);
+// [
+//     { rune: 'courageRune', quantity: 1 },
+//     { rune: 'hopeRune', quantity: 5 },
+//     { rune: 'mokshaRune', quantity: 1 },
+//     { rune: 'shvasRune', quantity: 1 },
+// ];
+```
+
 ### decodeStatGenes(statGenes)
 
 Decodes the raw stat genes string.
@@ -704,6 +725,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.12**, _23/Jun/2022_
+    -   Added `calculateRuneRequirements()` function.
+    -   Add and expose `ITEM_TYPES` constants.
 -   **v0.6.11**, _22/Jun/2022_
     -   More robust hero fetching functions.
 -   **v0.6.10**, _22/Jun/2022_
