@@ -725,6 +725,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v0.6.13**, _27/Jun/2022_
+    -   Added `RUNES` constant.
 -   **v0.6.12**, _23/Jun/2022_
     -   Added `calculateRuneRequirements()` function.
     -   Add and expose `ITEM_TYPES` constants.
