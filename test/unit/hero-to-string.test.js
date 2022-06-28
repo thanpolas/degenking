@@ -17,7 +17,7 @@ describe('hero-to-string', () => {
           '**pirate:warrior** - **Rare(2)** - **⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%**' +
           ' - **CR**:37 - **JM**:32.7488 - **B1**:INT 🌳 - **B2**:DEX 🌳 - ' +
           '**RGMC**:WAR, WIZ, THF - **RGSC**:PIR, WIZ, MON - **RGP**:👨‍🌾, ⛏️, 🌳' +
-          ' - **XP**:914 - **L**:1 - **PS**:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - **SMN**:0/8' +
+          ' - **XP**:914/2000 - **L**:1 - **PS**:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - **SMN**:0/8' +
           ' - **STA**:25/25 - **HP**:145 - **MP**:30',
       );
     });
@@ -28,7 +28,7 @@ describe('hero-to-string', () => {
       expect(heroStr).toEqual(
         '**Owner**:Ceebs - **10000** - **G2** - **⛏️ mining** - ' +
           '**pirate:warrior** - **RGMC**:WAR, WIZ, THF - **RGSC**:PIR, ' +
-          'WIZ, MON - **RGP**:👨‍🌾, ⛏️, 🌳 - **XP**:914 - **L**:1 - **PS**:⛏️:' +
+          'WIZ, MON - **RGP**:👨‍🌾, ⛏️, 🌳 - **XP**:914/2000 - **L**:1 - **PS**:⛏️:' +
           ' 5.9, 🌳: 0.2, 🎣: 2.4 - **SMN**:0/8 - **STA**:25/25 -' +
           ' **HP**:145 - **MP**:30',
       );
@@ -42,7 +42,7 @@ describe('hero-to-string', () => {
           'pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%' +
           ' - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - ' +
           'RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳' +
-          ' - XP:914 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8' +
+          ' - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8' +
           ' - STA:25/25 - HP:145 - MP:30',
       );
     });
@@ -54,7 +54,7 @@ describe('hero-to-string', () => {
       expect(heroStr).toEqual(
         'Owner:Ceebs - 10000 - G2 - ⛏️ mining - ' +
           'pirate:warrior - RGMC:WAR, WIZ, THF - RGSC:PIR, ' +
-          'WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914 - L:1 - PS:⛏️:' +
+          'WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️:' +
           ' 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STA:25/25 -' +
           ' HP:145 - MP:30',
       );
@@ -64,8 +64,8 @@ describe('hero-to-string', () => {
         tiny: true,
       });
       expect(heroStr).toEqual(
-        '**id**:10000 - **G2** - **⛏️ mining** - ' +
-          '**pirate:warrior** - **Rare** - **0/8** - **L1**',
+        '**id**:10000 - **G**:2 - **⛏️ mining** - ' +
+          '**pirate:warrior** - **Rare** - **0/8** - **L**:1',
       );
     });
     test('Should return expected string tiny-cli', () => {
@@ -74,7 +74,17 @@ describe('hero-to-string', () => {
         cli: true,
       });
       expect(heroStr).toEqual(
-        'id:10000 - G2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L1',
+        'id:10000 - G:2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L:1',
+      );
+    });
+
+    test('Should return expected string stampot-cli', () => {
+      const heroStr = heroToStringEnt.heroToString(heroNormalized1Fix(), {
+        stampot: true,
+        cli: true,
+      });
+      expect(heroStr).toEqual(
+        'id:10000 - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:914/2000',
       );
     });
 
@@ -88,7 +98,7 @@ describe('hero-to-string', () => {
           'pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%' +
           ' - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - ' +
           'RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳' +
-          ' - XP:914 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8' +
+          ' - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8' +
           ' - A1:B8 - A2:B3 - P1:B5 - P2:B2 - STA:25/25 - HP:145 - MP:30',
       );
     });
@@ -98,7 +108,7 @@ describe('hero-to-string', () => {
         cli: true,
       });
       expect(heroStr).toEqual(
-        'Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STR:10 - AGI:8 - INT:7 - WIS:6 - LCK:10 - VIT:9 - END:7 - DEX:9 - STA:25/25 - HP:145 - MP:30',
+        'Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STR:10 - AGI:8 - INT:7 - WIS:6 - LCK:10 - VIT:9 - END:7 - DEX:9 - STA:25/25 - HP:145 - MP:30',
       );
     });
   });
