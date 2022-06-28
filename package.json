@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@thanpolas/degenking",
-    "version": "0.6.13",
+    "version": "0.6.14",
     "main": "./src/",
     "description": "Unofficial DeFi Kingdoms SDK.",
     "homepage": "https://github.com/degen-heroes/degenking",
