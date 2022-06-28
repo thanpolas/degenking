@@ -10,6 +10,7 @@ const {
   getProfessionSkills,
   shortenRecessiveGenesClass,
   shortenRecessiveGenesProfession,
+  calculateRequiredXp,
 } = require('./heroes-helpers.ent');
 
 const { ZERO_ADDRESS } = require('../constants/constants.const');
@@ -28,6 +29,7 @@ const { QUESTS_REV } = require('../constants/addresses.const');
  * @param {boolean} params.showQuest Show hero quest information.
  * @param {boolean} params.short Short version.
  * @param {boolean} params.tiny Tiny version.
+ * @param {boolean} params.stampot Stampot tiny version.
  * @param {boolean} params.quest Optimized for quest reporting.
  * @return {string}
  */
@@ -39,6 +41,8 @@ exports.heroToString = (hero, params = {}) => {
   let heroParts = [];
   if (params.tiny) {
     heroParts = exports._getHeroPartsTiny(hero);
+  } else if (params.stampot) {
+    heroParts = exports._getHeroPartsStampot(hero);
   } else {
     heroParts = exports._getHeroParts(hero, params);
   }
@@ -117,12 +121,36 @@ exports._getHeroPartsTiny = (hero) => {
 
   const heroParts = [];
   heroParts.push(['id', hero.id]);
-  heroParts.push(`G${hero.generation}${shiny}`);
+  heroParts.push(['G', `${hero.generation}${shiny}`]);
   heroParts.push(`${profEmoji} ${hero.profession}`);
   heroParts.push(`${hero.mainClass}:${hero.subClass}`);
   heroParts.push(`${hero.rarityStr}`);
   heroParts.push(`${hero.summons}/${hero.maxSummons}`);
-  heroParts.push(`L${hero.level}`);
+  heroParts.push(['L', hero.level]);
+
+  return heroParts;
+};
+
+/**
+ * Produce stampot tiny parts of hero.
+ *
+ * @param {Object} hero Hero data object.
+ * @return {Array} An array of hero parts to be rendered.
+ * @private
+ */
+exports._getHeroPartsStampot = (hero) => {
+  const profEmoji = getProfessionEmoji(hero.profession);
+
+  const nextLevelXp = calculateRequiredXp(hero.level);
+
+  const heroParts = [];
+  heroParts.push(['id', hero.id]);
+  heroParts.push(['G', `${hero.generation}`]);
+  heroParts.push(`${profEmoji}`);
+  heroParts.push(`${hero.mainClass}:${hero.subClass}`);
+  heroParts.push(`${hero.rarityStr}`);
+  heroParts.push(['L', hero.level]);
+  heroParts.push([`XP`, `${hero.xp}/${nextLevelXp}`]);
 
   return heroParts;
 };
@@ -140,6 +168,7 @@ exports._getHeroParts = (hero, params) => {
   const ranks = getClassPairRanks(hero);
   const professionSkills = getProfessionSkills(hero);
   const shiny = hero.shiny ? ' Shiny' : '';
+  const nextLevelXp = calculateRequiredXp(hero.level);
 
   const heroParts = [
     ['Owner', hero.ownerName],
@@ -177,7 +206,7 @@ exports._getHeroParts = (hero, params) => {
     ]);
   }
 
-  heroParts.push(['XP', hero.xp]);
+  heroParts.push(['XP', `${hero.xp}/${nextLevelXp}`]);
   heroParts.push(['L', hero.level]);
   if (professionSkills) {
     heroParts.push(['PS', professionSkills]);
