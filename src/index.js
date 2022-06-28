@@ -61,6 +61,7 @@ const {
   getProfessionSkills,
   shortenRecessiveGenesClass,
   shortenRecessiveGenesProfession,
+  calculateRequiredXp,
 } = require('./heroes-helpers/heroes-helpers.ent');
 const {
   decodeStatGenes,
@@ -131,6 +132,8 @@ exports.getProfessionSkills = getProfessionSkills;
 exports.shortenRecessiveGenesClass = shortenRecessiveGenesClass;
 exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
 exports.getRanking = getRanking;
+exports.calculateRequiredXp = calculateRequiredXp;
+
 // *** DEPRECATE ***
 exports.getSalesData = getSalesAuctionChainByHeroId;
 

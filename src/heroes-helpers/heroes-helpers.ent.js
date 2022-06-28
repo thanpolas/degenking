@@ -279,3 +279,39 @@ exports.sortHeroesByRank = (heroes, profession) => {
     return 0;
   });
 };
+
+/**
+ * Calculates the XP needed by a hero to be able to level up.
+ *
+ * @param {number} currentLevel Current level of hero.
+ * @return {number} XP needed for next level.
+ */
+exports.calculateRequiredXp = (currentLevel) => {
+  let xpNeeded;
+  const nextLevel = currentLevel + 1;
+  switch (true) {
+    case currentLevel < 6:
+      xpNeeded = nextLevel * 1000;
+      break;
+    case currentLevel < 9:
+      xpNeeded = 4000 + (nextLevel - 5) * 2000;
+      break;
+    case currentLevel < 16:
+      xpNeeded = 12000 + (nextLevel - 9) * 4000;
+      break;
+    case currentLevel < 36:
+      xpNeeded = 40000 + (nextLevel - 16) * 5000;
+      break;
+    case currentLevel < 56:
+      xpNeeded = 140000 + (nextLevel - 36) * 7500;
+      break;
+    case currentLevel >= 56:
+      xpNeeded = 290000 + (nextLevel - 56) * 10000;
+      break;
+    default:
+      xpNeeded = 0;
+      break;
+  }
+
+  return xpNeeded;
+};
