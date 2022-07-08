@@ -149,6 +149,7 @@ exports.ALL_ITEMS = require('./constants/all-items.json');
 exports.ITEM_TYPES = require('./constants/item-types.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 exports.RUNES = require('./constants/runes.const');
+exports.QUESTS = require('./constants/quest.const');
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
