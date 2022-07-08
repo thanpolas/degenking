@@ -737,7 +737,7 @@ When a new node version is available you need to updated it in the following:
     -   **Breaking Changes**
         -   Broke out the "addresses" constants module into per network (for now Harmony and DFK Network) and standardised naming.
         -   `PROFESSIONS_TO_QUESTS` will be available from the address constants modules.
-        -   Deprecated address constants in favor of new, standardized contract naming scheme that will be common across all network constants: `HEROES_NFT`, `WELL_QUEST_ADDRESS_OLD`, `QUEST_WISHING_WELL`, `QUEST_FORAGING_OLD`, `QUEST_FISHING_OLD`, `QUEST_CONTRACT_OLD`, `QUEST_CORE_V1_CONTRACT`, `QUEST_CONTRACT`, `QUEST_FORAGING`, `QUEST_FISHING`, `QUEST_GARDENING`, `QUEST_MINING_GOLD`, `QUEST_MINING_JEWEL`, `SALE_ADDRESS`, `SUMMON_ADDRESS`, `NEW_SUMMON_CONTRACT`, `MEDITATION_CONTRACT`, `WELL_QUEST_ADDRESS`.
+        -   Deprecated address constants in favor of new, standardized contract naming scheme that will be common across all network constants: `HEROES_NFT`, `WELL_QUEST_ADDRESS_OLD`, `QUEST_WISHING_WELL`, `QUEST_FORAGING_OLD`, `QUEST_FISHING_OLD`, `QUEST_CONTRACT_OLD`, `QUEST_CORE_V1_CONTRACT`, `QUEST_CONTRACT`, `QUEST_FORAGING`, `QUEST_FISHING`, `QUEST_GARDENING`, `QUEST_MINING_GOLD`, `QUEST_MINING_JEWEL`, `SALE_ADDRESS`, `SUMMON_ADDRESS`, `NEW_SUMMON_CONTRACT`, `MEDITATION_CONTRACT`, `WELL_QUEST_ADDRESS`, `CONSUMABLE_ADDRESS`.
         -   Configured RPC Provider Object must now contain the `chainId` property.
 -   **v0.6.14**, _28/Jun/2022_
     -   Added the `calculateRequiredXp()` function.
