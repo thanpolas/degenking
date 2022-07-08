@@ -153,42 +153,6 @@ exports.QUESTS_REV = {
   [exports.QUEST_LCK_ADDRESS]: 'LCK_TRAIN',
 };
 
-exports.QUESTS = {
-  FORAGING: 'foraging',
-  FISHING: 'fishing',
-  GARDENING: 'gardening',
-  MINING_GOLD: 'mining_gold',
-  MINING_JEWEL: 'mining_jewel',
-  WISHING_WELL: 'wishing_well',
-  STR_TRAIN: 'str_train',
-  AGI_TRAIN: 'agi_train',
-  END_TRAIN: 'end_train',
-  WIS_TRAIN: 'wis_train',
-  DEX_TRAIN: 'dex_train',
-  VIT_TRAIN: 'vit_train',
-  INT_TRAIN: 'int_train',
-  LCK_TRAIN: 'lck_train',
-};
-
-// group quests
-exports.QUESTS_GARDENING = [exports.QUESTS.GARDENING];
-exports.QUESTS_FORAGING = [exports.QUESTS.FORAGING];
-exports.QUESTS_FISHING = [exports.QUESTS.FISHING];
-exports.QUESTS_MINING = [
-  exports.QUESTS.MINING_GOLD,
-  exports.QUESTS.MINING_JEWEL,
-];
-exports.QUESTS_TRAINING = [
-  exports.QUESTS.STR_TRAIN,
-  exports.QUESTS.AGI_TRAIN,
-  exports.QUESTS.END_TRAIN,
-  exports.QUESTS.WIS_TRAIN,
-  exports.QUESTS.DEX_TRAIN,
-  exports.QUESTS.VIT_TRAIN,
-  exports.QUESTS.INT_TRAIN,
-  exports.QUESTS.LCK_TRAIN,
-];
-
 /** @const {Array<string>} TRAINING_QUESTS All the training quests */
 exports.TRAINING_QUESTS_AR = [
   exports.QUEST_STR_ADDRESS,
