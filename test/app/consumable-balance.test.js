@@ -4,7 +4,7 @@
 
 const testLib = require('../lib/tester.lib');
 
-const { consumableBalance, ADDRESS, CONSTANTS } = require('../..');
+const { consumableBalance, ADDRESSES_HARMONY, CONSTANTS } = require('../..');
 
 describe('Consumable Balance', () => {
   testLib.init();
@@ -16,7 +16,7 @@ describe('Consumable Balance', () => {
 
   describe('Happy Path', () => {
     it('should fetch consumables of an address', async () => {
-      const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+      const { CONSUMABLE_STAMINA_VIAL } = ADDRESSES_HARMONY;
       const balance = await consumableBalance(
         ZERO_ADDRESS,
         CONSUMABLE_STAMINA_VIAL,
