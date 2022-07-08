@@ -149,12 +149,13 @@ degenKing.config({
 
 ## Heroes API
 
-### getHeroesChain(heroIds)
+### getHeroesChain(chainId, heroIds)
 
 Will fetch and normalize heroes from the blockchain using provided hero ids.
 It will augment the hero object using multiple queries and functions to also
 include sales data, owner profile and decode all stat and visual genes.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
 -   `params` **{Object=}** Parameters for fetching the hero.
 -   `params.blockNumber` **{number=}** Query hero state at particular block number.
@@ -171,10 +172,11 @@ console.log(hero);
 
 > [View the Hero Data Object at the relative section.][hero-object].
 
-### fetchHeroesByOwnerChain(ownerAddress)
+### fetchHeroesByOwnerChain(chainId, ownerAddress)
 
 Fetches and normalizes heroes based on the owner.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `ownerAddress` **{string}** The owner's address.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
 
@@ -186,10 +188,11 @@ const heroes = await fetchHeroesByOwnerChain(myAddress);
 console.log(heroes);
 ```
 
-### fetchHeroIdsByOwnerChain(ownerAddress)
+### fetchHeroIdsByOwnerChain(chainId, ownerAddress)
 
 Fetches hero IDs of all heroes owned by the owner address.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `ownerAddress` **{string}** The owner's address.
 -   **Returns** **{Promise\<Array\<number\>\>}** A Promise with an array of the hero ids.
 
@@ -202,10 +205,11 @@ console.log(heroIds);
 // [1, 2, 3, 4]
 ```
 
-### fetchHeroesByOwnerAndProfessionChain(ownerAddress, profession)
+### fetchHeroesByOwnerAndProfessionChain(chainId, ownerAddress, profession)
 
 Fetches and normalizes heroes based on the owner and profession.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `ownerAddress` **{string}** The owner's address.
 -   `profession` **{string}** The desired profession to filter by, can be one of: `mining`, `gardening`, `fishing` and `foraging`.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects filtered by profession.
@@ -421,10 +425,11 @@ console.log(recessiveGenes);
 // }
 ```
 
-### getProfileByAddress(address)
+### getProfileByAddress(chainId, address)
 
 Will query the blockchain, profile contract, for the member data that belong to the provided address.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `address` **{string}** The address to query by, accepts both checksum and lowercased addresses.
 -   **Returns** **{Promise<Object|null>}** Will return a normalized response or null if not found.
 
@@ -561,10 +566,11 @@ const hero = {
 
 </details>
 
-### consumePotion(consumableAddress, heroId, privKey, optGasPrice)
+### consumePotion(chainId, consumableAddress, heroId, privKey, optGasPrice)
 
 Consumes a potion for the given hero. Does not approve consumption, you have to do it manually (for now).
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `consumableAddress` **{string}** Address of consumable potion. Use the available constants enumerated bellow.
 -   `heroId` **{string}** The hero id that will consume the potion.
 -   `privKey` **{string}** The private key to sign the transaction with.
@@ -623,10 +629,11 @@ const {
 } = addresses;
 ```
 
-### consumableBalance(address, consumableAddress)
+### consumableBalance(chainId, address, consumableAddress)
 
 Get balance of the consumable item for the given address.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `address` **{string}** The address to query for.
 -   `consumableAddress` **{string}** The address of the consumable to fetch balance for.
 -   **Returns** **{Promise\<number\>}** A Promise with the balance of potions.
@@ -814,6 +821,7 @@ When a new node version is available you need to updated it in the following:
     -   Implemented multi-chain functionality on all queries. Chain will be determined based on the `chainId` property passed as the provider object.
     -   Added new function `getAddresses()` to get the appropriate addresses constants module.
     -   **Breaking Changes**
+        -   Signatures of all blockchain querying functions have changed, now require chainId definition.
         -   Broke out the "addresses" constants module into per network (for now Harmony and DFK Network) and standardised naming.
         -   `PROFESSIONS_TO_QUESTS` will be available from the address constants modules.
         -   Removed the `ADDRESS` constant, has been replaced by `ADDRESSES_HARMONY` and `ADDRESSES_DFKN`.
