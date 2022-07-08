@@ -14,7 +14,7 @@ const {
 } = require('./heroes-helpers.ent');
 
 const { ZERO_ADDRESS } = require('../constants/constants.const');
-const { ALL_QUESTS_REV } = require('../constants/quests.const');
+const { questResolve } = require('../quests/quest-utils.ent');
 
 /**
  * Renders the hero to its string representation.
@@ -258,7 +258,7 @@ exports._getHeroParts = (hero, params) => {
     if (hero.currentQuest === ZERO_ADDRESS) {
       heroParts.push('Not Questing');
     } else {
-      const questName = ALL_QUESTS_REV[hero.currentQuest.toLowerCase()];
+      const questName = questResolve(hero.currentQuest);
       heroParts.push([`Quest`, questName]);
     }
   }

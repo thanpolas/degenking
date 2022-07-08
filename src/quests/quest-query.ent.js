@@ -23,7 +23,7 @@ const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 const { heroQuestStr } = require('../heroes-helpers/hero-to-string.ent');
 const { PoolsIndexedByPid } = require('../constants/garden-pools.const');
 const { getProfileByAddress } = require('../heroes-fetch/owner-profile.ent');
-const { ALL_QUESTS_REV } = require('../constants/quests.const');
+const { questResolve } = require('./quest-utils.ent');
 
 /**
  * Queries the blockchain to fetch all available data of a
@@ -111,7 +111,7 @@ exports.normalizeQuestV1 = (rawQuestDataV1) => {
     heroIds: rawQuestDataV1.heroes?.map((heroId) => Number(heroId)),
   };
 
-  questData.questName = ALL_QUESTS_REV[questData.questAddressLower];
+  questData.questName = questResolve(questData.questAddressLower);
 
   return questData;
 };
@@ -142,7 +142,7 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
     level: rawQuestDataV2.level,
   };
 
-  questData.questName = ALL_QUESTS_REV[questData.questAddressLower];
+  questData.questName = questResolve(questData.questAddressLower);
 
   return questData;
 };
