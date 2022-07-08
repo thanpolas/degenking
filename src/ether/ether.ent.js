@@ -114,8 +114,9 @@ exports.providerError = async () => {};
  * @return {Object} n ethers.js contract instance.
  */
 exports.getContractHeroes = (currentRPC) => {
-  const { provider } = currentRPC;
-  const contract = new ethers.Contract(HEROES_NFT, abiHeroes, provider);
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(addresses.HEROES, abiHeroes, provider);
   return contract;
 };
 
@@ -126,8 +127,13 @@ exports.getContractHeroes = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractProfile = (currentRPC) => {
-  const { provider } = currentRPC;
-  const contract = new ethers.Contract(PROFILES, abiProfiles, provider);
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(
+    addresses.PROFILES,
+    abiProfiles,
+    provider,
+  );
   return contract;
 };
 
@@ -138,9 +144,10 @@ exports.getContractProfile = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractAuctionSales = (currentRPC) => {
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    AUCTION_SALES,
+    addresses.AUCTION_SALES,
     abiAuctionSales,
     provider,
   );
@@ -154,8 +161,13 @@ exports.getContractAuctionSales = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractJewel = (currentRPC) => {
-  const { provider } = currentRPC;
-  const contract = new ethers.Contract(JEWELTOKEN, abiJewel, provider);
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(
+    addresses.JEWELTOKEN,
+    abiJewel,
+    provider,
+  );
   return contract;
 };
 
@@ -166,9 +178,10 @@ exports.getContractJewel = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getQuestCoreV1 = (currentRPC) => {
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    QUEST_CORE_V1_CONTRACT,
+    addresses.QUEST_CORE_V1,
     abiQuestCoreV1,
     provider,
   );
@@ -182,9 +195,10 @@ exports.getQuestCoreV1 = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getQuestCoreV2 = (currentRPC) => {
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    QUEST_CORE_V2_CONTRACT,
+    addresses.QUEST_CORE_V2,
     abiQuestCoreV2,
     provider,
   );
@@ -198,10 +212,11 @@ exports.getQuestCoreV2 = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractConsumable = (currentRPC) => {
-  const { provider, signer } = currentRPC;
+  const { provider, signer, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const useProvider = signer || provider;
   const contract = new ethers.Contract(
-    CONSUMABLE_ADDRESS,
+    addresses.CONSUMABLE_CORE_V1,
     abiConsumable,
     useProvider,
   );
