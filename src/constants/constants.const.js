@@ -2,14 +2,6 @@
  * @fileoverview DeFi kingdoms constants.
  */
 
-const {
-  QUEST_MINING_GOLD,
-  QUEST_MINING_JEWEL,
-  QUEST_FISHING,
-  QUEST_FORAGING,
-  QUEST_GARDENING,
-} = require('./addresses.const');
-
 /** @enum {string} Enumerate all available data sources */
 exports.DATA_SOURCES = {
   CHAIN: 'chain',
@@ -36,14 +28,6 @@ exports.PROFESSIONS = {
   GARDENING: 'gardening',
   FORAGING: 'foraging',
   FISHING: 'fishing',
-};
-
-/** @enum {Array<string>} Map profession values to profession quest addresses */
-exports.PROFESSIONS_TO_QUESTS = {
-  [exports.PROFESSIONS.MINING]: [QUEST_MINING_GOLD, QUEST_MINING_JEWEL],
-  [exports.PROFESSIONS.GARDENING]: [QUEST_GARDENING],
-  [exports.PROFESSIONS.FORAGING]: [QUEST_FORAGING],
-  [exports.PROFESSIONS.FISHING]: [QUEST_FISHING],
 };
 
 // All available quest types - values must map to existing addresses in the

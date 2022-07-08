@@ -2,6 +2,8 @@
  * @fileoverview Standardised naming of contracts for harmony
  */
 
+const { PROFESSIONS } = require('./constants.const');
+
 exports.UNISWAPV2FACTORY = '0x9014B937069918bd319f80e8B3BB4A2cf6FAA5F7';
 exports.UNISWAPV2ROUTER = '020x24ad62502d1C652Cc7684081169D04896aC20f30';
 exports.MASTER_GARDENER = '0xdb30643c71ac9e2122ca0341ed77d09d5f99f924';
@@ -213,4 +215,15 @@ exports.QUESTS_HANDLER_NEW = {
   [exports.QUEST_VIT_ADDRESS]: true,
   [exports.QUEST_INT_ADDRESS]: true,
   [exports.QUEST_LCK_ADDRESS]: true,
+};
+
+/** @enum {Array<string>} Map profession values to profession quest addresses */
+exports.PROFESSIONS_TO_QUESTS = {
+  [PROFESSIONS.MINING]: [
+    exports.QUEST_MINING_GOLD_V1,
+    exports.QUEST_MINING_JEWEL_V1,
+  ],
+  [PROFESSIONS.GARDENING]: [exports.QUEST_GARDENING_V1],
+  [PROFESSIONS.FORAGING]: [exports.QUEST_FORAGING_V2],
+  [PROFESSIONS.FISHING]: [exports.QUEST_FISHING_V2],
 };
