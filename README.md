@@ -30,6 +30,39 @@ console.log(hero);
 
 ## Configuration
 
+Since v1.0.0 DegenKing has been multi-chain so it can support both Serendale and Crystalvale. The way multi-chain is accomplished is through two critical parts:
+
+### The "chainId" property on the provider
+
+As you can see bellow on the [Configuring RPC](#configuring-rpc) section, the property `chainId` has been introduced which declares for which network the call will be made. If that property is not valid an error will be thrown.
+
+### Multiple Contract Address Modules
+
+Each supported network will have its own, dedicated addresses constants module. As such, DegenKing exposes the following address constants:
+
+-   `ADDRESSES_HARMONY`
+-   `ADDRESSES_DFKN`
+
+It is by convention, that all address constant modules maintain the exact same naming scheme so you can easily get the correct address for the network you want.
+
+Key function to this operation is the `getAddresses()` function:
+
+#### getAddresses(chainId)
+
+Will return the appropriate addresses constant module based on the given chainId.
+
+-   `chainId` **{number}** The chain id to get the contract addresses for.
+-   **Returns** **{Object}** The contract addresses for that network.
+
+```js
+const { getAddresses } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
+
+console.log(addresses);
+// Prints all the available contract addresses for this network...
+```
+
 ### Configuring RPC
 
 By default the library will use the Official Harmony RPC. You may override this
@@ -501,10 +534,12 @@ Consumes a potion for the given hero. Does not approve consumption, you have to 
 -   **Returns** **{Promise\<Object|void\>}** A Promise with a normalized data object from the "ItemConsumed" event, or empty if fetching the TX receipt failed (very edge case).
 
 ```js
-const { ADDRESS, consumePotion } = require('@thanpolas/degenking');
+const { getAddresses, consumePotion } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
 
 // Get the stamina vial address, which will be consumed.
-const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+const { CONSUMABLE_STAMINA_VIAL } = addresses;
 
 // Invoke consumption
 const response = await consumePotion(CONSUMABLE_STAMINA_VIAL, heroId, privKey);
@@ -531,7 +566,9 @@ console.log(response);
 Consumable potion addresses are available as constants on the `ADDRESS` constant:
 
 ```js
-const { ADDRESS } = require('@thanpolas/degenking');
+const { getAddresses } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
 
 // All the available potions to consume
 const {
@@ -545,7 +582,7 @@ const {
     CONSUMABLE_MAGIC_RESISTANCE_POTION,
     CONSUMABLE_TOUGHNESS_POTION,
     CONSUMABLE_SWIFTNESS_POTION,
-} = ADDRESS;
+} = addresses;
 ```
 
 ### consumableBalance(address, consumableAddress)
@@ -557,10 +594,12 @@ Get balance of the consumable item for the given address.
 -   **Returns** **{Promise\<number\>}** A Promise with the balance of potions.
 
 ```js
-const { ADDRESS, consumableBalance } = require('@thanpolas/degenking');
+const { getAddresses, consumableBalance } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
 
 // Get the stamina vial address, which will be consumed.
-const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+const { CONSUMABLE_STAMINA_VIAL } = addresses;
 
 const myAddress = '0x.....';
 
@@ -734,11 +773,16 @@ When a new node version is available you need to updated it in the following:
 # Release History
 
 -   **v1.0.0** , _TBD_
+    -   Implemented multi-chain functionality on all queries. Chain will be determined based on the `chainId` property passed as the provider object.
+    -   Added new function `getAddresses()` to get the appropriate addresses constants module.
     -   **Breaking Changes**
         -   Broke out the "addresses" constants module into per network (for now Harmony and DFK Network) and standardised naming.
         -   `PROFESSIONS_TO_QUESTS` will be available from the address constants modules.
+        -   Removed the `ADDRESS` constant, has been replaced by `ADDRESSES_HARMONY` and `ADDRESSES_DFKN`.
         -   Deprecated address constants in favor of new, standardized contract naming scheme that will be common across all network constants: `HEROES_NFT`, `WELL_QUEST_ADDRESS_OLD`, `QUEST_WISHING_WELL`, `QUEST_FORAGING_OLD`, `QUEST_FISHING_OLD`, `QUEST_CONTRACT_OLD`, `QUEST_CORE_V1_CONTRACT`, `QUEST_CONTRACT`, `QUEST_FORAGING`, `QUEST_FISHING`, `QUEST_GARDENING`, `QUEST_MINING_GOLD`, `QUEST_MINING_JEWEL`, `SALE_ADDRESS`, `SUMMON_ADDRESS`, `NEW_SUMMON_CONTRACT`, `MEDITATION_CONTRACT`, `WELL_QUEST_ADDRESS`, `CONSUMABLE_ADDRESS`.
         -   Configured RPC Provider Object must now contain the `chainId` property.
+        -   Address constant `AUCTION_SALES` is now capitalized for checksum and new constant created that is all lowercased: `AUCTION_SALES_LOWERCASE`.
+        -   Constants `QUESTS` and grouped quest constants: `QUESTS_GARDENING`, `QUESTS_FORAGING`, `QUESTS_FISHING`, `QUESTS_MINING`, and `QUESTS_TRAINING` can now be found from the 'QUEST' constants property.
 -   **v0.6.14**, _28/Jun/2022_
     -   Added the `calculateRequiredXp()` function.
     -   Added the `stampot` option on heroToString();
