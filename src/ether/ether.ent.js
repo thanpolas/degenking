@@ -164,7 +164,7 @@ exports.getContractJewel = (currentRPC) => {
   const { provider, chainId } = currentRPC;
   const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    addresses.JEWELTOKEN,
+    addresses.JEWEL_TOKEN,
     abiJewel,
     provider,
   );

@@ -33,6 +33,7 @@ const log = require('../utils/log.service').get();
 /**
  * Get heroes data from blockchain with normalized data schema.
  *
+ * @param {number} chainId The chain id.
  * @param {Array<string>} heroIds hero IDs.
  * @param {Object=} params Parameters for fetching the heroes.
  * @param {number=} params.blockNumber Query hero state at particular block number.
@@ -41,7 +42,7 @@ const log = require('../utils/log.service').get();
  * @param {number=} retries retries count.
  * @return {Promise<Array<Object>>} Normalized heroes.
  */
-exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
+exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
   try {
     if (!heroIds?.length) {
       return [];
@@ -49,7 +50,7 @@ exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
     const heroes = await asyncMapCap(
       heroIds,
       async (heroId) => {
-        return exports.getHeroChain(heroId, params);
+        return exports.getHeroChain(chainId, heroId, params);
       },
       getConfig('concurrentBlockChainRequests'),
     );
@@ -70,7 +71,7 @@ exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
       retries,
       errorMessage: `getHeroesChain()`,
       retryFunction: exports.getHeroesChain,
-      retryArguments: [heroIds, params],
+      retryArguments: [chainId, heroIds, params],
     });
   }
 };
@@ -80,14 +81,15 @@ exports.getHeroesChain = async (heroIds, params = {}, retries = 0) => {
  *
  * Will retry up to the config's max retries.
  *
+ * @param {number} chainId The chain id.
  * @param {number|string} heroId hero ID.
  * @param {Object=} params Parameters for fetching the heroes.
  * @param {number=} params.blockNumber Query hero state at particular block number.
  * @param {number=} retries Retry count.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
-  let currentRPC = await getProvider();
+exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
+  let currentRPC = await getProvider(chainId);
   try {
     // Force convert hero Id into number
     heroId = Number(heroId);
@@ -97,7 +99,7 @@ exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
     if (params.blockNumber) {
       blockToQuery = params.blockNumber;
       // Switch to archival RPC provider for this query
-      currentRPC = await getArchivalProvider();
+      currentRPC = await getArchivalProvider(chainId);
     }
 
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
@@ -133,7 +135,7 @@ exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
         `getHeroChain() - RPC: ${currentRPC.name} - ` +
         `ChainId: ${currentRPC.chainId} - Hero: ${heroId}`,
       retryFunction: exports.getHeroChain,
-      retryArguments: [heroId, params],
+      retryArguments: [chainId, heroId, params],
     });
   }
 };
@@ -141,15 +143,17 @@ exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
 /**
  * Fetches heroes by owner and filters by profession.
  *
+ * @param {number} chainId The chain id.
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
  * @param {string} profession The profession to filter by (use constant enum).
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
 exports.fetchHeroesByOwnerAndProfessionChain = async (
+  chainId,
   ownerAddress,
   profession,
 ) => {
-  const heroes = await exports.fetchHeroesByOwnerChain(ownerAddress);
+  const heroes = await exports.fetchHeroesByOwnerChain(chainId, ownerAddress);
 
   const professionHeroes = heroes.filter(
     (hero) => hero.profession === profession,
@@ -161,18 +165,22 @@ exports.fetchHeroesByOwnerAndProfessionChain = async (
 /**
  * Fetches heroes by owner.
  *
+ * @param {number} chainId The chain id.
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
  * @return {Promise<Array<Object>>} Fetched heroes.
  */
-exports.fetchHeroesByOwnerChain = async (ownerAddress) => {
+exports.fetchHeroesByOwnerChain = async (chainId, ownerAddress) => {
   try {
-    const allHeroIds = await exports.fetchHeroIdsByOwnerChain(ownerAddress);
+    const allHeroIds = await exports.fetchHeroIdsByOwnerChain(
+      chainId,
+      ownerAddress,
+    );
 
     if (!allHeroIds?.length) {
       return [];
     }
 
-    const heroes = await exports.getHeroesChain(allHeroIds);
+    const heroes = await exports.getHeroesChain(chainId, allHeroIds);
 
     if (!heroes?.length) {
       return [];
@@ -188,12 +196,17 @@ exports.fetchHeroesByOwnerChain = async (ownerAddress) => {
 /**
  * Fetches hero IDs by owner.
  *
+ * @param {number} chainId The chain id.
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
  * @param {number=} retries Retry count.
  * @return {Promise<Array<number>>} Fetched hero ids.
  */
-exports.fetchHeroIdsByOwnerChain = async (ownerAddress, retries = 0) => {
-  const currentRPC = await getProvider();
+exports.fetchHeroIdsByOwnerChain = async (
+  chainId,
+  ownerAddress,
+  retries = 0,
+) => {
+  const currentRPC = await getProvider(chainId);
   try {
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
     const salesContract = getContractAuctionSales(currentRPC);
@@ -222,7 +235,7 @@ exports.fetchHeroIdsByOwnerChain = async (ownerAddress, retries = 0) => {
         `fetchHeroIdsByOwnerChain() - RPC: ${currentRPC.name} - ` +
         `ownerAddress: ${ownerAddress}`,
       retryFunction: exports.fetchHeroIdsByOwnerChain,
-      retryArguments: [ownerAddress],
+      retryArguments: [chainId, ownerAddress],
     });
   }
 };

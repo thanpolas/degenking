@@ -14,7 +14,13 @@ exports._config = {
   concurrentBlockChainRequests: 30,
   gqlEndpoint:
     'https://defi-kingdoms-community-api-gateway-co06z8vi.uc.gateway.dev/graphql',
-  getProvider: () => {
+  getProvider: (chainId) => {
+    if (chainId !== NETWORK_IDS.HARMONY) {
+      throw new Error(
+        'getProvider() degenking local only accepts harmony chain id',
+      );
+    }
+
     const provider = new ethers.providers.JsonRpcProvider(
       'https://api.harmony.one/',
     );
@@ -25,7 +31,13 @@ exports._config = {
       chainId: NETWORK_IDS.HARMONY,
     };
   },
-  getArchivalProvider: () => {
+  getArchivalProvider: (chainId) => {
+    if (chainId !== NETWORK_IDS.HARMONY) {
+      throw new Error(
+        'getArchivalProvider() degenking local only accepts harmony chain id',
+      );
+    }
+
     const provider = new ethers.providers.JsonRpcProvider(
       'https://a.api.s0.t.hmny.io/',
     );
@@ -33,6 +45,7 @@ exports._config = {
     return {
       name: 'archival-hmny',
       provider,
+      chainId: NETWORK_IDS.HARMONY,
     };
   },
 };

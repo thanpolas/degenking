@@ -20,6 +20,7 @@ const log = require('../utils/log.service').get();
 /**
  * Stamina Potion Consumption.
  *
+ * @param {number} chainId The chain id.
  * @param {string} consumableAddress Address of consumable (potion).
  * @param {number|string|bigint} heroId Hero id that will consume.
  * @param {string} privKey Account's private key.
@@ -29,13 +30,14 @@ const log = require('../utils/log.service').get();
  *    "ItemConsumed" event.
  */
 exports.consumePotion = async (
+  chainId,
   consumableAddress,
   heroId,
   privKey,
   optGasPrice,
   retries = 0,
 ) => {
-  const signerRpc = await getProvider(privKey);
+  const signerRpc = await getProvider(chainId, privKey);
   try {
     const consumableContract = getContractConsumable(signerRpc);
 
@@ -65,7 +67,13 @@ exports.consumePotion = async (
         `consumePotion() - RPC: ${signerRpc.name} - ChainId: ${signerRpc.chainId} - ` +
         `heroId: ${heroId} - consumableAddress: ${consumableAddress}`,
       retryFunction: exports.consumePotion,
-      retryArguments: [consumableAddress, heroId, privKey, optGasPrice],
+      retryArguments: [
+        chainId,
+        consumableAddress,
+        heroId,
+        privKey,
+        optGasPrice,
+      ],
     });
   }
 };

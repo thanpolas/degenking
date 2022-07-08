@@ -29,15 +29,16 @@ const { questResolve } = require('./quest-utils.ent');
  * Queries the blockchain to fetch all available data of a
  *    quest based on quest id.
  *
+ * @param {number} chainId The chain id.
  * @param {number} questId THe quest id.
  * @return {Promise<Object>} Processed and normalized quest data.
  */
-exports.queryQuest = async (questId) => {
-  const questData = await exports.fetchQuestData(questId);
+exports.queryQuest = async (chainId, questId) => {
+  const questData = await exports.fetchQuestData(chainId, questId);
 
   const [, , profileData] = await Promise.all([
-    exports.getQuestHeroData(questData),
-    exports.getGardeningData(questData),
+    exports.getQuestHeroData(chainId, questData),
+    exports.getGardeningData(chainId, questData),
     getProfileByAddress(questData.playerAddress),
   ]);
 
@@ -51,11 +52,12 @@ exports.queryQuest = async (questId) => {
 /**
  * Will fetch raw Quest data regardless of QuestCore version.
  *
+ * @param {number} chainId The chain id.
  * @param {number} questId The quest id to fetch.
  * @return {Promise<Object>} Normalized quest data.
  */
-exports.fetchQuestData = async (questId) => {
-  const currentRPC = await getProvider();
+exports.fetchQuestData = async (chainId, questId) => {
+  const currentRPC = await getProvider(chainId);
 
   const questsV1Contract = getQuestCoreV1(currentRPC);
   const questsV2Contract = getQuestCoreV2(currentRPC);
@@ -154,17 +156,18 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
  *    - allHeroes: Array of full hero objects.
  *    - heroesStr: Quest string rendering of heroes.
  *
+ * @param {number} chainId The chain id.
  * @param {Object} questData Normnalized Quest data.
  * @return {Promise<void>} Augments questData object.
  */
-exports.getQuestHeroData = async (questData) => {
+exports.getQuestHeroData = async (chainId, questData) => {
   if (questData.version === 2) {
-    await exports.getQuestV2QuestHeroes(questData);
+    await exports.getQuestV2QuestHeroes(chainId, questData);
   }
 
   const { heroIds } = questData;
 
-  const heroes = await getHeroesChain(heroIds, {
+  const heroes = await getHeroesChain(chainId, heroIds, {
     blockMinedAt: questData.startAtTime,
     blockNumber: questData.startBlock,
   });
@@ -180,13 +183,14 @@ exports.getQuestHeroData = async (questData) => {
  * Will query the chain for the questStart event and find the heroes
  * used on this quest.
  *
+ * @param {number} chainId The chain id.
  * @param {Object} questData Normnalized Quest data.
  * @return {Promise<void>} Augments questData object.
  */
-exports.getQuestV2QuestHeroes = async (questData) => {
+exports.getQuestV2QuestHeroes = async (chainId, questData) => {
   questData.heroIds = [];
-  const currentRPC = await getProvider();
-  const { provider, chainId } = currentRPC;
+  const currentRPC = await getProvider(chainId);
+  const { provider } = currentRPC;
 
   const addresses = getAddresses(chainId);
 
@@ -220,13 +224,14 @@ exports.getQuestV2QuestHeroes = async (questData) => {
 /**
  * Will augment the questData with gardning info, if the quest is gardening.
  *
+ * @param {number} chainId The chain id.
  * @param {Object} questData Normnalized Quest data.
  * @return {Promise<void>} Augments questData object.
  */
-exports.getGardeningData = async (questData) => {
-  const currentRPC = await getProvider();
+exports.getGardeningData = async (chainId, questData) => {
+  const currentRPC = await getProvider(chainId);
 
-  const addresses = getAddresses(currentRPC.chainId);
+  const addresses = getAddresses(chainId);
 
   if (questData.questAddressLower !== addresses.QUEST_GARDENING_V1) {
     return;

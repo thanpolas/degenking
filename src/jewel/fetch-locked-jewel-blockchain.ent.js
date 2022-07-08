@@ -5,7 +5,7 @@
 
 const { tokenToAuto } = require('@thanpolas/crypto-utils');
 
-const { JEWEL_DECIMALS } = require('../constants/constants.const');
+const { JEWEL_DECIMALS, NETWORK_IDS } = require('../constants/constants.const');
 const { getProvider, getContractJewel } = require('../ether');
 const { catchErrorRetry } = require('../utils/error-handler');
 
@@ -19,7 +19,7 @@ const log = require('../utils/log.service').get();
  * @return {Promise<Object>} Fetched jewel.
  */
 exports.fetchLockedJewelByOwnerChain = async (ownerAddress, retries = 0) => {
-  const currentRPC = await getProvider();
+  const currentRPC = await getProvider(NETWORK_IDS.HARMONY);
   try {
     const jewelContract = await getContractJewel(currentRPC);
 
