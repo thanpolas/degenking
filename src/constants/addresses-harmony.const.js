@@ -1,5 +1,5 @@
 /**
- * @fileoverview In game contract addresses.
+ * @fileoverview Standardised naming of contracts for harmony
  */
 
 exports.HEROES_NFT = '0x5F753dcDf9b1AD9AabC1346614D1f4746fd6Ce5C';
