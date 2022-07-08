@@ -14,15 +14,10 @@ const abiConsumable = require('../abi/consumable.abi.json');
 const abiQuestCoreV1 = require('../abi/quest-core-v1.abi.json');
 const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 
-const {
-  HEROES_NFT,
-  AUCTION_SALES,
-  PROFILES,
-  JEWELTOKEN,
-  CONSUMABLE_ADDRESS,
-  QUEST_CORE_V1_CONTRACT,
-  QUEST_CORE_V2_CONTRACT,
-} = require('../constants/addresses.const');
+const addressesHarmony = require('../constants/addresses-harmony.const');
+const addressesDFKN = require('../constants/addresses-dfkn.const');
+
+const { NETWORK_IDS } = require('../constants/constants.const');
 
 /**
  * Get a provider object.
@@ -36,6 +31,12 @@ const {
 exports.getProvider = async (optPrivKey) => {
   const getProvider = configuration.get('getProvider');
   const currentRPC = await getProvider();
+
+  if (!currentRPC.chainId) {
+    throw new Error(
+      `degenking library could not find a valid "chainId" property on the provider`,
+    );
+  }
 
   if (optPrivKey) {
     const signerRpc = exports._getSigner(currentRPC, optPrivKey);
@@ -60,6 +61,25 @@ exports.getArchivalProvider = async () => {
 };
 
 /**
+ * Returns the appropriate addresses constants module based on the provided
+ *    chain id.
+ *
+ * @param {number} chainId The chain id.
+ * @return {Object}
+ */
+exports.getAddresses = (chainId) => {
+  switch (chainId) {
+    case NETWORK_IDS.HARMONY:
+      return addressesHarmony;
+    case NETWORK_IDS.DFKN:
+      return addressesDFKN;
+
+    default:
+      return addressesHarmony;
+  }
+};
+
+/**
  * Produces and returns the signer RPC Object.
  *
  * @param {Object} currentRPC RPC Object.
@@ -73,6 +93,7 @@ exports._getSigner = (currentRPC, privKey) => {
     name: currentRPC.name,
     provider: currentRPC.provider,
     lastBlockMined: currentRPC.lastBlockMined,
+    chainId: currentRPC.chainId,
     isSigner: true,
     signer: new ethers.Wallet(privKey, currentRPC.provider),
   };
