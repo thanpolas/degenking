@@ -3,13 +3,13 @@
  * @fileoverview Fetches heroes data from the blockchain.
  */
 
-const { AUCTION_SALES } = require('../constants/addresses.const');
 const { DATA_SOURCES } = require('../constants/constants.const');
 const etherEnt = require('../ether');
 const {
   getProvider,
   getArchivalProvider,
   getContractAuctionSales,
+  getAddresses,
 } = require('../ether');
 const {
   getSalesAuctionChainByHeroId,
@@ -108,8 +108,9 @@ exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
       getSalesAuctionChainByHeroId(heroId),
     ]);
 
+    const addresses = getAddresses(currentRPC.chainId);
     let ownerAddress = '';
-    if (ownerOfAddress.toLowerCase() === AUCTION_SALES) {
+    if (ownerOfAddress.toLowerCase() === addresses.AUCTION_SALES_LOWERCASE) {
       const salesContract = getContractAuctionSales(currentRPC);
       const auction = await salesContract.getAuction(heroId, {
         blockTag: blockToQuery,
@@ -128,7 +129,9 @@ exports.getHeroChain = async (heroId, params = {}, retries = 0) => {
     await catchErrorRetry(log, {
       ex,
       retries,
-      errorMessage: `getHeroChain() - RPC: ${currentRPC.name} - Hero: ${heroId}`,
+      errorMessage:
+        `getHeroChain() - RPC: ${currentRPC.name} - ` +
+        `ChainId: ${currentRPC.chainId} - Hero: ${heroId}`,
       retryFunction: exports.getHeroChain,
       retryArguments: [heroId, params],
     });
