@@ -9,12 +9,13 @@ const {
   getHeroesChain,
 } = require('../heroes-fetch/fetch-heroes-blockchain.ent');
 const { unixToJsDate } = require('../utils/helpers');
-const { getProvider, getQuestCoreV1, getQuestCoreV2 } = require('../ether');
 const {
-  QUEST_CORE_V2_CONTRACT,
-  QUESTS_REV,
-  QUEST_GARDENING,
-} = require('../constants/addresses.const');
+  getProvider,
+  getQuestCoreV1,
+  getQuestCoreV2,
+  getAddresses,
+} = require('../ether');
+
 const {
   QUEST_CORE_V2_TOPIC_QuestStarted,
 } = require('../constants/topics.const');
@@ -22,6 +23,7 @@ const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 const { heroQuestStr } = require('../heroes-helpers/hero-to-string.ent');
 const { PoolsIndexedByPid } = require('../constants/garden-pools.const');
 const { getProfileByAddress } = require('../heroes-fetch/owner-profile.ent');
+const { ALL_QUESTS_REV } = require('../constants/quests.const');
 
 /**
  * Queries the blockchain to fetch all available data of a
@@ -109,7 +111,7 @@ exports.normalizeQuestV1 = (rawQuestDataV1) => {
     heroIds: rawQuestDataV1.heroes?.map((heroId) => Number(heroId)),
   };
 
-  questData.questName = QUESTS_REV[questData.questAddressLower];
+  questData.questName = ALL_QUESTS_REV[questData.questAddressLower];
 
   return questData;
 };
@@ -140,7 +142,7 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
     level: rawQuestDataV2.level,
   };
 
-  questData.questName = QUESTS_REV[questData.questAddressLower];
+  questData.questName = ALL_QUESTS_REV[questData.questAddressLower];
 
   return questData;
 };
@@ -184,11 +186,13 @@ exports.getQuestHeroData = async (questData) => {
 exports.getQuestV2QuestHeroes = async (questData) => {
   questData.heroIds = [];
   const currentRPC = await getProvider();
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+
+  const addresses = getAddresses(chainId);
 
   // Prepare the filtering arguments of the getLog query
   const getLogsOpts = {
-    address: QUEST_CORE_V2_CONTRACT,
+    address: addresses.QUEST_CORE_V2,
     fromBlock: questData.startBlock,
     toBlock: questData.startBlock,
     topics: [QUEST_CORE_V2_TOPIC_QuestStarted],
@@ -220,11 +224,14 @@ exports.getQuestV2QuestHeroes = async (questData) => {
  * @return {Promise<void>} Augments questData object.
  */
 exports.getGardeningData = async (questData) => {
-  if (questData.questAddressLower !== QUEST_GARDENING) {
+  const currentRPC = await getProvider();
+
+  const addresses = getAddresses(currentRPC.chainId);
+
+  if (questData.questAddressLower !== addresses.QUEST_GARDENING_V1) {
     return;
   }
 
-  const currentRPC = await getProvider();
   const questsV1Contract = getQuestCoreV1(currentRPC);
 
   const gardeningInfo = await questsV1Contract.getQuestData(questData.id);
