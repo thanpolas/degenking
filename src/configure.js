@@ -4,6 +4,7 @@
 
 const { ethers } = require('ethers');
 const lodash = require('lodash');
+const { NETWORK_IDS } = require('./constants/constants.const');
 
 /**
  * @type {Object} Local, default configuration.
@@ -19,8 +20,9 @@ exports._config = {
     );
 
     return {
-      name: 'Official',
+      name: 'harmony-official',
       provider,
+      chainId: NETWORK_IDS.HARMONY,
     };
   },
   getArchivalProvider: () => {
