@@ -2,9 +2,10 @@
  * @fileoverview Quest related constants.
  */
 
+const { assign } = require('lodash');
+
 const addressesHarmony = require('./addresses-harmony.const');
 const addressesDFKN = require('./addresses-dfkn.const');
-const { assign } = require('lodash');
 
 exports.QUESTS = {
   FORAGING: 'foraging',
