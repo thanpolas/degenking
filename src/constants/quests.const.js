@@ -54,3 +54,23 @@ exports.ALL_QUESTS_REV = assign(
   addressesHarmony.QUESTS_REV,
   addressesDFKN.ALL_QUESTS_REV,
 );
+
+/**
+ * Combines all the new quest maps from all networks for easier resolving.
+ *
+ * @const {Object}
+ */
+exports.ALL_QUESTS_HANDLER_NEW = assign(
+  {},
+  addressesHarmony.QUESTS_HANDLER_NEW,
+  addressesDFKN.QUESTS_HANDLER_NEW,
+);
+
+/**
+ * Combines all the new training quest addresses from all networks.
+ *
+ * @const {Object}
+ */
+exports.ALL_TRAINING_QUESTS_AR = addressesHarmony.TRAINING_QUESTS_AR.concat(
+  addressesDFKN.TRAINING_QUESTS_AR,
+);

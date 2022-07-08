@@ -3,10 +3,10 @@
  */
 
 const {
-  QUESTS_REV,
-  QUESTS_HANDLER_NEW,
-  TRAINING_QUESTS_AR,
-} = require('../constants/addresses.const');
+  ALL_QUESTS_REV,
+  ALL_QUESTS_HANDLER_NEW,
+  ALL_TRAINING_QUESTS_AR,
+} = require('../constants/quests.const');
 
 /**
  * Resolve a quest address to quest name.
@@ -15,7 +15,7 @@ const {
  * @return {string} Quest name.
  */
 exports.questResolve = (questAddress) => {
-  return QUESTS_REV[questAddress.toLowerCase()];
+  return ALL_QUESTS_REV[questAddress.toLowerCase()];
 };
 
 /**
@@ -25,7 +25,7 @@ exports.questResolve = (questAddress) => {
  * @return {boolean} True if new quests.
  */
 exports.isQuestNew = (questAddress) => {
-  return QUESTS_HANDLER_NEW[questAddress.toLowerCase()];
+  return ALL_QUESTS_HANDLER_NEW[questAddress.toLowerCase()];
 };
 
 /**
@@ -35,5 +35,5 @@ exports.isQuestNew = (questAddress) => {
  * @return {boolean} True if quest is training type.
  */
 exports.isTrainingQuest = (questAddress) => {
-  return TRAINING_QUESTS_AR.includes(questAddress.toLowerCase());
+  return ALL_TRAINING_QUESTS_AR.includes(questAddress.toLowerCase());
 };
