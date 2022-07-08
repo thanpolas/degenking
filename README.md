@@ -63,6 +63,44 @@ console.log(addresses);
 // Prints all the available contract addresses for this network...
 ```
 
+### Address Constants
+
+All Address constant modules (except noted) will contain the following constants:
+
+-   `UNISWAPV2FACTORY`
+-   `UNISWAPV2ROUTER`
+-   `MASTER_GARDENER`
+-   `JEWEL_TOKEN`
+-   `XJEWEL_TOKEN`
+-   `CRYSTAL_TOKEN` - DFKN only.
+-   `XCRYSTAL_TOKEN` - DFKN only.
+-   `BANK`
+-   `BANKER`
+-   `AIRDROP`
+-   `HEROES`
+-   `TEARS_TOKEN`
+-   `AUCTION_SALES`
+-   `AUCTION_SALES_LOWERCASE`
+-   `PROFILES`
+-   `RUNES`
+-   `MEDITATION`
+-   `SUMMON_V2`
+-   `QUEST_CORE_V2`
+-   `QUEST_GARDENING_V1`
+-   `QUEST_MINING_GOLD_V1`
+-   `QUEST_MINING_JEWEL_V1`
+-   `QUEST_FORAGING_V2`
+-   `QUEST_FISHING_V2`
+-   `QUEST_WISHING_WELL_V2`
+-   `QUESTS_REV`
+-   `TRAINING_QUESTS_AR`
+-   `QUESTS_HANDLER_NEW`
+-   `PROFESSIONS_TO_QUESTS`
+-   `QUEST_WISHING_WELL_V1` - Harmony Only.
+-   `QUEST_FORAGING_V1` - Harmony Only.
+-   `QUEST_FISHING_V1` - Harmony Only.
+-   `QUEST_CORE_V1` - Harmony Only.
+
 ### Configuring RPC
 
 By default the library will use the Official Harmony RPC. You may override this
