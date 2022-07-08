@@ -1,6 +1,6 @@
 /**
- * DeFi Kingdoms Hero
- * Utility library for fetching and working with DFK Heroes.
+ * DegenKing
+ * Utility library for fetching and working with DFK.
  *
  * https://github.com/degen-heroes/degenking
  *
@@ -109,6 +109,7 @@ const {
   normalizeChainHero,
 } = require('./heroes-fetch/normalise-blockchain.ent');
 const { queryQuest, fetchQuestData } = require('./quests/quest-query.ent');
+const { getAddresses } = require('./ether');
 
 exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
@@ -141,7 +142,8 @@ exports.getSalesData = getSalesAuctionChainByHeroId;
 exports.decodeStatGenes = decodeStatGenes;
 exports.decodeVisualGenes = decodeVisualGenes;
 
-exports.ADDRESS = require('./constants/addresses.const');
+exports.ADDRESSES_HARMONY = require('./constants/addresses-harmony.const');
+exports.ADDRESSES_DFKN = require('./constants/addresses-dfkn.const');
 exports.CHOICES = require('./constants/choices.const');
 exports.CONSTANTS = require('./constants/constants.const');
 exports.POWER_PAIRS = require('./constants/power-pairs.const');
@@ -149,7 +151,9 @@ exports.ALL_ITEMS = require('./constants/all-items.json');
 exports.ITEM_TYPES = require('./constants/item-types.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 exports.RUNES = require('./constants/runes.const');
-exports.QUESTS = require('./constants/quest.const');
+exports.QUESTS = require('./constants/quests.const');
+
+exports.getAddresses = getAddresses;
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
