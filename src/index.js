@@ -25,7 +25,7 @@ const log = logService.get();
 // WARNING - Require any local packages BELLOW this line
 //
 
-FIXME DO A SEARCH FOR ALL THE DEPRECATED ADDRESS VAR NAMES
+// FIXME DO A SEARCH FOR ALL THE DEPRECATED ADDRESS VAR NAMES
 
 const {
   getHeroesChain,
@@ -99,6 +99,8 @@ const {
   areHeroesRelated,
 } = require('./heroes-helpers/summon-utils.ent');
 
+const { chainIdToNetwork } = require('./utils/network-helpers');
+
 const {
   calculateRuneRequirements,
 } = require('./heroes-helpers/rune-requirements.ent');
@@ -153,6 +155,7 @@ exports.RUNES = require('./constants/runes.const');
 exports.QUESTS = require('./constants/quests.const');
 
 exports.getAddresses = getAddresses;
+exports.chainIdToNetwork = chainIdToNetwork;
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
