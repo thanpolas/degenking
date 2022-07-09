@@ -14,6 +14,12 @@ exports.NETWORK_IDS = {
   DFKN: 53935,
 };
 
+/** @enum {number} EVM Network ids in reverse */
+exports.NETWORK_IDS_REV = {
+  1666600000: 'Harmony',
+  53935: 'DFKN',
+};
+
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 exports.xJEWEL_DECIMALS = 18;
 exports.ONE_DECIMALS = 18;
