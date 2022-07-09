@@ -74,6 +74,7 @@ All Address constant modules (except noted) will contain the following constants
 -   `XJEWEL_TOKEN`
 -   `CRYSTAL_TOKEN` - DFKN only.
 -   `XCRYSTAL_TOKEN` - DFKN only.
+-   `BASE_TOKEN` - An alias for the corresponding token of each network (i.e. "Jewel" for SD and "CRYSTAL" for CV).
 -   `BANK`
 -   `BANKER`
 -   `AIRDROP`
@@ -712,19 +713,29 @@ console.log(auctionData);
 //   }
 ```
 
-## Jewel
+## Game Tokens
 
-### fetchLockedJewelByOwnerChain(address)
+"Game Tokens" are the respective tokens used on each chain the same is at, so currently there are:
 
-Fetches the locked jewel of an address from the blockchain.
+-   **Jewel** on Serendale.
+-   **Crystal** on Crystalvale.
 
+### fetchLockedTokensByOwnerChain(chainId, address)
+
+Fetches the locked game tokens of the provided address from the blockchain using the appropriate network as provided by chainId.
+
+-   `chainId` **{number}** The unique blockchain id.
 -   `address` **{string}** The owner's address to fetch locked jewel for.
 -   **Returns** **{Promise\<number\>}** A Promise with the locked jewel in human readable number format.
 
 ```js
-const { fetchLockedJewelByOwnerChain } = require('@thanpolas/degenking');
+const { fetchLockedTokensByOwnerChain } = require('@thanpolas/degenking');
 
-const lockedJewel = await fetchLockedJewelByOwnerChain('0x....');
+const HARMONY_CHAIN_ID = 1666600000;
+const lockedJewel = await fetchLockedTokensByOwnerChain(
+    HARMONY_CHAIN_ID,
+    '0x....',
+);
 
 console.log(lockedJewel);
 // 12.9
@@ -822,6 +833,7 @@ When a new node version is available you need to updated it in the following:
     -   Added new function `getAddresses()` to get the appropriate addresses constants module.
     -   **Breaking Changes**
         -   Signatures of all blockchain querying functions have changed, now require chainId definition.
+        -   Function `fetchLockedJewelByOwnerChain()` has been removed and replaced by `fetchLockedTokensByOwnerChain()`.
         -   Broke out the "addresses" constants module into per network (for now Harmony and DFK Network) and standardised naming.
         -   `PROFESSIONS_TO_QUESTS` will be available from the address constants modules.
         -   Removed the `ADDRESS` constant, has been replaced by `ADDRESSES_HARMONY` and `ADDRESSES_DFKN`.
