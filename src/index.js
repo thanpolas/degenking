@@ -25,6 +25,8 @@ const log = logService.get();
 // WARNING - Require any local packages BELLOW this line
 //
 
+FIXME DO A SEARCH FOR ALL THE DEPRECATED ADDRESS VAR NAMES
+
 const {
   getHeroesChain,
   fetchHeroesByOwnerAndProfessionChain,
@@ -74,8 +76,8 @@ const {
   queryAssistingAuctionsAllGql,
 } = require('./auctions/assisting-auctions.ent');
 const {
-  fetchLockedJewelByOwnerChain,
-} = require('./jewel/fetch-locked-jewel-blockchain.ent');
+  fetchLockedTokensByOwnerChain,
+} = require('./tokens/fetch-locked-tokens-blockchain.ent');
 
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
@@ -135,9 +137,6 @@ exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
 exports.getRanking = getRanking;
 exports.calculateRequiredXp = calculateRequiredXp;
 
-// *** DEPRECATE ***
-exports.getSalesData = getSalesAuctionChainByHeroId;
-
 // New commands of 0.3.0
 exports.decodeStatGenes = decodeStatGenes;
 exports.decodeVisualGenes = decodeVisualGenes;
@@ -162,7 +161,7 @@ exports.getProfileByAddress = getProfileByAddress;
 exports.getSalesAuctionChainByHeroId = getSalesAuctionChainByHeroId;
 exports.getSalesAuctionGqlByAuctionId = getSalesAuctionGqlByAuctionId;
 
-exports.fetchLockedJewelByOwnerChain = fetchLockedJewelByOwnerChain;
+exports.fetchLockedTokensByOwnerChain = fetchLockedTokensByOwnerChain;
 
 exports.consumePotion = consumePotion;
 exports.consumableBalance = consumableBalance;
