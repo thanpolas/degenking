@@ -124,7 +124,10 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
 
     const owner = await getProfileByAddress(ownerAddress);
     const hero = processHeroChainData(heroRaw, owner, ownerAddress);
+
     hero.salesData = heroSalesData;
+
+    hero.chainId = chainId;
 
     return hero;
   } catch (ex) {
