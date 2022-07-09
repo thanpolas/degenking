@@ -561,7 +561,8 @@ const hero = {
     estJewelPer100Ticks: 26.1875,
     mainClassGenes: [ 'warrior', 'thief', 'knight', 'thief' ],
     subClassGenes: [ 'archer', 'warrior', 'knight', 'pirate' ],
-    professionGenes: [ 'gardening', 'gardening', 'gardening', 'gardening' ]
+    professionGenes: [ 'gardening', 'gardening', 'gardening', 'gardening' ],
+    chainId: 1666600000,
 }
 ```
 
@@ -831,6 +832,8 @@ When a new node version is available you need to updated it in the following:
 -   **v1.0.0** , _TBD_
     -   Implemented multi-chain functionality on all queries. Chain will be determined based on the `chainId` property passed as the provider object.
     -   Added new function `getAddresses()` to get the appropriate addresses constants module.
+    -   All heroes fetched from the blockchain will now have a new property `chainId` to indicate their current position in realms.
+    -   Added the `chainIdToNetwork(chainId)` helper
     -   **Breaking Changes**
         -   Signatures of all blockchain querying functions have changed, now require chainId definition.
         -   Function `fetchLockedJewelByOwnerChain()` has been removed and replaced by `fetchLockedTokensByOwnerChain()`.
