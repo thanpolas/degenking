@@ -172,6 +172,24 @@ exports.getContractJewel = (currentRPC) => {
 };
 
 /**
+ * Get the game token contract for each network respectively (Jewel for SD,
+ *    Crystal for CV, etc).
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getContractGameToken = (currentRPC) => {
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(
+    addresses.BASE_TOKEN,
+    abiJewel,
+    provider,
+  );
+  return contract;
+};
+
+/**
  * Get the Quest Core V1 contract.
  *
  * @param {Object} currentRPC The current RPC to get the contract for.
