@@ -27,6 +27,10 @@ const {
 const { asyncMapCap } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
 const { catchErrorRetry } = require('../utils/error-handler');
+const {
+  chainIdToRealm,
+  chainIdToNetwork,
+} = require('../utils/network-helpers');
 
 const log = require('../utils/log.service').get();
 
@@ -86,7 +90,7 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
  * @param {Object=} params Parameters for fetching the heroes.
  * @param {number=} params.blockNumber Query hero state at particular block number.
  * @param {number=} retries Retry count.
- * @return {Promise<Array<Object>>} Fetched heroes.
+ * @return {Promise<Object|null>} Fetched hero or null if not found.
  */
 exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
   let currentRPC = await getProvider(chainId);
@@ -104,8 +108,16 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
 
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
 
-    const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
-      heroesContract.getHero(heroId, { blockTag: blockToQuery }),
+    const heroRaw = await heroesContract.getHero(heroId, {
+      blockTag: blockToQuery,
+    });
+
+    if (!Number(heroRaw?.id)) {
+      // hero not found
+      return null;
+    }
+
+    const [ownerOfAddress, heroSalesData] = await Promise.all([
       heroesContract.ownerOf(heroId, { blockTag: blockToQuery }),
       getSalesAuctionChainByHeroId(chainId, heroId),
     ]);
@@ -128,6 +140,8 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
     hero.salesData = heroSalesData;
 
     hero.chainId = chainId;
+    hero.realm = chainIdToRealm(chainId);
+    hero.networkName = chainIdToNetwork(chainId);
 
     return hero;
   } catch (ex) {

@@ -150,6 +150,9 @@ exports.normalizeChainProcessedHero = (
     endingPriceFormatted: null,
     duration: null,
     startedAt: null,
+    chainId: hero.chainId,
+    realm: hero.realm,
+    networkName: hero.networkName,
   };
 
   // Fill sales Data if it exists
