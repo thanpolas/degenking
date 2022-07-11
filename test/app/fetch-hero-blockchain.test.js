@@ -10,6 +10,7 @@ const profileChainMock = require('../mocks/profile-blockchain.mock');
 const auctionsChainMock = require('../mocks/auctions-blockchain.mock');
 
 const { assert: assertHero } = require('../assert/normalised-hero.assert');
+const { NETWORK_IDS } = require('../../src/constants/constants.const');
 
 describe('Fetch Hero Blockchain', () => {
   testLib.init();
@@ -117,6 +118,9 @@ describe('Fetch Hero Blockchain', () => {
     mainClassGenes: ['pirate', 'warrior', 'wizard', 'thief'],
     subClassGenes: ['warrior', 'pirate', 'wizard', 'monk'],
     professionGenes: ['mining', 'gardening', 'mining', 'foraging'],
+    chainId: 1666600000,
+    networkName: 'Harmony',
+    realm: 'SD',
   });
 
   describe('Happy Path', () => {
@@ -125,7 +129,7 @@ describe('Fetch Hero Blockchain', () => {
       profileChainMock.profileBlockchainMock();
       auctionsChainMock.auctionSalesBlockchainMock();
 
-      const [hero] = await getHeroesChain([10000]);
+      const [hero] = await getHeroesChain(NETWORK_IDS.HARMONY, [10000]);
 
       assertHero(hero, expectedValues());
 
@@ -139,7 +143,7 @@ describe('Fetch Hero Blockchain', () => {
       profileChainMock.profileBlockchainThrowMock();
       auctionsChainMock.auctionSalesBlockchainMock();
 
-      const [hero] = await getHeroesChain([10000]);
+      const [hero] = await getHeroesChain(NETWORK_IDS.HARMONY, [10000]);
 
       const expectedHero = expectedValues();
       expectedHero.ownerId = null;

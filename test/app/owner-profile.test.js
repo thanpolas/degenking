@@ -6,6 +6,7 @@ const testLib = require('../lib/tester.lib');
 
 const { getProfileByAddress } = require('../..');
 const { assert } = require('../assert/owner-profile.assert');
+const { NETWORK_IDS } = require('../../src/constants/constants.const');
 
 describe('User Profile', () => {
   testLib.init();
@@ -25,6 +26,7 @@ describe('User Profile', () => {
   describe('Happy Path', () => {
     it('should fetch profile of existing account with checksum address', async () => {
       const res = await getProfileByAddress(
+        NETWORK_IDS.HARMONY,
         '0x67221b267cee49427bAa0974ceac988682192977',
       );
 
@@ -32,6 +34,7 @@ describe('User Profile', () => {
     });
     it('should fetch profile of existing account with lowercase address', async () => {
       const res = await getProfileByAddress(
+        NETWORK_IDS.HARMONY,
         '0x67221b267cee49427baa0974ceac988682192977',
       );
 
@@ -39,6 +42,7 @@ describe('User Profile', () => {
     });
     it('should return null on address that does not exist', async () => {
       const res = await getProfileByAddress(
+        NETWORK_IDS.HARMONY,
         '0x67221b267cee49427baa0974ceac988682192bbb',
       );
 

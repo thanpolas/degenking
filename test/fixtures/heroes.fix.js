@@ -207,6 +207,9 @@ exports.heroNormalized1Fix = () => {
     mainClassGenes: ['pirate', 'warrior', 'wizard', 'thief'],
     subClassGenes: ['warrior', 'pirate', 'wizard', 'monk'],
     professionGenes: ['mining', 'gardening', 'mining', 'foraging'],
+    chainId: 1666600000,
+    networkName: 'Harmony',
+    realm: 'SD',
   };
 };
 
