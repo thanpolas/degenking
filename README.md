@@ -108,7 +108,9 @@ By default the library will use the Official Harmony RPC. You may override this
 by configuring degenking:
 
 ```js
-degenKing.config('getProvider', async () => {
+degenKing.config('getProvider', async (chainId) => {
+    // getProvider() will be invoked with the chainId indicating which
+    // network needs to be queried.
     return {
         name: 'Pokt',
         provider: new ethers.providers.JsonRpcProvider('https://....'),
@@ -119,7 +121,7 @@ degenKing.config('getProvider', async () => {
 
 What has been done above is to set the configuration key named `getProvider` and
 give it a value of a **callback function**. This function will be invoked by the
-library and it expects to receive an object with two keys:
+library and it expects to receive an object with the following properties:
 
 -   `name` **{string}** An arbitrary name (label) of the RPC.
 -   `provider` **{Object}** [An ethers.js instance of a provider][ethers-provider].
