@@ -19,8 +19,6 @@ const logParams = {
 };
 logService.init(logParams);
 
-const log = logService.get();
-
 //
 // WARNING - Require any local packages BELLOW this line
 //
@@ -170,7 +168,7 @@ exports.consumePotion = consumePotion;
 exports.consumableBalance = consumableBalance;
 exports.queryAssistingAuctionsAllGql = queryAssistingAuctionsAllGql;
 
-exports.logality = log;
+exports.logality = logService.logality;
 exports.normalizeChainHero = normalizeChainHero;
 
 exports.questResolve = questResolve;
