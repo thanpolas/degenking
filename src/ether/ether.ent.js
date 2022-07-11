@@ -22,15 +22,16 @@ const { NETWORK_IDS } = require('../constants/constants.const');
 /**
  * Get a provider object.
  *
+ * @param {number} chainId The chain id.
  * @param {string=} optPrivKey Optionally define a private key to get a signer
  *    provider (wallet).
  * @return {Promise<Object>} A Custom object containing the keys "name" for the
  *    arbitrary name of the RPC and "provider" that contains the actual
  *    ethers.js instance.
  */
-exports.getProvider = async (optPrivKey) => {
+exports.getProvider = async (chainId, optPrivKey) => {
   const getProvider = configuration.get('getProvider');
-  const currentRPC = await getProvider();
+  const currentRPC = await getProvider(chainId);
 
   if (!currentRPC.chainId) {
     throw new Error(
