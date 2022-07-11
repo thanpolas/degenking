@@ -15,7 +15,12 @@ const {
  * @return {string} Quest name.
  */
 exports.questResolve = (questAddress) => {
-  return ALL_QUESTS_REV[questAddress.toLowerCase()];
+  const resolved = ALL_QUESTS_REV[questAddress.toLowerCase()];
+  if (!resolved) {
+    return questAddress;
+  }
+
+  return resolved;
 };
 
 /**
