@@ -33,21 +33,27 @@ exports.QUEST_CORE_V2 = '0xE9AbfBC143d7cef74b5b793ec5907fa62ca53154';
 exports.QUEST_GARDENING_V1 = '';
 exports.QUEST_MINING_GOLD_V1 = '';
 exports.QUEST_MINING_JEWEL_V1 = '';
-exports.QUEST_FORAGING_V2 = '0xAd51199B453075C73FA106aFcAAD59f705EF7872';
-exports.QUEST_FISHING_V2 = '0x407ab39B3675f29A719476af6eb3B9E5d93969E6';
+exports.QUEST_FORAGING_V2 = '0xad51199b453075c73fa106afcaad59f705ef7872';
+exports.QUEST_FISHING_V2 = '0x407ab39b3675f29a719476af6eb3b9e5d93969e6';
 exports.QUEST_WISHING_WELL_V2 = '';
 
 //
 // Training Quest Contracts
 //
 
-exports.QUESTS_REV = {};
+exports.QUESTS_REV = {
+  [exports.QUEST_FORAGING_V2]: 'FORAGING',
+  [exports.QUEST_FISHING_V2]: 'FISHING',
+};
 
 /** @const {Array<string>} TRAINING_QUESTS All the training quests */
 exports.TRAINING_QUESTS_AR = [];
 
 /** @enum {boolean} Determines which quest types need to be handled by new questing */
-exports.QUESTS_HANDLER_NEW = {};
+exports.QUESTS_HANDLER_NEW = {
+  [exports.QUEST_FORAGING_V2]: true,
+  [exports.QUEST_FISHING_V2]: true,
+};
 
 /** @enum {Array<string>} Map profession values to profession quest addresses */
 exports.PROFESSIONS_TO_QUESTS = {};
