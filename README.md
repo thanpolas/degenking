@@ -833,7 +833,7 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
--   **v1.0.0** , _TBD_
+-   **v1.0.0** , _11/Jul/2022_
     -   Implemented multi-chain functionality on all queries. Chain will be determined based on the `chainId` property passed as the provider object.
     -   Added new function `getAddresses()` to get the appropriate addresses constants module.
     -   All heroes fetched from the blockchain will now have new properties:
