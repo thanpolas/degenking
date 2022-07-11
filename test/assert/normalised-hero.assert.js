@@ -103,6 +103,9 @@ assert.assertProperties = (testObj) => {
     'mainClassGenes',
     'subClassGenes',
     'professionGenes',
+    'chainId',
+    'networkName',
+    'realm',
   ]);
 };
 

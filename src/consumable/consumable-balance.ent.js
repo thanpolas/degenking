@@ -15,13 +15,19 @@ const log = require('../utils/log.service').get();
 /**
  * Get the balance of a consumable item for the given address.
  *
+ * @param {number} chainId The chain id.
  * @param {string} address The address to query for.
  * @param {string} consumableAddress The consumable address.
  * @param {number=} retries Retry count.
  * @return {Promise<number>} A Promise with the balance.
  */
-exports.consumableBalance = async (address, consumableAddress, retries = 0) => {
-  const currentRPC = await getProvider();
+exports.consumableBalance = async (
+  chainId,
+  address,
+  consumableAddress,
+  retries = 0,
+) => {
+  const currentRPC = await getProvider(chainId);
   const { provider } = currentRPC;
   try {
     const contract = new ethers.Contract(consumableAddress, erc20Abi, provider);
@@ -43,7 +49,7 @@ exports.consumableBalance = async (address, consumableAddress, retries = 0) => {
         `consumableBalance() - RPC: ${currentRPC.name} - ` +
         `ownerAddress: ${address} - ConsumableAddress: ${consumableAddress}`,
       retryFunction: exports.consumableBalance,
-      retryArguments: [address, consumableAddress],
+      retryArguments: [chainId, address, consumableAddress],
     });
   }
 };

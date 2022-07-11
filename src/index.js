@@ -1,6 +1,6 @@
 /**
- * DeFi Kingdoms Hero
- * Utility library for fetching and working with DFK Heroes.
+ * DegenKing
+ * Utility library for fetching and working with DFK.
  *
  * https://github.com/degen-heroes/degenking
  *
@@ -19,11 +19,11 @@ const logParams = {
 };
 logService.init(logParams);
 
-const log = logService.get();
-
 //
 // WARNING - Require any local packages BELLOW this line
 //
+
+// FIXME DO A SEARCH FOR ALL THE DEPRECATED ADDRESS VAR NAMES
 
 const {
   getHeroesChain,
@@ -74,8 +74,8 @@ const {
   queryAssistingAuctionsAllGql,
 } = require('./auctions/assisting-auctions.ent');
 const {
-  fetchLockedJewelByOwnerChain,
-} = require('./jewel/fetch-locked-jewel-blockchain.ent');
+  fetchLockedTokensByOwnerChain,
+} = require('./tokens/fetch-locked-tokens-blockchain.ent');
 
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
@@ -97,6 +97,8 @@ const {
   areHeroesRelated,
 } = require('./heroes-helpers/summon-utils.ent');
 
+const { chainIdToNetwork } = require('./utils/network-helpers');
+
 const {
   calculateRuneRequirements,
 } = require('./heroes-helpers/rune-requirements.ent');
@@ -109,6 +111,7 @@ const {
   normalizeChainHero,
 } = require('./heroes-fetch/normalise-blockchain.ent');
 const { queryQuest, fetchQuestData } = require('./quests/quest-query.ent');
+const { getAddresses } = require('./ether');
 
 exports.getHeroesChain = getHeroesChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
@@ -134,14 +137,12 @@ exports.shortenRecessiveGenesProfession = shortenRecessiveGenesProfession;
 exports.getRanking = getRanking;
 exports.calculateRequiredXp = calculateRequiredXp;
 
-// *** DEPRECATE ***
-exports.getSalesData = getSalesAuctionChainByHeroId;
-
 // New commands of 0.3.0
 exports.decodeStatGenes = decodeStatGenes;
 exports.decodeVisualGenes = decodeVisualGenes;
 
-exports.ADDRESS = require('./constants/addresses.const');
+exports.ADDRESSES_HARMONY = require('./constants/addresses-harmony.const');
+exports.ADDRESSES_DFKN = require('./constants/addresses-dfkn.const');
 exports.CHOICES = require('./constants/choices.const');
 exports.CONSTANTS = require('./constants/constants.const');
 exports.POWER_PAIRS = require('./constants/power-pairs.const');
@@ -149,6 +150,10 @@ exports.ALL_ITEMS = require('./constants/all-items.json');
 exports.ITEM_TYPES = require('./constants/item-types.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 exports.RUNES = require('./constants/runes.const');
+exports.QUESTS = require('./constants/quests.const');
+
+exports.getAddresses = getAddresses;
+exports.chainIdToNetwork = chainIdToNetwork;
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
@@ -157,13 +162,13 @@ exports.getProfileByAddress = getProfileByAddress;
 exports.getSalesAuctionChainByHeroId = getSalesAuctionChainByHeroId;
 exports.getSalesAuctionGqlByAuctionId = getSalesAuctionGqlByAuctionId;
 
-exports.fetchLockedJewelByOwnerChain = fetchLockedJewelByOwnerChain;
+exports.fetchLockedTokensByOwnerChain = fetchLockedTokensByOwnerChain;
 
 exports.consumePotion = consumePotion;
 exports.consumableBalance = consumableBalance;
 exports.queryAssistingAuctionsAllGql = queryAssistingAuctionsAllGql;
 
-exports.logality = log;
+exports.logality = logService.logality;
 exports.normalizeChainHero = normalizeChainHero;
 
 exports.questResolve = questResolve;

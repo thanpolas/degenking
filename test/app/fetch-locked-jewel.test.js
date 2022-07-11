@@ -4,7 +4,8 @@
 
 const testLib = require('../lib/tester.lib');
 
-const { fetchLockedJewelByOwnerChain } = require('../..');
+const { fetchLockedTokensByOwnerChain } = require('../..');
+const { NETWORK_IDS } = require('../../src/constants/constants.const');
 
 describe('Fetch Locked xJewel', () => {
   testLib.init();
@@ -14,7 +15,8 @@ describe('Fetch Locked xJewel', () => {
 
   describe('Happy Path', () => {
     it('Should fetch a won sale auction', async () => {
-      const res = await fetchLockedJewelByOwnerChain(
+      const res = await fetchLockedTokensByOwnerChain(
+        NETWORK_IDS.HARMONY,
         '0xD5E0e21cfA7b8f46D51A29538F43C0551d162690',
       );
 

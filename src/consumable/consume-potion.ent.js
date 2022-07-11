@@ -2,10 +2,13 @@
  * @fileoverview Stamina Potion Consumption.
  */
 
-const { getProvider, getContractConsumable } = require('../ether');
+const {
+  getProvider,
+  getContractConsumable,
+  getAddresses,
+} = require('../ether');
 const { get: getConfig } = require('../configure');
 const { delay } = require('../utils/helpers');
-const { CONSUMABLE_REV } = require('../constants/addresses.const');
 
 const {
   normalizeChainHero,
@@ -17,6 +20,7 @@ const log = require('../utils/log.service').get();
 /**
  * Stamina Potion Consumption.
  *
+ * @param {number} chainId The chain id.
  * @param {string} consumableAddress Address of consumable (potion).
  * @param {number|string|bigint} heroId Hero id that will consume.
  * @param {string} privKey Account's private key.
@@ -26,13 +30,14 @@ const log = require('../utils/log.service').get();
  *    "ItemConsumed" event.
  */
 exports.consumePotion = async (
+  chainId,
   consumableAddress,
   heroId,
   privKey,
   optGasPrice,
   retries = 0,
 ) => {
-  const signerRpc = await getProvider(privKey);
+  const signerRpc = await getProvider(chainId, privKey);
   try {
     const consumableContract = getContractConsumable(signerRpc);
 
@@ -52,17 +57,23 @@ exports.consumePotion = async (
       (e) => e.event === 'ItemConsumed',
     );
 
-    const response = exports._normalizeEvent(consumeEvent);
+    const response = exports._normalizeEvent(consumeEvent, signerRpc.chainId);
     return response;
   } catch (ex) {
     await catchErrorRetry(log, {
       ex,
       retries,
       errorMessage:
-        `consumePotion() - RPC: ${signerRpc.name} - ` +
+        `consumePotion() - RPC: ${signerRpc.name} - ChainId: ${signerRpc.chainId} - ` +
         `heroId: ${heroId} - consumableAddress: ${consumableAddress}`,
       retryFunction: exports.consumePotion,
-      retryArguments: [consumableAddress, heroId, privKey, optGasPrice],
+      retryArguments: [
+        chainId,
+        consumableAddress,
+        heroId,
+        privKey,
+        optGasPrice,
+      ],
     });
   }
 };
@@ -104,10 +115,11 @@ exports._getReceipt = async (tx, optRetries = 0) => {
  * Will normalize the ItemConsumed event.
  *
  * @param {Object} consumeEvent The ItemConsumed event.
+ * @param {number} chainId The chain id.
  * @return {Object} Normalized event.
  * @private
  */
-exports._normalizeEvent = (consumeEvent) => {
+exports._normalizeEvent = (consumeEvent, chainId) => {
   const { player, item, heroId, oldHero, newHero } = consumeEvent.args;
 
   const oldHeroNormalized = normalizeChainHero(
@@ -124,11 +136,12 @@ exports._normalizeEvent = (consumeEvent) => {
     'ItemConsumed',
   );
 
+  const addresses = getAddresses(chainId);
   const itemLowercase = item.toLowerCase();
   const normalizedResult = {
     playerAddress: player.toLowerCase(),
     itemAddress: itemLowercase,
-    itemName: CONSUMABLE_REV[itemLowercase],
+    itemName: addresses.CONSUMABLE_REV[itemLowercase],
     heroId: Number(heroId),
     oldHero: oldHeroNormalized,
     newHero: newHeroNormalized,

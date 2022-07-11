@@ -2,23 +2,28 @@
  * @fileoverview DeFi kingdoms constants.
  */
 
-const {
-  QUEST_MINING_GOLD,
-  QUEST_MINING_JEWEL,
-  QUEST_FISHING,
-  QUEST_FORAGING,
-  QUEST_GARDENING,
-} = require('./addresses.const');
-
 /** @enum {string} Enumerate all available data sources */
 exports.DATA_SOURCES = {
   CHAIN: 'chain',
   GQL_API_V7: 'gql_api_v7',
 };
 
-/** @enum {string} EVM Network ids */
+/** @enum {number} EVM Network ids */
 exports.NETWORK_IDS = {
-  HARMONY: '1666600000',
+  HARMONY: 1666600000,
+  DFKN: 53935,
+};
+
+/** @enum {number} EVM Network ids in reverse */
+exports.NETWORK_IDS_REV = {
+  1666600000: 'Harmony',
+  53935: 'DFKN',
+};
+
+/** @enum {number} EVM Network ids resolving in DFK Realm */
+exports.NETWORK_IDS_REV_REALM = {
+  1666600000: 'SD',
+  53935: 'CV',
 };
 
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
@@ -38,22 +43,14 @@ exports.PROFESSIONS = {
   FISHING: 'fishing',
 };
 
-/** @enum {Array<string>} Map profession values to profession quest addresses */
-exports.PROFESSIONS_TO_QUESTS = {
-  [exports.PROFESSIONS.MINING]: [QUEST_MINING_GOLD, QUEST_MINING_JEWEL],
-  [exports.PROFESSIONS.GARDENING]: [QUEST_GARDENING],
-  [exports.PROFESSIONS.FORAGING]: [QUEST_FORAGING],
-  [exports.PROFESSIONS.FISHING]: [QUEST_FISHING],
-};
-
 // All available quest types - values must map to existing addresses in the
 // addresses.const.js module
 exports.QUEST_TYPES = {
-  MINING_GOLD: 'QUEST_MINING_GOLD',
-  MINING_JEWEL: 'QUEST_MINING_JEWEL',
-  GARDENING: 'QUEST_GARDENING',
-  FORAGING: 'QUEST_FORAGING',
-  FISHING: 'QUEST_FISHING',
+  MINING_GOLD: 'QUEST_MINING_GOLD_V1',
+  MINING_JEWEL: 'QUEST_MINING_JEWEL_V1',
+  GARDENING: 'QUEST_GARDENING_V1',
+  FORAGING: 'QUEST_FORAGING_V2',
+  FISHING: 'QUEST_FISHING_V2',
   TRAINING_STR: 'QUEST_STR_ADDRESS',
   TRAINING_AGI: 'QUEST_AGI_ADDRESS',
   TRAINING_END: 'QUEST_END_ADDRESS',
@@ -66,11 +63,11 @@ exports.QUEST_TYPES = {
 
 /** @enum {string} All quest types and how they map to a profesison */
 exports.QUEST_TYPES_PROFESSIONS = {
-  MINING_GOLD: 'QUEST_MINING_GOLD',
-  MINING_JEWEL: 'QUEST_MINING_JEWEL',
-  GARDENING: 'QUEST_GARDENING',
-  FORAGING: 'QUEST_FORAGING',
-  FISHING: 'QUEST_FISHING',
+  MINING_GOLD: 'QUEST_MINING_GOLD_V1',
+  MINING_JEWEL: 'QUEST_MINING_JEWEL_V1',
+  GARDENING: 'QUEST_GARDENING_V1',
+  FORAGING: 'QUEST_FORAGING_V2',
+  FISHING: 'QUEST_FISHING_V2',
   TRAINING_STR: 'QUEST_STR_ADDRESS',
   TRAINING_AGI: 'QUEST_AGI_ADDRESS',
   TRAINING_END: 'QUEST_END_ADDRESS',

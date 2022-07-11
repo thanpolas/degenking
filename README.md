@@ -30,26 +30,102 @@ console.log(hero);
 
 ## Configuration
 
+Since v1.0.0 DegenKing has been multi-chain so it can support both Serendale and Crystalvale. The way multi-chain is accomplished is through two critical parts:
+
+### The "chainId" property on the provider
+
+As you can see bellow on the [Configuring RPC](#configuring-rpc) section, the property `chainId` has been introduced which declares for which network the call will be made. If that property is not valid an error will be thrown.
+
+### Multiple Contract Address Modules
+
+Each supported network will have its own, dedicated addresses constants module. As such, DegenKing exposes the following address constants:
+
+-   `ADDRESSES_HARMONY`
+-   `ADDRESSES_DFKN`
+
+It is by convention, that all address constant modules maintain the exact same naming scheme so you can easily get the correct address for the network you want.
+
+Key function to this operation is the `getAddresses()` function:
+
+#### getAddresses(chainId)
+
+Will return the appropriate addresses constant module based on the given chainId.
+
+-   `chainId` **{number}** The chain id to get the contract addresses for.
+-   **Returns** **{Object}** The contract addresses for that network.
+
+```js
+const { getAddresses } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
+
+console.log(addresses);
+// Prints all the available contract addresses for this network...
+```
+
+### Address Constants
+
+All Address constant modules (except noted) will contain the following constants:
+
+-   `UNISWAPV2FACTORY`
+-   `UNISWAPV2ROUTER`
+-   `MASTER_GARDENER`
+-   `JEWEL_TOKEN`
+-   `XJEWEL_TOKEN`
+-   `CRYSTAL_TOKEN` - DFKN only.
+-   `XCRYSTAL_TOKEN` - DFKN only.
+-   `BASE_TOKEN` - An alias for the corresponding token of each network (i.e. "Jewel" for SD and "CRYSTAL" for CV).
+-   `BANK`
+-   `BANKER`
+-   `AIRDROP`
+-   `HEROES`
+-   `TEARS_TOKEN`
+-   `AUCTION_SALES`
+-   `AUCTION_SALES_LOWERCASE`
+-   `PROFILES`
+-   `RUNES`
+-   `MEDITATION`
+-   `SUMMON_V2`
+-   `QUEST_CORE_V2`
+-   `QUEST_GARDENING_V1`
+-   `QUEST_MINING_GOLD_V1`
+-   `QUEST_MINING_JEWEL_V1`
+-   `QUEST_FORAGING_V2`
+-   `QUEST_FISHING_V2`
+-   `QUEST_WISHING_WELL_V2`
+-   `QUESTS_REV`
+-   `TRAINING_QUESTS_AR`
+-   `QUESTS_HANDLER_NEW`
+-   `PROFESSIONS_TO_QUESTS`
+-   `QUEST_WISHING_WELL_V1` - Harmony Only.
+-   `QUEST_FORAGING_V1` - Harmony Only.
+-   `QUEST_FISHING_V1` - Harmony Only.
+-   `QUEST_CORE_V1` - Harmony Only.
+
 ### Configuring RPC
 
 By default the library will use the Official Harmony RPC. You may override this
 by configuring degenking:
 
 ```js
-degenKing.config('getProvider', async () => {
+degenKing.config('getProvider', async (chainId) => {
+    // getProvider() will be invoked with the chainId indicating which
+    // network needs to be queried.
     return {
         name: 'Pokt',
         provider: new ethers.providers.JsonRpcProvider('https://....'),
+        chainId: 1666600000,
     };
 });
 ```
 
 What has been done above is to set the configuration key named `getProvider` and
 give it a value of a **callback function**. This function will be invoked by the
-library and it expects to receive an object with two keys:
+library and it expects to receive an object with the following properties:
 
 -   `name` **{string}** An arbitrary name (label) of the RPC.
 -   `provider` **{Object}** [An ethers.js instance of a provider][ethers-provider].
+-   `chainId` **{number}** The chain id the provider belongs to.
 
 > ℹ️ The callback function can be a Promise returning function.
 
@@ -64,11 +140,10 @@ The `config` function accepts an object as well:
 
 ```js
 degenKing.config({
-    getProvider: async () => {
-        return {
-            name: 'Pokt',
-            provider: new ethers.providers.JsonRpcProvider('https://....'),
-        };
+    getProvider: {
+        name: 'Pokt',
+        provider: new ethers.providers.JsonRpcProvider('https://....'),
+        chainId: 1666600000,
     },
     maxRetries: 8,
     concurrentBlockChainRequests: 50,
@@ -77,12 +152,13 @@ degenKing.config({
 
 ## Heroes API
 
-### getHeroesChain(heroIds)
+### getHeroesChain(chainId, heroIds)
 
 Will fetch and normalize heroes from the blockchain using provided hero ids.
 It will augment the hero object using multiple queries and functions to also
 include sales data, owner profile and decode all stat and visual genes.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
 -   `params` **{Object=}** Parameters for fetching the hero.
 -   `params.blockNumber` **{number=}** Query hero state at particular block number.
@@ -99,10 +175,11 @@ console.log(hero);
 
 > [View the Hero Data Object at the relative section.][hero-object].
 
-### fetchHeroesByOwnerChain(ownerAddress)
+### fetchHeroesByOwnerChain(chainId, ownerAddress)
 
 Fetches and normalizes heroes based on the owner.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `ownerAddress` **{string}** The owner's address.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
 
@@ -114,10 +191,11 @@ const heroes = await fetchHeroesByOwnerChain(myAddress);
 console.log(heroes);
 ```
 
-### fetchHeroIdsByOwnerChain(ownerAddress)
+### fetchHeroIdsByOwnerChain(chainId, ownerAddress)
 
 Fetches hero IDs of all heroes owned by the owner address.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `ownerAddress` **{string}** The owner's address.
 -   **Returns** **{Promise\<Array\<number\>\>}** A Promise with an array of the hero ids.
 
@@ -130,10 +208,11 @@ console.log(heroIds);
 // [1, 2, 3, 4]
 ```
 
-### fetchHeroesByOwnerAndProfessionChain(ownerAddress, profession)
+### fetchHeroesByOwnerAndProfessionChain(chainId, ownerAddress, profession)
 
 Fetches and normalizes heroes based on the owner and profession.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `ownerAddress` **{string}** The owner's address.
 -   `profession` **{string}** The desired profession to filter by, can be one of: `mining`, `gardening`, `fishing` and `foraging`.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects filtered by profession.
@@ -349,10 +428,11 @@ console.log(recessiveGenes);
 // }
 ```
 
-### getProfileByAddress(address)
+### getProfileByAddress(chainId, address)
 
 Will query the blockchain, profile contract, for the member data that belong to the provided address.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `address` **{string}** The address to query by, accepts both checksum and lowercased addresses.
 -   **Returns** **{Promise<Object|null>}** Will return a normalized response or null if not found.
 
@@ -483,16 +563,20 @@ const hero = {
     estJewelPer100Ticks: 26.1875,
     mainClassGenes: [ 'warrior', 'thief', 'knight', 'thief' ],
     subClassGenes: [ 'archer', 'warrior', 'knight', 'pirate' ],
-    professionGenes: [ 'gardening', 'gardening', 'gardening', 'gardening' ]
+    professionGenes: [ 'gardening', 'gardening', 'gardening', 'gardening' ],
+    chainId: 1666600000,
+    realm: 'SD',
+    networkName: 'Harmony',
 }
 ```
 
 </details>
 
-### consumePotion(consumableAddress, heroId, privKey, optGasPrice)
+### consumePotion(chainId, consumableAddress, heroId, privKey, optGasPrice)
 
 Consumes a potion for the given hero. Does not approve consumption, you have to do it manually (for now).
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `consumableAddress` **{string}** Address of consumable potion. Use the available constants enumerated bellow.
 -   `heroId` **{string}** The hero id that will consume the potion.
 -   `privKey` **{string}** The private key to sign the transaction with.
@@ -500,10 +584,12 @@ Consumes a potion for the given hero. Does not approve consumption, you have to 
 -   **Returns** **{Promise\<Object|void\>}** A Promise with a normalized data object from the "ItemConsumed" event, or empty if fetching the TX receipt failed (very edge case).
 
 ```js
-const { ADDRESS, consumePotion } = require('@thanpolas/degenking');
+const { getAddresses, consumePotion } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
 
 // Get the stamina vial address, which will be consumed.
-const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+const { CONSUMABLE_STAMINA_VIAL } = addresses;
 
 // Invoke consumption
 const response = await consumePotion(CONSUMABLE_STAMINA_VIAL, heroId, privKey);
@@ -530,7 +616,9 @@ console.log(response);
 Consumable potion addresses are available as constants on the `ADDRESS` constant:
 
 ```js
-const { ADDRESS } = require('@thanpolas/degenking');
+const { getAddresses } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
 
 // All the available potions to consume
 const {
@@ -544,22 +632,25 @@ const {
     CONSUMABLE_MAGIC_RESISTANCE_POTION,
     CONSUMABLE_TOUGHNESS_POTION,
     CONSUMABLE_SWIFTNESS_POTION,
-} = ADDRESS;
+} = addresses;
 ```
 
-### consumableBalance(address, consumableAddress)
+### consumableBalance(chainId, address, consumableAddress)
 
 Get balance of the consumable item for the given address.
 
+-   `chainId` **{number}** The chain id to perform the query on.
 -   `address` **{string}** The address to query for.
 -   `consumableAddress` **{string}** The address of the consumable to fetch balance for.
 -   **Returns** **{Promise\<number\>}** A Promise with the balance of potions.
 
 ```js
-const { ADDRESS, consumableBalance } = require('@thanpolas/degenking');
+const { getAddresses, consumableBalance } = require('@thanpolas/degenking');
+
+const addresses = getAddresses(1666600000);
 
 // Get the stamina vial address, which will be consumed.
-const { CONSUMABLE_STAMINA_VIAL } = ADDRESS;
+const { CONSUMABLE_STAMINA_VIAL } = addresses;
 
 const myAddress = '0x.....';
 
@@ -627,19 +718,29 @@ console.log(auctionData);
 //   }
 ```
 
-## Jewel
+## Game Tokens
 
-### fetchLockedJewelByOwnerChain(address)
+"Game Tokens" are the respective tokens used on each chain the same is at, so currently there are:
 
-Fetches the locked jewel of an address from the blockchain.
+-   **Jewel** on Serendale.
+-   **Crystal** on Crystalvale.
 
+### fetchLockedTokensByOwnerChain(chainId, address)
+
+Fetches the locked game tokens of the provided address from the blockchain using the appropriate network as provided by chainId.
+
+-   `chainId` **{number}** The unique blockchain id.
 -   `address` **{string}** The owner's address to fetch locked jewel for.
 -   **Returns** **{Promise\<number\>}** A Promise with the locked jewel in human readable number format.
 
 ```js
-const { fetchLockedJewelByOwnerChain } = require('@thanpolas/degenking');
+const { fetchLockedTokensByOwnerChain } = require('@thanpolas/degenking');
 
-const lockedJewel = await fetchLockedJewelByOwnerChain('0x....');
+const HARMONY_CHAIN_ID = 1666600000;
+const lockedJewel = await fetchLockedTokensByOwnerChain(
+    HARMONY_CHAIN_ID,
+    '0x....',
+);
 
 console.log(lockedJewel);
 // 12.9
@@ -732,6 +833,24 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.0.0** , _TBD_
+    -   Implemented multi-chain functionality on all queries. Chain will be determined based on the `chainId` property passed as the provider object.
+    -   Added new function `getAddresses()` to get the appropriate addresses constants module.
+    -   All heroes fetched from the blockchain will now have new properties:
+        -   `chainId` {number} The chain id the hero is at.
+        -   `realm` {string} The DFK Realm, one of "SD" or "CV".
+        -   `networkName` {string} Network the hero is on, one of "Harmony" or "DFKN".
+    -   Added the `chainIdToNetwork(chainId)` and `chainIdToRealm(chainId)` helpers.
+    -   **Breaking Changes**
+        -   Signatures of all blockchain querying functions have changed, now require chainId definition.
+        -   Function `fetchLockedJewelByOwnerChain()` has been removed and replaced by `fetchLockedTokensByOwnerChain()`.
+        -   Broke out the "addresses" constants module into per network (for now Harmony and DFK Network) and standardised naming.
+        -   `PROFESSIONS_TO_QUESTS` will be available from the address constants modules.
+        -   Removed the `ADDRESS` constant, has been replaced by `ADDRESSES_HARMONY` and `ADDRESSES_DFKN`.
+        -   Deprecated address constants in favor of new, standardized contract naming scheme that will be common across all network constants: `HEROES_NFT`, `WELL_QUEST_ADDRESS_OLD`, `QUEST_WISHING_WELL`, `QUEST_FORAGING_OLD`, `QUEST_FISHING_OLD`, `QUEST_CONTRACT_OLD`, `QUEST_CORE_V1_CONTRACT`, `QUEST_CONTRACT`, `QUEST_FORAGING`, `QUEST_FISHING`, `QUEST_GARDENING`, `QUEST_MINING_GOLD`, `QUEST_MINING_JEWEL`, `SALE_ADDRESS`, `SUMMON_ADDRESS`, `NEW_SUMMON_CONTRACT`, `MEDITATION_CONTRACT`, `WELL_QUEST_ADDRESS`, `CONSUMABLE_ADDRESS`, `JEWELTOKEN`.
+        -   Configured RPC Provider Object must now contain the `chainId` property.
+        -   Address constant `AUCTION_SALES` is now capitalized for checksum and new constant created that is all lowercased: `AUCTION_SALES_LOWERCASE`.
+        -   Constants `QUESTS` and grouped quest constants: `QUESTS_GARDENING`, `QUESTS_FORAGING`, `QUESTS_FISHING`, `QUESTS_MINING`, and `QUESTS_TRAINING` can now be found from the 'QUEST' constants property.
 -   **v0.6.14**, _28/Jun/2022_
     -   Added the `calculateRequiredXp()` function.
     -   Added the `stampot` option on heroToString();

@@ -4,6 +4,7 @@
 
 const { ethers } = require('ethers');
 const lodash = require('lodash');
+const { NETWORK_IDS } = require('./constants/constants.const');
 
 /**
  * @type {Object} Local, default configuration.
@@ -13,17 +14,30 @@ exports._config = {
   concurrentBlockChainRequests: 30,
   gqlEndpoint:
     'https://defi-kingdoms-community-api-gateway-co06z8vi.uc.gateway.dev/graphql',
-  getProvider: () => {
+  getProvider: (chainId) => {
+    if (chainId !== NETWORK_IDS.HARMONY) {
+      throw new Error(
+        'getProvider() degenking local only accepts harmony chain id',
+      );
+    }
+
     const provider = new ethers.providers.JsonRpcProvider(
       'https://api.harmony.one/',
     );
 
     return {
-      name: 'Official',
+      name: 'harmony-official',
       provider,
+      chainId: NETWORK_IDS.HARMONY,
     };
   },
-  getArchivalProvider: () => {
+  getArchivalProvider: (chainId) => {
+    if (chainId !== NETWORK_IDS.HARMONY) {
+      throw new Error(
+        'getArchivalProvider() degenking local only accepts harmony chain id',
+      );
+    }
+
     const provider = new ethers.providers.JsonRpcProvider(
       'https://a.api.s0.t.hmny.io/',
     );
@@ -31,6 +45,7 @@ exports._config = {
     return {
       name: 'archival-hmny',
       provider,
+      chainId: NETWORK_IDS.HARMONY,
     };
   },
 };

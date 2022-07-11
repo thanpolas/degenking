@@ -10,11 +10,12 @@ const { getProvider } = etherEnt;
 /**
  * Will query for the profile data on DFK based on the address.
  *
+ * @param {number} chainId The chain id.
  * @param {string} ownerAddress The owner's address to query by.
  * @return {Object|null} Normalized profile data object or null if not found.
  */
-exports.getProfileByAddress = async (ownerAddress) => {
-  const currentRPC = await getProvider();
+exports.getProfileByAddress = async (chainId, ownerAddress) => {
+  const currentRPC = await getProvider(chainId);
   const { lastBlockMined } = currentRPC;
   const profileContract = etherEnt.getContractProfile(currentRPC);
 

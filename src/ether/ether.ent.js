@@ -14,28 +14,30 @@ const abiConsumable = require('../abi/consumable.abi.json');
 const abiQuestCoreV1 = require('../abi/quest-core-v1.abi.json');
 const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 
-const {
-  HEROES_NFT,
-  AUCTION_SALES,
-  PROFILES,
-  JEWELTOKEN,
-  CONSUMABLE_ADDRESS,
-  QUEST_CORE_V1_CONTRACT,
-  QUEST_CORE_V2_CONTRACT,
-} = require('../constants/addresses.const');
+const addressesHarmony = require('../constants/addresses-harmony.const');
+const addressesDFKN = require('../constants/addresses-dfkn.const');
+
+const { NETWORK_IDS } = require('../constants/constants.const');
 
 /**
  * Get a provider object.
  *
+ * @param {number} chainId The chain id.
  * @param {string=} optPrivKey Optionally define a private key to get a signer
  *    provider (wallet).
  * @return {Promise<Object>} A Custom object containing the keys "name" for the
  *    arbitrary name of the RPC and "provider" that contains the actual
  *    ethers.js instance.
  */
-exports.getProvider = async (optPrivKey) => {
+exports.getProvider = async (chainId, optPrivKey) => {
   const getProvider = configuration.get('getProvider');
-  const currentRPC = await getProvider();
+  const currentRPC = await getProvider(chainId);
+
+  if (!currentRPC.chainId) {
+    throw new Error(
+      `degenking library could not find a valid "chainId" property on the provider`,
+    );
+  }
 
   if (optPrivKey) {
     const signerRpc = exports._getSigner(currentRPC, optPrivKey);
@@ -60,6 +62,25 @@ exports.getArchivalProvider = async () => {
 };
 
 /**
+ * Returns the appropriate addresses constants module based on the provided
+ *    chain id.
+ *
+ * @param {number} chainId The chain id.
+ * @return {Object}
+ */
+exports.getAddresses = (chainId) => {
+  switch (chainId) {
+    case NETWORK_IDS.HARMONY:
+      return addressesHarmony;
+    case NETWORK_IDS.DFKN:
+      return addressesDFKN;
+
+    default:
+      return addressesHarmony;
+  }
+};
+
+/**
  * Produces and returns the signer RPC Object.
  *
  * @param {Object} currentRPC RPC Object.
@@ -73,6 +94,7 @@ exports._getSigner = (currentRPC, privKey) => {
     name: currentRPC.name,
     provider: currentRPC.provider,
     lastBlockMined: currentRPC.lastBlockMined,
+    chainId: currentRPC.chainId,
     isSigner: true,
     signer: new ethers.Wallet(privKey, currentRPC.provider),
   };
@@ -93,8 +115,9 @@ exports.providerError = async () => {};
  * @return {Object} n ethers.js contract instance.
  */
 exports.getContractHeroes = (currentRPC) => {
-  const { provider } = currentRPC;
-  const contract = new ethers.Contract(HEROES_NFT, abiHeroes, provider);
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(addresses.HEROES, abiHeroes, provider);
   return contract;
 };
 
@@ -105,8 +128,13 @@ exports.getContractHeroes = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractProfile = (currentRPC) => {
-  const { provider } = currentRPC;
-  const contract = new ethers.Contract(PROFILES, abiProfiles, provider);
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(
+    addresses.PROFILES,
+    abiProfiles,
+    provider,
+  );
   return contract;
 };
 
@@ -117,9 +145,10 @@ exports.getContractProfile = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractAuctionSales = (currentRPC) => {
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    AUCTION_SALES,
+    addresses.AUCTION_SALES,
     abiAuctionSales,
     provider,
   );
@@ -133,8 +162,31 @@ exports.getContractAuctionSales = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractJewel = (currentRPC) => {
-  const { provider } = currentRPC;
-  const contract = new ethers.Contract(JEWELTOKEN, abiJewel, provider);
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(
+    addresses.JEWEL_TOKEN,
+    abiJewel,
+    provider,
+  );
+  return contract;
+};
+
+/**
+ * Get the game token contract for each network respectively (Jewel for SD,
+ *    Crystal for CV, etc).
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getContractGameToken = (currentRPC) => {
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contract = new ethers.Contract(
+    addresses.BASE_TOKEN,
+    abiJewel,
+    provider,
+  );
   return contract;
 };
 
@@ -145,9 +197,10 @@ exports.getContractJewel = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getQuestCoreV1 = (currentRPC) => {
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    QUEST_CORE_V1_CONTRACT,
+    addresses.QUEST_CORE_V1,
     abiQuestCoreV1,
     provider,
   );
@@ -161,9 +214,10 @@ exports.getQuestCoreV1 = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getQuestCoreV2 = (currentRPC) => {
-  const { provider } = currentRPC;
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
-    QUEST_CORE_V2_CONTRACT,
+    addresses.QUEST_CORE_V2,
     abiQuestCoreV2,
     provider,
   );
@@ -177,10 +231,11 @@ exports.getQuestCoreV2 = (currentRPC) => {
  * @return {Object} An ethers.js contract instance.
  */
 exports.getContractConsumable = (currentRPC) => {
-  const { provider, signer } = currentRPC;
+  const { provider, signer, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
   const useProvider = signer || provider;
   const contract = new ethers.Contract(
-    CONSUMABLE_ADDRESS,
+    addresses.CONSUMABLE_CORE_V1,
     abiConsumable,
     useProvider,
   );

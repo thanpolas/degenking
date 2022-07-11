@@ -15,12 +15,13 @@ const log = require('../utils/log.service').get();
 /**
  * Fetches sale auction data by hero id from blockchain.
  *
+ * @param {number} chainId The chain id.
  * @param {string} heroId The hero id.
  * @return {Promise<Object>} Hero sales data.
  */
-exports.getSalesAuctionChainByHeroId = async (heroId) => {
+exports.getSalesAuctionChainByHeroId = async (chainId, heroId) => {
   try {
-    const currentRPC = await getProvider();
+    const currentRPC = await getProvider(chainId);
     const { lastBlockMined } = currentRPC;
     const salesContract = getContractAuctionSales(currentRPC);
     const auctionData = await salesContract.getAuction(heroId, {
