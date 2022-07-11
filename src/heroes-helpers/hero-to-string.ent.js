@@ -77,6 +77,7 @@ exports.heroesCurrentStats = (heroes) => {
 
     return {
       id: hero.id,
+      Realm: hero.realm,
       Q: currentQuest,
       Sales: hero.onSale,
       P: hero.profession,
@@ -87,7 +88,7 @@ exports.heroesCurrentStats = (heroes) => {
       XP: hero.xp,
       CR: hero.currentRank,
       Jp100T: hero.estJewelPer100Ticks,
-      S: `${hero.stamina}/${hero.currentStamina}`,
+      S: `${hero.currentStamina}/${hero.stamina}`,
     };
   });
 };
@@ -102,7 +103,7 @@ exports.heroesCurrentStats = (heroes) => {
 exports.heroQuestStr = (hero) => {
   const questing = hero.currentQuest === ZERO_ADDRESS ? 'N' : 'Y';
   const heroStr =
-    `id:${hero.id} Stam:${hero.currentStamina} ` +
+    `id:${hero.id} Realm: ${hero.realm} Stam:${hero.currentStamina} ` +
     `JPT100:${hero.estJewelPer100Ticks}J R:${hero.currentRank} Q:${questing}`;
 
   return heroStr;
@@ -121,6 +122,7 @@ exports._getHeroPartsTiny = (hero) => {
 
   const heroParts = [];
   heroParts.push(['id', hero.id]);
+  heroParts.push(hero.realm);
   heroParts.push(['G', `${hero.generation}${shiny}`]);
   heroParts.push(`${profEmoji} ${hero.profession}`);
   heroParts.push(`${hero.mainClass}:${hero.subClass}`);
@@ -145,6 +147,7 @@ exports._getHeroPartsStampot = (hero) => {
 
   const heroParts = [];
   heroParts.push(['id', hero.id]);
+  heroParts.push(hero.realm);
   heroParts.push(['G', `${hero.generation}`]);
   heroParts.push(`${profEmoji}`);
   heroParts.push(`${hero.mainClass}:${hero.subClass}`);
@@ -173,6 +176,7 @@ exports._getHeroParts = (hero, params) => {
   const heroParts = [
     ['Owner', hero.ownerName],
     hero.id,
+    ['Realm', hero.realm],
     `G${hero.generation}${shiny}`,
     `${profEmoji} ${hero.profession}`,
     `${hero.mainClass}:${hero.subClass}`,
