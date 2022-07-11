@@ -20,6 +20,12 @@ exports.NETWORK_IDS_REV = {
   53935: 'DFKN',
 };
 
+/** @enum {number} EVM Network ids resolving in DFK Realm */
+exports.NETWORK_IDS_REV_REALM = {
+  1666600000: 'SD',
+  53935: 'CV',
+};
+
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 exports.xJEWEL_DECIMALS = 18;
 exports.ONE_DECIMALS = 18;
