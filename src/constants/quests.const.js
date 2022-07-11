@@ -52,7 +52,7 @@ exports.QUESTS_TRAINING = [
 exports.ALL_QUESTS_REV = assign(
   {},
   addressesHarmony.QUESTS_REV,
-  addressesDFKN.ALL_QUESTS_REV,
+  addressesDFKN.QUESTS_REV,
 );
 
 /**
