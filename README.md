@@ -565,6 +565,8 @@ const hero = {
     subClassGenes: [ 'archer', 'warrior', 'knight', 'pirate' ],
     professionGenes: [ 'gardening', 'gardening', 'gardening', 'gardening' ],
     chainId: 1666600000,
+    realm: 'SD',
+    networkName: 'Harmony',
 }
 ```
 
@@ -834,7 +836,10 @@ When a new node version is available you need to updated it in the following:
 -   **v1.0.0** , _TBD_
     -   Implemented multi-chain functionality on all queries. Chain will be determined based on the `chainId` property passed as the provider object.
     -   Added new function `getAddresses()` to get the appropriate addresses constants module.
-    -   All heroes fetched from the blockchain will now have a new property `chainId` to indicate their current position in realms.
+    -   All heroes fetched from the blockchain will now have new properties:
+        -   `chainId` {number} The chain id the hero is at.
+        -   `realm` {string} The DFK Realm, one of "SD" or "CV".
+        -   `networkName` {string} Network the hero is on, one of "Harmony" or "DFKN".
     -   Added the `chainIdToNetwork(chainId)` helper
     -   **Breaking Changes**
         -   Signatures of all blockchain querying functions have changed, now require chainId definition.
