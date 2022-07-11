@@ -107,7 +107,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
     const [heroRaw, ownerOfAddress, heroSalesData] = await Promise.all([
       heroesContract.getHero(heroId, { blockTag: blockToQuery }),
       heroesContract.ownerOf(heroId, { blockTag: blockToQuery }),
-      getSalesAuctionChainByHeroId(heroId),
+      getSalesAuctionChainByHeroId(chainId, heroId),
     ]);
 
     const addresses = getAddresses(currentRPC.chainId);
@@ -122,7 +122,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
       ownerAddress = ownerOfAddress.toLowerCase();
     }
 
-    const owner = await getProfileByAddress(ownerAddress);
+    const owner = await getProfileByAddress(chainId, ownerAddress);
     const hero = processHeroChainData(heroRaw, owner, ownerAddress);
 
     hero.salesData = heroSalesData;
