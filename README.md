@@ -840,7 +840,7 @@ When a new node version is available you need to updated it in the following:
         -   `chainId` {number} The chain id the hero is at.
         -   `realm` {string} The DFK Realm, one of "SD" or "CV".
         -   `networkName` {string} Network the hero is on, one of "Harmony" or "DFKN".
-    -   Added the `chainIdToNetwork(chainId)` helper
+    -   Added the `chainIdToNetwork(chainId)` and `chainIdToRealm(chainId)` helpers.
     -   **Breaking Changes**
         -   Signatures of all blockchain querying functions have changed, now require chainId definition.
         -   Function `fetchLockedJewelByOwnerChain()` has been removed and replaced by `fetchLockedTokensByOwnerChain()`.
