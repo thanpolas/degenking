@@ -11,16 +11,16 @@ exports.BASE_TOKEN = exports.CRYSTAL_TOKEN;
 exports.XJEWEL_TOKEN = '0x77f2656d04E158f915bC22f07B779D94c1DC47Ff';
 exports.XCRYSTAL_TOKEN = '0x6e7185872bcdf3f7a6cbbe81356e50daffb002d2';
 
-exports.BANK = '';
+exports.BANK = exports.XCRYSTAL_TOKEN;
 exports.BANKER = '';
 exports.AIRDROP = '';
 
 exports.HEROES = '0xEb9B61B145D6489Be575D3603F4a704810e143dF';
 exports.TEARS_TOKEN = '0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278';
-exports.AUCTION_SALES = '';
-exports.AUCTION_SALES_LOWERCASE = '';
+exports.AUCTION_SALES = '0xc390fAA4C7f66E4D62E59C231D5beD32Ff77BEf0';
+exports.AUCTION_SALES_LOWERCASE = '0xc390faa4c7f66e4d62e59c231d5bed32ff77bef0';
 exports.PROFILES = '';
-exports.RUNES = '';
+exports.RUNES = '0x75E8D8676d774C9429FbB148b30E304b5542aC3d';
 exports.MEDITATION = '';
 exports.SUMMON_V2 = '';
 
@@ -29,12 +29,12 @@ exports.SUMMON_V2 = '';
 //
 
 // Currently active quests
-exports.QUEST_CORE_V2 = '';
+exports.QUEST_CORE_V2 = '0xE9AbfBC143d7cef74b5b793ec5907fa62ca53154';
 exports.QUEST_GARDENING_V1 = '';
 exports.QUEST_MINING_GOLD_V1 = '';
 exports.QUEST_MINING_JEWEL_V1 = '';
-exports.QUEST_FORAGING_V2 = '';
-exports.QUEST_FISHING_V2 = '';
+exports.QUEST_FORAGING_V2 = '0xAd51199B453075C73FA106aFcAAD59f705EF7872';
+exports.QUEST_FISHING_V2 = '0x407ab39B3675f29A719476af6eb3B9E5d93969E6';
 exports.QUEST_WISHING_WELL_V2 = '';
 
 //
