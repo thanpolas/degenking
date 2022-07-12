@@ -51,6 +51,7 @@ exports.TRAINING_QUESTS_AR = [];
 
 /** @enum {boolean} Determines which quest types need to be handled by new questing */
 exports.QUESTS_HANDLER_NEW = {
+  [exports.QUEST_CORE_V2]: true,
   [exports.QUEST_FORAGING_V2]: true,
   [exports.QUEST_FISHING_V2]: true,
 };

@@ -175,6 +175,8 @@ exports.QUESTS_HANDLER_NEW = {
   [exports.QUEST_MINING_GOLD_V1]: false,
   [exports.QUEST_MINING_JEWEL_V1]: false,
   [exports.QUEST_WISHING_WELL_V2]: false,
+  [exports.QUEST_CORE_V1]: false,
+  [exports.QUEST_CORE_V2]: true,
   [exports.QUEST_FORAGING_V2]: true,
   [exports.QUEST_FISHING_V2]: true,
   [exports.QUEST_STR_ADDRESS]: true,
