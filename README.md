@@ -833,6 +833,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.0.2** , _13/Jul/2022_
+    -   Lowercase all DFKN addresses.
+    -   If quest not found, default to true on isQuestNew().
 -   **v1.0.1** , _12/Jul/2022_
     -   Fix: Added quest core contracts in "new quest" determination.
 -   **v1.0.0** , _11/Jul/2022_
