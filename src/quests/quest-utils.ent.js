@@ -30,7 +30,12 @@ exports.questResolve = (questAddress) => {
  * @return {boolean} True if new quests.
  */
 exports.isQuestNew = (questAddress) => {
-  return ALL_QUESTS_HANDLER_NEW[questAddress.toLowerCase()];
+  const isNew = ALL_QUESTS_HANDLER_NEW[questAddress.toLowerCase()];
+  if (isNew === undefined) {
+    return true;
+  }
+
+  return isNew;
 };
 
 /**
