@@ -44,7 +44,7 @@ exports.catchErrorRetry = async (log, params) => {
   let hasRPCError = false;
   if (errorMessageUse && errorMessageRpc) {
     hasRPCError = true;
-    errorMessageUse += ` - RPC Message: ${errorMessageRpc}`;
+    errorMessageUse += ` - RPC Message: "${errorMessageRpc}"`;
   }
 
   // Check if max retries reached and exit with log
@@ -86,20 +86,46 @@ exports.catchErrorRetry = async (log, params) => {
 };
 
 /**
- * Will safely explore and find the actual RPC error if it's there.
+ * Will safely explore and find the actual RPC error if it's there using
+ * heuristics.
  *
  * @param {Error} exception Exception from RPC ethers.js.
  * @return {string|void}
  */
 exports.parseRpcError = (exception) => {
   const body = exception?.error?.error?.body || exception?.error?.body;
-  if (!body) {
-    return;
+  if (body) {
+    try {
+      const parsedBody = JSON.parse(body);
+      return parsedBody.error.message;
+      // eslint-disable-next-line no-empty
+    } catch (ex) {}
   }
 
-  try {
-    const parsedBody = JSON.parse(body);
-    return parsedBody.error.message;
-    // eslint-disable-next-line no-empty
-  } catch (ex) {}
+  // See if it's a call exception
+  if (exception?.code === 'CALL_EXCEPTION') {
+    const returnMsg = [`CALL_EXCEPTION Error.`];
+    if (exception?.method) {
+      returnMsg.push(`Method: ${exception.method}`);
+    }
+
+    if (exception?.transaction?.data) {
+      returnMsg.push(`Data: ${exception.transaction.data}`);
+    }
+
+    if (exception?.args) {
+      returnMsg.push(`Args: ${exception.args}`);
+    }
+
+    if (exception?.error) {
+      returnMsg.push(`Error Code: ${exception.error.code}`);
+    }
+
+    if (exception?.reason) {
+      returnMsg.push(`Reason: ${exception.reason}`);
+    }
+
+    const errorMessage = returnMsg.join(' - ');
+    return errorMessage;
+  }
 };
