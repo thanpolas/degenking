@@ -2,6 +2,7 @@
  * @fileoverview Hero's owner profile related functions.
  */
 
+const { NETWORK_IDS } = require('../constants/constants.const');
 const etherEnt = require('../ether');
 const { unixToJsDate } = require('../utils/helpers');
 
@@ -21,10 +22,18 @@ exports.getProfileByAddress = async (chainId, ownerAddress) => {
 
   let fetchedProfile = null;
   const ownerAddressL = ownerAddress.toLowerCase();
+
+  const queryParams = {};
+  // Only use blockTag on harmony network - on DFKN it'll create issues
+  if (chainId === NETWORK_IDS.HARMONY) {
+    queryParams.blockTag = lastBlockMined;
+  }
+
   try {
-    fetchedProfile = await profileContract.getProfileByAddress(ownerAddressL, {
-      blockTag: lastBlockMined,
-    });
+    fetchedProfile = await profileContract.getProfileByAddress(
+      ownerAddressL,
+      queryParams,
+    );
   } catch (ex) {
     // suppress
     return null;

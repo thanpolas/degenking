@@ -3,7 +3,7 @@
  * @fileoverview Fetches heroes data from the blockchain.
  */
 
-const { DATA_SOURCES } = require('../constants/constants.const');
+const { DATA_SOURCES, NETWORK_IDS } = require('../constants/constants.const');
 const etherEnt = require('../ether');
 const {
   getProvider,
@@ -100,17 +100,24 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
 
     // Determine which block to query the hero for
     let { lastBlockMined: blockToQuery } = currentRPC;
+
+    const queryParams = {};
+    // Only use blockTag on harmony network - on DFKN it'll create issues
+    if (chainId === NETWORK_IDS.HARMONY) {
+      queryParams.blockTag = blockToQuery;
+    }
+
+    // Explicit block number on params means upstream requires a past state
+    // of the hero, therefore an archival node needs to be used.
     if (params.blockNumber) {
-      blockToQuery = params.blockNumber;
+      queryParams.blockTag = blockToQuery = params.blockNumber;
       // Switch to archival RPC provider for this query
       currentRPC = await getArchivalProvider(chainId);
     }
 
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
 
-    const heroRaw = await heroesContract.getHero(heroId, {
-      blockTag: blockToQuery,
-    });
+    const heroRaw = await heroesContract.getHero(heroId, queryParams);
 
     if (!Number(heroRaw?.id)) {
       // hero not found
@@ -118,7 +125,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
     }
 
     const [ownerOfAddress, heroSalesData] = await Promise.all([
-      heroesContract.ownerOf(heroId, { blockTag: blockToQuery }),
+      heroesContract.ownerOf(heroId, queryParams),
       getSalesAuctionChainByHeroId(chainId, heroId),
     ]);
 
@@ -126,9 +133,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
     let ownerAddress = '';
     if (ownerOfAddress.toLowerCase() === addresses.AUCTION_SALES_LOWERCASE) {
       const salesContract = getContractAuctionSales(currentRPC);
-      const auction = await salesContract.getAuction(heroId, {
-        blockTag: blockToQuery,
-      });
+      const auction = await salesContract.getAuction(heroId, queryParams);
       ownerAddress = auction.seller.toLowerCase();
     } else {
       ownerAddress = ownerOfAddress.toLowerCase();
@@ -150,7 +155,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
       retries,
       errorMessage:
         `getHeroChain() - RPC: ${currentRPC.name} - ` +
-        `ChainId: ${currentRPC.chainId} - Hero: ${heroId}`,
+        `Network: ${chainIdToNetwork(currentRPC.chainId)} - Hero: ${heroId}`,
       retryFunction: exports.getHeroChain,
       retryArguments: [chainId, heroId, params],
     });

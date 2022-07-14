@@ -9,6 +9,7 @@ const {
 } = require('../graphql/queries/sale-auctions.gql');
 const { unixToJsDate, delay } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
+const { NETWORK_IDS } = require('../constants/constants.const');
 
 const log = require('../utils/log.service').get();
 
@@ -24,9 +25,14 @@ exports.getSalesAuctionChainByHeroId = async (chainId, heroId) => {
     const currentRPC = await getProvider(chainId);
     const { lastBlockMined } = currentRPC;
     const salesContract = getContractAuctionSales(currentRPC);
-    const auctionData = await salesContract.getAuction(heroId, {
-      blockTag: lastBlockMined,
-    });
+
+    const queryParams = {};
+    // Only use blockTag on harmony network - on DFKN it'll create issues
+    if (chainId === NETWORK_IDS.HARMONY) {
+      queryParams.blockTag = lastBlockMined;
+    }
+
+    const auctionData = await salesContract.getAuction(heroId, queryParams);
     return {
       onSale: true,
       auctionId: Number(auctionData.auctionId),
