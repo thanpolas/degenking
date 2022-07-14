@@ -833,6 +833,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.0.3** , _15/Jul/2022_
+    -   Will now use the `blockTag` property on queries when only on harmony.
+    -   parseRpcError() now catches and handles the `CALL_EXCEPTION` error types.
 -   **v1.0.2** , _13/Jul/2022_
     -   Lowercase all DFKN addresses.
     -   If quest not found, default to true on isQuestNew().
