@@ -152,7 +152,7 @@ degenKing.config({
 
 ## Heroes API
 
-### getHeroesChain(chainId, heroIds)
+### getHeroesChain(chainId, heroIds, params)
 
 Will fetch and normalize heroes from the blockchain using provided hero ids.
 It will augment the hero object using multiple queries and functions to also
@@ -168,7 +168,30 @@ include sales data, owner profile and decode all stat and visual genes.
 ```js
 const { getHeroesChain } = require('@thanpolas/degenking');
 
-const [hero] = await getHeroesChain([10000]);
+const [hero] = await getHeroesChain(1666600000, [10000]);
+
+console.log(hero);
+```
+
+> [View the Hero Data Object at the relative section.][hero-object].
+
+### getHeroesAnyChain(heroIds, params)
+
+Available since v1.0.4, wraps around `getHeroesChain()` and will query
+all available networks for the provided heroes. It will then check which heroes
+are on which network based on the owner address field (if they belong to the bridge contract)
+and return the appropriate hero state based on the chain they are on.
+
+-   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
+-   `params` **{Object=}** Parameters for fetching the hero.
+-   `params.blockNumber` **{number=}** Query hero state at particular block number.
+-   `params.blockMinedAt` **{Date=}** Pass a mining date of block to help with stamina and relevant time-sensitive calculations.
+-   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
+
+```js
+const { getHeroesAnyChain } = require('@thanpolas/degenking');
+
+const [hero] = await getHeroesAnyChain([10000]);
 
 console.log(hero);
 ```
@@ -833,6 +856,11 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.0.4** , _17/Jul/2022_
+    -   Implemented `getHeroesAnyChain()` to query for heroes regardless on which chain they are on.
+    -   Added the `chainIdToRealm(chainId)` and `getBaseTokenName(chainId)` helpers.
+    -   Added bridge contract for both networks, available at `addresses.BRIDGE_HEROES`.
+    -   Added Meditation contract for DFKN.
 -   **v1.0.3** , _15/Jul/2022_
     -   Will now use the `blockTag` property on queries when only on harmony.
     -   parseRpcError() now catches and handles the `CALL_EXCEPTION` error types.

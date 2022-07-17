@@ -14,6 +14,12 @@ exports.NETWORK_IDS = {
   DFKN: 53935,
 };
 
+/** @const {Array<number>} AVAILABLE_CHAIN_IDS All available chain ids in an array */
+exports.AVAILABLE_CHAIN_IDS = [
+  exports.NETWORK_IDS.HARMONY,
+  exports.NETWORK_IDS.DFKN,
+];
+
 /** @enum {number} EVM Network ids in reverse */
 exports.NETWORK_IDS_REV = {
   1666600000: 'Harmony',

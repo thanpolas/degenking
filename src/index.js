@@ -23,10 +23,9 @@ logService.init(logParams);
 // WARNING - Require any local packages BELLOW this line
 //
 
-// FIXME DO A SEARCH FOR ALL THE DEPRECATED ADDRESS VAR NAMES
-
 const {
   getHeroesChain,
+  getHeroesAnyChain,
   fetchHeroesByOwnerAndProfessionChain,
   fetchHeroesByOwnerChain,
   fetchHeroIdsByOwnerChain,
@@ -97,7 +96,11 @@ const {
   areHeroesRelated,
 } = require('./heroes-helpers/summon-utils.ent');
 
-const { chainIdToNetwork } = require('./utils/network-helpers');
+const {
+  chainIdToNetwork,
+  getBaseTokenName,
+  chainIdToRealm,
+} = require('./utils/network-helpers');
 
 const {
   calculateRuneRequirements,
@@ -114,6 +117,7 @@ const { queryQuest, fetchQuestData } = require('./quests/quest-query.ent');
 const { getAddresses } = require('./ether');
 
 exports.getHeroesChain = getHeroesChain;
+exports.getHeroesAnyChain = getHeroesAnyChain;
 exports.fetchHeroesByOwnerAndProfessionChain =
   fetchHeroesByOwnerAndProfessionChain;
 exports.fetchHeroesByOwnerChain = fetchHeroesByOwnerChain;
@@ -154,6 +158,8 @@ exports.QUESTS = require('./constants/quests.const');
 
 exports.getAddresses = getAddresses;
 exports.chainIdToNetwork = chainIdToNetwork;
+exports.getBaseTokenName = getBaseTokenName;
+exports.chainIdToRealm = chainIdToRealm;
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
