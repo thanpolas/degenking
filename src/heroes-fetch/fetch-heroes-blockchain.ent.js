@@ -3,7 +3,13 @@
  * @fileoverview Fetches heroes data from the blockchain.
  */
 
-const { DATA_SOURCES, NETWORK_IDS } = require('../constants/constants.const');
+const { flatten } = require('lodash');
+
+const {
+  DATA_SOURCES,
+  NETWORK_IDS,
+  AVAILABLE_CHAIN_IDS,
+} = require('../constants/constants.const');
 const etherEnt = require('../ether');
 const {
   getProvider,
@@ -33,6 +39,39 @@ const {
 } = require('../utils/network-helpers');
 
 const log = require('../utils/log.service').get();
+
+/**
+ * Will fetch heroes searching on all avaialble realms.
+ *
+ * @param {Array<string>} heroIds hero IDs.
+ * @param {Object=} params Parameters for fetching the heroes.
+ * @param {number=} params.blockNumber Query hero state at particular block number.
+ * @param {Date=} params.blockMinedAt Pass a mining date of block to help with
+ *    stamina calculations and relevant time-sensitive properties.
+ * @return {Promise<Array<Object>>} Normalized heroes.
+ */
+exports.getHeroesAnyChain = async (heroIds, params = {}) => {
+  // Find on which realm the hero is
+  const allPromises = AVAILABLE_CHAIN_IDS.map((chainId) => {
+    return exports.getHeroesChain(chainId, heroIds, params);
+  });
+
+  const results = await Promise.allSettled(allPromises);
+
+  const successfulResults = results.map((result) => {
+    if (result.status === 'rejected') {
+      return [];
+    }
+
+    return result.value;
+  });
+
+  const resultsFlat = flatten(successfulResults);
+
+  const resultsFound = resultsFlat.filter((r) => !!r);
+
+  return resultsFound;
+};
 
 /**
  * Get heroes data from blockchain with normalized data schema.
@@ -95,6 +134,8 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
 exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
   let currentRPC = await getProvider(chainId);
   try {
+    const addresses = getAddresses(chainId);
+
     // Force convert hero Id into number
     heroId = Number(heroId);
 
@@ -129,7 +170,11 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
       getSalesAuctionChainByHeroId(chainId, heroId),
     ]);
 
-    const addresses = getAddresses(currentRPC.chainId);
+    // Check if hero is on bridge and return null (not on this realm)
+    if (ownerOfAddress.toLowerCase() === addresses.BRIDGE_HEROES) {
+      return null;
+    }
+
     let ownerAddress = '';
     if (ownerOfAddress.toLowerCase() === addresses.AUCTION_SALES_LOWERCASE) {
       const salesContract = getContractAuctionSales(currentRPC);
