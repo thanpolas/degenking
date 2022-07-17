@@ -24,6 +24,8 @@ exports.RUNES = '0x75e8d8676d774c9429fbb148b30e304b5542ac3d';
 exports.MEDITATION = '';
 exports.SUMMON_V2 = '';
 
+exports.BRIDGE_HEROES = '0x739b1666c2956f601f095298132773074c3e184b';
+
 //
 // QUESTING
 //
