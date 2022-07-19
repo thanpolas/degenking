@@ -2,18 +2,18 @@
  * @fileoverview Item Types, formatting and sorting functions.
  */
 
-const { ALL_ITEMS } = require('./all-items.json');
+const ALL_ITEMS = require('./all-items.json');
 
 /**
  * @enum {string} Item event types.
  */
-exports.ItemEventTypes = {
+exports.ITEM_EVENT_TYPES = {
   CONSUMED: 'ItemConsumed',
   HERO_UPDATED: 'HeroUpdated',
 };
 
 /** @enum {string} The item types */
-exports.ItemType = {
+exports.ITEM_TYPES = {
   CRYSTAL: 'crystal',
   STONE: 'stone',
   SUMMON: 'summon',
@@ -46,17 +46,14 @@ exports.ITEM_TYPES_SORTED = [
   'material',
 ];
 
-/** @const {Array<Object>} SORTED_ITEMS All items sorted by display preference. */
-exports.SORTED_ITEMS = exports.sortItems(ALL_ITEMS);
-
 /**
  * Will return items sorted by type.
  *
- * @param {Array<Object>} normalizedItems The items to sort.
+ * @param {Array<Object>} allItems The items to sort.
  * @return {Array<Object>} Normalized item objects.
  */
-exports.sortItems = (normalizedItems) => {
-  const sortedItems = normalizedItems.sort((a, b) => {
+exports.sortItems = (allItems) => {
+  const sortedItems = allItems.sort((a, b) => {
     const aIndexOf = exports.ITEM_TYPES_SORTED.indexOf(a.type);
     const bIndexOf = exports.ITEM_TYPES_SORTED.indexOf(b.type);
 
@@ -74,37 +71,48 @@ exports.sortItems = (normalizedItems) => {
   return sortedItems;
 };
 
+/** @const {Array<Object>} SORTED_ITEMS All items sorted by display preference. */
+exports.SORTED_ITEMS = exports.sortItems(ALL_ITEMS);
+
 /**
  * Will filter items based on provided criteria.
  *
  * @param {Object} params Parameters to filter items with.
  * @param {number} params.chainId Filter for items available to this chain id.
+ * @param {Array<exports.ITEM_TYPES>} params.excludeTypes Item types to exclude.
+ * @param {Array<string>} params.excludeItemKeys Item Keys to be excluded.
  * @return {Array<Object>} Filtered items.
  */
 exports.filterItems = (params) => {
-  const { chainId, excludeTypes = [] } = params;
+  const { chainId, excludeTypes = [], excludeItemKeys = [] } = params;
 
-  return exports.normalizeItems().filter((item) => {
+  const filteredItems = ALL_ITEMS.filter((item) => {
     // Exclude categories
     if (excludeTypes.includes(item.type)) {
       return false;
     }
 
+    if (excludeItemKeys.includes(item.key)) {
+      return false;
+    }
+
     // Filter for chain id
     if (chainId) {
-      if (!item.addressess[chainId]) {
+      if (!item.addresses[chainId]) {
         return false;
       }
     }
 
     return true;
   });
+
+  return filteredItems;
 };
 
 /**
  * @enum {string} Items key mapping.
  */
-exports.ItemKeys = {
+exports.ITEM_KEYS = {
   AMBERTAFFY: 'ambertaffy',
   ANTIPOISON_POTION: 'antipoisonPotion',
   ATONEMENT_CRYSTAL: 'atonementCrystal',
