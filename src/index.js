@@ -155,6 +155,7 @@ exports.ITEM_TYPES = require('./constants/item-types.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 exports.RUNES = require('./constants/runes.const');
 exports.QUESTS = require('./constants/quests.const');
+exports.DUEL_CONSTS = require('./constants/duel.const');
 
 exports.getAddresses = getAddresses;
 exports.chainIdToNetwork = chainIdToNetwork;
@@ -205,3 +206,6 @@ exports.fetchQuestData = fetchQuestData;
 exports.abiItems = require('./abi/items.abi.json');
 exports.abiQuestCoreV1 = require('./abi/quest-core-v1.abi.json');
 exports.abiQuestCoreV2 = require('./abi/quest-core-v2.abi.json');
+exports.duelsCoreAbi = require('./abi/duels-core.abi.json');
+exports.duelsRaffleMasterAbi = require('./abi/duels-raffle-master.abi.json');
+exports.duelsGoldpotAbi = require('./abi/duels-goldpot.abi.json');
