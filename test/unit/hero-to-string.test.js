@@ -64,7 +64,7 @@ describe('hero-to-string', () => {
         tiny: true,
       });
       expect(heroStr).toEqual(
-        '**id**:10000 - **SD** - **G**:2 - **⛏️ mining** - ' +
+        '**Ceebs** - **id**:10000 - **SD** - **G**:2 - **⛏️ mining** - ' +
           '**pirate:warrior** - **Rare** - **0/8** - **L**:1',
       );
     });
@@ -74,7 +74,7 @@ describe('hero-to-string', () => {
         cli: true,
       });
       expect(heroStr).toEqual(
-        'id:10000 - SD - G:2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L:1',
+        'Ceebs - id:10000 - SD - G:2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L:1',
       );
     });
 
@@ -84,7 +84,7 @@ describe('hero-to-string', () => {
         cli: true,
       });
       expect(heroStr).toEqual(
-        'id:10000 - SD - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:914/2000',
+        'Ceebs - id:10000 - SD - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:914/2000',
       );
     });
 

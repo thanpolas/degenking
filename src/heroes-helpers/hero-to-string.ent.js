@@ -121,6 +121,7 @@ exports._getHeroPartsTiny = (hero) => {
   const shiny = hero.shiny ? ' Shiny' : '';
 
   const heroParts = [];
+  heroParts.push(hero.ownerName);
   heroParts.push(['id', hero.id]);
   heroParts.push(hero.realm);
   heroParts.push(['G', `${hero.generation}${shiny}`]);
@@ -146,6 +147,7 @@ exports._getHeroPartsStampot = (hero) => {
   const nextLevelXp = calculateRequiredXp(hero.level);
 
   const heroParts = [];
+  heroParts.push(hero.ownerName);
   heroParts.push(['id', hero.id]);
   heroParts.push(hero.realm);
   heroParts.push(['G', `${hero.generation}`]);
