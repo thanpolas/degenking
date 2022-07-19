@@ -40,7 +40,7 @@ exports.catchErrorRetry = async (log, params) => {
 
   const errorMessageRpc = exports.parseRpcError(ex);
 
-  let errorMessageUse = errorMessage;
+  let errorMessageUse = errorMessage || '';
   let hasRPCError = false;
   if (errorMessageUse && errorMessageRpc) {
     hasRPCError = true;

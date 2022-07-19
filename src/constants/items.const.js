@@ -1,13 +1,19 @@
 /**
- * @fileoverview Item Types constants as seen in DFK Client Source.
+ * @fileoverview Item Types, formatting and sorting functions.
  */
 
-exports.ItemEventTypes = {
+const ALL_ITEMS = require('./all-items.json');
+
+/**
+ * @enum {string} Item event types.
+ */
+exports.ITEM_EVENT_TYPES = {
   CONSUMED: 'ItemConsumed',
   HERO_UPDATED: 'HeroUpdated',
 };
 
-exports.ItemType = {
+/** @enum {string} The item types */
+exports.ITEM_TYPES = {
   CRYSTAL: 'crystal',
   STONE: 'stone',
   SUMMON: 'summon',
@@ -18,13 +24,95 @@ exports.ItemType = {
   COLLECTIBLE: 'collectible',
   PET: 'pet',
   SCRAP: 'scrap',
+  // Collection and Subcollection are eternal story pages, etc
   COLLECTION: 'collection',
   SUBCOLLECTION: 'subcollection',
+  // Hidden types are tokens like jewel and crystal
   HIDDEN: 'hidden',
 };
 
-/* --- Item Keys --- */
-exports.ItemKeys = {
+/** @enum {string} All item types sorted by displaying preference */
+exports.ITEM_TYPES_SORTED = [
+  'hidden',
+  'scrap',
+  'ingredient',
+  'potion',
+  'rune',
+  'crystal',
+  'summon',
+  'pet',
+  'stone',
+  'collection',
+  'material',
+];
+
+/**
+ * Will return items sorted by type.
+ *
+ * @param {Array<Object>} allItems The items to sort.
+ * @return {Array<Object>} Normalized item objects.
+ */
+exports.sortItems = (allItems) => {
+  const sortedItems = allItems.sort((a, b) => {
+    const aIndexOf = exports.ITEM_TYPES_SORTED.indexOf(a.type);
+    const bIndexOf = exports.ITEM_TYPES_SORTED.indexOf(b.type);
+
+    if (aIndexOf - bIndexOf === 0) {
+      // in case of equality, sort by name...
+      const sortedByName = [a.name, b.name].sort();
+      const aNameIndexOf = sortedByName.indexOf(a.name);
+      const bNameIndexOf = sortedByName.indexOf(b.name);
+      return aNameIndexOf - bNameIndexOf;
+    }
+
+    return aIndexOf - bIndexOf;
+  });
+
+  return sortedItems;
+};
+
+/** @const {Array<Object>} SORTED_ITEMS All items sorted by display preference. */
+exports.SORTED_ITEMS = exports.sortItems(ALL_ITEMS);
+
+/**
+ * Will filter items based on provided criteria.
+ *
+ * @param {Object} params Parameters to filter items with.
+ * @param {number} params.chainId Filter for items available to this chain id.
+ * @param {Array<exports.ITEM_TYPES>} params.excludeTypes Item types to exclude.
+ * @param {Array<string>} params.excludeItemKeys Item Keys to be excluded.
+ * @return {Array<Object>} Filtered items.
+ */
+exports.filterItems = (params) => {
+  const { chainId, excludeTypes = [], excludeItemKeys = [] } = params;
+
+  const filteredItems = ALL_ITEMS.filter((item) => {
+    // Exclude categories
+    if (excludeTypes.includes(item.type)) {
+      return false;
+    }
+
+    if (excludeItemKeys.includes(item.key)) {
+      return false;
+    }
+
+    // Filter for chain id
+    if (chainId) {
+      if (!item.addresses[chainId]) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  return filteredItems;
+};
+
+/**
+ * @enum {string} Items key mapping.
+ */
+exports.ITEM_KEYS = {
   AMBERTAFFY: 'ambertaffy',
   ANTIPOISON_POTION: 'antipoisonPotion',
   ATONEMENT_CRYSTAL: 'atonementCrystal',
@@ -74,7 +162,10 @@ exports.ItemKeys = {
   FORTUNE_STONE: 'fortuneStone',
   FORTUNE_STONE_LESSER: 'fortuneStoneLesser',
   FORTUNE_STONE_GREATER: 'fortuneStoneGreater',
+  FROST_BLOATER: 'frost-bloater',
+  FROST_DRUM: 'frost-drum',
   GAIASTEARS: 'gaiasTears',
+  GAIASTEARS_NEW: 'gaiasTearsNew',
   GOLD_BAG: 'goldBag',
   GOLD_INGOT: 'goldIngot',
   GOLD_NUGGET_RAW: 'goldNuggetRaw',
@@ -95,6 +186,8 @@ exports.ItemKeys = {
   IRON_NUGGET_RAW: 'ironNuggetRaw',
   IRONSCALE: 'ironscale',
   JEWEL_BAG: 'jewelBag',
+  KING_PINCER: 'kingPincer',
+  KNAPROOT: 'knaproot',
   LANTERNEYE: 'lanterneye',
   MOKSHA_RUNE: 'mokshaRune',
   LIGHT_RUNE: 'lightRune',
@@ -123,10 +216,13 @@ exports.ItemKeys = {
   ROCK: 'rock',
   ROCKROOT: 'rockroot',
   SAILFISH: 'sailfish',
+  SHAGGY_CAPS: 'shaggyCaps',
   SHIMMERSKIN: 'shimmerskin',
   SHVAS_RUNE: 'shvasRune',
   SILVERFIN: 'silverfin',
+  SKUNK_SHADE: 'skunkShade',
   SOUL_RUNE: 'soulRune',
+  SPECKLE_TAIL: 'speckleTail',
   SPIDER_FRUIT: 'spiderFruit',
   STAMINA_POTION_LARGE: 'staminaPotionLarge',
   STAMINA_POTION: 'staminaPotion',
@@ -139,6 +235,7 @@ exports.ItemKeys = {
   SWIFTNESS_STONE_LESSER: 'swiftnessStoneLesser',
   SWIFTNESS_STONE_GREATER: 'swiftnessStoneGreater',
   SWIFT_THISTLE: 'swiftThistle',
+  THREE_EYED_EEL: 'threeEyedEel',
   TOUGHNESS_POTION: 'toughnessPotion',
   VIGOR_CRYSTAL: 'vigorCrystal',
   VIGOR_CRYSTAL_LESSER: 'vigorCrystalLesser',

@@ -2,7 +2,7 @@
  * @fileoverview Runes contract addresses.
  */
 
-const { ItemType } = require('./item-types.const');
+const { ITEM_TYPES } = require('./items.const');
 const { indexArrayToObject } = require('../utils/helpers');
 
 const allItems = require('./all-items.json');
@@ -12,6 +12,8 @@ const allItems = require('./all-items.json');
  *
  * @type {Array<Object>}
  */
-exports.ALL_RUNE_ITEMS = allItems.filter((item) => item.type === ItemType.RUNE);
+exports.ALL_RUNE_ITEMS = allItems.filter(
+  (item) => item.type === ITEM_TYPES.RUNE,
+);
 
 exports.RUNES_BY_KEY = indexArrayToObject(exports.ALL_RUNE_ITEMS, 'key');

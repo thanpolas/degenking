@@ -2,7 +2,7 @@
  * @fileoverview Calculates rune requirements - source from DFK Client.
  */
 
-const { ItemKeys } = require('../constants/item-types.const');
+const { ITEM_KEYS } = require('../constants/items.const');
 
 /**
  * Calculates rune requirements - source from DFK Client.
@@ -15,10 +15,10 @@ const { ItemKeys } = require('../constants/item-types.const');
 exports.calculateRuneRequirements = (currentLevel) => {
   const maxRuneRange = 6;
   const focusRunePerTier = [
-    ItemKeys.SHVAS_RUNE,
-    ItemKeys.MOKSHA_RUNE,
-    ItemKeys.HOPE_RUNE,
-    ItemKeys.COURAGE_RUNE,
+    ITEM_KEYS.SHVAS_RUNE,
+    ITEM_KEYS.MOKSHA_RUNE,
+    ITEM_KEYS.HOPE_RUNE,
+    ITEM_KEYS.COURAGE_RUNE,
   ];
   const runeTier = Math.floor(currentLevel / 10);
   const onesPlace = currentLevel - runeTier * 10;
