@@ -1,12 +1,18 @@
 /**
- * @fileoverview Item Types constants as seen in DFK Client Source.
+ * @fileoverview Item Types, formatting and sorting functions.
  */
 
+const { ALL_ITEMS } = require('./all-items.json');
+
+/**
+ * @enum {string} Item event types.
+ */
 exports.ItemEventTypes = {
   CONSUMED: 'ItemConsumed',
   HERO_UPDATED: 'HeroUpdated',
 };
 
+/** @enum {string} The item types */
 exports.ItemType = {
   CRYSTAL: 'crystal',
   STONE: 'stone',
@@ -18,12 +24,86 @@ exports.ItemType = {
   COLLECTIBLE: 'collectible',
   PET: 'pet',
   SCRAP: 'scrap',
+  // Collection and Subcollection are eternal story pages, etc
   COLLECTION: 'collection',
   SUBCOLLECTION: 'subcollection',
+  // Hidden types are tokens like jewel and crystal
   HIDDEN: 'hidden',
 };
 
-/* --- Item Keys --- */
+/** @enum {string} All item types sorted by displaying preference */
+exports.ITEM_TYPES_SORTED = [
+  'hidden',
+  'scrap',
+  'ingredient',
+  'potion',
+  'rune',
+  'crystal',
+  'summon',
+  'pet',
+  'stone',
+  'collection',
+  'material',
+];
+
+/** @const {Array<Object>} SORTED_ITEMS All items sorted by display preference. */
+exports.SORTED_ITEMS = exports.sortItems(ALL_ITEMS);
+
+/**
+ * Will return items sorted by type.
+ *
+ * @param {Array<Object>} normalizedItems The items to sort.
+ * @return {Array<Object>} Normalized item objects.
+ */
+exports.sortItems = (normalizedItems) => {
+  const sortedItems = normalizedItems.sort((a, b) => {
+    const aIndexOf = exports.ITEM_TYPES_SORTED.indexOf(a.type);
+    const bIndexOf = exports.ITEM_TYPES_SORTED.indexOf(b.type);
+
+    if (aIndexOf - bIndexOf === 0) {
+      // in case of equality, sort by name...
+      const sortedByName = [a.name, b.name].sort();
+      const aNameIndexOf = sortedByName.indexOf(a.name);
+      const bNameIndexOf = sortedByName.indexOf(b.name);
+      return aNameIndexOf - bNameIndexOf;
+    }
+
+    return aIndexOf - bIndexOf;
+  });
+
+  return sortedItems;
+};
+
+/**
+ * Will filter items based on provided criteria.
+ *
+ * @param {Object} params Parameters to filter items with.
+ * @param {number} params.chainId Filter for items available to this chain id.
+ * @return {Array<Object>} Filtered items.
+ */
+exports.filterItems = (params) => {
+  const { chainId, excludeTypes = [] } = params;
+
+  return exports.normalizeItems().filter((item) => {
+    // Exclude categories
+    if (excludeTypes.includes(item.type)) {
+      return false;
+    }
+
+    // Filter for chain id
+    if (chainId) {
+      if (!item.addressess[chainId]) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+};
+
+/**
+ * @enum {string} Items key mapping.
+ */
 exports.ItemKeys = {
   AMBERTAFFY: 'ambertaffy',
   ANTIPOISON_POTION: 'antipoisonPotion',
