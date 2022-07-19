@@ -319,13 +319,13 @@ Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - RGMC:WAR, WIZ, THF -
 #### heroToString(hero, {tiny: true, cli: true}) Tiny CLI Rendering
 
 ```
-id:10000 - G:2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L:1
+Ceebs - id:10000 - G:2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L:1
 ```
 
 #### heroToString(hero, {stampot: true, cli: true}) Stampot CLI Rendering
 
 ```
-id:10000 - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:100/2000
+Ceebs - id:10000 - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:100/2000
 ```
 
 ### calculateRemainingStamina(hero)
@@ -856,6 +856,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.0.6** , _18/Jul/2022_
+    -   Added account owner name on tiny and stampot rendition of heroToString().
 -   **v1.0.5** , _18/Jul/2022_
     -   Added Heroes Bridge ABi available as `abiBridgeHeroes`.
 -   **v1.0.4** , _17/Jul/2022_
