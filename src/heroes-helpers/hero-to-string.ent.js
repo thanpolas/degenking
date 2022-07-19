@@ -123,6 +123,7 @@ exports._getHeroPartsTiny = (hero) => {
   const heroParts = [];
   heroParts.push(['id', hero.id]);
   heroParts.push(hero.realm);
+  heroParts.push(hero.ownerName);
   heroParts.push(['G', `${hero.generation}${shiny}`]);
   heroParts.push(`${profEmoji} ${hero.profession}`);
   heroParts.push(`${hero.mainClass}:${hero.subClass}`);
