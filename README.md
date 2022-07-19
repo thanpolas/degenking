@@ -856,6 +856,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.0.5** , _18/Jul/2022_
+    -   Added Heroes Bridge ABi available as `abiBridgeHeroes`.
 -   **v1.0.4** , _17/Jul/2022_
     -   Implemented `getHeroesAnyChain()` to query for heroes regardless on which chain they are on.
     -   Added the `chainIdToRealm(chainId)` and `getBaseTokenName(chainId)` helpers.
