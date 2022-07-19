@@ -457,6 +457,11 @@
         "image": "./static/media/eternal-story-page-1.5a5c934a.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 0,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -485,6 +490,11 @@
         "image": "./static/media/eternal-story-page-2.302f9e68.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 1,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -513,6 +523,11 @@
         "image": "./static/media/eternal-story-page-3.27e2125a.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 2,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -541,6 +556,11 @@
         "image": "./static/media/eternal-story-page-4.4153f861.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 3,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -569,6 +589,11 @@
         "image": "./static/media/eternal-story-page-5.3aba3aca.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 4,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -597,6 +622,11 @@
         "image": "./static/media/eternal-story-page-6.09341d1e.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 5,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -625,6 +655,11 @@
         "image": "./static/media/eternal-story-page-7.544bbfd5.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 6,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -653,6 +688,11 @@
         "image": "./static/media/eternal-story-page-8.35a0be96.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 7,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -681,6 +721,11 @@
         "image": "./static/media/eternal-story-page-9.fdb8943d.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 8,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -709,6 +754,11 @@
         "image": "./static/media/eternal-story-page-10.b2e10ecf.png",
         "type": "subcollection",
         "addresses": {},
+        "collectionAddresses": {
+            "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
+            "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
+        },
+        "subcollectionIndex": 9,
         "tokenSymbol": "",
         "isConsumable": false,
         "customEvents": [
@@ -2086,6 +2136,7 @@
         },
         "tokenSymbol": "DFKRFTKT",
         "isConsumable": false,
+        "isSoulBound": true,
         "quantity": 0
     },
     {
