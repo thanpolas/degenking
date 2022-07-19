@@ -856,13 +856,13 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
--   **v1.1.0** , _18/Jul/2022_
+-   **v1.1.0** , _19/Jul/2022_
     -   **BREAKING CHANGE** The constant `ITEM_TYPES` has been renamed to `ITEMS` and all its available properties have been renamed to all capital letters and snakecased.
     -   Added `ITEMS.filterItems()` function to filter all the available items.
     -   Update DFK's "All Items" mappings and added CV items.
--   **v1.0.6** , _18/Jul/2022_
+-   **v1.0.6** , _19/Jul/2022_
     -   Added account owner name on tiny and stampot rendition of heroToString().
--   **v1.0.5** , _18/Jul/2022_
+-   **v1.0.5** , _19/Jul/2022_
     -   Added Heroes Bridge ABi available as `abiBridgeHeroes`.
 -   **v1.0.4** , _17/Jul/2022_
     -   Implemented `getHeroesAnyChain()` to query for heroes regardless on which chain they are on.
