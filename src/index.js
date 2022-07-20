@@ -206,3 +206,4 @@ exports.abiItems = require('./abi/items.abi.json');
 exports.abiQuestCoreV1 = require('./abi/quest-core-v1.abi.json');
 exports.abiQuestCoreV2 = require('./abi/quest-core-v2.abi.json');
 exports.abiBridgeHeroes = require('./abi/bridge-heroes.abi.json');
+exports.abiConsumable = require('./abi/consumable.abi.json');
