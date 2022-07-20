@@ -84,8 +84,16 @@ describe('hero-to-string', () => {
         cli: true,
       });
       expect(heroStr).toEqual(
-        'Ceebs - id:10000 - SD - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:914/2000',
+        'Ceebs - id:10000 - SD - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - STA:25/25 - XP:914/2000',
       );
+    });
+
+    test('Should return expected string stampot-tiny-cli', () => {
+      const heroStr = heroToStringEnt.heroToString(heroNormalized1Fix(), {
+        stampotTiny: true,
+        cli: true,
+      });
+      expect(heroStr).toEqual('id:10000 - SD - L:1 - STA:25/25 - XP:914/2000');
     });
 
     test('Should return expected string showActivePassive-cli', () => {
