@@ -287,7 +287,7 @@ Find bellow the different ways the heroToString() renders:
 Default Rendering as well as all other renderings will produce a string that can be used on Discord, the `**word**` notation you see, will render the text as bold when used on discord.
 
 ```
-**Owner**:Ceebs - **10000** - **G2** - **⛏️ mining** - **pirate:warrior** - **Rare(2)** - **⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%** - **CR**:37 - **JM**:32.7488 - **B1**:INT 🌳 - **B2**:DEX 🌳 - **RGMC**:WAR, WIZ, THF - **RGSC**:PIR, WIZ, MON - **RGP**:👨‍🌾, ⛏️, 🌳 - **XP**:914/2000 - **L**:1 - **PS**:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - **SMN**:0/8 - **STA**:25/25 - **HP**:145 - **MP**:30
+**Owner**:Ceebs - **10000** - **SD** - **G2** - **⛏️ mining** - **pirate:warrior** - **Rare(2)** - **⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39%** - **CR**:37 - **JM**:32.7488 - **B1**:INT 🌳 - **B2**:DEX 🌳 - **RGMC**:WAR, WIZ, THF - **RGSC**:PIR, WIZ, MON - **RGP**:👨‍🌾, ⛏️, 🌳 - **XP**:914/2000 - **L**:1 - **PS**:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - **SMN**:0/8 - **STA**:25/25 - **HP**:145 - **MP**:30
 ```
 
 #### heroToString(hero, {cli: true}) Default CLI Rendering
@@ -295,7 +295,7 @@ Default Rendering as well as all other renderings will produce a string that can
 All renderings accept the `{cli: true}` modifier, which will remove the `**word**` notation for use on the CLI or logging.
 
 ```
-Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STA:25/25 - HP:145 - MP:30
+Owner:Ceebs - 10000 -SD - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STA:25/25 - HP:145 - MP:30
 ```
 
 #### heroToString(hero, {showActivePassive: true, cli: true}) Show Active & Passive CLI Rendering
@@ -303,17 +303,17 @@ Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%
 Will also render Active/Passive traits
 
 ```
-Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - A1:B8 - A2:B3 - P1:B5 - P2:B2 - STA:25/25 - HP:145 - MP:30
+Owner:Ceebs - 10000 - SD - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - A1:B8 - A2:B3 - P1:B5 - P2:B2 - STA:25/25 - HP:145 - MP:30
 ```
 
 #### heroToString(hero, {showStats: true, cli: true}) Show Hero Stats - CLI Rendering
 
-Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STR:10 - AGI:8 - INT:7 - WIS:6 - LCK:10 - VIT:9 - END:7 - DEX:9 - STA:25/25 - HP:145 - MP:30
+Owner:Ceebs - 10000 - SD - G2 - ⛏️ mining - pirate:warrior - Rare(2) - ⛏️ 55%, 👨‍🌾 11%, 🌳 34%, 🎣 39% - CR:37 - JM:32.7488 - B1:INT 🌳 - B2:DEX 🌳 - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STR:10 - AGI:8 - INT:7 - WIS:6 - LCK:10 - VIT:9 - END:7 - DEX:9 - STA:25/25 - HP:145 - MP:30
 
 #### heroToString(hero, {short: true, cli: true}) Short CLI Rendering
 
 ```
-Owner:Ceebs - 10000 - G2 - ⛏️ mining - pirate:warrior - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STA:25/25 - HP:145 - MP:30
+Owner:Ceebs - 10000 - SD - G2 - ⛏️ mining - pirate:warrior - RGMC:WAR, WIZ, THF - RGSC:PIR, WIZ, MON - RGP:👨‍🌾, ⛏️, 🌳 - XP:914/2000 - L:1 - PS:⛏️: 5.9, 🌳: 0.2, 🎣: 2.4 - SMN:0/8 - STA:25/25 - HP:145 - MP:30
 ```
 
 #### heroToString(hero, {tiny: true, cli: true}) Tiny CLI Rendering
@@ -325,7 +325,13 @@ Ceebs - id:10000 - G:2 - ⛏️ mining - pirate:warrior - Rare - 0/8 - L:1
 #### heroToString(hero, {stampot: true, cli: true}) Stampot CLI Rendering
 
 ```
-Ceebs - id:10000 - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - XP:100/2000
+Ceebs - id:10000 - SD - G:2 - ⛏️ - pirate:warrior - Rare - L:1 - STA:25/25 - XP:100/2000
+```
+
+#### heroToString(hero, {stampotTiny: true, cli: true}) Stampot CLI Rendering
+
+```
+id:10000 - SD - L:1 - STA:25/25 - XP:100/2000
 ```
 
 ### calculateRemainingStamina(hero)
