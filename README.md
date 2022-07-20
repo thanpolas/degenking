@@ -862,6 +862,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.1.1** , _20/Jul/2022_
+    -   Added stamina report on `stampot` mode for `heroToStr()`.
+    -   Added new report `heroToStr()` named: `stampotTiny`.
+    -   Export the Consumable ABI, available as: `abiConsumable`.
 -   **v1.1.0** , _19/Jul/2022_
     -   **BREAKING CHANGE** The constant `ITEM_TYPES` has been renamed to `ITEMS` and all its available properties have been renamed to all capital letters and snakecased.
     -   Added `ITEMS.filterItems()` function to filter all the available items.
