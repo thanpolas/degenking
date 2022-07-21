@@ -158,7 +158,7 @@ exports._getHeroPartsStampot = (hero) => {
   heroParts.push(`${hero.mainClass}:${hero.subClass}`);
   heroParts.push(`${hero.rarityStr}`);
   heroParts.push(['L', hero.level]);
-  heroParts.push(['STA', `${hero.stamina}/${hero.currentStamina}`]);
+  heroParts.push(['STA', `${hero.currentStamina}/${hero.stamina}`]);
   heroParts.push([`XP`, `${hero.xp}/${nextLevelXp}`]);
 
   return heroParts;
@@ -178,7 +178,7 @@ exports._getHeroPartsStampotTiny = (hero) => {
   heroParts.push(['id', hero.id]);
   heroParts.push(hero.realm);
   heroParts.push(['L', hero.level]);
-  heroParts.push(['STA', `${hero.stamina}/${hero.currentStamina}`]);
+  heroParts.push(['STA', `${hero.currentStamina}/${hero.stamina}`]);
   heroParts.push([`XP`, `${hero.xp}/${nextLevelXp}`]);
 
   return heroParts;
@@ -265,10 +265,10 @@ exports._getHeroParts = (hero, params) => {
   }
 
   if (params.showParents) {
-    heroParts.push(['S/A', `${hero.summonerId} / ${hero.assistantId}`]);
+    heroParts.push(['S-A', `${hero.summonerId} - ${hero.assistantId}`]);
   }
 
-  heroParts.push(['STA', `${hero.stamina}/${hero.currentStamina}`]);
+  heroParts.push(['STA', `${hero.currentStamina}/${hero.stamina}`]);
   heroParts.push(['HP', hero.hp]);
   heroParts.push(['MP', hero.mp]);
 
