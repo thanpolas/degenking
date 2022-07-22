@@ -862,6 +862,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.1.2** , _22/Jul/2022_
+    -   Tweaked `parseRpcError()` of error handler, to not show the raw TX data.
 -   **v1.1.1** , _20/Jul/2022_
     -   Added stamina report on `stampot` mode for `heroToStr()`.
     -   Added new report `heroToStr()` named: `stampotTiny`.
