@@ -109,7 +109,7 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
 
     return normalizedHeroes;
   } catch (ex) {
-    await catchErrorRetry(log, {
+    return catchErrorRetry(log, {
       ex,
       retries,
       errorMessage: `getHeroesChain()`,
@@ -195,7 +195,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
 
     return hero;
   } catch (ex) {
-    await catchErrorRetry(log, {
+    return catchErrorRetry(log, {
       ex,
       retries,
       errorMessage:
@@ -295,7 +295,7 @@ exports.fetchHeroIdsByOwnerChain = async (
 
     return allHeroIdsNorm;
   } catch (ex) {
-    await catchErrorRetry(log, {
+    return catchErrorRetry(log, {
       ex,
       retries,
       errorMessage:
