@@ -856,10 +856,11 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
--   **v1.0.5** , _TBD/Jul/2022_
+-   **v1.0.5** , _28/Jul/2022_
     -   Added and exported the Duels ABIs: `duelsCoreAbi`, `duelsRaffleMasterAbi`, `duelsGoldpotAbi`.
     -   Added the Duels addresses: `DUELS_CORE`, `RAFFLE_MASTER`, `GOLD_POT`, `RAFFLE_TICKETS`.
     -   Added `DUEL_CONSTS` which contain necessary constant values to operate duels.
+    -   Exposed the `renderParts(parts, isCli)` helper to render complicated and multiple-items log messages.
 -   **v1.0.4** , _17/Jul/2022_
     -   Implemented `getHeroesAnyChain()` to query for heroes regardless on which chain they are on.
     -   Added the `chainIdToRealm(chainId)` and `getBaseTokenName(chainId)` helpers.
