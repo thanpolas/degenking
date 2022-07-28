@@ -51,7 +51,7 @@ exports.heroToString = (hero, params = {}) => {
     heroParts = exports._getHeroParts(hero, params);
   }
 
-  const heroString = renderParts(heroParts, params);
+  const heroString = renderParts(heroParts, params.cli);
   return heroString;
 };
 
