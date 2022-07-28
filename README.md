@@ -866,6 +866,7 @@ When a new node version is available you need to updated it in the following:
     -   Added and exported the Duels ABIs: `duelsCoreAbi`, `duelsRaffleMasterAbi`, `duelsGoldpotAbi`.
     -   Added the Duels addresses: `DUELS_CORE`, `RAFFLE_MASTER`, `GOLD_POT`, `RAFFLE_TICKETS`.
     -   Added `DUEL_CONSTS` which contain necessary constant values to operate duels.
+    -   Fixed a major bug on error handling. Was awaiting for the retry vs returning the retry which resulted in results not being propagated when a query failed.
     -   Exposed the `renderParts(parts, isCli)` helper to render complicated and multiple-items log messages.
 -   **v1.1.2** , _22/Jul/2022_
     -   Tweaked `parseRpcError()` of error handler, to not show the raw TX data.
