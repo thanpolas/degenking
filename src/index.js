@@ -157,7 +157,6 @@ exports.ITEMS = require('./constants/items.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 exports.RUNES = require('./constants/runes.const');
 exports.QUESTS = require('./constants/quests.const');
-exports.DUEL_CONSTS = require('./constants/duel.const');
 
 exports.getAddresses = getAddresses;
 exports.chainIdToNetwork = chainIdToNetwork;
