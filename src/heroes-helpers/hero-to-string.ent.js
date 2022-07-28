@@ -30,7 +30,8 @@ const { renderParts } = require('../utils/helpers');
  * @param {boolean} params.showQuest Show hero quest information.
  * @param {boolean} params.short Short version.
  * @param {boolean} params.tiny Tiny version.
- * @param {boolean} params.stampot Stampot tiny version.
+ * @param {boolean} params.stampot Stampot version.
+ * @param {boolean} params.stampotTiny Stampot tiny version.
  * @param {boolean} params.quest Optimized for quest reporting.
  * @return {string}
  */
@@ -44,6 +45,8 @@ exports.heroToString = (hero, params = {}) => {
     heroParts = exports._getHeroPartsTiny(hero);
   } else if (params.stampot) {
     heroParts = exports._getHeroPartsStampot(hero);
+  } else if (params.stampotTiny) {
+    heroParts = exports._getHeroPartsStampotTiny(hero);
   } else {
     heroParts = exports._getHeroParts(hero, params);
   }
@@ -122,6 +125,7 @@ exports._getHeroPartsTiny = (hero) => {
   const shiny = hero.shiny ? ' Shiny' : '';
 
   const heroParts = [];
+  heroParts.push(hero.ownerName);
   heroParts.push(['id', hero.id]);
   heroParts.push(hero.realm);
   heroParts.push(['G', `${hero.generation}${shiny}`]);
@@ -135,7 +139,7 @@ exports._getHeroPartsTiny = (hero) => {
 };
 
 /**
- * Produce stampot tiny parts of hero.
+ * Produce stampot parts of hero.
  *
  * @param {Object} hero Hero data object.
  * @return {Array} An array of hero parts to be rendered.
@@ -147,6 +151,7 @@ exports._getHeroPartsStampot = (hero) => {
   const nextLevelXp = calculateRequiredXp(hero.level);
 
   const heroParts = [];
+  heroParts.push(hero.ownerName);
   heroParts.push(['id', hero.id]);
   heroParts.push(hero.realm);
   heroParts.push(['G', `${hero.generation}`]);
@@ -154,6 +159,27 @@ exports._getHeroPartsStampot = (hero) => {
   heroParts.push(`${hero.mainClass}:${hero.subClass}`);
   heroParts.push(`${hero.rarityStr}`);
   heroParts.push(['L', hero.level]);
+  heroParts.push(['STA', `${hero.currentStamina}/${hero.stamina}`]);
+  heroParts.push([`XP`, `${hero.xp}/${nextLevelXp}`]);
+
+  return heroParts;
+};
+
+/**
+ * Produce stampot tiny parts of hero.
+ *
+ * @param {Object} hero Hero data object.
+ * @return {Array} An array of hero parts to be rendered.
+ * @private
+ */
+exports._getHeroPartsStampotTiny = (hero) => {
+  const nextLevelXp = calculateRequiredXp(hero.level);
+
+  const heroParts = [];
+  heroParts.push(['id', hero.id]);
+  heroParts.push(hero.realm);
+  heroParts.push(['L', hero.level]);
+  heroParts.push(['STA', `${hero.currentStamina}/${hero.stamina}`]);
   heroParts.push([`XP`, `${hero.xp}/${nextLevelXp}`]);
 
   return heroParts;
@@ -240,10 +266,10 @@ exports._getHeroParts = (hero, params) => {
   }
 
   if (params.showParents) {
-    heroParts.push(['S/A', `${hero.summonerId} / ${hero.assistantId}`]);
+    heroParts.push(['S-A', `${hero.summonerId} - ${hero.assistantId}`]);
   }
 
-  heroParts.push(['STA', `${hero.stamina}/${hero.currentStamina}`]);
+  heroParts.push(['STA', `${hero.currentStamina}/${hero.stamina}`]);
   heroParts.push(['HP', hero.hp]);
   heroParts.push(['MP', hero.mp]);
 
