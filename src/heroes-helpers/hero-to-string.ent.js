@@ -15,6 +15,7 @@ const {
 
 const { ZERO_ADDRESS } = require('../constants/constants.const');
 const { questResolve } = require('../quests/quest-utils.ent');
+const { renderParts } = require('../utils/helpers');
 
 /**
  * Renders the hero to its string representation.
@@ -50,7 +51,7 @@ exports.heroToString = (hero, params = {}) => {
     heroParts = exports._getHeroParts(hero, params);
   }
 
-  const heroString = exports._renderHeroParts(heroParts, params);
+  const heroString = renderParts(heroParts, params.cli);
   return heroString;
 };
 
@@ -294,42 +295,4 @@ exports._getHeroParts = (hero, params) => {
   }
 
   return heroParts;
-};
-
-/**
- * Will render to string the hero parts.
- *
- * @param {Array} heroParts The hero parts to render.
- * @param {Object} params Parameters for rendering.
- * @return {string} Text representation of hero.
- * @private
- */
-exports._renderHeroParts = (heroParts, params) => {
-  const heroPartsString = heroParts.map((currentPart) => {
-    if (Array.isArray(currentPart)) {
-      const [label, value] = currentPart;
-      return `${exports._applyDiscordBold(label, params.cli)}:${value}`;
-    }
-
-    return exports._applyDiscordBold(currentPart, params.cli);
-  });
-
-  const heroStr = heroPartsString.join(' - ');
-  return heroStr;
-};
-
-/**
- * Make a value be bold in discord or just return the value if on CLI mode.
- *
- * @param {string} value The value to bold.
- * @param {boolean} isCli If the value is intended for CLI, do not apply bold.
- * @return {string} The value with bold.
- * @private
- */
-exports._applyDiscordBold = (value, isCli) => {
-  if (isCli) {
-    return value;
-  }
-
-  return `**${value}**`;
 };

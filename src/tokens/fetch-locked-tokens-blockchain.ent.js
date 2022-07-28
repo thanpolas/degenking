@@ -37,7 +37,7 @@ exports.fetchLockedTokensByOwnerChain = async (
 
     return normalizedUserLockedJewel;
   } catch (ex) {
-    await catchErrorRetry(log, {
+    return catchErrorRetry(log, {
       ex,
       retries,
       errorMessage: `fetchLockedTokensByOwnerChain() - RPC: ${currentRPC.name}`,

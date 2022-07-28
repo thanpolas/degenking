@@ -60,7 +60,7 @@ exports.consumePotion = async (
     const response = exports._normalizeEvent(consumeEvent, signerRpc.chainId);
     return response;
   } catch (ex) {
-    await catchErrorRetry(log, {
+    return catchErrorRetry(log, {
       ex,
       retries,
       errorMessage:

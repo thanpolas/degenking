@@ -42,7 +42,7 @@ exports.consumableBalance = async (
 
     return value;
   } catch (ex) {
-    await catchErrorRetry(log, {
+    return catchErrorRetry(log, {
       ex,
       retries,
       errorMessage:

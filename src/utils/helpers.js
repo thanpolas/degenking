@@ -83,3 +83,44 @@ exports.indexArrayToObject = (arrayItems, indexCol) => {
   });
   return indexed;
 };
+
+/**
+ * Will render to string array fragments, used for joining discord or CLI
+ * messages.
+ *
+ * By default it returns a string for discord, using bold notation, to cancel
+ * that effect set the "isCli" argument to true.
+ *
+ * @param {Array} heroParts The hero parts to render.
+ * @param {boolean=} isCli Set to true to render for CLI.
+ * @return {string} Text representation of hero.
+ */
+exports.renderParts = (heroParts, isCli) => {
+  const heroPartsString = heroParts.map((currentPart) => {
+    if (Array.isArray(currentPart)) {
+      const [label, value] = currentPart;
+      return `${exports._applyDiscordBold(label, isCli)}: ${value}`;
+    }
+
+    return exports._applyDiscordBold(currentPart, isCli);
+  });
+
+  const heroStr = heroPartsString.join(' - ');
+  return heroStr;
+};
+
+/**
+ * Make a value be bold in discord or just return the value if on CLI mode.
+ *
+ * @param {string} value The value to bold.
+ * @param {boolean} isCli If the value is intended for CLI, do not apply bold.
+ * @return {string} The value with bold.
+ * @private
+ */
+exports._applyDiscordBold = (value, isCli) => {
+  if (isCli) {
+    return value;
+  }
+
+  return `**${value}**`;
+};

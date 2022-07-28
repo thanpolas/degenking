@@ -26,6 +26,12 @@ exports.SUMMON_V2 = '0xf4d3ae202c9ae516f7eb1db5aff19bf699a5e355';
 
 exports.BRIDGE_HEROES = '0x573e407be90a50eaba28748cbb62ff9d6038a3e9';
 
+// Duels
+exports.DUELS_CORE = '0xe97196f4011dc9da0829dd8e151ecfc0f37ee3c7';
+exports.RAFFLE_MASTER = '0x6a56222a67df18fc282cd58dcdf12e61be812f97';
+exports.GOLD_POT = '0xd3f98a53fd4388b9297f6bd0d63b75a023adf7e5';
+exports.RAFFLE_TICKETS = '0x0405f1b828c7c9462877cc70a9f266887ff55ada';
+
 // Legacy
 exports.SUMMON_V1 = '0xa2D001C829328aa06a2DB2740c05ceE1bFA3c6bb';
 

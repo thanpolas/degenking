@@ -106,6 +106,8 @@ const {
   calculateRuneRequirements,
 } = require('./heroes-helpers/rune-requirements.ent');
 
+const { renderParts } = require('./utils/helpers');
+
 const { catchErrorRetry, parseRpcError } = require('./utils/error-handler');
 
 const { set: setConfig } = require('./configure');
@@ -197,6 +199,9 @@ exports.parseRpcError = parseRpcError;
 
 exports.calculateRuneRequirements = calculateRuneRequirements;
 
+// Helpers
+exports.renderParts = renderParts;
+
 // Quests
 exports.queryQuest = queryQuest;
 exports.fetchQuestData = fetchQuestData;
@@ -205,5 +210,8 @@ exports.fetchQuestData = fetchQuestData;
 exports.abiItems = require('./abi/items.abi.json');
 exports.abiQuestCoreV1 = require('./abi/quest-core-v1.abi.json');
 exports.abiQuestCoreV2 = require('./abi/quest-core-v2.abi.json');
+exports.abiDuelsCore = require('./abi/duels-core.abi.json');
+exports.abiDuelsRaffleMaster = require('./abi/duels-raffle-master.abi.json');
+exports.abiDuelsGoldpot = require('./abi/duels-goldpot.abi.json');
 exports.abiBridgeHeroes = require('./abi/bridge-heroes.abi.json');
 exports.abiConsumable = require('./abi/consumable.abi.json');
