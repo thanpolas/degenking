@@ -106,6 +106,8 @@ const {
   calculateRuneRequirements,
 } = require('./heroes-helpers/rune-requirements.ent');
 
+const { renderParts } = require('./utils/helpers');
+
 const { catchErrorRetry, parseRpcError } = require('./utils/error-handler');
 
 const { set: setConfig } = require('./configure');
@@ -197,6 +199,9 @@ exports.catchErrorRetry = catchErrorRetry;
 exports.parseRpcError = parseRpcError;
 
 exports.calculateRuneRequirements = calculateRuneRequirements;
+
+// Helpers
+exports.renderParts = renderParts;
 
 // Quests
 exports.queryQuest = queryQuest;
