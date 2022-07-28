@@ -109,10 +109,6 @@ exports.parseRpcError = (exception) => {
       returnMsg.push(`Method: ${exception.method}`);
     }
 
-    if (exception?.transaction?.data) {
-      returnMsg.push(`Data: ${exception.transaction.data}`);
-    }
-
     if (exception?.args) {
       returnMsg.push(`Args: ${exception.args}`);
     }
