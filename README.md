@@ -862,6 +862,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.1.4** , _29/Jul/2022_
+    -   Introduced property `doNotLogRetries` on the `catchErrorRetry()` error retry function, which will allow setting an error message for the ultimate error (after retries exchausted).
+    -   Added the `doNotLogRetries` on error-retry functions on all chain performing queries of this package to reduce error logs.
 -   **v1.1.3** , _28/Jul/2022_
     -   Added and exported the Duels ABIs: `duelsCoreAbi`, `duelsRaffleMasterAbi`, `duelsGoldpotAbi`.
     -   Added the Duels addresses: `DUELS_CORE`, `RAFFLE_MASTER`, `GOLD_POT`, `RAFFLE_TICKETS`.
