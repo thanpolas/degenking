@@ -13,6 +13,8 @@ const { errorDelay } = require('./helpers');
  * @param {number} params.retries Retry count.
  * @param {number=} params.maxRetries Maximum retry count, default is 5.
  * @param {string=} params.errorMessage The error message to log on each handling.
+ * @param {boolean=} params.doNotLogRetries Set to true to not log retries,
+ *    while having an error message (for the final error throw if it comes to that).
  * @param {Object=} params.giveupCustom Any custom data to log on giveup.
  * @param {function} params.retryFunction The function to invoke for retrying.
  * @param {Object} params.retryArguments The arguments to call the function with.
@@ -28,6 +30,7 @@ exports.catchErrorRetry = async (log, params) => {
     ex,
     maxRetries: maxRetriesInput,
     errorMessage,
+    doNotLogRetries,
     giveupCustom,
     retryFunction,
     retryArguments,
@@ -68,7 +71,7 @@ exports.catchErrorRetry = async (log, params) => {
   }
 
   // Warn about retry
-  if (errorMessageUse) {
+  if (errorMessageUse && !doNotLogRetries) {
     const logContext = {};
     if (!hasRPCError) {
       logContext.error = ex;
