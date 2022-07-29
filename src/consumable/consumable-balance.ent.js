@@ -48,6 +48,7 @@ exports.consumableBalance = async (
       errorMessage:
         `consumableBalance() - RPC: ${currentRPC.name} - ` +
         `ownerAddress: ${address} - ConsumableAddress: ${consumableAddress}`,
+      doNotLogRetries: true,
       retryFunction: exports.consumableBalance,
       retryArguments: [chainId, address, consumableAddress],
     });

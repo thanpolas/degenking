@@ -112,7 +112,10 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
     return catchErrorRetry(log, {
       ex,
       retries,
-      errorMessage: `getHeroesChain()`,
+      errorMessage:
+        `getHeroesChain() - chainId: ${chainId} - ` +
+        `HeroIds: ${heroIds?.join(', ')}`,
+      doNotLogRetries: true,
       retryFunction: exports.getHeroesChain,
       retryArguments: [chainId, heroIds, params],
     });
@@ -201,6 +204,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
       errorMessage:
         `getHeroChain() - RPC: ${currentRPC.name} - ` +
         `Network: ${chainIdToNetwork(currentRPC.chainId)} - Hero: ${heroId}`,
+      doNotLogRetries: true,
       retryFunction: exports.getHeroChain,
       retryArguments: [chainId, heroId, params],
     });
@@ -301,6 +305,7 @@ exports.fetchHeroIdsByOwnerChain = async (
       errorMessage:
         `fetchHeroIdsByOwnerChain() - RPC: ${currentRPC.name} - ` +
         `ownerAddress: ${ownerAddress}`,
+      doNotLogRetries: true,
       retryFunction: exports.fetchHeroIdsByOwnerChain,
       retryArguments: [chainId, ownerAddress],
     });
