@@ -862,7 +862,7 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
--   **v1.1.4** , _31/Jul/2022_
+-   **v1.1.5** , _31/Jul/2022_
     -   Add the Quest Core V2 Upgradeable and expose it as `abiQuestCoreV2U`.
     -   Added Mining addresses and enums for CV.
     -   reverse error handler's logging: replace `doNotLogRetries` with `logRetries`.
