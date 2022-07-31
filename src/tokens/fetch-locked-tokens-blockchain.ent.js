@@ -41,7 +41,6 @@ exports.fetchLockedTokensByOwnerChain = async (
       ex,
       retries,
       errorMessage: `fetchLockedTokensByOwnerChain() - RPC: ${currentRPC.name}`,
-      doNotLogRetries: true,
       retryFunction: exports.fetchLockedTokensByOwnerChain,
       retryArguments: [chainId, ownerAddress],
       doNotThrow: null,
