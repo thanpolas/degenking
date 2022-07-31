@@ -862,6 +862,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.1.4** , _31/Jul/2022_
+    -   Add the Quest Core V2 Upgradeable and expose it as `abiQuestCoreV2U`.
+    -   Added Mining addresses and enums for CV.
+    -   reverse error handler's logging: replace `doNotLogRetries` with `logRetries`.
 -   **v1.1.4** , _29/Jul/2022_
     -   Introduced property `doNotLogRetries` on the `catchErrorRetry()` error retry function, which will allow setting an error message for the ultimate error (after retries exchausted).
     -   Added the `doNotLogRetries` on error-retry functions on all chain performing queries of this package to reduce error logs.
