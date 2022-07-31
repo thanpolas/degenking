@@ -2,6 +2,8 @@
  * @fileoverview Standardised naming of contracts for DFK Network.
  */
 
+const { PROFESSIONS } = require('./constants.const');
+
 exports.UNISWAPV2FACTORY = '';
 exports.UNISWAPV2ROUTER = '';
 exports.MASTER_GARDENER = '';
@@ -33,8 +35,8 @@ exports.BRIDGE_HEROES = '0x739b1666c2956f601f095298132773074c3e184b';
 // Currently active quests
 exports.QUEST_CORE_V2 = '0xe9abfbc143d7cef74b5b793ec5907fa62ca53154';
 exports.QUEST_GARDENING_V1 = '';
-exports.QUEST_MINING_GOLD_V1 = '';
-exports.QUEST_MINING_JEWEL_V1 = '';
+exports.QUEST_MINING_GOLD_V2 = '0x75912145f5cfefb980616fa47b2f103210faab94';
+exports.QUEST_MINING_JEWEL_V2 = '0x98b3c85ac3cc3ef36ff25a9229857abace3e7410';
 exports.QUEST_FORAGING_V2 = '0xad51199b453075c73fa106afcaad59f705ef7872';
 exports.QUEST_FISHING_V2 = '0x407ab39b3675f29a719476af6eb3b9e5d93969e6';
 exports.QUEST_WISHING_WELL_V2 = '';
@@ -46,6 +48,8 @@ exports.QUEST_WISHING_WELL_V2 = '';
 exports.QUESTS_REV = {
   [exports.QUEST_FORAGING_V2]: 'FORAGING',
   [exports.QUEST_FISHING_V2]: 'FISHING',
+  [exports.QUEST_MINING_GOLD_V2]: 'MINING_GOLD',
+  [exports.QUEST_MINING_JEWEL_V2]: 'MINING_JEWEL',
 };
 
 /** @const {Array<string>} TRAINING_QUESTS All the training quests */
@@ -56,7 +60,16 @@ exports.QUESTS_HANDLER_NEW = {
   [exports.QUEST_CORE_V2]: true,
   [exports.QUEST_FORAGING_V2]: true,
   [exports.QUEST_FISHING_V2]: true,
+  [exports.QUEST_MINING_GOLD_V2]: true,
+  [exports.QUEST_MINING_JEWEL_V2]: true,
 };
 
 /** @enum {Array<string>} Map profession values to profession quest addresses */
-exports.PROFESSIONS_TO_QUESTS = {};
+exports.PROFESSIONS_TO_QUESTS = {
+  [PROFESSIONS.MINING]: [
+    exports.QUEST_MINING_GOLD_V2,
+    exports.QUEST_MINING_JEWEL_V2,
+  ],
+  [PROFESSIONS.FORAGING]: [exports.QUEST_FORAGING_V2],
+  [PROFESSIONS.FISHING]: [exports.QUEST_FISHING_V2],
+};
