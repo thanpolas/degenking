@@ -24,11 +24,15 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/antipoison-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0x1AB2D40bA223fBfD3B0f734Ba3a0597c213A3277",
+            "53935": "0x449eB718e351a86718A090A1a8Db3FD561306d9b",
             "1666600000": "0xA1f8b0E88c51a45E152934686270DDF4E3356278",
             "1666700000": "0xaf278b61cdF5B5119b5386f4E91F8D0a1495b864"
         },
         "tokenSymbol": "DFKANTPSN",
-        "marketPrice": 3000,
+        "minPrice": 3000,
+        "decreaseRate": 0.2,
+        "increasePerPurchase": 200,
         "craftingIngredients": [
             {
                 "item": "ironscale",
@@ -43,7 +47,7 @@
                 "quantity": 3
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 5
             },
             {
@@ -115,11 +119,15 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/blindness-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0x9a5F30808f7b608c1d68915AeC8fA9180D9a7bDa",
+            "53935": "0x5986045e7c221c8AD40A736B6434D82E29687aeB",
             "1666600000": "0x1771dEc8D9A29F30d82443dE0a69e7b6824e2F53",
             "1666700000": "0x9D2C253a10738A8b2762b4cd17F3F98F39F86167"
         },
         "tokenSymbol": "DFKANTBLND",
-        "marketPrice": 3000,
+        "minPrice": 3000,
+        "decreaseRate": 0.2,
+        "increasePerPurchase": 200,
         "craftingIngredients": [
             {
                 "item": "lanterneye",
@@ -134,7 +142,7 @@
                 "quantity": 2
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 5
             },
             {
@@ -206,6 +214,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/chaos-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x4d5afDaD6Cfc1D603635B61a036CC1D29d63829F",
+            "53935": "0xC6b00B4005883C1Ff09fa1351B0f49027bCAB71a",
             "1666600000": "0x45B53E55b5c0A10fdd4fE2079a562d5702F3A033",
             "1666700000": "0x0c60d9A0a69E7c50f8113a98f9bAB30AD66614a3"
         },
@@ -224,6 +234,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/chaos-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xfFA8754977187308E28d8C47Caa3CB821E40C7Eb",
+            "53935": "0xeEe5b16Cc49e7cef65391Fe7325cea17f787e245",
             "1666600000": "0xa509c34306AdF6168268A213Cc47D336630bf101",
             "1666700000": "0xF71c52DABB711f2cdaf2e6dA68654f2E927dbb23"
         },
@@ -242,6 +254,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/chaos-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xB0deE206Dd196563C5c651D9fCcc364f651C3810",
+            "53935": "0xb0155Fdb7B6972717C4774Fa2AEAEe9D6c0040b9",
             "1666600000": "0x423bbec25e4888967baeDB7B4EC5b0465Fa3B87D",
             "1666700000": "0xe7BE74dB003E74427Fd0C74b9f9B8D72A7a7E83E"
         },
@@ -290,7 +304,7 @@
                 "quantity": 2000
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -431,10 +445,12 @@
         "image": "./static/media/eternal-story-page.8b7c8de3.png",
         "type": "collection",
         "addresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
-        "tokenSymbol": "DFKLFINCR",
+        "tokenSymbol": "",
         "isConsumable": false,
         "collectionItems": [
             "eternalStoryPageOne",
@@ -458,6 +474,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -491,6 +509,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -524,6 +544,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -557,6 +579,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -590,6 +614,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -623,6 +649,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -656,6 +684,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -689,6 +719,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -722,6 +754,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -755,6 +789,8 @@
         "type": "subcollection",
         "addresses": {},
         "collectionAddresses": {
+            "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
         },
@@ -791,6 +827,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/finesse-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xDD1EC3228e854D6B159a3438F9D65c6c42Cf4cc7",
+            "53935": "0xA9A8cc1AC7e7505a69cAca2E068716395CebE562",
             "1666600000": "0xc6A58eFc320A7aFDB1cD662eaf6de10Ee17103F2",
             "1666700000": "0x720412b43E6eA9f061Cd6D89B491F29D415ab4ff"
         },
@@ -809,6 +847,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/finesse-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x85106b1aF8B0337CB39a9aacDa87849B882a3170",
+            "53935": "0x9d9ef1Bf6A46b8413bf6b1b54F6A7aAb53c6b1b6",
             "1666600000": "0x39927A2CEE5580d63A163bc402946C7600300373",
             "1666700000": "0x25117B22Ee77fEE82813A864785704cfEd9e37C5"
         },
@@ -827,6 +867,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/finesse-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x33BE31DEf86BdB0f8A83b7bf16721f4780B1bfAb",
+            "53935": "0xdA16b191D1431746b6661D428A223b72c178765A",
             "1666600000": "0xd1f789f6f8a3ee3fb94adBE3e82f43AAb51759Ee",
             "1666700000": "0x83228013148950efB09f042fc096E4177Abb080a"
         },
@@ -875,7 +917,7 @@
                 "quantity": 2000
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -932,6 +974,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/fortitude-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x8Bb052D91895868a13fde5698814Bbbbc497497F",
+            "53935": "0xdbEE8C336B06f2d30a6d2bB3817a3Ae0E34f4900",
             "1666600000": "0x603919AEB55EB13F9CDE94274fC54ab2Bd2DecE7",
             "1666700000": "0x352E42f246a9ca79139D4Cfc7817494DC7EDaCf7"
         },
@@ -950,6 +994,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/fortitude-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x55dAAbebf9d7e6e4BbD19c0d4A5e2CD73C7A9cE1",
+            "53935": "0xbd2677c06C9448534A851bdD25dF045872b87cb1",
             "1666600000": "0x3017609B9A59B77B708D783835B6fF94a3D9E337",
             "1666700000": "0x5a57Ca33DEc5A63132235d9a0e3dac3cdc5c5003"
         },
@@ -968,6 +1014,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/fortitude-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x7bEeb7193b030e0aB962Db1c95FeeccEbD98eC60",
+            "53935": "0x3e1c80c3B916C93748Ae642c885d4BFb5D6a6BFe",
             "1666600000": "0xFE41BFf925eD88f688332b12746ef1Da68FD4CF2",
             "1666700000": "0x148EDF7473fB413e9c37896Fc6De1b5dA24f946F"
         },
@@ -1016,7 +1064,7 @@
                 "quantity": 3600
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -1073,6 +1121,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/fortune-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xA96e8794c21A690a910e62E9245d0C79054aaF2c",
+            "53935": "0xe9BfCc80800EB77a1eAF6881825936770aF83Eb6",
             "1666600000": "0x6D777C64f0320d8A5b31BE0FdeB694007Fc3ed45",
             "1666700000": "0x554f36cA3aEffC9792E7368af516F687F94c22Cb"
         },
@@ -1091,6 +1141,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/fortune-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xdad4450A1546640383C6f6Df70A35889373727aF",
+            "53935": "0xE410b2BE2Ce1508E15009118567d02C6d7A7038e",
             "1666600000": "0x13AF184aEA970Fe79E3BB7A1B0B156B195fB1f40",
             "1666700000": "0xD36Ce1d217F2Bb548a0bf256686380619Fe897cC"
         },
@@ -1109,6 +1161,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/fortune-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x10fAa10b5CF8cCEf3F8E65358B56f22a3B42AEDF",
+            "53935": "0x64C7D12D85050F5F0DcD075f038E5D616f30a404",
             "1666600000": "0x2bC1112337B90bF8c5b9422bC1e98193a9C3d1f4",
             "1666700000": "0x670fB2d0cD645BD094aEcdDfEcbfA68Ab01A5aEf"
         },
@@ -1157,7 +1211,7 @@
                 "quantity": 3600
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -1242,9 +1296,7 @@
         "type": "summon",
         "addresses": {
             "335": "0x5829A860284f4c800a60ccDa4157e8dde0C32D30",
-            "53935": "0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278",
-            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04",
-            "1666700000": "0xf0e28E7c46F307954490fB1134c8D437e23D55fb"
+            "53935": "0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278"
         },
         "tokenSymbol": "DFKTEARS",
         "featuredMetric": true,
@@ -1260,7 +1312,9 @@
         "type": "summon",
         "addresses": {
             "335": "0xbE191ba492b5B2B9845A4801Ebd1940B5f772EE2",
-            "53935": "0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA"
+            "53935": "0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA",
+            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04",
+            "1666700000": "0xf0e28E7c46F307954490fB1134c8D437e23D55fb"
         },
         "tokenSymbol": "DFKTEARS",
         "isConsumable": false,
@@ -1273,7 +1327,17 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/gold-bag.png",
         "type": "hidden",
         "addresses": {
+            "1": "0x0000000000000000000000000000000000000001",
+            "3": "0x0000000000000000000000000000000000000001",
+            "4": "0x0000000000000000000000000000000000000001",
+            "5": "0x0000000000000000000000000000000000000001",
+            "42": "0x0000000000000000000000000000000000000001",
+            "56": "0x0000000000000000000000000000000000000001",
+            "97": "0x0000000000000000000000000000000000000001",
             "335": "0xeCCC54b836cD5bf114daec723de1c0d89B0C2A7b",
+            "31337": "0x0000000000000000000000000000000000000001",
+            "43113": "0x0000000000000000000000000000000000000001",
+            "43114": "0x0000000000000000000000000000000000000001",
             "53935": "0x576C260513204392F0eC0bc865450872025CB1cA",
             "1666600000": "0x3a4EDcf3312f44EF027acfd8c21382a5259936e7",
             "1666700000": "0x24B46b91E0862221D39dd30FAAd63999717860Ab"
@@ -1313,12 +1377,22 @@
     },
     {
         "key": "goldPile",
-        "name": "Gold Pile",
-        "description": "A truly astounding item.",
+        "name": "Gold",
+        "description": "The predominant currency of the land and a prodigious greaser of hands.",
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/gold-pile.png",
         "type": "material",
         "addresses": {
+            "1": "0x0000000000000000000000000000000000000001",
+            "3": "0x0000000000000000000000000000000000000001",
+            "4": "0x0000000000000000000000000000000000000001",
+            "5": "0x0000000000000000000000000000000000000001",
+            "42": "0x0000000000000000000000000000000000000001",
+            "56": "0x0000000000000000000000000000000000000001",
+            "97": "0x0000000000000000000000000000000000000001",
             "335": "0xeCCC54b836cD5bf114daec723de1c0d89B0C2A7b",
+            "31337": "0x0000000000000000000000000000000000000001",
+            "43113": "0x0000000000000000000000000000000000000001",
+            "43114": "0x0000000000000000000000000000000000000001",
             "53935": "0x576C260513204392F0eC0bc865450872025CB1cA",
             "1666600000": "0x3a4EDcf3312f44EF027acfd8c21382a5259936e7",
             "1666700000": "0x24B46b91E0862221D39dd30FAAd63999717860Ab"
@@ -1352,11 +1426,15 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/health-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0x1ffee1384dfcd98794bb536bac2a78d28f31ddf0",
+            "53935": "0x591853e01EcFDcF1Bdc9f093423C197BfBBd1A4f",
             "1666600000": "0x2789F04d22a845dC854145d3c289240517f2BcF0",
             "1666700000": "0x2314891F7c5EccF899d1Dc6c35A971c23e7E9c31"
         },
         "tokenSymbol": "DFKHLTHPTN",
-        "marketPrice": 3000,
+        "minPrice": 3000,
+        "decreaseRate": 0.2,
+        "increasePerPurchase": 200,
         "craftingIngredients": [
             {
                 "item": "ironscale",
@@ -1367,7 +1445,7 @@
                 "quantity": 8
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 5
             },
             {
@@ -1385,6 +1463,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/health-potion-large.png",
         "type": "potion",
         "addresses": {
+            "335": "0xd56FaEF679Dd814E552Ca3728ca11Aea80e696fB",
+            "53935": "0x5948dd8Df6afEFE05B033AD8f3ae513a9Cd4F1Dc",
             "1666600000": "0x87361363A75c9A6303ce813D0B2656c34B68FF52",
             "1666700000": "0xbD1CF764D09378b387B0f052099978fD7f658B60"
         },
@@ -1407,7 +1487,7 @@
                 "quantity": 4
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 20
             },
             {
@@ -1457,6 +1537,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/insight-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x0B6d0921D0Bec2f0B76A1feF9391e359e6276c59",
+            "53935": "0x03e56Ded72C3a974295773355EadB38c0A85cF9D",
             "1666600000": "0x117E60775584CdfA4f414E22b075F31cC9c3207C",
             "1666700000": "0xD2c6C2caC41Ef18816f439c048B323cd202Af45b"
         },
@@ -1475,6 +1557,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/insight-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x6EDF99328BFe253Bd8caF458fCEcad55eA90D8DE",
+            "53935": "0xbb5F97358F60cCBa262883A3Ff0C637393FE3aB8",
             "1666600000": "0xc63b76f710e9973b8989678eb16234CfADc8D9DB",
             "1666700000": "0x26Bd14dE3ad724E5E889cE5726Cc374463Ecee9D"
         },
@@ -1493,6 +1577,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/insight-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x257d9aE525c6C0c79e0459A59041816EB33833dB",
+            "53935": "0xB3F5867E277798b50ba7A71C0b24FDcA03045eDF",
             "1666600000": "0x90454DbF13846CF960abc0F583c319B06aB3F280",
             "1666700000": "0xf9a37D029bE5D96A33C9D6e985F1F896804ee3F6"
         },
@@ -1541,7 +1627,7 @@
                 "quantity": 4000
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -1674,7 +1760,7 @@
             "53935": "0xBcdD90034eB73e7Aec2598ea9082d381a285f63b"
         },
         "tokenSymbol": "DFKKNAPROOT",
-        "salesPrice": 2.5,
+        "salesPrice": 15,
         "featuredMetric": true,
         "isConsumable": false,
         "quantity": 0
@@ -1734,6 +1820,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/magic-resist-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0xB0e402ef0cdE9387f1EC21994392f95561624d3f",
+            "53935": "0xFADCb72aAE2713975a890b59FF47231D1A552De3",
             "1666600000": "0x7e120334D9AFFc0982719A4eacC045F78BF41C68",
             "1666700000": "0x9B589B52Ed702197b4A793B435cc119AAC1c376d"
         },
@@ -1752,7 +1840,7 @@
                 "quantity": 4
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 10
             },
             {
@@ -1770,11 +1858,15 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/mana-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0xBed733A13D2cF00A807427a47B4556Faa649984B",
+            "53935": "0x240da5314B05E84392e868aC8f2b80ad6becadd4",
             "1666600000": "0x19b020001AB0C12Ffa93e1FDeF90c7C37C8C71ef",
             "1666700000": "0x7457513C38089CC565fe543268DEe85aB0C738A3"
         },
         "tokenSymbol": "DFKMNPTN",
-        "marketPrice": 3000,
+        "minPrice": 3000,
+        "decreaseRate": 0.2,
+        "increasePerPurchase": 200,
         "craftingIngredients": [
             {
                 "item": "lanterneye",
@@ -1785,7 +1877,7 @@
                 "quantity": 4
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 5
             },
             {
@@ -1803,6 +1895,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/mana-potion-large.png",
         "type": "potion",
         "addresses": {
+            "335": "0x7E235f17c4ec372F9DD42916Cbd19C5b73d4C22E",
+            "53935": "0xf17FD21bDF6713a1Dfed668b97835b21e32651e8",
             "1666600000": "0xDc2C698aF26Ff935cD1c50Eef3a4A933C62AF18D",
             "1666700000": "0xaf4cB190B6Ec0c63706B2158a0A73071C1599d18"
         },
@@ -1825,7 +1919,7 @@
                 "quantity": 4
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 20
             },
             {
@@ -1865,6 +1959,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/might-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x5Ee8F510c1C7E82c48b22915016f3F70fEbff3C0",
+            "53935": "0x234dCf10Db6817185F5A3b430a8CAF2B4a35e9E9",
             "1666600000": "0xb368f69bE6eDa74700763672AEB2Ae63f3d20AE6",
             "1666700000": "0x26b31ECe9BfdC5b1692a3D4362DB654607598236"
         },
@@ -1883,6 +1979,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/might-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xD801Aaa938696F6b0a69BF94432436313895299a",
+            "53935": "0x5bAC3cAd961B01Ef9510C8e6c5402A2bB1542831",
             "1666600000": "0xaB464901AFBc61bAC440a97Fa568aC42885Da58B",
             "1666700000": "0x2DE38B2cd4E76E8ff2d03515363480df69531511"
         },
@@ -1901,6 +1999,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/might-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xf409935D9404a2FaEe43474aF254Dc8A6ef155Aa",
+            "53935": "0x438A4e0673b7084D6b2379a362627789D845399c",
             "1666600000": "0xdFA5aE156AD4590A0061E9c4E8cc5bd60bc775c7",
             "1666700000": "0x026CaD2dc3d83E8D5E4390bD6e0FaE147eDda9aD"
         },
@@ -1949,7 +2049,7 @@
                 "quantity": 3600
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -2053,7 +2153,9 @@
             "1666700000": "0x7b81c426162977525084dEe06Cb9D73F8A9fD77e"
         },
         "tokenSymbol": "DFKGOLDEGG",
-        "marketPrice": 50000,
+        "minPrice": 50000,
+        "decreaseRate": 0.4,
+        "increasePerPurchase": 500,
         "isConsumable": false,
         "quantity": 0
     },
@@ -2252,7 +2354,7 @@
             "53935": "0x80A42Dc2909C0873294c5E359e8DF49cf21c74E4"
         },
         "tokenSymbol": "DFKSHAGCAP",
-        "salesPrice": 2.5,
+        "salesPrice": 100,
         "featuredMetric": true,
         "isConsumable": false,
         "quantity": 0
@@ -2321,7 +2423,7 @@
             "53935": "0xc6030Afa09EDec1fd8e63a1dE10fC00E0146DaF3"
         },
         "tokenSymbol": "DFKSKNSHADE",
-        "salesPrice": 2.5,
+        "salesPrice": 75,
         "featuredMetric": true,
         "isConsumable": false,
         "quantity": 0
@@ -2351,7 +2453,7 @@
             "53935": "0xE7CB27ad646C49dC1671Cb9207176D864922C431"
         },
         "tokenSymbol": "DFKSPCKLTL",
-        "salesPrice": 100,
+        "salesPrice": 15,
         "featuredMetric": true,
         "isConsumable": false,
         "quantity": 0
@@ -2381,6 +2483,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/stamina-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "53935": "0x242078edFDca25ef2A497C8D9f256Fd641472E5F",
             "1666600000": "0x959ba19508827d1ed2333B1b503Bd5ab006C710e",
             "1666700000": "0x4b8a24950c91886d49B8156B24fb3DB4f90D7930"
         },
@@ -2407,7 +2511,7 @@
                 "quantity": 2
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 10
             },
             {
@@ -2457,6 +2561,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/swiftness-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x87C15559458c7ef129a348c7eE2c6DE084aFa4Aa",
+            "53935": "0x3e664eB15b35783B9D3EF06702044820F08bB45B",
             "1666600000": "0x5d7f20e3B0f1406Bf038175218eA7e9B4838908c",
             "1666700000": "0x9D3180dbd920a0148e256A330bc371437A6C2Ca4"
         },
@@ -2475,6 +2581,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/swiftness-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x77DE6a4299441f6A2d4b96628D29E0523F9160A0",
+            "53935": "0x6BCA53314dADdA7f4De30A95413f75a93bfAfecF",
             "1666600000": "0xf5c26F2F34E9245C3A9ea0B0e7Ea7B33E6404Da0",
             "1666700000": "0x6371C5c57C6169d39e6460891cB55b2647197785"
         },
@@ -2493,6 +2601,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/swiftness-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x9801F1c3d83F380054851BA3846Ee87A93f3ad24",
+            "53935": "0x1459c662F516D63216491DC34F7d9d35b00dF25A",
             "1666600000": "0x1e38e63227D52CBaDA2f0c11bE04feD64154ea37",
             "1666700000": "0x46f743832447f621a34472C69E0456836820520c"
         },
@@ -2541,7 +2651,7 @@
                 "quantity": 4000
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -2594,6 +2704,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/swiftness-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0x74852982B2371004b97584A5AAFeF71F7A5196B9",
+            "53935": "0x84246Ce3988742D46fC00d9b8b2AFb5CDBDaE660",
             "1666600000": "0x872dD1595544CE22ad1e0174449C7ECE6F0bb01b",
             "1666700000": "0x2724b01CcCE03e9c10B8a8Dfa4e850A22B4e908B"
         },
@@ -2616,7 +2728,7 @@
                 "quantity": 1
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 20
             },
             {
@@ -2656,7 +2768,7 @@
             "53935": "0x6513757978E89e822772c16B60AE033781A29A4F"
         },
         "tokenSymbol": "DFKTHREEL",
-        "salesPrice": 2.5,
+        "salesPrice": 50,
         "featuredMetric": true,
         "isConsumable": false,
         "quantity": 0
@@ -2668,6 +2780,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/toughness-potion.png",
         "type": "potion",
         "addresses": {
+            "335": "0x542a3903c7F2dD47a7F31b08Bd1C6791e3C43784",
+            "53935": "0x2dfFf745d2c7ddCAD4E97b80DF33705B1a95A172",
             "1666600000": "0xFb03c364969a0bB572Ce62b8Cd616A7DDEb4c09A",
             "1666700000": "0xdF0bD83eA9D7ffA04f9515383E24Cd607b0DD932"
         },
@@ -2682,7 +2796,7 @@
                 "quantity": 7
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 10
             },
             {
@@ -2704,6 +2818,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/vigor-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x2a02cDd480861E351f02E694e864C081E94b8F48",
+            "53935": "0xcD9201F50e5Be84ECE3D8F603dcd3e9DD5e88ea2",
             "1666600000": "0xBbA50bD111DC586Fd1f2B1476B6eC505800A3FD0",
             "1666700000": "0xFe168C31fa552a3164e1CC9914bCb7A2f6F3ee25"
         },
@@ -2722,6 +2838,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/vigor-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xc82c435920043526c5a93cCd3724653EeEc86D52",
+            "53935": "0x5e4Cf6907CB5fBe2F642E399F6d07E567155d1F8",
             "1666600000": "0x0d8403E47445DB9E316E36F476dacD5827220Bdd",
             "1666700000": "0xc4BEBAE1e32E49f5851fA20797EB5892d8FA52A0"
         },
@@ -2740,6 +2858,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/vigor-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x568eaB26dA8Bfa3Cd77949E152e1e3dAC032681D",
+            "53935": "0x8780c4aa8bd0D15493D63C884bd9D427199Cf2cf",
             "1666600000": "0x5292dbce7eC2e10dd500984A163A5aE8abA585Ce",
             "1666700000": "0x6881d8c1628C15d7BfcBe52098db175AF4eA936e"
         },
@@ -2788,7 +2908,7 @@
                 "quantity": 2000
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
@@ -2859,6 +2979,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/wit-crystal.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x6319c563B82D04dd66318fd3067450f8d21022fB",
+            "53935": "0xAeb5b59c8B90D4F078046550Cc8F9f08dC127253",
             "1666600000": "0x3619fc2386FbBC19DDC39d29A72457e758CFAD69",
             "1666700000": "0xC1bb514E55b861afEff2E9413Cd37638e3994186"
         },
@@ -2877,6 +2999,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/wit-crystal-lesser.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0x065A4A023869a1123fE17883A015eC51d6ae5Dec",
+            "53935": "0xC989c916F189D2A2BE0322c020942d7c43aEa830",
             "1666600000": "0x17ff2016c9ecCFBF4Fc4DA6EF95Fe646D2c9104F",
             "1666700000": "0x436Aa99f5024DbeD2BeF82aB4B1b675ed1746A96"
         },
@@ -2895,6 +3019,8 @@
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/wit-crystal-greater.gif",
         "type": "crystal",
         "addresses": {
+            "335": "0xbdB16F223240dC103DCD179C945b4d27bF4b25FF",
+            "53935": "0x9d1f44b0EC7BB80656FC8Fcd65152513f29a606D",
             "1666600000": "0xbaAb8dB69a2FdC0b88B2B3F6F75Fa8899680c43B",
             "1666700000": "0x070f589f24BCCef071a99BedD1737e0CF0919DaE"
         },
@@ -2942,7 +3068,7 @@
                 "quantity": 4000
             },
             {
-                "item": "gaiasTears",
+                "item": "gaiasTearsNew",
                 "quantity": 50
             },
             {
