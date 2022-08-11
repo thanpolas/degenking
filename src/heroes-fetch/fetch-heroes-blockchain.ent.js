@@ -21,6 +21,7 @@ const { asyncMapCap } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
 const { catchErrorRetry } = require('../utils/error-handler');
 const { getHeroChain } = require('./fetch-hero-chain.ent');
+const { getProfileByAddress } = require('./owner-profile.ent');
 
 const log = require('../utils/log.service').get();
 
@@ -67,6 +68,9 @@ exports.getHeroesAnyChain = async (heroIds, params = {}) => {
  * @param {Object=} params Parameters for fetching the heroes.
  * @param {string=} params.ownerAddress If known, define the owner address to
  *    save the extra query for who is the owner of the hero.
+ * @param {Object=} params.heroesOwner Pass on the result from the
+ *    getProfileByAddress() function to prevent the getHeroChain() from
+ *    performing that query for each hero.
  * @param {number=} params.blockNumber Query hero state at particular block number.
  * @param {boolean=} params.archivalQuery Set to true to perform an archival query.
  * @param {Date=} params.blockMinedAt Pass a mining date of block to help with
@@ -150,8 +154,11 @@ exports.fetchHeroesByOwnerChain = async (chainId, ownerAddress) => {
       return [];
     }
 
+    const heroesOwner = await getProfileByAddress(chainId, ownerAddress);
+
     const heroes = await exports.getHeroesChain(chainId, allHeroIds, {
       ownerAddress,
+      heroesOwner,
     });
 
     if (!heroes?.length) {

@@ -33,6 +33,9 @@ const log = require('../utils/log.service').get();
  * @param {number} chainId The chain id.
  * @param {number|string} heroId hero ID.
  * @param {Object=} params Parameters for fetching the heroes.
+ * @param {Object=} params.heroesOwner Pass on the result from the
+ *    getProfileByAddress() function to prevent the getHeroChain() from
+ *    performing that query for each hero.
  * @param {string=} params.ownerAddress If known, define the owner address to
  *    save the extra query for who is the owner of the hero.
  * @param {boolean=} params.archivalQuery Set to true to perform an archival query.
@@ -97,8 +100,13 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
       ownerAddress = auction.seller.toLowerCase();
     }
 
-    const owner = await getProfileByAddress(chainId, ownerAddress);
-    const hero = processHeroChainData(heroRaw, owner, ownerAddress);
+    // Check if owner object exists and if not fetch it.
+    let { heroesOwner } = params;
+    if (!heroesOwner) {
+      heroesOwner = await getProfileByAddress(chainId, ownerAddress);
+    }
+
+    const hero = processHeroChainData(heroRaw, heroesOwner, ownerAddress);
 
     hero.salesData = heroSalesData;
 
