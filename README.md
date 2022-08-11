@@ -161,6 +161,9 @@ include sales data, owner profile and decode all stat and visual genes.
 -   `chainId` **{number}** The chain id to perform the query on.
 -   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
 -   `params` **{Object=}** Parameters for fetching the hero.
+-   `params.heroesOwner` **{Object=}** Pass on the result from the `getProfileByAddress()` function to prevent from performing that query for each hero.
+-   `params.ownerAddress` **{string=}** If known, define the owner address to save the extra query for who is the owner of the hero.
+-   `params.archivalQuery` **{boolean=}** Set to true to perform an archival query of the heroes' state in the past - **NOTE**: requires `blockNumber` and `blockMinedAt` to perform the archival query correctly.
 -   `params.blockNumber` **{number=}** Query hero state at particular block number.
 -   `params.blockMinedAt` **{Date=}** Pass a mining date of block to help with stamina and relevant time-sensitive calculations.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
@@ -184,6 +187,9 @@ and return the appropriate hero state based on the chain they are on.
 
 -   `heroIds` **{Array<number|string|bigint>}** An array with the hero Ids.
 -   `params` **{Object=}** Parameters for fetching the hero.
+-   `params.heroesOwner` **{Object=}** Pass on the result from the `getProfileByAddress()` function to prevent from performing that query for each hero.
+-   `params.ownerAddress` **{string=}** If known, define the owner address to save the extra query for who is the owner of the hero.
+-   `params.archivalQuery` **{boolean=}** Set to true to perform an archival query of the heroes' state in the past - **NOTE**: requires `blockNumber` and `blockMinedAt` to perform the archival query correctly.
 -   `params.blockNumber` **{number=}** Query hero state at particular block number.
 -   `params.blockMinedAt` **{Date=}** Pass a mining date of block to help with stamina and relevant time-sensitive calculations.
 -   **Returns** **{Promise\<Array\<Object\>\>}** A Promise with an array of the normalized hero data objects.
@@ -862,6 +868,12 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.0** , _11/Aug/2022_
+    -   Added new Cystal tokens of CV.
+    -   Added Training Quest addresses and constants for CV.
+    -   Optimized `getHeroChain()` to avoid performing owner and profile queries if those are already provided via the newly introduced properties `ownerAddress` and `heroesOwner`.
+    -   Override of profile queries to only use Harmony as they are not yet deployed on CV.
+    -   Introduced `archivalQuery` property when querying for heroes to be explicit about performing an archival query.
 -   **v1.1.5** , _31/Jul/2022_
     -   Add the Quest Core V2 Upgradeable and expose it as `abiQuestCoreV2U`.
     -   Added Mining addresses and enums for CV.

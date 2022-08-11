@@ -168,6 +168,7 @@ exports.getQuestHeroData = async (chainId, questData) => {
   const { heroIds } = questData;
 
   const heroes = await getHeroesChain(chainId, heroIds, {
+    archivalQuery: true,
     blockMinedAt: questData.startAtTime,
     blockNumber: questData.startBlock,
   });

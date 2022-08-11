@@ -1,31 +1,18 @@
-/* eslint-disable no-console */
 /**
- * @fileoverview Fetches heroes data from the blockchain.
+ * @fileoverview Fetches heroes data from the blockchain, this module wraps
+ *    around the fetch-hero-chain module and provides helpers and utility
+ *    functions.
  */
 
 const { flatten } = require('lodash');
 
 const {
   DATA_SOURCES,
-  NETWORK_IDS,
   AVAILABLE_CHAIN_IDS,
 } = require('../constants/constants.const');
 const etherEnt = require('../ether');
-const {
-  getProvider,
-  getArchivalProvider,
-  getContractAuctionSales,
-  getAddresses,
-} = require('../ether');
-const {
-  getSalesAuctionChainByHeroId,
-} = require('../auctions/query-auctions.ent');
-const { getProfileByAddress } = require('./owner-profile.ent');
 
-const {
-  processHeroChainData,
-  normalizeChainProcessedHero,
-} = require('./normalise-blockchain.ent');
+const { normalizeChainProcessedHero } = require('./normalise-blockchain.ent');
 const {
   decodeRecessiveGenesAndNormalize,
 } = require('../heroes-helpers/recessive-genes.ent');
@@ -33,12 +20,12 @@ const {
 const { asyncMapCap } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
 const { catchErrorRetry } = require('../utils/error-handler');
-const {
-  chainIdToRealm,
-  chainIdToNetwork,
-} = require('../utils/network-helpers');
+const { getHeroChain } = require('./fetch-hero-chain.ent');
+const { getProfileByAddress } = require('./owner-profile.ent');
 
 const log = require('../utils/log.service').get();
+
+const { getProvider, getContractAuctionSales } = etherEnt;
 
 /**
  * Will fetch heroes searching on all avaialble realms.
@@ -79,7 +66,13 @@ exports.getHeroesAnyChain = async (heroIds, params = {}) => {
  * @param {number} chainId The chain id.
  * @param {Array<string>} heroIds hero IDs.
  * @param {Object=} params Parameters for fetching the heroes.
+ * @param {string=} params.ownerAddress If known, define the owner address to
+ *    save the extra query for who is the owner of the hero.
+ * @param {Object=} params.heroesOwner Pass on the result from the
+ *    getProfileByAddress() function to prevent the getHeroChain() from
+ *    performing that query for each hero.
  * @param {number=} params.blockNumber Query hero state at particular block number.
+ * @param {boolean=} params.archivalQuery Set to true to perform an archival query.
  * @param {Date=} params.blockMinedAt Pass a mining date of block to help with
  *    stamina calculations and relevant time-sensitive properties.
  * @param {number=} retries retries count.
@@ -93,7 +86,7 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
     const heroes = await asyncMapCap(
       heroIds,
       async (heroId) => {
-        return exports.getHeroChain(chainId, heroId, params);
+        return getHeroChain(chainId, heroId, params);
       },
       getConfig('concurrentBlockChainRequests'),
     );
@@ -117,94 +110,6 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
         `HeroIds: ${heroIds?.join(', ')}`,
       retryFunction: exports.getHeroesChain,
       retryArguments: [chainId, heroIds, params],
-    });
-  }
-};
-
-/**
- * Fetches a single hero from the blockchain and returns raw result.
- *
- * Will retry up to the config's max retries.
- *
- * @param {number} chainId The chain id.
- * @param {number|string} heroId hero ID.
- * @param {Object=} params Parameters for fetching the heroes.
- * @param {number=} params.blockNumber Query hero state at particular block number.
- * @param {number=} retries Retry count.
- * @return {Promise<Object|null>} Fetched hero or null if not found.
- */
-exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
-  let currentRPC = await getProvider(chainId);
-  try {
-    const addresses = getAddresses(chainId);
-
-    // Force convert hero Id into number
-    heroId = Number(heroId);
-
-    // Determine which block to query the hero for
-    let { lastBlockMined: blockToQuery } = currentRPC;
-
-    const queryParams = {};
-    // Only use blockTag on harmony network - on DFKN it'll create issues
-    if (chainId === NETWORK_IDS.HARMONY) {
-      queryParams.blockTag = blockToQuery;
-    }
-
-    // Explicit block number on params means upstream requires a past state
-    // of the hero, therefore an archival node needs to be used.
-    if (params.blockNumber) {
-      queryParams.blockTag = blockToQuery = params.blockNumber;
-      // Switch to archival RPC provider for this query
-      currentRPC = await getArchivalProvider(chainId);
-    }
-
-    const heroesContract = etherEnt.getContractHeroes(currentRPC);
-
-    const heroRaw = await heroesContract.getHero(heroId, queryParams);
-
-    if (!Number(heroRaw?.id)) {
-      // hero not found
-      return null;
-    }
-
-    const [ownerOfAddress, heroSalesData] = await Promise.all([
-      heroesContract.ownerOf(heroId, queryParams),
-      getSalesAuctionChainByHeroId(chainId, heroId),
-    ]);
-
-    // Check if hero is on bridge and return null (not on this realm)
-    if (ownerOfAddress.toLowerCase() === addresses.BRIDGE_HEROES) {
-      return null;
-    }
-
-    let ownerAddress = '';
-    if (ownerOfAddress.toLowerCase() === addresses.AUCTION_SALES_LOWERCASE) {
-      const salesContract = getContractAuctionSales(currentRPC);
-      const auction = await salesContract.getAuction(heroId, queryParams);
-      ownerAddress = auction.seller.toLowerCase();
-    } else {
-      ownerAddress = ownerOfAddress.toLowerCase();
-    }
-
-    const owner = await getProfileByAddress(chainId, ownerAddress);
-    const hero = processHeroChainData(heroRaw, owner, ownerAddress);
-
-    hero.salesData = heroSalesData;
-
-    hero.chainId = chainId;
-    hero.realm = chainIdToRealm(chainId);
-    hero.networkName = chainIdToNetwork(chainId);
-
-    return hero;
-  } catch (ex) {
-    return catchErrorRetry(log, {
-      ex,
-      retries,
-      errorMessage:
-        `getHeroChain() - RPC: ${currentRPC.name} - ` +
-        `Network: ${chainIdToNetwork(currentRPC.chainId)} - Hero: ${heroId}`,
-      retryFunction: exports.getHeroChain,
-      retryArguments: [chainId, heroId, params],
     });
   }
 };
@@ -249,7 +154,12 @@ exports.fetchHeroesByOwnerChain = async (chainId, ownerAddress) => {
       return [];
     }
 
-    const heroes = await exports.getHeroesChain(chainId, allHeroIds);
+    const heroesOwner = await getProfileByAddress(chainId, ownerAddress);
+
+    const heroes = await exports.getHeroesChain(chainId, allHeroIds, {
+      ownerAddress,
+      heroesOwner,
+    });
 
     if (!heroes?.length) {
       return [];
