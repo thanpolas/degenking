@@ -16,6 +16,10 @@ const { getProvider } = etherEnt;
  * @return {Object|null} Normalized profile data object or null if not found.
  */
 exports.getProfileByAddress = async (chainId, ownerAddress) => {
+  // FIXME - Temporary override of chain to be used because profile
+  //    contract does not exist on CV yet.
+  chainId = NETWORK_IDS.HARMONY;
+
   const currentRPC = await getProvider(chainId);
   const { lastBlockMined } = currentRPC;
   const profileContract = etherEnt.getContractProfile(currentRPC);
