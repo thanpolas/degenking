@@ -216,3 +216,4 @@ exports.abiDuelsRaffleMaster = require('./abi/duels-raffle-master.abi.json');
 exports.abiDuelsGoldpot = require('./abi/duels-goldpot.abi.json');
 exports.abiBridgeHeroes = require('./abi/bridge-heroes.abi.json');
 exports.abiConsumable = require('./abi/consumable.abi.json');
+exports.abiBridgeItems = require('./abi/bridge-items.abi.json');
