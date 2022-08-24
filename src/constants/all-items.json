@@ -1296,7 +1296,8 @@
         "type": "summon",
         "addresses": {
             "335": "0x5829A860284f4c800a60ccDa4157e8dde0C32D30",
-            "53935": "0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278"
+            "53935": "0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278",
+            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04"
         },
         "tokenSymbol": "DFKTEARS",
         "featuredMetric": true,
