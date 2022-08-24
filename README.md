@@ -868,6 +868,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.2** , _24/Aug/2022_
+    -   Added Items Bridge ABI and address.
+    -   More explicit bootstraping of library.
 -   **v1.2.1** , _13/Aug/2022_
     -   Fixed TQ addresses of WIS and DEX on CV (was missing a digit).
 -   **v1.2.0** , _11/Aug/2022_
