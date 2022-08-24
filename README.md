@@ -868,6 +868,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.3** , _24/Aug/2022_
+    -   Added Gaia's tears address on harmony.
+    -   Edited New Gaia's tears label to indicate it's the new one.
 -   **v1.2.2** , _24/Aug/2022_
     -   Added Items Bridge ABI and address.
     -   More explicit bootstraping of library.
