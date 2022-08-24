@@ -25,6 +25,7 @@ exports.MEDITATION = '0x0594d86b2923076a2316eaea4e1ca286daa142c1';
 exports.SUMMON_V2 = '0xf4d3ae202c9ae516f7eb1db5aff19bf699a5e355';
 
 exports.BRIDGE_HEROES = '0x573e407be90a50eaba28748cbb62ff9d6038a3e9';
+exports.BRIDGE_ITEMS = '0x091cfc85d2e20b110cd754c6c410a67c925c55ed';
 
 // Duels
 exports.DUELS_CORE = '0xe97196f4011dc9da0829dd8e151ecfc0f37ee3c7';
