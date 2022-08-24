@@ -1297,7 +1297,8 @@
         "addresses": {
             "335": "0x5829A860284f4c800a60ccDa4157e8dde0C32D30",
             "53935": "0x58E63A9bbb2047cd9Ba7E6bB4490C238d271c278",
-            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04"
+            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04",
+            "1666700000": "0xf0e28E7c46F307954490fB1134c8D437e23D55fb"
         },
         "tokenSymbol": "DFKTEARS",
         "featuredMetric": true,
@@ -1313,9 +1314,7 @@
         "type": "summon",
         "addresses": {
             "335": "0xbE191ba492b5B2B9845A4801Ebd1940B5f772EE2",
-            "53935": "0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA",
-            "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04",
-            "1666700000": "0xf0e28E7c46F307954490fB1134c8D437e23D55fb"
+            "53935": "0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA"
         },
         "tokenSymbol": "DFKTEARS",
         "isConsumable": false,
