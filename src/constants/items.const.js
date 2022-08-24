@@ -4,6 +4,9 @@
 
 const ALL_ITEMS = require('./all-items.json');
 
+/** @const {string} ZERO_ONE_ADDRESS Items instead of zero address have this one */
+const ZERO_ONE_ADDRESS = '0x0000000000000000000000000000000000000001';
+
 /**
  * @enum {string} Item event types.
  */
@@ -99,6 +102,10 @@ exports.filterItems = (params) => {
     // Filter for chain id
     if (chainId) {
       if (!item.addresses[chainId]) {
+        return false;
+      }
+
+      if (item.addresses[chainId] === ZERO_ONE_ADDRESS) {
         return false;
       }
     }
