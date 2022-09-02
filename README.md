@@ -868,6 +868,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.5** , _02/Sep/2022_
+    -   Mixed up LCK with INT TQ addresses on CV, fixed.
 -   **v1.2.4** , _24/Aug/2022_
     -   Will filter out zero addressed items when chain id present.
     -   Fixed duplicate item address with tears.
