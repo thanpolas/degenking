@@ -210,10 +210,16 @@ exports.fetchQuestData = fetchQuestData;
 exports.abiItems = require('./abi/items.abi.json');
 exports.abiQuestCoreV1 = require('./abi/quest-core-v1.abi.json');
 exports.abiQuestCoreV2 = require('./abi/quest-core-v2.abi.json');
-exports.abiQuestCoreV2U = require('./abi/quest-core-upgradable.abi.json');
+exports.abiQuestCoreV2_1 = require('./abi/quest-core-v2.1.abi.json');
+
 exports.abiDuelsCore = require('./abi/duels-core.abi.json');
 exports.abiDuelsRaffleMaster = require('./abi/duels-raffle-master.abi.json');
 exports.abiDuelsGoldpot = require('./abi/duels-goldpot.abi.json');
 exports.abiBridgeHeroes = require('./abi/bridge-heroes.abi.json');
 exports.abiConsumable = require('./abi/consumable.abi.json');
 exports.abiBridgeItems = require('./abi/bridge-items.abi.json');
+
+/**
+ * @deprecated at 1.2.6
+ */
+exports.abiQuestCoreV2U = exports.abiQuestCoreV2_1;
