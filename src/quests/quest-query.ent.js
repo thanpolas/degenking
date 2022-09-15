@@ -21,7 +21,6 @@ const {
 } = require('../constants/topics.const');
 const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 const { heroQuestStr } = require('../heroes-helpers/hero-to-string.ent');
-const { PoolsIndexedByPid } = require('../constants/garden-pools.const');
 const { getProfileByAddress } = require('../heroes-fetch/owner-profile.ent');
 const { questResolve } = require('./quest-utils.ent');
 
@@ -36,9 +35,8 @@ const { questResolve } = require('./quest-utils.ent');
 exports.queryQuest = async (chainId, questId) => {
   const questData = await exports.fetchQuestData(chainId, questId);
 
-  const [, , profileData] = await Promise.all([
+  const [, profileData] = await Promise.all([
     exports.getQuestHeroData(chainId, questData),
-    exports.getGardeningData(chainId, questData),
     getProfileByAddress(questData.playerAddress),
   ]);
 
@@ -220,28 +218,4 @@ exports.getQuestV2QuestHeroes = async (chainId, questData) => {
   const decoded = iface.decodeEventLog('QuestStarted', eventQuestStarted.data);
 
   questData.heroIds = decoded.quest.heroes.map((heroId) => Number(heroId));
-};
-
-/**
- * Will augment the questData with gardning info, if the quest is gardening.
- *
- * @param {number} chainId The chain id.
- * @param {Object} questData Normnalized Quest data.
- * @return {Promise<void>} Augments questData object.
- */
-exports.getGardeningData = async (chainId, questData) => {
-  const currentRPC = await getProvider(chainId);
-
-  const addresses = getAddresses(chainId);
-
-  if (questData.questAddressLower !== addresses.QUEST_GARDENING_V1) {
-    return;
-  }
-
-  const questsV1Contract = getQuestCoreV1(currentRPC);
-
-  const gardeningInfo = await questsV1Contract.getQuestData(questData.id);
-
-  const gardenPoolId = Number(gardeningInfo.uint1);
-  questData.gardenPool = PoolsIndexedByPid[gardenPoolId];
 };
