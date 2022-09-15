@@ -3,6 +3,7 @@
  */
 
 const { PROFESSIONS } = require('./constants.const');
+const gardensDFKN = require('./gardens-dfkn.const');
 
 exports.UNISWAPV2FACTORY = '';
 exports.UNISWAPV2ROUTER = '';
@@ -120,7 +121,28 @@ exports.PROFESSIONS_TO_QUESTS = {
   ],
   [PROFESSIONS.FORAGING]: [exports.QUEST_FORAGING_V2],
   [PROFESSIONS.FISHING]: [exports.QUEST_FISHING_V2],
+
+  // Gets populated in exports.augmentProfessionsWithGardens()
+  [PROFESSIONS.GARDENING]: [],
 };
+
+/**
+ * Will augment the reverse and other related PQ Mappings with the gardening
+ * quests.
+ */
+exports.augmentProfessionsWithGardens = () => {
+  gardensDFKN.Pools.forEach((pool) => {
+    // Augment Reversed Quests
+    exports.QUESTS_REV[pool.adress] = `Garden ${pool.pair}`;
+
+    // Augment QUESTS_HANDLER_NEW
+    exports.QUESTS_HANDLER_NEW[pool.adress] = true;
+
+    // Augment PROFESSIONS_TO_QUESTS
+    exports.PROFESSIONS_TO_QUESTS[PROFESSIONS.GARDENING].push(pool.address);
+  });
+};
+exports.augmentProfessionsWithGardens();
 
 //
 // Consumables
