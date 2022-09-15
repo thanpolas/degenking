@@ -868,6 +868,12 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.6** , _15/Sep/2022_
+    -   Added CV Gardening Pools constants.
+    -   Implemented `getPools(chainId)` to get the appropriate pool constants.
+    -   Create reverse quest type lookup on `QUESTS.QUEST_TYPES_REV`.
+    -   More robust and faster `getHeroesAnyChain()`.
+    -   Renamed Quest ABI from `abiQuestCoreV2U` to `abiQuestCoreV2_1` - the `abiQuestCoreV2U` property has been deprecated and removed in future versions.
 -   **v1.2.5** , _02/Sep/2022_
     -   Mixed up LCK with INT TQ addresses on CV, fixed.
 -   **v1.2.4** , _24/Aug/2022_

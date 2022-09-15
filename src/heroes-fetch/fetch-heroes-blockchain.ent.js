@@ -4,8 +4,6 @@
  *    functions.
  */
 
-const { flatten } = require('lodash');
-
 const {
   DATA_SOURCES,
   AVAILABLE_CHAIN_IDS,
@@ -43,21 +41,9 @@ exports.getHeroesAnyChain = async (heroIds, params = {}) => {
     return exports.getHeroesChain(chainId, heroIds, params);
   });
 
-  const results = await Promise.allSettled(allPromises);
+  const results = await Promise.any(allPromises);
 
-  const successfulResults = results.map((result) => {
-    if (result.status === 'rejected') {
-      return [];
-    }
-
-    return result.value;
-  });
-
-  const resultsFlat = flatten(successfulResults);
-
-  const resultsFound = resultsFlat.filter((r) => !!r);
-
-  return resultsFound;
+  return results;
 };
 
 /**
