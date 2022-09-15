@@ -2,7 +2,7 @@
  * @fileoverview Standardised naming of contracts for DFK Network.
  */
 
-const { PROFESSIONS } = require('./constants.const');
+const { PROFESSIONS, ZERO_ADDRESS } = require('./constants.const');
 const gardensDFKN = require('./gardens-dfkn.const');
 
 exports.UNISWAPV2FACTORY = '';
@@ -35,7 +35,9 @@ exports.BRIDGE_HEROES = '0x739b1666c2956f601f095298132773074c3e184b';
 
 // Currently active quests
 exports.QUEST_CORE_V2 = '0xe9abfbc143d7cef74b5b793ec5907fa62ca53154';
-exports.QUEST_GARDENING_V1 = '';
+// Populate gardening with the zero address so it no longer is undefined
+// and it can pass conditionals for usage (i.e. is gardening implemented on CV?)
+exports.QUEST_GARDENING_V1 = ZERO_ADDRESS;
 exports.QUEST_MINING_GOLD_V2 = '0x75912145f5cfefb980616fa47b2f103210faab94';
 exports.QUEST_MINING_JEWEL_V2 = '0x98b3c85ac3cc3ef36ff25a9229857abace3e7410';
 exports.QUEST_FORAGING_V2 = '0xad51199b453075c73fa106afcaad59f705ef7872';
