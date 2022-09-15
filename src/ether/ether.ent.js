@@ -12,7 +12,10 @@ const abiProfiles = require('../abi/profile.abi.json');
 const abiJewel = require('../abi/jewel.abi.json');
 const abiConsumable = require('../abi/consumable.abi.json');
 const abiQuestCoreV1 = require('../abi/quest-core-v1.abi.json');
-const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
+const abiQuestCoreV2_1 = require('../abi/quest-core-v2.1.abi.json');
+
+const poolsHarmony = require('../constants/gardens-harmony.const');
+const poolsDFKN = require('../constants/gardens-dfkn.const');
 
 const addressesHarmony = require('../constants/addresses-harmony.const');
 const addressesDFKN = require('../constants/addresses-dfkn.const');
@@ -77,6 +80,25 @@ exports.getAddresses = (chainId) => {
 
     default:
       return addressesHarmony;
+  }
+};
+
+/**
+ * Returns the appropriate Garden Pools constants module based on the provided
+ *    chain id.
+ *
+ * @param {number} chainId The chain id.
+ * @return {Object}
+ */
+exports.getPools = (chainId) => {
+  switch (chainId) {
+    case NETWORK_IDS.HARMONY:
+      return poolsHarmony;
+    case NETWORK_IDS.DFKN:
+      return poolsDFKN;
+
+    default:
+      return poolsDFKN;
   }
 };
 
@@ -218,7 +240,7 @@ exports.getQuestCoreV2 = (currentRPC) => {
   const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
     addresses.QUEST_CORE_V2,
-    abiQuestCoreV2,
+    abiQuestCoreV2_1,
     provider,
   );
   return contract;
