@@ -6,6 +6,7 @@ const { assign } = require('lodash');
 
 const addressesHarmony = require('./addresses-harmony.const');
 const addressesDFKN = require('./addresses-dfkn.const');
+const { PROFESSIONS } = require('./constants.const');
 
 exports.QUESTS = {
   FORAGING: 'foraging',
@@ -23,6 +24,52 @@ exports.QUESTS = {
   INT_TRAIN: 'int_train',
   LCK_TRAIN: 'lck_train',
 };
+
+/** @enum {string} Generic types of quests */
+exports.QUEST_TYPES = {
+  GARDENING: 'gardening',
+  FORAGING: 'foraging',
+  FISHING: 'fishing',
+  MINING: 'mining',
+  TRAINING: 'training',
+};
+
+exports.QUEST_TYPES_REV = {};
+
+/**
+ * Assign the address --> Quest type.
+ *
+ * @param {Array<string>} professionQuests Quest addresses per profession type.
+ * @param {string} professionType The profession type string.
+ */
+function addAddressesToQuestTypeRev(professionQuests, professionType) {
+  professionQuests.forEach((address) => {
+    exports.QUEST_TYPES_REV[address] = professionType;
+  });
+}
+
+/**
+ * Populate reverse quest types - so the quest type can be infered by
+ * the address of the quest.
+ *
+ * @param {Object} networkAddresses Addresses constants of network.
+ */
+function populateQuestTypesRev(networkAddresses) {
+  const { MINING, GARDENING, FORAGING, FISHING, TRAINING } =
+    exports.QUEST_TYPES;
+
+  const { PROFESSIONS_TO_QUESTS: PQ, TRAINING_QUESTS_AR } = networkAddresses;
+
+  addAddressesToQuestTypeRev(PQ[PROFESSIONS.MINING], MINING);
+  addAddressesToQuestTypeRev(PQ[PROFESSIONS.GARDENING], GARDENING);
+  addAddressesToQuestTypeRev(PQ[PROFESSIONS.FORAGING], FORAGING);
+  addAddressesToQuestTypeRev(PQ[PROFESSIONS.FISHING], FISHING);
+  addAddressesToQuestTypeRev(TRAINING_QUESTS_AR, TRAINING);
+}
+
+// Populate for networks
+populateQuestTypesRev(addressesHarmony);
+populateQuestTypesRev(addressesDFKN);
 
 // group quests
 exports.QUESTS_GARDENING = [exports.QUESTS.GARDENING];
