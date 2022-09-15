@@ -104,7 +104,6 @@ exports.QUESTS_HANDLER_NEW = {
   [exports.QUEST_FISHING_V2]: true,
   [exports.QUEST_MINING_GOLD_V2]: true,
   [exports.QUEST_MINING_JEWEL_V2]: true,
-  [exports.QUEST_MINING_JEWEL_V1]: true,
   [exports.QUEST_STR_ADDRESS]: true,
   [exports.QUEST_AGI_ADDRESS]: true,
   [exports.QUEST_END_ADDRESS]: true,
@@ -135,10 +134,10 @@ exports.PROFESSIONS_TO_QUESTS = {
 exports.augmentProfessionsWithGardens = () => {
   gardensDFKN.Pools.forEach((pool) => {
     // Augment Reversed Quests
-    exports.QUESTS_REV[pool.adress] = `Garden ${pool.pair}`;
+    exports.QUESTS_REV[pool.address] = `Garden ${pool.pair}`;
 
     // Augment QUESTS_HANDLER_NEW
-    exports.QUESTS_HANDLER_NEW[pool.adress] = true;
+    exports.QUESTS_HANDLER_NEW[pool.address] = true;
 
     // Augment PROFESSIONS_TO_QUESTS
     exports.PROFESSIONS_TO_QUESTS[PROFESSIONS.GARDENING].push(pool.address);
