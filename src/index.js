@@ -116,7 +116,7 @@ const {
   normalizeChainHero,
 } = require('./heroes-fetch/normalise-blockchain.ent');
 const { queryQuest, fetchQuestData } = require('./quests/quest-query.ent');
-const { getAddresses } = require('./ether');
+const { getAddresses, getPools } = require('./ether');
 
 exports.getHeroesChain = getHeroesChain;
 exports.getHeroesAnyChain = getHeroesAnyChain;
@@ -159,6 +159,7 @@ exports.RUNES = require('./constants/runes.const');
 exports.QUESTS = require('./constants/quests.const');
 
 exports.getAddresses = getAddresses;
+exports.getPools = getPools;
 exports.chainIdToNetwork = chainIdToNetwork;
 exports.getBaseTokenName = getBaseTokenName;
 exports.chainIdToRealm = chainIdToRealm;
