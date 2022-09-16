@@ -868,6 +868,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.7** , _16/Sep/2022_
+    -   Indexed gardens by address to, available at `PoolsIndexedByAddress` (via `getPools(chainId)`).
 -   **v1.2.6** , _15/Sep/2022_
     -   Added CV Gardening Pools constants.
     -   Implemented `getPools(chainId)` to get the appropriate pool constants.
