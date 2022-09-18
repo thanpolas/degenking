@@ -868,6 +868,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.2.8** , _18/Sep/2022_
+    -   Added and exposed heroes and summoning ABIs V1 and V2 as: `abiHeroesV1`, `abiHeroesV2`, `abiSummonV1`, `abiSummonV2`
 -   **v1.2.7** , _16/Sep/2022_
     -   Indexed gardens by address to, available at `PoolsIndexedByAddress` (via `getPools(chainId)`).
 -   **v1.2.6** , _15/Sep/2022_
