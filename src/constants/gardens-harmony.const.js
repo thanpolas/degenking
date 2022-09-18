@@ -122,3 +122,4 @@ exports.Pools = [
 ];
 
 exports.PoolsIndexedByPid = indexArrayToObject(exports.Pools, 'pid');
+exports.PoolsIndexedByAddress = indexArrayToObject(exports.Pools, 'address');
