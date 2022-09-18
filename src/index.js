@@ -220,6 +220,11 @@ exports.abiBridgeHeroes = require('./abi/bridge-heroes.abi.json');
 exports.abiConsumable = require('./abi/consumable.abi.json');
 exports.abiBridgeItems = require('./abi/bridge-items.abi.json');
 
+exports.abiHeroesV1 = require('./abi/heroes-v1.abi.json');
+exports.abiHeroesV2 = require('./abi/heroes-v2.abi.json');
+exports.abiSummonV1 = require('./abi/summon-v1.abi.json');
+exports.abiSummonV2 = require('./abi/summon-v2.abi.json');
+
 /**
  * @deprecated at 1.2.6
  */
