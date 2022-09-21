@@ -32,14 +32,60 @@ exports.decodeVisualGenes = (geneStr) => {
   return geneMap;
 };
 
+exports.convertGenes = (genesStr, genesMap) => {
+  // First, convert the genes to kai.
+  const rawKai = exports
+    .genesToKai(BigInt(genesStr.toString()))
+    .split(' ')
+    .join('');
+
+  const genes = { recessives: {} };
+
+  let count = 0;
+
+  for (const k in rawKai.split('')) {
+    if (Object.prototype.hasOwnProperty.call(rawKai, k)) {
+      const trait = genesMap[Math.floor(Number(k) / 4)];
+      const kai = rawKai[k];
+      const valueNum = exports.kai2dec(kai);
+
+      // Create base genes
+      genes[trait] = Choices[trait][valueNum];
+
+      // Create recessives
+      if (!genes.recessives[trait]) {
+        genes.recessives[trait] = {};
+      }
+
+      if (Object.keys(genes.recessives[trait]).length < 3) {
+        count += 1;
+        const position = 4 - count;
+        genes.recessives[trait] = {
+          ...genes.recessives[trait],
+          [`r${position}`]: Choices[trait][valueNum],
+        };
+      } else {
+        genes.recessives[trait] = {
+          ...genes.recessives[trait],
+          d: Choices[trait][valueNum],
+        };
+        count = 0;
+      }
+    }
+  }
+
+  return genes;
+};
+
 /**
  * Decodes genes of heroes.
  *
  * @param {string} genesStr genes string.
  * @param {Object} GENE_MAP The gene map.
  * @return {Object} decoded genes.
+ * @deprecated Legacy - pre CV
  */
-exports.convertGenes = (genesStr, GENE_MAP) => {
+exports.convertGenesV1 = (genesStr, GENE_MAP) => {
   const kaiVal = exports.genesToKai(genesStr);
 
   const rawKai = kaiVal.split(' ').join('');
