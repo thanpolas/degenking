@@ -393,23 +393,134 @@ const statGenes =
     '55595053337262517174437940546058771473513094722680050621928661284030532';
 
 const decodedStatGenes = decodeStatGenes(statGenes);
-
-console.log(decodedStatGenes);
-// {
-//   class: 'thief',
-//   subClass: 'wizard',
-//   profession: 'gardening',
-//   passive1: 'Basic1',
-//   passive2: 'Basic2',
-//   active1: 'Basic3',
-//   active2: 'Basic4',
-//   statBoost1: 'INT',
-//   statBoost2: 'LCK',
-//   statsUnknown1: 0,
-//   element: 'fire',
-//   statsUnknown2: 4
-// }
 ```
+
+> !!! **Breaking Change Since 1.3.0**
+
+The return has been further normalized and labeled:
+
+-   Default trait names will be their raw numeric values.
+-   The mutation label will be attached with the suffix `Mut` on each trait.
+-   When the trait has a label the `Descr` suffix will be attached.
+-   The `recessives` property has been introduced, contains the 3 tiers of recessives: `r1`, `r2` and `r3`.
+
+#### Decoded Stat Genes Full Object
+
+<details>
+  <summary><span style="font-size: 1.5em;">Click here to expand the full Decoded Stat Genes Object.</span></summary>
+
+<br />
+
+```js
+{
+    recessives: {
+        r1: {
+            class: 5,
+            subClass: 0,
+            profession: 2,
+            passive1: 3,
+            passive2: 2,
+            active1: 2,
+            active2: 7,
+            statBoost1: 10,
+            statBoost2: 14,
+            statsUnknown1: 4,
+            element: 0,
+            statsUnknown2: 0,
+            classDescr: 'wizard',
+            subClassDescr: 'warrior',
+            professionDescr: 'gardening',
+            passive1Mut: 'Basic4',
+            passive2Mut: 'Basic3',
+            active1Mut: 'Basic3',
+            active2Mut: 'Basic8',
+            statsUnknown1Mut: 'Basic5',
+            statsUnknown2Mut: 'Basic1',
+            statBoost1Descr: 'VIT',
+            statBoost2Descr: 'DEX',
+            elementDescr: 'fire'
+        },
+        r2: {
+            class: 0,
+            subClass: 6,
+            profession: 0,
+            passive1: 3,
+            passive2: 3,
+            active1: 4,
+            active2: 7,
+            statBoost1: 2,
+            statBoost2: 14,
+            statsUnknown1: 5,
+            element: 10,
+            statsUnknown2: 10,
+            classDescr: 'warrior',
+            subClassDescr: 'monk',
+            professionDescr: 'mining',
+            passive1Mut: 'Basic4',
+            passive2Mut: 'Basic4',
+            active1Mut: 'Basic5',
+            active2Mut: 'Basic8',
+            statsUnknown1Mut: 'Basic6',
+            statsUnknown2Mut: 'Basic11',
+            statBoost1Descr: 'AGI',
+            statBoost2Descr: 'DEX',
+            elementDescr: 'ice'
+        },
+        r3: {
+            class: 8,
+            subClass: 8,
+            profession: 4,
+            passive1: 1,
+            passive2: 1,
+            active1: 0,
+            active2: 6,
+            statBoost1: 2,
+            statBoost2: 6,
+            statsUnknown1: 6,
+            element: 10,
+            statsUnknown2: 6,
+            classDescr: 'berserker',
+            subClassDescr: 'berserker',
+            professionDescr: 'fishing',
+            passive1Mut: 'Basic2',
+            passive2Mut: 'Basic2',
+            active1Mut: 'Basic1',
+            active2Mut: 'Basic7',
+            statsUnknown1Mut: 'Basic7',
+            statsUnknown2Mut: 'Basic7',
+            statBoost1Descr: 'AGI',
+            statBoost2Descr: 'WIS',
+            elementDescr: 'ice'
+        }
+    },
+    class: 8,
+    subClass: 9,
+    profession: 4,
+    passive1: 3,
+    passive2: 7,
+    active1: 5,
+    active2: 3,
+    statBoost1: 6,
+    statBoost2: 10,
+    statsUnknown1: 3,
+    element: 8,
+    statsUnknown2: 10,
+    classDescr: 'berserker',
+    subClassDescr: 'seer',
+    professionDescr: 'fishing',
+    passive1Mut: 'Basic4',
+    passive2Mut: 'Basic8',
+    active1Mut: 'Basic6',
+    active2Mut: 'Basic4',
+    statsUnknown1Mut: 'Basic4',
+    statsUnknown2Mut: 'Basic11',
+    statBoost1Descr: 'WIS',
+    statBoost2Descr: 'VIT',
+    elementDescr: 'lightning'
+}
+```
+
+</details>
 
 ### decodeVisualGenes(visualGenes)
 
@@ -423,26 +534,172 @@ const visualGenes =
     '170877259497388213840353281232231169976585066888929467746175634464967719';
 
 const decodedVisualGenes = decodeStatGenes(visualGenes);
-
-console.log(decodedVisualGenes);
-
-// {
-//   gender: 'female',
-//   headAppendage: 1,
-//   backAppendage: 6,
-//   background: 'plains',
-//   hairStyle: 1,
-//   hairColor: 'd7bc65',
-//   visualUnknown1: 0,
-//   eyeColor: '2494a2',
-//   skinColor: 'e6a861',
-//   appendageColor: 'a0304d',
-//   backAppendageColor: '830e18',
-//   visualUnknown2: 7
-// }
 ```
 
+> !!! **Breaking Change Since 1.3.0**
+
+The return has been further normalized and labeled:
+
+-   Default trait names will be their raw numeric values.
+-   The mutation label will be attached with the suffix `Mut` on each trait.
+-   When the trait has a label the `Descr` suffix will be attached.
+-   When the trait is a color, the `Hex` suffix will be attached.
+-   The `recessives` property has been introduced, contains the 3 tiers of recessives: `r1`, `r2` and `r3`.
+
+#### Decoded Visual Genes Full Object
+
+<details>
+  <summary><span style="font-size: 1.5em;">Click here to expand the full Decoded Visual Genes Object.</span></summary>
+
+<br />
+
+```js
+const decodedVisualGenes = {
+    recessives: {
+        r1: {
+            gender: 1,
+            headAppendage: 5,
+            backAppendage: 2,
+            background: 6,
+            hairStyle: 4,
+            hairColor: 7,
+            visualUnknown1: 4,
+            eyeColor: 2,
+            skinColor: 2,
+            appendageColor: 6,
+            backAppendageColor: 6,
+            visualUnknown2: 7,
+            genderDescr: 'male',
+            backgroundDescr: 'island',
+            headAppendageDescr: 'Cat Ears',
+            headAppendageMut: 'Basic6',
+            backAppendageDescr: 'Cat Tail',
+            backAppendageMut: 'Basic3',
+            hairStyleDescr: 'Pixel',
+            hairStyleMut: 'Basic5',
+            hairColorHex: '62a7e6',
+            hairColorMut: 'Basic8',
+            eyeColorHex: '896693',
+            eyeColorMut: 'Basic3',
+            skinColorHex: 'f1ca9e',
+            skinColorMut: 'Basic3',
+            appendageColorHex: '830e18',
+            appendageColorMut: 'Basic7',
+            backAppendageColorHex: '830e18',
+            backAppendageColorMut: 'Basic7',
+            visualUnknown1Mut: 'Basic5',
+            visualUnknown2Mut: 'Basic8',
+        },
+        r2: {
+            gender: 1,
+            headAppendage: 6,
+            backAppendage: 6,
+            background: 10,
+            hairStyle: 9,
+            hairColor: 1,
+            visualUnknown1: 4,
+            eyeColor: 4,
+            skinColor: 14,
+            appendageColor: 4,
+            backAppendageColor: 8,
+            visualUnknown2: 2,
+            genderDescr: 'male',
+            backgroundDescr: 'mountains',
+            headAppendageDescr: 'Minotaur Horns',
+            headAppendageMut: 'Basic7',
+            backAppendageDescr: 'Kitsune Tail',
+            backAppendageMut: 'Basic7',
+            hairStyleDescr: 'Faded Topknot',
+            hairStyleMut: 'Basic10',
+            hairColorHex: 'af3853',
+            hairColorMut: 'Basic2',
+            eyeColorHex: 'bb3f55',
+            eyeColorMut: 'Basic5',
+            skinColorHex: 'aa5c38',
+            skinColorMut: undefined,
+            appendageColorHex: '2a386d',
+            appendageColorMut: 'Basic5',
+            backAppendageColorHex: 'cddef0',
+            backAppendageColorMut: 'Basic9',
+            visualUnknown1Mut: 'Basic5',
+            visualUnknown2Mut: 'Basic3',
+        },
+        r3: {
+            gender: 1,
+            headAppendage: 2,
+            backAppendage: 5,
+            background: 12,
+            hairStyle: 4,
+            hairColor: 4,
+            visualUnknown1: 4,
+            eyeColor: 6,
+            skinColor: 0,
+            appendageColor: 7,
+            backAppendageColor: 7,
+            visualUnknown2: 3,
+            genderDescr: 'male',
+            backgroundDescr: 'city',
+            headAppendageDescr: 'Satyr Horns',
+            headAppendageMut: 'Basic3',
+            backAppendageDescr: 'Daishō',
+            backAppendageMut: 'Basic6',
+            hairStyleDescr: 'Pixel',
+            hairStyleMut: 'Basic5',
+            hairColorHex: '48321e',
+            hairColorMut: 'Basic5',
+            eyeColorHex: '0d7634',
+            eyeColorMut: 'Basic7',
+            skinColorHex: 'c58135',
+            skinColorMut: 'Basic1',
+            appendageColorHex: '6f3a3c',
+            appendageColorMut: 'Basic8',
+            backAppendageColorHex: '6f3a3c',
+            backAppendageColorMut: 'Basic8',
+            visualUnknown1Mut: 'Basic5',
+            visualUnknown2Mut: 'Basic4',
+        },
+    },
+    gender: 3,
+    headAppendage: 6,
+    backAppendage: 8,
+    background: 0,
+    hairStyle: 9,
+    hairColor: 9,
+    visualUnknown1: 1,
+    eyeColor: 2,
+    skinColor: 4,
+    appendageColor: 1,
+    backAppendageColor: 3,
+    visualUnknown2: 2,
+    genderDescr: 'female',
+    backgroundDescr: 'desert',
+    headAppendageDescr: 'Minotaur Horns',
+    headAppendageMut: 'Basic7',
+    backAppendageDescr: 'Skeletal Wings',
+    backAppendageMut: 'Basic9',
+    hairStyleDescr: 'Lamia',
+    hairStyleMut: 'Basic10',
+    hairColorHex: '326988',
+    hairColorMut: 'Basic10',
+    eyeColorHex: '896693',
+    eyeColorMut: 'Basic3',
+    skinColorHex: '985e1c',
+    skinColorMut: 'Basic5',
+    appendageColorHex: 'a88b47',
+    appendageColorMut: 'Basic2',
+    backAppendageColorHex: '566f7d',
+    backAppendageColorMut: 'Basic4',
+    visualUnknown1Mut: 'Basic2',
+    visualUnknown2Mut: 'Basic3',
+};
+```
+
+</details>
+
 ### decodeRecessiveGeneAndNormalize(statGenesRaw)
+
+> !!! **WARNING** !!!
+> Deprecated - Use `decodeStatGenes()` or `decodeVisualGenes()`
 
 Decodes the raw stat genes to produce recessive genes.
 
@@ -868,6 +1125,13 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.0** , _21/Sep/2022_
+    -   **Breaking Change** For `decodeStatGenes()` and `decodeVisualGenes()`:
+        -   Fixed missing properties and labels from new CV classes and traits.
+        -   Normalized even further the values, defined trait naming schemes and pattern.
+        -   Will now also return all the recessive tiers (R1, R2, R3) for both visual and stat genes.
+    -   Deprecated the `decodeRecessiveGeneAndNormalize()` function - no longer needed.
+    -   Lowercased all contract addresses of SD and CV.
 -   **v1.2.8** , _18/Sep/2022_
     -   Added and exposed heroes and summoning ABIs V1 and V2 as: `abiHeroesV1`, `abiHeroesV2`, `abiSummonV1`, `abiSummonV2`
 -   **v1.2.7** , _16/Sep/2022_

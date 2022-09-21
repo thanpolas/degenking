@@ -194,33 +194,6 @@ assert.assertTypes = (testObj) => {
   expect(testObj.mainClassGenes).toBeArray();
   expect(testObj.subClassGenes).toBeArray();
   expect(testObj.professionGenes).toBeArray();
-
-  // Stat and Visual genes objects
-  expect(testObj.statGenes.class).toBeString();
-  expect(testObj.statGenes.subClass).toBeString();
-  expect(testObj.statGenes.profession).toBeString();
-  expect(testObj.statGenes.passive1).toBeString();
-  expect(testObj.statGenes.passive2).toBeString();
-  expect(testObj.statGenes.active1).toBeString();
-  expect(testObj.statGenes.active2).toBeString();
-  expect(testObj.statGenes.statBoost1).toBeString();
-  expect(testObj.statGenes.statBoost2).toBeString();
-  expect(testObj.statGenes.statsUnknown1).toBeNumber();
-  expect(testObj.statGenes.element).toBeString();
-  // expect(testObj.statGenes.statsUnknown2).toBeUndefined();
-
-  expect(testObj.visualGenes.gender).toBeString();
-  expect(testObj.visualGenes.headAppendage).toBeNumber();
-  expect(testObj.visualGenes.backAppendage).toBeNumber();
-  expect(testObj.visualGenes.background).toBeString();
-  expect(testObj.visualGenes.hairStyle).toBeNumber();
-  expect(testObj.visualGenes.hairColor).toBeString();
-  expect(testObj.visualGenes.visualUnknown1).toBeNumber();
-  expect(testObj.visualGenes.eyeColor).toBeString();
-  expect(testObj.visualGenes.skinColor).toBeString();
-  expect(testObj.visualGenes.appendageColor).toBeString();
-  expect(testObj.visualGenes.backAppendageColor).toBeString();
-  expect(testObj.visualGenes.visualUnknown2).toBeNumber();
 };
 
 /**

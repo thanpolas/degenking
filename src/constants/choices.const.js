@@ -164,6 +164,42 @@ exports.headAppendage = {
   25: 25,
   28: 28,
 };
+
+exports.traits = {
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+  10: 10,
+  11: 11,
+  12: 12,
+  13: 13,
+  14: 14,
+  15: 15,
+  16: 16,
+  17: 17,
+  18: 18,
+  19: 19,
+  20: 20,
+  21: 21,
+  22: 22,
+  23: 23,
+  24: 24,
+  25: 25,
+  26: 26,
+  27: 27,
+  28: 28,
+  29: 29,
+  30: 30,
+  31: 31,
+};
+
 exports.subClass = exports.class;
 exports.profession = {
   0: 'mining',
@@ -172,6 +208,7 @@ exports.profession = {
   6: 'foraging',
 };
 
+// Attacks mapping is also used for visual and stat unknowns
 exports.attacks = {
   0: 'Basic1',
   1: 'Basic2',
@@ -183,14 +220,22 @@ exports.attacks = {
   7: 'Basic8',
   8: 'Basic9',
   9: 'Basic10',
+  10: 'Basic11',
+  11: 'Basic12',
   16: 'Advanced1',
   17: 'Advanced2',
   18: 'Advanced3',
   19: 'Advanced4',
   20: 'Advanced5',
+  21: 'Advanced6',
+  22: 'Advanced7',
+  23: 'Advanced8',
   24: 'Elite1',
   25: 'Elite2',
+  26: 'Elite3',
+  27: 'Elite4',
   28: 'Transcendent1',
+  29: 'Transcendent2',
 };
 exports.passive1 = exports.attacks;
 exports.passive2 = exports.attacks;

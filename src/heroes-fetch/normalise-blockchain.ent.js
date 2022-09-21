@@ -6,13 +6,14 @@ const { tokenToFixed } = require('@thanpolas/crypto-utils');
 
 const {
   DATA_SOURCES,
-  VISUAL_GENE_MAP,
-  STAT_GENE_MAP,
   JEWEL_DECIMALS,
   Rarity,
   ZERO_ADDRESS,
 } = require('../constants/constants.const');
-const { convertGenes } = require('../heroes-helpers/decode-genes.ent');
+const {
+  decodeStatGenes,
+  decodeVisualGenes,
+} = require('../heroes-helpers/decode-genes.ent');
 
 const {
   calculateRemainingStamina,
@@ -72,6 +73,7 @@ exports.normalizeChainProcessedHero = (
   const nowDateUse = params.blockMinedAt ? params.blockMinedAt : new Date();
 
   const { mining, gardening, foraging, fishing } = hero.professions;
+
   const normalizedHero = {
     rawHero: hero,
     source,
@@ -79,18 +81,18 @@ exports.normalizeChainProcessedHero = (
     ownerId: Number(hero.owner?.id) || null,
     ownerName: hero.owner?.name,
     ownerAddress: hero.owner?.address?.toLowerCase(),
-    mainClass: hero.statGenes.class,
-    subClass: hero.statGenes.subClass,
-    profession: hero.statGenes.profession,
+    mainClass: hero.statGenes.classDescr,
+    subClass: hero.statGenes.subClassDescr,
+    profession: hero.statGenes.professionDescr,
     generation: hero.info.generation,
     summons: hero.summoningInfo.summons,
     maxSummons: hero.summoningInfo.maxSummons,
-    statBoost1: hero.statGenes.statBoost1,
-    statBoost2: hero.statGenes.statBoost2,
-    active1: hero.statGenes.active1,
-    active2: hero.statGenes.active2,
-    passive1: hero.statGenes.passive1,
-    passive2: hero.statGenes.passive2,
+    statBoost1: hero.statGenes.statBoost1Descr,
+    statBoost2: hero.statGenes.statBoost2Descr,
+    active1: hero.statGenes.active1Mut,
+    active2: hero.statGenes.active2Mut,
+    passive1: hero.statGenes.passive1Mut,
+    passive2: hero.statGenes.passive2Mut,
     rarity: hero.info.rarity,
     rarityStr: Rarity[hero.info.rarity],
     mining: mining === 0 ? 0 : mining / 10,
@@ -314,8 +316,8 @@ exports.processHeroChainData = (heroData, owner, ownerAddress) => {
     },
   };
 
-  hero.visualGenes = convertGenes(hero.info.visualGenes, VISUAL_GENE_MAP);
-  hero.statGenes = convertGenes(hero.info.statGenes, STAT_GENE_MAP);
+  hero.visualGenes = decodeVisualGenes(hero.info.visualGenes);
+  hero.statGenes = decodeStatGenes(hero.info.statGenes);
 
   if (owner) {
     hero.owner.id = owner.id;
