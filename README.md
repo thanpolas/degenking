@@ -1125,6 +1125,13 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.0** , _21/Sep/2022_
+    -   **Breaking Change** For `decodeStatGenes()` and `decodeVisualGenes()`:
+        -   Fixed missing properties and labels from new CV classes and traits.
+        -   Normalized even further the values, defined trait naming schemes and pattern.
+        -   Will now also return all the recessive tiers (R1, R2, R3) for both visual and stat genes.
+    -   Deprecated the `decodeRecessiveGeneAndNormalize()` function - no longer needed.
+    -   Lowercased all contract addresses of SD and CV.
 -   **v1.2.8** , _18/Sep/2022_
     -   Added and exposed heroes and summoning ABIs V1 and V2 as: `abiHeroesV1`, `abiHeroesV2`, `abiSummonV1`, `abiSummonV2`
 -   **v1.2.7** , _16/Sep/2022_
