@@ -10,16 +10,14 @@ const {
 } = require('../constants/constants.const');
 const Choices = require('../constants/choices.const');
 
-const entity = (module.exports = {});
-
 /**
  * Helper to decode stat genes.
  *
  * @param {string} geneStr The stats genes string.
  * @return {Object} The gene map.
  */
-entity.decodeStatGenes = (geneStr) => {
-  const geneMap = entity.convertGenes(geneStr, STAT_GENE_MAP);
+exports.decodeStatGenes = (geneStr) => {
+  const geneMap = exports.convertGenes(geneStr, STAT_GENE_MAP);
   return geneMap;
 };
 
@@ -29,8 +27,8 @@ entity.decodeStatGenes = (geneStr) => {
  * @param {string} geneStr The visual genes string.
  * @return {Object} The gene map.
  */
-entity.decodeVisualGenes = (geneStr) => {
-  const geneMap = entity.convertGenes(geneStr, VISUAL_GENE_MAP);
+exports.decodeVisualGenes = (geneStr) => {
+  const geneMap = exports.convertGenes(geneStr, VISUAL_GENE_MAP);
   return geneMap;
 };
 
@@ -41,8 +39,8 @@ entity.decodeVisualGenes = (geneStr) => {
  * @param {Object} GENE_MAP The gene map.
  * @return {Object} decoded genes.
  */
-entity.convertGenes = (genesStr, GENE_MAP) => {
-  const kaiVal = entity.genesToKai(genesStr);
+exports.convertGenes = (genesStr, GENE_MAP) => {
+  const kaiVal = exports.genesToKai(genesStr);
 
   const rawKai = kaiVal.split(' ').join('');
 
@@ -53,7 +51,7 @@ entity.convertGenes = (genesStr, GENE_MAP) => {
       const trait = GENE_MAP[Math.floor(Number(k) / 4)];
 
       const kai = rawKai[k];
-      const valueNum = entity.kai2dec(kai);
+      const valueNum = exports.kai2dec(kai);
 
       genes[trait] = Choices[trait][valueNum];
     }
@@ -67,7 +65,7 @@ entity.convertGenes = (genesStr, GENE_MAP) => {
  * @param {string} genes visual genes.
  * @return {string}
  */
-entity.genesToKai = (genes) => {
+exports.genesToKai = (genes) => {
   genes = BigInt(genes);
   const ALPHABET = '123456789abcdefghijkmnopqrstuvwx';
   const BASE = BigInt(ALPHABET.length);
@@ -95,7 +93,7 @@ entity.genesToKai = (genes) => {
  * @param {string} kai The kai.
  * @return {string}
  */
-entity.kai2dec = (kai) => {
+exports.kai2dec = (kai) => {
   const ALPHABET = '123456789abcdefghijkmnopqrstuvwx';
   return ALPHABET.indexOf(kai);
 };
