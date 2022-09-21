@@ -9,6 +9,12 @@ const {
   STAT_GENE_MAP,
 } = require('../constants/constants.const');
 const Choices = require('../constants/choices.const');
+const {
+  HEAD_APPENDAGE_NAME_MAP,
+  BACK_APPENDAGE_NAME_MAP,
+  HAIR_STYLE_NAME_MAP_MALE,
+  HAIR_STYLE_NAME_MAP_FEMALE,
+} = require('../constants/hero-mappings.const');
 
 /**
  * Helper to decode stat genes.
@@ -29,9 +35,22 @@ exports.decodeStatGenes = (geneStr) => {
  */
 exports.decodeVisualGenes = (geneStr) => {
   const geneMap = exports.convertGenes(geneStr, VISUAL_GENE_MAP);
+
+  exports.assignLabels(geneMap);
+
+  // Format recessives
+  geneMap.recessives = exports.formatRecessives(geneMap, exports.assignLabels);
+
   return geneMap;
 };
 
+/**
+ * New convertion of genes (Sep 2022) that also does recessives.
+ *
+ * @param {string|bigint} genesStr The gene string to convert.
+ * @param {Object} genesMap Mapping to use for conversion.
+ * @return {Object}
+ */
 exports.convertGenes = (genesStr, genesMap) => {
   // First, convert the genes to kai.
   const rawKai = exports
@@ -142,4 +161,79 @@ exports.genesToKai = (genes) => {
 exports.kai2dec = (kai) => {
   const ALPHABET = '123456789abcdefghijkmnopqrstuvwx';
   return ALPHABET.indexOf(kai);
+};
+
+/**
+ * Will mutate the provided gene map by assigning human readable labels,
+ * mutation labels and hex codes where applicable.
+ *
+ * @param {Object} geneMap The genemap to mutate.
+ */
+exports.assignLabels = (geneMap) => {
+  // Assign Labels to genes
+  geneMap.genderDescr = Choices.gender[geneMap.gender];
+  geneMap.backgroundDescr = Choices.background[geneMap.background];
+
+  geneMap.headAppendageDescr = HEAD_APPENDAGE_NAME_MAP[geneMap.headAppendage];
+  geneMap.headAppendageMut = Choices.attacks[geneMap.headAppendage];
+
+  geneMap.backAppendageDescr = BACK_APPENDAGE_NAME_MAP[geneMap.backAppendage];
+  geneMap.backAppendageMut = Choices.attacks[geneMap.backAppendage];
+
+  if (geneMap.gender === 1) {
+    // Male
+    geneMap.hairStyleDescr = HAIR_STYLE_NAME_MAP_MALE[geneMap.hairStyle];
+  } else {
+    // Female
+    geneMap.hairStyleDescr = HAIR_STYLE_NAME_MAP_FEMALE[geneMap.hairStyle];
+  }
+  geneMap.hairStyleMut = Choices.attacks[geneMap.hairStyle];
+
+  geneMap.hairColorHex = Choices.hairColor[geneMap.hairColor];
+  geneMap.hairColorMut = Choices.attacks[geneMap.hairColor];
+
+  geneMap.eyeColorHex = Choices.eyeColor[geneMap.eyeColor];
+  geneMap.eyeColorMut = Choices.attacks[geneMap.eyeColor];
+
+  geneMap.skinColorHex = Choices.skinColor[geneMap.skinColor];
+  geneMap.skinColorMut = Choices.attacks[geneMap.skinColor];
+
+  geneMap.appendageColorHex = Choices.appendageColor[geneMap.appendageColor];
+  geneMap.appendageColorMut = Choices.attacks[geneMap.appendageColor];
+
+  geneMap.backAppendageColorHex =
+    Choices.backAppendageColor[geneMap.backAppendageColor];
+  geneMap.backAppendageColorMut = Choices.attacks[geneMap.backAppendageColor];
+
+  // Abuse the Attacks mapping
+  geneMap.visualUnknown1Mut = Choices.attacks[geneMap.visualUnknown1];
+  geneMap.visualUnknown2Mut = Choices.attacks[geneMap.visualUnknown2];
+};
+
+/**
+ * Will extract and reformat the recessive genes, indexed by their tier and
+ * enriched with the labels.
+ *
+ * @param {Object} geneMap The genemap.
+ * @param {function} labelsFn The appropriate function to apply labels on genes.
+ * @return {Object} Recessive genes formatted and indexed by tier.
+ */
+exports.formatRecessives = (geneMap, labelsFn) => {
+  const { recessives } = geneMap;
+  const recessiveTiers = ['r1', 'r2', 'r3'];
+
+  const traits = Object.keys(recessives);
+  const formattedRecessives = {};
+  recessiveTiers.forEach((recessiveTier) => {
+    const recessiveGene = {};
+    traits.forEach((trait) => {
+      recessiveGene[trait] = recessives[trait][recessiveTier];
+    });
+
+    labelsFn(recessiveGene);
+
+    formattedRecessives[recessiveTier] = recessiveGene;
+  });
+
+  return formattedRecessives;
 };
