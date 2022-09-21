@@ -423,26 +423,171 @@ const visualGenes =
     '170877259497388213840353281232231169976585066888929467746175634464967719';
 
 const decodedVisualGenes = decodeStatGenes(visualGenes);
-
-console.log(decodedVisualGenes);
-
-// {
-//   gender: 'female',
-//   headAppendage: 1,
-//   backAppendage: 6,
-//   background: 'plains',
-//   hairStyle: 1,
-//   hairColor: 'd7bc65',
-//   visualUnknown1: 0,
-//   eyeColor: '2494a2',
-//   skinColor: 'e6a861',
-//   appendageColor: 'a0304d',
-//   backAppendageColor: '830e18',
-//   visualUnknown2: 7
-// }
 ```
 
+> !!! **Breaking Change Since 1.3.0**
+
+The return has been further normalized and labeled:
+
+-   Default trait names will be their raw numeric values.
+-   The mutation label will be attached with the suffix `Mut` on each trait.
+-   When the trait has a label the `Descr` suffix will be attached.
+-   When the trait is a color, the `Hex` suffix will be attached.
+-   The `recessives` property has been introduced, contains the 3 tiers of recessives: `r1`, `r2` and `r3`.
+
+#### Decoded Visual Genes Full Object
+
+<details>
+  <summary><span style="font-size: 1.5em;">Click here to expand the full Decoded Visual Genes Object.</span></summary>
+
+<br />
+
+````js
+const decodedVisualGenes = {
+    recessives: {
+    r1: {
+        gender: 1,
+        headAppendage: 5,
+        backAppendage: 2,
+        background: 6,
+        hairStyle: 4,
+        hairColor: 7,
+        visualUnknown1: 4,
+        eyeColor: 2,
+        skinColor: 2,
+        appendageColor: 6,
+        backAppendageColor: 6,
+        visualUnknown2: 7,
+        genderDescr: 'male',
+        backgroundDescr: 'island',
+        headAppendageDescr: 'Cat Ears',
+        headAppendageMut: 'Basic6',
+        backAppendageDescr: 'Cat Tail',
+        backAppendageMut: 'Basic3',
+        hairStyleDescr: 'Pixel',
+        hairStyleMut: 'Basic5',
+        hairColorHex: '62a7e6',
+        hairColorMut: 'Basic8',
+        eyeColorHex: '896693',
+        eyeColorMut: 'Basic3',
+        skinColorHex: 'f1ca9e',
+        skinColorMut: 'Basic3',
+        appendageColorHex: '830e18',
+        appendageColorMut: 'Basic7',
+        backAppendageColorHex: '830e18',
+        backAppendageColorMut: 'Basic7',
+        visualUnknown1Mut: 'Basic5',
+        visualUnknown2Mut: 'Basic8'
+    },
+    r2: {
+        gender: 1,
+        headAppendage: 6,
+        backAppendage: 6,
+        background: 10,
+        hairStyle: 9,
+        hairColor: 1,
+        visualUnknown1: 4,
+        eyeColor: 4,
+        skinColor: 14,
+        appendageColor: 4,
+        backAppendageColor: 8,
+        visualUnknown2: 2,
+        genderDescr: 'male',
+        backgroundDescr: 'mountains',
+        headAppendageDescr: 'Minotaur Horns',
+        headAppendageMut: 'Basic7',
+        backAppendageDescr: 'Kitsune Tail',
+        backAppendageMut: 'Basic7',
+        hairStyleDescr: 'Faded Topknot',
+        hairStyleMut: 'Basic10',
+        hairColorHex: 'af3853',
+        hairColorMut: 'Basic2',
+        eyeColorHex: 'bb3f55',
+        eyeColorMut: 'Basic5',
+        skinColorHex: 'aa5c38',
+        skinColorMut: undefined,
+        appendageColorHex: '2a386d',
+        appendageColorMut: 'Basic5',
+        backAppendageColorHex: 'cddef0',
+        backAppendageColorMut: 'Basic9',
+        visualUnknown1Mut: 'Basic5',
+        visualUnknown2Mut: 'Basic3'
+    },
+    r3: {
+        gender: 1,
+        headAppendage: 2,
+        backAppendage: 5,
+        background: 12,
+        hairStyle: 4,
+        hairColor: 4,
+        visualUnknown1: 4,
+        eyeColor: 6,
+        skinColor: 0,
+        appendageColor: 7,
+        backAppendageColor: 7,
+        visualUnknown2: 3,
+        genderDescr: 'male',
+        backgroundDescr: 'city',
+        headAppendageDescr: 'Satyr Horns',
+        headAppendageMut: 'Basic3',
+        backAppendageDescr: 'Daishō',
+        backAppendageMut: 'Basic6',
+        hairStyleDescr: 'Pixel',
+        hairStyleMut: 'Basic5',
+        hairColorHex: '48321e',
+        hairColorMut: 'Basic5',
+        eyeColorHex: '0d7634',
+        eyeColorMut: 'Basic7',
+        skinColorHex: 'c58135',
+        skinColorMut: 'Basic1',
+        appendageColorHex: '6f3a3c',
+        appendageColorMut: 'Basic8',
+        backAppendageColorHex: '6f3a3c',
+        backAppendageColorMut: 'Basic8',
+        visualUnknown1Mut: 'Basic5',
+        visualUnknown2Mut: 'Basic4'
+    }
+    },
+    gender: 3,
+    headAppendage: 6,
+    backAppendage: 8,
+    background: 0,
+    hairStyle: 9,
+    hairColor: 9,
+    visualUnknown1: 1,
+    eyeColor: 2,
+    skinColor: 4,
+    appendageColor: 1,
+    backAppendageColor: 3,
+    visualUnknown2: 2,
+    genderDescr: 'female',
+    backgroundDescr: 'desert',
+    headAppendageDescr: 'Minotaur Horns',
+    headAppendageMut: 'Basic7',
+    backAppendageDescr: 'Skeletal Wings',
+    backAppendageMut: 'Basic9',
+    hairStyleDescr: 'Lamia',
+    hairStyleMut: 'Basic10',
+    hairColorHex: '326988',
+    hairColorMut: 'Basic10',
+    eyeColorHex: '896693',
+    eyeColorMut: 'Basic3',
+    skinColorHex: '985e1c',
+    skinColorMut: 'Basic5',
+    appendageColorHex: 'a88b47',
+    appendageColorMut: 'Basic2',
+    backAppendageColorHex: '566f7d',
+    backAppendageColorMut: 'Basic4',
+    visualUnknown1Mut: 'Basic2',
+    visualUnknown2Mut: 'Basic3'
+}
+
+
+
 ### decodeRecessiveGeneAndNormalize(statGenesRaw)
+
+> !!! **WARNING** !!!
+> Deprecated - Use `decodeStatGenes()` or `decodeVisualGenes()`
 
 Decodes the raw stat genes to produce recessive genes.
 
@@ -461,7 +606,9 @@ console.log(recessiveGenes);
 //     subClassGenes: ['warrior', 'pirate', 'wizard', 'monk'],
 //     professionGenes: ['mining','gardening','mining','foraging'],
 // }
-```
+````
+
+</details>
 
 ### getProfileByAddress(chainId, address)
 
