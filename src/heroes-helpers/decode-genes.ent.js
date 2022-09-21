@@ -24,6 +24,14 @@ const {
  */
 exports.decodeStatGenes = (geneStr) => {
   const geneMap = exports.convertGenes(geneStr, STAT_GENE_MAP);
+
+  exports.assignStatGenesLabels(geneMap);
+  // Format recessives
+  geneMap.recessives = exports.formatRecessives(
+    geneMap,
+    exports.assignStatGenesLabels,
+  );
+
   return geneMap;
 };
 
@@ -36,10 +44,13 @@ exports.decodeStatGenes = (geneStr) => {
 exports.decodeVisualGenes = (geneStr) => {
   const geneMap = exports.convertGenes(geneStr, VISUAL_GENE_MAP);
 
-  exports.assignLabels(geneMap);
+  exports.assignVisualGenesLabels(geneMap);
 
   // Format recessives
-  geneMap.recessives = exports.formatRecessives(geneMap, exports.assignLabels);
+  geneMap.recessives = exports.formatRecessives(
+    geneMap,
+    exports.assignVisualGenesLabels,
+  );
 
   return geneMap;
 };
@@ -169,7 +180,7 @@ exports.kai2dec = (kai) => {
  *
  * @param {Object} geneMap The genemap to mutate.
  */
-exports.assignLabels = (geneMap) => {
+exports.assignVisualGenesLabels = (geneMap) => {
   // Assign Labels to genes
   geneMap.genderDescr = Choices.gender[geneMap.gender];
   geneMap.backgroundDescr = Choices.background[geneMap.background];
@@ -208,6 +219,28 @@ exports.assignLabels = (geneMap) => {
   // Abuse the Attacks mapping
   geneMap.visualUnknown1Mut = Choices.attacks[geneMap.visualUnknown1];
   geneMap.visualUnknown2Mut = Choices.attacks[geneMap.visualUnknown2];
+};
+
+/**
+ * Will mutate the provided gene map by assigning human readable labels,
+ * mutation labels and hex codes where applicable.
+ *
+ * @param {Object} geneMap The genemap to mutate.
+ */
+exports.assignStatGenesLabels = (geneMap) => {
+  geneMap.classDescr = Choices.class[geneMap.class];
+  geneMap.subClassDescr = Choices.class[geneMap.subClass];
+  geneMap.professionDescr = Choices.profession[geneMap.profession];
+  geneMap.passive1Mut = Choices.attacks[geneMap.passive1];
+  geneMap.passive2Mut = Choices.attacks[geneMap.passive2];
+  geneMap.active1Mut = Choices.attacks[geneMap.active1];
+  geneMap.active2Mut = Choices.attacks[geneMap.active2];
+  geneMap.statsUnknown1Mut = Choices.attacks[geneMap.statsUnknown1];
+  geneMap.statsUnknown2Mut = Choices.attacks[geneMap.statsUnknown2];
+
+  geneMap.statBoost1Descr = Choices.statBoost1[geneMap.statBoost1];
+  geneMap.statBoost2Descr = Choices.statBoost1[geneMap.statBoost2];
+  geneMap.elementDescr = Choices.element[geneMap.element];
 };
 
 /**
