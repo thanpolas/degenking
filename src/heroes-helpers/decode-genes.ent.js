@@ -50,7 +50,7 @@ exports.convertGenes = (genesStr, genesMap) => {
       const valueNum = exports.kai2dec(kai);
 
       // Create base genes
-      genes[trait] = Choices[trait][valueNum];
+      genes[trait] = Choices.traits[valueNum];
 
       // Create recessives
       if (!genes.recessives[trait]) {
@@ -62,12 +62,12 @@ exports.convertGenes = (genesStr, genesMap) => {
         const position = 4 - count;
         genes.recessives[trait] = {
           ...genes.recessives[trait],
-          [`r${position}`]: Choices[trait][valueNum],
+          [`r${position}`]: Choices.traits[valueNum],
         };
       } else {
         genes.recessives[trait] = {
           ...genes.recessives[trait],
-          d: Choices[trait][valueNum],
+          d: Choices.traits[valueNum],
         };
         count = 0;
       }
