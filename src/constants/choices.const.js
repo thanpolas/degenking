@@ -220,14 +220,22 @@ exports.attacks = {
   7: 'Basic8',
   8: 'Basic9',
   9: 'Basic10',
+  10: 'Basic11',
+  11: 'Basic12',
   16: 'Advanced1',
   17: 'Advanced2',
   18: 'Advanced3',
   19: 'Advanced4',
   20: 'Advanced5',
+  21: 'Advanced6',
+  22: 'Advanced7',
+  23: 'Advanced8',
   24: 'Elite1',
   25: 'Elite2',
+  26: 'Elite3',
+  27: 'Elite4',
   28: 'Transcendent1',
+  29: 'Transcendent2',
 };
 exports.passive1 = exports.attacks;
 exports.passive2 = exports.attacks;
