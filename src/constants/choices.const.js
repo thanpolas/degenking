@@ -208,6 +208,7 @@ exports.profession = {
   6: 'foraging',
 };
 
+// Attacks mapping is also used for visual and stat unknowns
 exports.attacks = {
   0: 'Basic1',
   1: 'Basic2',
