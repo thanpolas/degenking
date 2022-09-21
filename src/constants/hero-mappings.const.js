@@ -1,0 +1,82 @@
+/**
+ * @fileoverview Maps of hero stats to names.
+ */
+
+exports.HAIR_STYLE_NAME_MAP_MALE = [
+  'Battle Hawk',
+  'Wolf Mane',
+  'Enchanter',
+  'Wild Growth',
+  'Pixel',
+  'Sunrise',
+  'Bouffant',
+  'Agleam Spike',
+  'Wayfinder',
+  'Faded Topknot',
+  'Gruff',
+  'Rogue Locs',
+  'Stone Cold',
+  "Zinra's Tail",
+  'Hedgehog',
+  'Skegg',
+  'Shinobi',
+  'Perfect Form',
+];
+
+exports.HAIR_STYLE_NAME_MAP_FEMALE = [
+  'Windswept',
+  'Fauna',
+  'Enchantress',
+  'Pineapple Top',
+  'Pixie',
+  'Darkweave Plait',
+  'Dejanira',
+  'Courtly Updo',
+  'Centaur tail',
+  'Lamia',
+  'Vogue Locs',
+  'Twin Vine Loops',
+  'Sweeping Willow',
+];
+
+exports.HEAD_APPENDAGE_NAME_MAP = [
+  'None',
+  'Kitsune Ears',
+  'Satyr Horns',
+  'Ram Horns',
+  'Imp Horns',
+  'Cat Ears',
+  'Minotaur Horns',
+  'Faun Horns',
+  'Draconic Horns',
+  'Fae Circlet',
+  'Jagged Horns',
+  'Spindle Horns',
+  'Bear Ears',
+  'Antennae',
+  'Fallen Angel Coronet',
+  'Wood Elf Ears',
+  'Snow Elf Ears',
+  'Insight Jewel',
+];
+
+exports.BACK_APPENDAGE_NAME_MAP = [
+  'None',
+  'Monkey Tail',
+  'Cat Tail',
+  'Imp Tail',
+  'Minotaur Tail',
+  'Daishō',
+  'Kitsune Tail',
+  'Zweihänder',
+  'Skeletal Wings',
+  'Skeletal Tail',
+  'Gryphon Wings',
+  'Draconic Wings',
+  'Butterfly Wings',
+  'Phoenix Wings',
+  'Fallen Angel',
+  'Aura of the Inner Grove',
+  'Ancient Orbs',
+  'Cecaelia Tentacles',
+];
