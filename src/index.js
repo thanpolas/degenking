@@ -224,6 +224,7 @@ exports.abiHeroesV1 = require('./abi/heroes-v1.abi.json');
 exports.abiHeroesV2 = require('./abi/heroes-v2.abi.json');
 exports.abiSummonV1 = require('./abi/summon-v1.abi.json');
 exports.abiSummonV2 = require('./abi/summon-v2.abi.json');
+exports.abiMasterGardenerDfk = require('./abi/master-gardener-dfk.abi.json');
 
 /**
  * @deprecated at 1.2.6
