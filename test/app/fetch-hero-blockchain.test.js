@@ -84,7 +84,7 @@ describe('Fetch Hero Blockchain', () => {
     summonMinTears: 10,
     summonMaxTears: 10,
     currentStamina: 25,
-    currentRank: 37,
+    currentRank: 40,
     estJewelPerTick: 0.32749,
     estJewelPer100Ticks: 32.7488,
     mainClassGenes: ['pirate', 'warrior', 'wizard', 'thief'],
