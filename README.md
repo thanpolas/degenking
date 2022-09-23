@@ -1125,6 +1125,11 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.1** , _23/Sep/2022_
+    -   Added Master Gardener DFK ABI `abiMasterGardenerDfk`.
+    -   Added new Gardens on CV.
+    -   Added master gardener address on CV.
+    -   Tweaked Current Rank algo.
 -   **v1.3.0** , _21/Sep/2022_
     -   **Breaking Change** For `decodeStatGenes()` and `decodeVisualGenes()`:
         -   Fixed missing properties and labels from new CV classes and traits.
