@@ -99,13 +99,13 @@ exports.rawRankToPercent = (scores) => {
 exports.getCurrentRank = (hero) => {
   switch (hero.profession) {
     case PROFESSIONS.MINING:
-      return hero.strength + hero.endurance + Math.floor(hero.mining) * 4;
+      return hero.strength + hero.endurance + Math.floor(hero.mining * 4);
     case PROFESSIONS.GARDENING:
-      return hero.vitality + hero.wisdom + Math.floor(hero.gardening) * 5;
+      return hero.vitality + hero.wisdom + Math.floor(hero.gardening * 5);
     case PROFESSIONS.FORAGING:
-      return hero.strength + hero.dexterity + Math.floor(hero.intelligence) * 4;
+      return hero.strength + hero.dexterity + Math.floor(hero.intelligence * 4);
     case PROFESSIONS.FISHING:
-      return hero.strength + hero.luck + Math.floor(hero.agility) * 4;
+      return hero.strength + hero.luck + Math.floor(hero.agility * 4);
     default:
       return 0;
   }

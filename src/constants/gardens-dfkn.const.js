@@ -50,6 +50,49 @@ exports.Pools = [
     address: '0x810e1ff51fdd58c474c66a31013713d1a17bf458',
     active: true,
   },
+  {
+    pid: 7,
+    pair: 'CRYSTAL-BTC.b',
+    address: '0x706916dbc3b66d89632708cc193080ea05e0534a',
+    active: true,
+  },
+
+  {
+    pid: 8,
+    pair: 'CRYSTAL-KLAY',
+    address: '0x1fcc67a01525fd715a67bccbf73665fb3dbe76c7',
+    active: true,
+  },
+  {
+    pid: 9,
+    pair: 'JEWEL-KLAY',
+    address: '0x2a70aa48f9dbf859239ae5e7f98fe95ae27a6cd4',
+    active: true,
+  },
+  {
+    pid: 10,
+    pair: 'JEWEL-AVAX',
+    address: '0xa0d17554f09047d65e0ae0e76cd8923a9525183c',
+    active: true,
+  },
+  {
+    pid: 11,
+    pair: 'JEWEL-BTC.b',
+    address: '0x3391b9384ac66c7aa3bf4a75a4f441942b1dcf30',
+    active: true,
+  },
+  {
+    pid: 12,
+    pair: 'JEWEL-ETH',
+    address: '0xbaec39dd81b964b57bc5fa5f5421cd82185409e6',
+    active: true,
+  },
+  {
+    pid: 13,
+    pair: 'BTC.b-USDC',
+    address: '0x045838dbfb8026520e872c8298f4ed542b81eaca  ',
+    active: true,
+  },
 ];
 
 exports.PoolsIndexedByPid = indexArrayToObject(exports.Pools, 'pid');
