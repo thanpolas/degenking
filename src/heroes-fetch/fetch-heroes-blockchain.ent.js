@@ -41,9 +41,27 @@ exports.getHeroesAnyChain = async (heroIds, params = {}) => {
     return exports.getHeroesChain(chainId, heroIds, params);
   });
 
-  const results = await Promise.any(allPromises);
+  const results = await Promise.allSettled(allPromises);
 
-  return results;
+  // get the result with the values
+  const resultValues = results.filter((result) => {
+    if (result.status !== 'fulfilled') {
+      return false;
+    }
+
+    if (result.value.length) {
+      return true;
+    }
+    return false;
+  });
+
+  if (!resultValues.length) {
+    return [];
+  }
+
+  const [value] = resultValues;
+
+  return value;
 };
 
 /**

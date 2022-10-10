@@ -1125,6 +1125,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.2** , _10/Oct/2022_
+    -   Added Duels V2 ABI, exposed as `abiDuelsCoreV2`.
+    -   Added DUELS_CORE address on DFKC.
+    -   Fixed `getHeroesAnyChain()` function.
 -   **v1.3.1** , _23/Sep/2022_
     -   Added Master Gardener DFK ABI `abiMasterGardenerDfk`.
     -   Added new Gardens on CV.

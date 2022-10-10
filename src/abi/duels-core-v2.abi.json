@@ -1,0 +1,2330 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "bytes4",
+                "name": "_functionSelector",
+                "type": "bytes4"
+            }
+        ],
+        "name": "facetAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "facetAddress_",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "facetAddresses",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "facetAddresses_",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_facet",
+                "type": "address"
+            }
+        ],
+        "name": "facetFunctionSelectors",
+        "outputs": [
+            {
+                "internalType": "bytes4[]",
+                "name": "facetFunctionSelectors_",
+                "type": "bytes4[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "facets",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "facetAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "bytes4[]",
+                        "name": "functionSelectors",
+                        "type": "bytes4[]"
+                    }
+                ],
+                "internalType": "struct IDiamondLoupe.Facet[]",
+                "name": "facets_",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes4",
+                "name": "_interfaceId",
+                "type": "bytes4"
+            }
+        ],
+        "name": "supportsInterface",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_address",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            }
+        ],
+        "name": "resetScore",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint16",
+                "name": "_blocks",
+                "type": "uint16"
+            }
+        ],
+        "name": "setDuelCompleteBlocks",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_address",
+                "type": "address"
+            }
+        ],
+        "name": "setGoldPot",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "_lose",
+                "type": "uint64"
+            },
+            {
+                "internalType": "uint64",
+                "name": "_win",
+                "type": "uint64"
+            }
+        ],
+        "name": "setLoseWinThresholds",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_limit",
+                "type": "uint256"
+            }
+        ],
+        "name": "setMatchLimit",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_address",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "_access",
+                "type": "bool"
+            }
+        ],
+        "name": "setMatchMaker",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_lobby",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_threshold",
+                "type": "uint256"
+            }
+        ],
+        "name": "setMatchThreshold",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_address",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "_access",
+                "type": "bool"
+            }
+        ],
+        "name": "setModerator",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bool",
+                "name": "_open",
+                "type": "bool"
+            }
+        ],
+        "name": "setOpenMatchmaking",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_statScienceAddress",
+                "type": "address"
+            }
+        ],
+        "name": "setStatScienceAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_threshold",
+                "type": "uint256"
+            }
+        ],
+        "name": "setTimeoutThreshold",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_lobby",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_allowed",
+                "type": "bool"
+            }
+        ],
+        "name": "setTypeAllowed",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "result",
+                "type": "uint256"
+            }
+        ],
+        "name": "RandomEvent",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_duelId",
+                "type": "uint256"
+            }
+        ],
+        "name": "completeDuel",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_heroIds",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_tokenFee",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_background",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_stat",
+                "type": "uint8"
+            }
+        ],
+        "name": "enterDuelLobby",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "duelId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player1",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player2",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct IDuelS1Types.Duel",
+                "name": "duel",
+                "type": "tuple"
+            }
+        ],
+        "name": "DuelCompleted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "duelId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player1",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player2",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct IDuelS1Types.Duel",
+                "name": "duel",
+                "type": "tuple"
+            }
+        ],
+        "name": "DuelCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "heroIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "DuelEntryCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "duelId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "duelEntryId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player1",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "player2",
+                "type": "address"
+            }
+        ],
+        "name": "DuelEntryMatched",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "duelId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "duelId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint16",
+                        "name": "base",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "streakBonus",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint16",
+                        "name": "miscBonus",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "diffBonus",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "scoreBefore",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "scoreAfter",
+                        "type": "uint64"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "name": "PlayerScoreChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "duelId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "player1HeroId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "player2HeroId",
+                "type": "uint256"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint16",
+                        "name": "turn",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1HeroId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2HeroId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "stat",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "background",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint8",
+                                "name": "roll",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "elementBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "statValue",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "backgroundBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "total",
+                                "type": "uint16"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.HeroTurnScore",
+                        "name": "hero1Score",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint8",
+                                "name": "roll",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "elementBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "statValue",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "backgroundBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "total",
+                                "type": "uint16"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.HeroTurnScore",
+                        "name": "hero2Score",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "winnerHeroId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winnerPlayer",
+                        "type": "address"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct IDuelS1Types.TurnResult",
+                "name": "turnResult",
+                "type": "tuple"
+            }
+        ],
+        "name": "TurnOutcome",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_address",
+                "type": "address"
+            }
+        ],
+        "name": "getActiveDuels",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.Duel[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_profile",
+                "type": "address"
+            }
+        ],
+        "name": "getChallenges",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.Duel[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_heroId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getCurrentHeroScoreDuelId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getDuel",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.Duel",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getDuelEntry",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "heroPower",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "score",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "scoreAfter",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenFee",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "duelId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "winStreak",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "loseStreak",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.DuelEntry",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_profile",
+                "type": "address"
+            }
+        ],
+        "name": "getDuelHistory",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.Duel[100]",
+                "name": "",
+                "type": "tuple[100]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_duelId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getDuelIndexP1",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getDuelRewards",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "item",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "qty",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.DuelReward[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getDuelTurns",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint16",
+                        "name": "turn",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1HeroId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2HeroId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "stat",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "background",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint8",
+                                "name": "roll",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "elementBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "statValue",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "backgroundBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "total",
+                                "type": "uint16"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.HeroTurnScore",
+                        "name": "hero1Score",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint8",
+                                "name": "roll",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "elementBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "statValue",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "backgroundBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "total",
+                                "type": "uint16"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.HeroTurnScore",
+                        "name": "hero2Score",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "winnerHeroId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winnerPlayer",
+                        "type": "address"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.TurnResult[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_heroId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getHeroDuel",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player2",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player1DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "player2DuelEntry",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "winner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player1Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "player2Heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "duelId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "base",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "streakBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "miscBonus",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint32",
+                                "name": "diffBonus",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreBefore",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "scoreAfter",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct IDuelS1Types.PlayerScoreChange",
+                        "name": "player1ScoreChange",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.Duel",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_heroId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getHeroDuelEntry",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "heroPower",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "score",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "scoreAfter",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenFee",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "duelId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "winStreak",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "loseStreak",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.DuelEntry",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            }
+        ],
+        "name": "getHighestScore",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_profile",
+                "type": "address"
+            }
+        ],
+        "name": "getPlayerDuelEntries",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "heroPower",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "score",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "scoreAfter",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenFee",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "duelId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "winStreak",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "loseStreak",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.DuelEntry[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_profile",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPlayerScore",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_rank",
+                "type": "uint8"
+            }
+        ],
+        "name": "getPracticeEntry",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "player",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "heroes",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startBlock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "heroPower",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "score",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "scoreAfter",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenFee",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "duelId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "custom2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "duelType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "winStreak",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "loseStreak",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct IDuelS1Types.DuelEntry",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getTotalDuelEntries",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getTotalDuels",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_lobby",
+                "type": "uint256"
+            }
+        ],
+        "name": "getTotalOpenDuelEntries",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_profile",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            }
+        ],
+        "name": "getTotalPlayerDuels",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_profile",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            }
+        ],
+        "name": "getTotalPlayerWins",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_player",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            }
+        ],
+        "name": "getWinStreaks",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_lobby",
+                "type": "uint256"
+            }
+        ],
+        "name": "matchMake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_duelId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_heroIds",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_background",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_stat",
+                "type": "uint8"
+            }
+        ],
+        "name": "acceptChallenge",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_heroIds",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_rank",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_background",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_stat",
+                "type": "uint8"
+            }
+        ],
+        "name": "startPracticeDuel",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_type",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_heroIds",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address",
+                "name": "_opponent",
+                "type": "address"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_background",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_stat",
+                "type": "uint8"
+            }
+        ],
+        "name": "startPrivateDuel",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_heroCoreAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_statScienceAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_raffleWholesale",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_dfkGold",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_powerToken",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_goldPot",
+                "type": "address"
+            }
+        ],
+        "name": "init",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
