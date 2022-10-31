@@ -2,7 +2,10 @@
  * @fileoverview Hero's owner profile related functions.
  */
 
-const { NETWORK_IDS } = require('../constants/constants.const');
+const {
+  NETWORK_IDS,
+  AVAILABLE_CHAIN_IDS,
+} = require('../constants/constants.const');
 const etherEnt = require('../ether');
 const { unixToJsDate } = require('../utils/helpers');
 
@@ -16,10 +19,6 @@ const { getProvider } = etherEnt;
  * @return {Object|null} Normalized profile data object or null if not found.
  */
 exports.getProfileByAddress = async (chainId, ownerAddress) => {
-  // FIXME - Temporary override of chain to be used because profile
-  //    contract does not exist on CV yet.
-  chainId = NETWORK_IDS.HARMONY;
-
   const currentRPC = await getProvider(chainId);
   const { lastBlockMined } = currentRPC;
   const profileContract = etherEnt.getContractProfile(currentRPC);
@@ -55,4 +54,41 @@ exports.getProfileByAddress = async (chainId, ownerAddress) => {
   };
 
   return response;
+};
+
+/**
+ * Will query for the profile data on DFK based on the address, regardless
+ * of chain id.
+ *
+ * @param {string} ownerAddress The owner's address to query by.
+ * @return {Object|null} Normalized profile data object or null if not found.
+ */
+exports.getProfileByAddressAnyChain = async (ownerAddress) => {
+  // Find on which realm the profile is
+  const allPromises = AVAILABLE_CHAIN_IDS.map((chainId) => {
+    return exports.getProfileByAddress(chainId, ownerAddress);
+  });
+
+  const results = await Promise.allSettled(allPromises);
+
+  // get the result with the values
+  const resultValues = results.filter((result) => {
+    if (result.status !== 'fulfilled') {
+      return false;
+    }
+
+    if (result.value.length) {
+      return true;
+    }
+    return false;
+  });
+
+  if (!resultValues.length) {
+    return [];
+  }
+
+  const [successResult] = resultValues;
+  const { value } = successResult;
+
+  return value;
 };
