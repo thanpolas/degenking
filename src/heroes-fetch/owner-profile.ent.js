@@ -77,14 +77,14 @@ exports.getProfileByAddressAnyChain = async (ownerAddress) => {
       return false;
     }
 
-    if (result.value.length) {
+    if (result.value) {
       return true;
     }
     return false;
   });
 
   if (!resultValues.length) {
-    return [];
+    return null;
   }
 
   const [successResult] = resultValues;

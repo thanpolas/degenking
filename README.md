@@ -1125,6 +1125,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.4** , _31/Oct/2022_
+    -   Fixes `getProfileByAddressAnyChain()`.
 -   **v1.3.3** , _31/Oct/2022_
     -   Created the `getProfileByAddressAnyChain()` query to fetch a DFK profile regardless of network.
     -   Added the profile contract address for DFK Chain.
