@@ -17,7 +17,7 @@ exports._config = {
   getProvider: (chainId) => {
     if (chainId !== NETWORK_IDS.HARMONY) {
       throw new Error(
-        'getProvider() degenking local only accepts harmony chain id',
+        'Unconfigured degenking "getProvider()" only accepts harmony chain id',
       );
     }
 
@@ -34,7 +34,7 @@ exports._config = {
   getArchivalProvider: (chainId) => {
     if (chainId !== NETWORK_IDS.HARMONY) {
       throw new Error(
-        'getArchivalProvider() degenking local only accepts harmony chain id',
+        'Unconfigured degenking getArchivalProvider() only accepts harmony chain id',
       );
     }
 

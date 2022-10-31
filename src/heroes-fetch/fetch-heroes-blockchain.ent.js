@@ -59,7 +59,8 @@ exports.getHeroesAnyChain = async (heroIds, params = {}) => {
     return [];
   }
 
-  const [value] = resultValues;
+  const [successResult] = resultValues;
+  const { value } = successResult;
 
   return value;
 };

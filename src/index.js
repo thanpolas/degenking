@@ -78,7 +78,10 @@ const {
 
 const { getRanking } = require('./heroes-helpers/hero-ranking.ent');
 
-const { getProfileByAddress } = require('./heroes-fetch/owner-profile.ent');
+const {
+  getProfileByAddress,
+  getProfileByAddressAnyChain,
+} = require('./heroes-fetch/owner-profile.ent');
 
 const {
   questResolve,
@@ -166,6 +169,7 @@ exports.chainIdToRealm = chainIdToRealm;
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
+exports.getProfileByAddressAnyChain = getProfileByAddressAnyChain;
 
 // New command[s] 21/Mar/2021
 exports.getSalesAuctionChainByHeroId = getSalesAuctionChainByHeroId;
