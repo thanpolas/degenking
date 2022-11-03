@@ -1125,6 +1125,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.5** , _03/Nov/2022_
+    -   Fetching hero data will now use the `getProfileByAddressAnyChain()` to get profile information of the hero's account holder.
 -   **v1.3.4** , _31/Oct/2022_
     -   Fixes `getProfileByAddressAnyChain()`.
 -   **v1.3.3** , _31/Oct/2022_
