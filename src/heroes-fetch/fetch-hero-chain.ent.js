@@ -13,7 +13,7 @@ const {
 const {
   getSalesAuctionChainByHeroId,
 } = require('../auctions/query-auctions.ent');
-const { getProfileByAddress } = require('./owner-profile.ent');
+const { getProfileByAddressAnyChain } = require('./owner-profile.ent');
 
 const { processHeroChainData } = require('./normalise-blockchain.ent');
 
@@ -103,7 +103,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
     // Check if owner object exists and if not fetch it.
     let { heroesOwner } = params;
     if (!heroesOwner) {
-      heroesOwner = await getProfileByAddress(chainId, ownerAddress);
+      heroesOwner = await getProfileByAddressAnyChain(ownerAddress);
     }
 
     const hero = processHeroChainData(heroRaw, heroesOwner, ownerAddress);
