@@ -1125,6 +1125,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.6** , _08/Nov/2022_
+    -   Refreshed the all-items list.
+    -   Added script to normalize raw items as imported from DFK.
 -   **v1.3.5** , _03/Nov/2022_
     -   Fetching hero data will now use the `getProfileByAddressAnyChain()` to get profile information of the hero's account holder.
 -   **v1.3.4** , _31/Oct/2022_
