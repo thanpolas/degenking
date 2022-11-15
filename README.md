@@ -1125,6 +1125,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.3.7** , _15/Nov/2022_
+    -   Removed the wJewel-xJewel pool.
 -   **v1.3.6** , _08/Nov/2022_
     -   Refreshed the all-items list.
     -   Added script to normalize raw items as imported from DFK.
