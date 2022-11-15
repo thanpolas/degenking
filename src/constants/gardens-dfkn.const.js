@@ -12,7 +12,7 @@ exports.Pools = [
     pid: 0,
     pair: 'wJEWEL-xJEWEL',
     address: '0xd3d8ff8e42c2ed51fabe4ba34080c6ac79395f24',
-    active: true,
+    active: false,
   },
   {
     pid: 1,
