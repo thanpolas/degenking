@@ -216,6 +216,7 @@ exports.abiItems = require('./abi/items.abi.json');
 exports.abiQuestCoreV1 = require('./abi/quest-core-v1.abi.json');
 exports.abiQuestCoreV2 = require('./abi/quest-core-v2.abi.json');
 exports.abiQuestCoreV2_1 = require('./abi/quest-core-v2.1.abi.json');
+exports.abiQuestCoreV2_2 = require('./abi/quest-core-v2.2.abi.json');
 
 exports.abiDuelsCore = require('./abi/duels-core.abi.json');
 exports.abiDuelsCoreV2 = require('./abi/duels-core-v2.abi.json');
