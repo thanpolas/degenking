@@ -12,24 +12,28 @@ exports.DATA_SOURCES = {
 exports.NETWORK_IDS = {
   HARMONY: 1666600000,
   DFKN: 53935,
+  KLAYTN: 8217,
 };
 
 /** @const {Array<number>} AVAILABLE_CHAIN_IDS All available chain ids in an array */
 exports.AVAILABLE_CHAIN_IDS = [
   exports.NETWORK_IDS.HARMONY,
   exports.NETWORK_IDS.DFKN,
+  exports.NETWORK_IDS.KLAYTN,
 ];
 
 /** @enum {number} EVM Network ids in reverse */
 exports.NETWORK_IDS_REV = {
   1666600000: 'Harmony',
   53935: 'DFKN',
+  8217: 'KLAYTN',
 };
 
 /** @enum {number} EVM Network ids resolving in DFK Realm */
 exports.NETWORK_IDS_REV_REALM = {
   1666600000: 'SD',
   53935: 'CV',
+  8217: 'SD2',
 };
 
 exports.ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
