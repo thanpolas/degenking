@@ -1125,6 +1125,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.0** , _09/Dec/2022_
+    -   Added support for Klaytn and Serendale 2.0.
 -   **v1.3.8** , _08/Dec/2022_
     -   Added Quest Core ABI v2.2 as `abiQuestCoreV2_2`.
 -   **v1.3.7** , _15/Nov/2022_
