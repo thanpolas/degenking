@@ -8,6 +8,7 @@ const gardensDFKN = require('./gardens-dfkn.const');
 exports.UNISWAPV2FACTORY = '';
 exports.UNISWAPV2ROUTER = '';
 exports.MASTER_GARDENER = '0x57dec9cc7f492d6583c773e2e7ad66dcdc6940fb';
+// wrapped jewel
 exports.JEWEL_TOKEN = '0xccb93dabd71c8dad03fc4ce5559dc3d89f67a260';
 exports.CRYSTAL_TOKEN = '0x04b9da42306b023f3572e106b11d82aad9d32ebb';
 exports.BASE_TOKEN = exports.CRYSTAL_TOKEN;
