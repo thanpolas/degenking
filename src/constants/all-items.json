@@ -7,6 +7,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x59Dc45470b495abF790e62a9a0bE935965FeE4cb",
+            "1001": "0x90924Dc4fc09FecEC2011C2b482284BEa0635d1f",
+            "8217": "0x75E8D8676d774C9429FbB148b30E304b5542aC3d",
             "53935": "0xB78d5580d6D897DE60E1A942A5C1dc07Bc716943",
             "1666600000": "0x6e1bC01Cc52D165B357c42042cF608159A2B81c1",
             "1666700000": "0xf644bc484724f964531242992178BC6C5B33C4a3"
@@ -26,6 +28,8 @@
         "type": "potion",
         "addresses": {
             "335": "0x1AB2D40bA223fBfD3B0f734Ba3a0597c213A3277",
+            "1001": "0xfe8dd988FcC3Feed86468E2A8FA586fFbD1E39EF",
+            "8217": "0xE34a733fA92B41A1CA4241da9D2d5834Cc8D1011",
             "53935": "0x449eB718e351a86718A090A1a8Db3FD561306d9b",
             "1666600000": "0xA1f8b0E88c51a45E152934686270DDF4E3356278",
             "1666700000": "0xaf278b61cdF5B5119b5386f4E91F8D0a1495b864"
@@ -72,13 +76,15 @@
         "type": "crystal",
         "addresses": {
             "335": "0x2e49740f19f8A0fD3864C45c42883e55DC01f058",
+            "1001": "0x1716ed2b9751C8E53FaC12A0ec32Cc604daBacCe",
+            "8217": "0x1716ed2b9751C8E53FaC12A0ec32Cc604daBacCe",
             "53935": "0xab2B495902f9A6652c382e5f289423929FFF2E65",
             "1666600000": "0x27dC6AaaD95580EdF25F8B9676f1B984e09e413d",
             "1666700000": "0x0F798BDA7777F59138Ef8E7Ad03DC98EFa3D207d"
         },
         "tokenSymbol": "DFKATONECR",
         "isConsumable": false,
-        "isBridgeable": true,
+        "isBridgeable": false,
         "quantity": 0
     },
     {
@@ -92,13 +98,15 @@
         "type": "crystal",
         "addresses": {
             "335": "0x9D33339a0384418d5964B005EB9E9e75C5103800",
+            "1001": "0x8C2b882ceC737Dd6CD5B0116292e853261B61030",
+            "8217": "0x8C2b882ceC737Dd6CD5B0116292e853261B61030",
             "53935": "0xbFa812214a16EcA7814e5F5c270d7f8F37A110B5",
             "1666600000": "0x1f3F655079b70190cb79cE5bc5AE5F19dAf2A6Cf",
             "1666700000": "0x351D17791c396128163185a8512aC9edC820C03A"
         },
         "tokenSymbol": "DFKLATONECR",
         "isConsumable": false,
-        "isBridgeable": true,
+        "isBridgeable": false,
         "quantity": 0
     },
     {
@@ -114,13 +122,15 @@
         "type": "crystal",
         "addresses": {
             "335": "0x653D32bEB4D78F698Ed044C9220833b985CAB269",
+            "1001": "0x728428C9Bdbca84f356dbe017dE0cdDd9e17b1C0",
+            "8217": "0x728428C9Bdbca84f356dbe017dE0cdDd9e17b1C0",
             "53935": "0x3A28E0D4eCF7558e1ba7357070032C5A6105B0C2",
             "1666600000": "0x17f3B5240C4A71a3BBF379710f6fA66B9b51f224",
             "1666700000": "0xE02A5D2b8d08D9Da01164669A4838f7aC040DAEF"
         },
         "tokenSymbol": "DFKGATONECR",
         "isConsumable": false,
-        "isBridgeable": true,
+        "isBridgeable": false,
         "quantity": 0
     },
     {
@@ -147,6 +157,8 @@
         "type": "potion",
         "addresses": {
             "335": "0x9a5F30808f7b608c1d68915AeC8fA9180D9a7bDa",
+            "1001": "0xEd19C45869d89c6A8060D7D3ff4D1FF70f649dd1",
+            "8217": "0x5FB537aF1d929af7BDD7935C289158c940782ed6",
             "53935": "0x5986045e7c221c8AD40A736B6434D82E29687aeB",
             "1666600000": "0x1771dEc8D9A29F30d82443dE0a69e7b6824e2F53",
             "1666700000": "0x9D2C253a10738A8b2762b4cd17F3F98F39F86167"
@@ -189,6 +201,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0x3C0B9C87b1747C47D0B73910f995A08D75D81Af1",
+            "1001": "0xcEa07Fad1b5b5270b50085695c1e7efc3C09fa1a",
+            "8217": "0x72F860bF73ffa3FC42B97BbcF43Ae80280CFcdc3",
             "53935": "0x268CC8248FFB72Cd5F3e73A9a20Fa2FF40EfbA61",
             "1666600000": "0x78aED65A2Cc40C7D8B0dF1554Da60b38AD351432",
             "1666700000": "0x87543cC8E5120fe9494B09d4908cAe7dADB7C90a"
@@ -208,6 +222,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x360b42353FDF7Fd71Ad52509ae38F85cB638BDD1",
+            "1001": "0x8450F986dF4e3db6f015B5eF0BC1605CA2D5062d",
+            "8217": "0xDbd4fA2D2C62C6c60957a126970e412Ed6AC1bD6",
             "53935": "0x0776b936344DE7bd58A4738306a6c76835ce5D3F",
             "1666600000": "0xAC5c49Ff7E813dE1947DC74bbb1720c353079ac9",
             "1666700000": "0xF7C247D04A346f86CCE9Afa8919CbE2B365187C1"
@@ -216,37 +232,6 @@
         "salesPrice": 5,
         "featuredMetric": true,
         "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "breatheRune",
-        "name": "Breathe Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/breathe-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "cJEWEL",
-        "name": "cJEWEL",
-        "description": "Power token for voting escrow.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/jewel-bag.png",
-        "type": "hidden",
-        "addresses": {
-            "335": "0xD5b38Cb2B174ce5E8B183C4c369ED224BeE24AF8",
-            "53935": ""
-        },
-        "tokenSymbol": "",
-        "isConsumable": false,
-        "isSoulBound": true,
         "isBridgeable": true,
         "quantity": 0
     },
@@ -262,6 +247,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x4d5afDaD6Cfc1D603635B61a036CC1D29d63829F",
+            "1001": "0x1905045E35fBb7F7bdc70664C67525510224f77B",
+            "8217": "0xE078C782fF0cC1789D0608834A3cD5076896e4FC",
             "53935": "0xC6b00B4005883C1Ff09fa1351B0f49027bCAB71a",
             "1666600000": "0x45B53E55b5c0A10fdd4fE2079a562d5702F3A033",
             "1666700000": "0x0c60d9A0a69E7c50f8113a98f9bAB30AD66614a3"
@@ -283,6 +270,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xfFA8754977187308E28d8C47Caa3CB821E40C7Eb",
+            "1001": "0x39a06D3e1b6b1B24C477d90770F317abb4B8f928",
+            "8217": "0x537E800b8fD22Dc76A438Af8b9923986A5487853",
             "53935": "0xeEe5b16Cc49e7cef65391Fe7325cea17f787e245",
             "1666600000": "0xa509c34306AdF6168268A213Cc47D336630bf101",
             "1666700000": "0xF71c52DABB711f2cdaf2e6dA68654f2E927dbb23"
@@ -304,6 +293,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xB0deE206Dd196563C5c651D9fCcc364f651C3810",
+            "1001": "0x8003E752dc60Dc0159bf0E10aadA803dE11BB2D0",
+            "8217": "0x9e185426354AA53aAC07De79c2fa1e0B50490fdd",
             "53935": "0xb0155Fdb7B6972717C4774Fa2AEAEe9D6c0040b9",
             "1666600000": "0x423bbec25e4888967baeDB7B4EC5b0465Fa3B87D",
             "1666700000": "0xe7BE74dB003E74427Fd0C74b9f9B8D72A7a7E83E"
@@ -326,6 +317,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xeA33d009DA0d5d5A46d099C3220c152F29685772",
+            "1001": "0x98aef3E357394D395b2d6661f87fBBD9dc739176",
+            "8217": "0x880cb941AAb394775f54F2b6468035bbdD0B81dF",
             "53935": "0x1ED1a6Ed588945C59227f7a0c622Ad564229d3d6",
             "1666600000": "0x3633F956410163A98D58D2D928B38C64A488654e",
             "1666700000": "0x564C20F0E257531464B3c1AB9e827b74C95BC9e2"
@@ -348,6 +341,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xAb9aC94E6d7c8CDF4e1f0147Eb201Eb7CC89a48d",
+            "1001": "0xbCEa0cA22e8B92A0fA0794485FAb1Ea9EDf754cC",
+            "8217": "0x38bDed7C399bbD214a19De35260766b130cAFd2F",
             "53935": "0x7643ADB5AaF129A424390CB055d6e23231fFd690",
             "1666600000": "0x6D4f4bC32df561a35C05866051CbE9C92759Da29",
             "1666700000": "0x971f32b88Afa7981894a51cE7e19d997A291062a"
@@ -400,6 +395,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x295f859B5865715c9A0E82E0B12c23a25d2BC604",
+            "1001": "0x67E49492717b1c9683aab85FCcB0D4f0590F0e24",
+            "8217": "0x932049DF7f09DeE7cF5Aefe03f373810EBbdDDc7",
             "53935": "0xEd4Bf3008afE47FE01CcC7a6648a24E326667eee",
             "1666600000": "0x2fB31FF9E9945c5c1911386865cD666b2C5dfeB6",
             "1666700000": "0xBf52D66907BE64B904081670D246375e828581e8"
@@ -410,26 +407,11 @@
         "quantity": 0
     },
     {
-        "key": "courageRune",
-        "name": "Courage Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/courage-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
         "key": "crystal",
         "name": "CRYSTAL",
         "description": "You find yourself subconsciously shaking this bag, just to hear the jingle and jangle.",
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/crystal-bag.png",
-        "type": "hidden",
+        "type": "balance",
         "addresses": {
             "335": "0xa5c47B4bEb35215fB0CF0Ea6516F9921591c3aCE",
             "53935": "0x04b9dA42306B023f3572e106B11D82aAd9D32EBb"
@@ -462,6 +444,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0xBe149BAE45c5b4EFd4b49a88cb90A4b671124a23",
+            "1001": "0x257A82f9A5CdABA7A13bcc539917c2135D7Ef4f7",
+            "8217": "0xEDFBe9EEf42FfAf8909EC9Ce0d79850BA0C232FE",
             "53935": "0x848Ac8ddC199221Be3dD4e4124c462B806B6C4Fd",
             "1666600000": "0x68EA4640C5ce6cC0c9A1F17B7b882cB1cBEACcd7",
             "1666700000": "0x70E1EF5418448EA3f2AfCd8D22CBC1cb53988A9a"
@@ -469,36 +453,6 @@
         "tokenSymbol": "DFKDRKWD",
         "salesPrice": 10,
         "featuredMetric": true,
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "defiagra",
-        "name": "Defiagra",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/defiagra.png",
-        "type": "potion",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "defiagraPlus",
-        "name": "Defiagra Plus",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/defiagra-plus.png",
-        "type": "potion",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
         "isConsumable": false,
         "isBridgeable": true,
         "quantity": 0
@@ -520,21 +474,6 @@
         "quantity": 0
     },
     {
-        "key": "energyRune",
-        "name": "Energy Rune ",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/energy-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
         "key": "eternalStoryPages",
         "name": "Pages of the Eternal Story",
         "description": "A weathered page with strange and wondrous legends, written with exquisite penmanship.",
@@ -542,6 +481,8 @@
         "type": "collection",
         "addresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -572,6 +513,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -608,6 +551,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -644,6 +589,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -680,6 +627,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -716,6 +665,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -752,6 +703,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -788,6 +741,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -824,6 +779,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -860,6 +817,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -896,6 +855,8 @@
         "addresses": {},
         "collectionAddresses": {
             "335": "0xa03f472F72dc0A5928096521e935fdA7c6342E96",
+            "1001": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "8217": "0x26bdcB310313eFf8D580e43762e2020B23f3e728",
             "53935": "0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a",
             "1666600000": "0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390",
             "1666700000": "0x241fEEb8B29e2A46C08b1C3ceefc632085baFc6B"
@@ -935,6 +896,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xDD1EC3228e854D6B159a3438F9D65c6c42Cf4cc7",
+            "1001": "0x4A99198B4EeF4dD6de990a523B50736C1BEA444c",
+            "8217": "0x15E77beB33D3B09aB7da529daB1E556b955fECf6",
             "53935": "0xA9A8cc1AC7e7505a69cAca2E068716395CebE562",
             "1666600000": "0xc6A58eFc320A7aFDB1cD662eaf6de10Ee17103F2",
             "1666700000": "0x720412b43E6eA9f061Cd6D89B491F29D415ab4ff"
@@ -956,6 +919,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x85106b1aF8B0337CB39a9aacDa87849B882a3170",
+            "1001": "0xb606c5973Ff498Ddf68E4a77116A00b9Ea892F84",
+            "8217": "0xC3B36a02f360c3d18042bF3533be602cb775007A",
             "53935": "0x9d9ef1Bf6A46b8413bf6b1b54F6A7aAb53c6b1b6",
             "1666600000": "0x39927A2CEE5580d63A163bc402946C7600300373",
             "1666700000": "0x25117B22Ee77fEE82813A864785704cfEd9e37C5"
@@ -977,6 +942,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x33BE31DEf86BdB0f8A83b7bf16721f4780B1bfAb",
+            "1001": "0xAbBf6016aBDc04Ab76bf8F23bDbed984609DD896",
+            "8217": "0x616df872971A3f31dffC9a2B55BF55C760B966bF",
             "53935": "0xdA16b191D1431746b6661D428A223b72c178765A",
             "1666600000": "0xd1f789f6f8a3ee3fb94adBE3e82f43AAb51759Ee",
             "1666700000": "0x83228013148950efB09f042fc096E4177Abb080a"
@@ -999,6 +966,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x611811494E0EAA6048C1AF2C52C2fcDe7fcFe309",
+            "1001": "0x95C82b70c2bAe419c5729E092464790880579037",
+            "8217": "0x31eb3b534E29D10Db08109A1fa50ccB081d10816",
             "53935": "0xe2C357ECB698C5ee97c49CCCfA8117c4b943C7B9",
             "1666600000": "0xD0B689Cb5DE0c15792Aa456C89D64038C1F2EedC",
             "1666700000": "0x16cc1683243CAEB45B840720aF86b24916457EB9"
@@ -1021,6 +990,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x49744F76caA3B63CccE9CE7de5C8282C92c891e5",
+            "1001": "0x2815A280df4dD4FC429ad2F5f7846f6756fEfD2D",
+            "8217": "0x784bd01e3882b80aa837f6A3041Cd386eC54a501",
             "53935": "0xF1D53fa23C562246B9d8EC591eEa12Ec0288a888",
             "1666600000": "0xbb5614D466b77d50DdEd994892DFe6F0ACA4eEbb",
             "1666700000": "0x7F8037ce1973E8DE88640B86bD40B8F79e08E39E"
@@ -1073,6 +1044,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x7b89F43080804C0484895D202bdB6C5412DE905F",
+            "1001": "0x144132767a353f7485Fe09D19faAE19ca3905E61",
+            "8217": "0xFE4ac39174C2637537711f0cb3112EaD47E77D37",
             "53935": "0xF35D4f749C6ADCd4AEfE1720C5890cD38129d128",
             "1666600000": "0x20f10ef23Cdc11Fa55E6B3703d88f19A7B345D15",
             "1666700000": "0x4F5815d68fab431431Ee36c1a18dA41d36125bB1"
@@ -1094,6 +1067,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x8Bb052D91895868a13fde5698814Bbbbc497497F",
+            "1001": "0x839cfB0Cc3c741c37fbC5c404b07fdf218442085",
+            "8217": "0xA844059503289B781854aEdcA04E5bB13290bd86",
             "53935": "0xdbEE8C336B06f2d30a6d2bB3817a3Ae0E34f4900",
             "1666600000": "0x603919AEB55EB13F9CDE94274fC54ab2Bd2DecE7",
             "1666700000": "0x352E42f246a9ca79139D4Cfc7817494DC7EDaCf7"
@@ -1115,6 +1090,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x55dAAbebf9d7e6e4BbD19c0d4A5e2CD73C7A9cE1",
+            "1001": "0x7695b62E7e318f3BC7ac347894Dae52A3CD3f2e1",
+            "8217": "0x1E672a8385b39E13267efA2Fb39f574a2a23AE9F",
             "53935": "0xbd2677c06C9448534A851bdD25dF045872b87cb1",
             "1666600000": "0x3017609B9A59B77B708D783835B6fF94a3D9E337",
             "1666700000": "0x5a57Ca33DEc5A63132235d9a0e3dac3cdc5c5003"
@@ -1136,6 +1113,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x7bEeb7193b030e0aB962Db1c95FeeccEbD98eC60",
+            "1001": "0x75912145f5cFEfb980616FA47B2f103210FaAb94",
+            "8217": "0x147b3263F1C4ca729B13Ca1D2A7148c32Aa1d8d0",
             "53935": "0x3e1c80c3B916C93748Ae642c885d4BFb5D6a6BFe",
             "1666600000": "0xFE41BFf925eD88f688332b12746ef1Da68FD4CF2",
             "1666700000": "0x148EDF7473fB413e9c37896Fc6De1b5dA24f946F"
@@ -1158,6 +1137,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xC575970728AE06fcD252fC128cEf3f5385AD67c9",
+            "1001": "0xb9341B432A15C7d9C361a675b1FBeE5301f9828A",
+            "8217": "0x254787d3b87d8c21A300Ab8D5A06C01426CE40c0",
             "53935": "0x05305c97e9A2FDC0F5Ea23824c1348DEeD9Aff04",
             "1666600000": "0x17Fa96ba9d9C29e4B96d29A7e89a4E7B240E3343",
             "1666700000": "0xD7D89A1457B40570166e46c449CabD661Dbe0e76"
@@ -1180,6 +1161,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xFD1FDF97F32709F3Cb03d3c6979E03417e7c1BB3",
+            "1001": "0x020b7ECB3fAd450c906Ebf7853d3d407FDf7ca84",
+            "8217": "0xBC5248B4f50f4c7D2F9A67Be1f1d4b8be44ffc75",
             "53935": "0xf599Ae2c925D3287a7fF64DC1b55C7Ea6EE3AA8f",
             "1666600000": "0x1f57eb682377f5Ad6276b9315412920BdF9530f6",
             "1666700000": "0xF71c3fe9388DebDE97798ddA84939c70CFEa516D"
@@ -1232,6 +1215,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x2e20a79b720485b2f0eD4d76C39e4cD92682Aa9a",
+            "1001": "0xd467f3cE950663b0195C25e615D6C7B2BC49699a",
+            "8217": "0x3D0EA055081e62e40257fde3A2036a557af6Ff77",
             "53935": "0xc2eF7E4f659272ca2DaE9d3df05680783b299Cd0",
             "1666600000": "0x27AF2A00B42Dcc0084A6Dc99169efbFE98eb140C",
             "1666700000": "0x90D1f603BdAd4eC33aA385406Fe79d3C28832C5d"
@@ -1253,6 +1238,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xA96e8794c21A690a910e62E9245d0C79054aaF2c",
+            "1001": "0x116396E54302f91e00273E3821Da3b609DEF4771",
+            "8217": "0x02d27BC195E58498C687A82d96188A8EF282a1e1",
             "53935": "0xe9BfCc80800EB77a1eAF6881825936770aF83Eb6",
             "1666600000": "0x6D777C64f0320d8A5b31BE0FdeB694007Fc3ed45",
             "1666700000": "0x554f36cA3aEffC9792E7368af516F687F94c22Cb"
@@ -1274,6 +1261,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xdad4450A1546640383C6f6Df70A35889373727aF",
+            "1001": "0x64CdCFEDFfB26A395C55E2018485E895C775C18c",
+            "8217": "0x8baD15B5C531d119b328d0F716a6B9D90CeDa88A",
             "53935": "0xE410b2BE2Ce1508E15009118567d02C6d7A7038e",
             "1666600000": "0x13AF184aEA970Fe79E3BB7A1B0B156B195fB1f40",
             "1666700000": "0xD36Ce1d217F2Bb548a0bf256686380619Fe897cC"
@@ -1295,6 +1284,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x10fAa10b5CF8cCEf3F8E65358B56f22a3B42AEDF",
+            "1001": "0x06d58D10Eff6f7FB88b24D04dfa4DEb1A5D0A632",
+            "8217": "0x0d2ea025007995e9Bb1815864CD4e7B98B47DF7c",
             "53935": "0x64C7D12D85050F5F0DcD075f038E5D616f30a404",
             "1666600000": "0x2bC1112337B90bF8c5b9422bC1e98193a9C3d1f4",
             "1666700000": "0x670fB2d0cD645BD094aEcdDfEcbfA68Ab01A5aEf"
@@ -1317,6 +1308,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xfFf9760521C05A288e8813A0d483cA7BCC4F044c",
+            "1001": "0x5BDa5c3258c72c4890E6c1EA16f4F9E394FF3fB4",
+            "8217": "0xf0cBbd41652d9A93A899f070669186F0c8475F7D",
             "53935": "0xd647D8b52981eDE13ac6a5B7Ad04e212Ac38fdFb",
             "1666600000": "0x5da2EffE9857DcEcB786E13566Ff37B92e1E6862",
             "1666700000": "0x7EE9e78557c10B0aE149506f51104D88a73B957f"
@@ -1339,6 +1332,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x1C3B5c108DCF7A76510913A4ce53b71144C99a7D",
+            "1001": "0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA",
+            "8217": "0x816E22125021530535364390a3E2fA305a436247",
             "53935": "0x934e3e2a433F37cC2D02855A43fD7Ed475EA7451",
             "1666600000": "0x6D6eA1D2Dc1Df6Eaa2153f212d25Cf92d13Be628",
             "1666700000": "0x8B460a535f5Ac6D056b2F1CeBC44792eFE80a8CC"
@@ -1390,6 +1385,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xddF52625874610aABC183310EfaE8e6Da1AFcc4a",
+            "1001": "0x22a20A56b9162B155BE51ACdD14051B142CF1a35",
+            "8217": "0x91aced74b0CEE03EF8902f13E97F6e308941E6Bd",
             "53935": "0x8FfF0f5A660b4D38441DDF6127bca42D7a2755a9",
             "1666600000": "0x7f26CB2BBBcFCE8e5866cc02a887A591E1Adc02A",
             "1666700000": "0x4FaaCc95D81E861016051dA3dcCC525C89098B0c"
@@ -1407,12 +1404,14 @@
         "type": "scrap",
         "addresses": {
             "335": "0xeD5bA0739Bf175879A4b2d5E8AE2Ba537cB64703",
+            "1001": "0x22a3bdDD28DC255B230FD583E0Ee472eCD4fF9e3",
+            "8217": "0x18cB286EeCE992f79f601E49acde1D1F5dE32a30",
             "53935": "0x3bcb9A3DaB194C6D8D44B424AF383E7Db51C82BD"
         },
         "tokenSymbol": "DFKFBLOATER",
         "salesPrice": 2.5,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -1423,12 +1422,14 @@
         "type": "scrap",
         "addresses": {
             "335": "0x5b8ECf34d29eD2407E704150b44E04D21eF8e252",
+            "1001": "0xBCC526C5aCD9F23F2a9f85E9b72C7ca793b6a6FD",
+            "8217": "0xD69542aBE74413242e387Efb9e55BE6A4863ca10",
             "53935": "0xe7a1B580942148451E47b92e95aEB8d31B0acA37"
         },
         "tokenSymbol": "DFKFROSTDRM",
         "salesPrice": 2.5,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -1456,6 +1457,8 @@
         "type": "summon",
         "addresses": {
             "335": "0xbE191ba492b5B2B9845A4801Ebd1940B5f772EE2",
+            "1001": "0xbb8ac0BB95E433204217b0478B3f6d815EcB2d8C",
+            "8217": "0x8Be0cbA3c8c8F392408364ef21dfCF714A918234",
             "53935": "0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA",
             "1666600000": "0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04",
             "1666700000": "0xf0e28E7c46F307954490fB1134c8D437e23D55fb"
@@ -1480,8 +1483,8 @@
             "56": "0x0000000000000000000000000000000000000001",
             "97": "0x0000000000000000000000000000000000000001",
             "335": "0xeCCC54b836cD5bf114daec723de1c0d89B0C2A7b",
-            "1001": "0x0000000000000000000000000000000000000001",
-            "8217": "0x0000000000000000000000000000000000000001",
+            "1001": "0x74852982B2371004b97584A5AAFeF71F7A5196B9",
+            "8217": "0xe7a1B580942148451E47b92e95aEB8d31B0acA37",
             "31337": "0x0000000000000000000000000000000000000001",
             "43113": "0x0000000000000000000000000000000000000001",
             "43114": "0x0000000000000000000000000000000000000001",
@@ -1540,8 +1543,8 @@
             "56": "0x0000000000000000000000000000000000000001",
             "97": "0x0000000000000000000000000000000000000001",
             "335": "0xeCCC54b836cD5bf114daec723de1c0d89B0C2A7b",
-            "1001": "0x0000000000000000000000000000000000000001",
-            "8217": "0x0000000000000000000000000000000000000001",
+            "1001": "0x74852982B2371004b97584A5AAFeF71F7A5196B9",
+            "8217": "0xe7a1B580942148451E47b92e95aEB8d31B0acA37",
             "31337": "0x0000000000000000000000000000000000000001",
             "43113": "0x0000000000000000000000000000000000000001",
             "43114": "0x0000000000000000000000000000000000000001",
@@ -1562,6 +1565,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0xd82eB52448476F634Fb6236E4925710Bd70f6Fd6",
+            "1001": "0x7ae57434B743e93D1beC1539afF31834a2208D40",
+            "8217": "0xeaF833A0Ae97897f6F69a728C9c17916296cecCA",
             "53935": "0x0096ffda7A8f8E00e9F8Bbd1cF082c14FA9d642e",
             "1666600000": "0x600541aD6Ce0a8b5dae68f086D46361534D20E80",
             "1666700000": "0xCDDbE7Aeb5a87C5b815abDf07e25D0aA024C9E68"
@@ -1581,6 +1586,8 @@
         "type": "potion",
         "addresses": {
             "335": "0x1ffee1384dfcd98794bb536bac2a78d28f31ddf0",
+            "1001": "0x2282F63D9997D0C0Fc81Fd9DA11467dd1F35a140",
+            "8217": "0xa27C1429a676db902B9f0360686eDbB57d0A7B01",
             "53935": "0x591853e01EcFDcF1Bdc9f093423C197BfBBd1A4f",
             "1666600000": "0x2789F04d22a845dC854145d3c289240517f2BcF0",
             "1666700000": "0x2314891F7c5EccF899d1Dc6c35A971c23e7E9c31"
@@ -1619,6 +1626,8 @@
         "type": "potion",
         "addresses": {
             "335": "0xd56FaEF679Dd814E552Ca3728ca11Aea80e696fB",
+            "1001": "0x201Ec729782c79F62070E0b5F2016bB51700de87",
+            "8217": "0xf710244462431b9962706B46826AFB3B38376c7b",
             "53935": "0x5948dd8Df6afEFE05B033AD8f3ae513a9Cd4F1Dc",
             "1666600000": "0x87361363A75c9A6303ce813D0B2656c34B68FF52",
             "1666700000": "0xbD1CF764D09378b387B0f052099978fD7f658B60"
@@ -1670,11 +1679,11 @@
         "quantity": 0
     },
     {
-        "key": "hopeRune",
-        "name": "Hope Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/hope-rune.png",
-        "type": "rune",
+        "key": "heroGen0Egg",
+        "name": "Hero Gen0 Egg",
+        "description": "You can feel power seeping from this egg.",
+        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/crystal-heroGen0.gif",
+        "type": "summon",
         "addresses": {
             "1666600000": "0x0000000000000000000000000000000000000001",
             "1666700000": "0x0000000000000000000000000000000000000001"
@@ -1696,6 +1705,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x0B6d0921D0Bec2f0B76A1feF9391e359e6276c59",
+            "1001": "0x45A27A0Adb9550239D3088aBcfd86836840A262f",
+            "8217": "0xAd7fBD9EDDE05227964104Bb23Ff8d171D4c90C8",
             "53935": "0x03e56Ded72C3a974295773355EadB38c0A85cF9D",
             "1666600000": "0x117E60775584CdfA4f414E22b075F31cC9c3207C",
             "1666700000": "0xD2c6C2caC41Ef18816f439c048B323cd202Af45b"
@@ -1717,6 +1728,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x6EDF99328BFe253Bd8caF458fCEcad55eA90D8DE",
+            "1001": "0x5986045e7c221c8AD40A736B6434D82E29687aeB",
+            "8217": "0x5f967E325E91977B42D2591Fc2f57da75Ee4490B",
             "53935": "0xbb5F97358F60cCBa262883A3Ff0C637393FE3aB8",
             "1666600000": "0xc63b76f710e9973b8989678eb16234CfADc8D9DB",
             "1666700000": "0x26Bd14dE3ad724E5E889cE5726Cc374463Ecee9D"
@@ -1738,6 +1751,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x257d9aE525c6C0c79e0459A59041816EB33833dB",
+            "1001": "0x8e0E196d2dA1EAE06185bf55C71E64ce0E9B7178",
+            "8217": "0x17bb680872D7631e3056136d7e15eC5f6570976a",
             "53935": "0xB3F5867E277798b50ba7A71C0b24FDcA03045eDF",
             "1666600000": "0x90454DbF13846CF960abc0F583c319B06aB3F280",
             "1666700000": "0xf9a37D029bE5D96A33C9D6e985F1F896804ee3F6"
@@ -1760,6 +1775,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x3F7AE7263ea3870f8d9D2428B94847cA386ECa0b",
+            "1001": "0x4a737026ba0f4e4c75675AEaE46E97A2A8F649D1",
+            "8217": "0x22A92428605a3B5b66695A60e96b683E98a9a035",
             "53935": "0x74CFf096C9B027104fb1a0C2E0e265D123eA47De",
             "1666600000": "0x9D71Bb9C781FC2eBdD3d6cb709438e3c71200149",
             "1666700000": "0x9138b74BeE92AC3c45BbA24389BF913BA3a42Ba2"
@@ -1782,6 +1799,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xD6B97C92f9fB7166a703E6049C67378921368C45",
+            "1001": "0xBF956B8B9cBE8af30CE923dF24C339ecA7589a61",
+            "8217": "0xfC66cF68505F8E95C52C4F7f84936436DBd52e9B",
             "53935": "0x3D112747ff2463802Afa240B62ade8F1cc4a5c7d",
             "1666600000": "0x762b98B3758d0A5Eb95B3E4A1E2914Ce0A80D99c",
             "1666700000": "0x2cB6b2Cb1976F2c964C39614c5D549280482fd9f"
@@ -1834,6 +1853,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x7dF5cf8e9Eb4719a98B48Fa6a85B519cA5882663",
+            "1001": "0x360b42353FDF7Fd71Ad52509ae38F85cB638BDD1",
+            "8217": "0xF861104131825320C3d0D9B7bd373Ea0549f0587",
             "53935": "0x3198f51A1c8cFC5f1FeaD58feaa19E6dFc8e9737",
             "1666600000": "0x40654Da5a038963fA9750AF352ae9d3b1da2baD0",
             "1666700000": "0x706820E32fbdCdc52d2866dB096E6dF8C1b6175A"
@@ -1881,6 +1902,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x434619b18466dEAA26475f97467754135aB8f3AF",
+            "1001": "0x483de947758f264c8A68D6Ace3D9e0394FBb4547",
+            "8217": "0xBcdD90034eB73e7Aec2598ea9082d381a285f63b",
             "53935": "0x04B43D632F34ba4D4D72B0Dc2DC4B30402e5Cf88",
             "1666600000": "0xe4Cfee5bF05CeF3418DA74CFB89727D8E4fEE9FA",
             "1666700000": "0x9578C39Dd4B56407C36aF3718D90a54e8422a706"
@@ -1893,13 +1916,30 @@
         "quantity": 0
     },
     {
+        "key": "jade",
+        "name": "JADE",
+        "description": "You find yourself subconsciously shaking this bag, just to hear the jingle and jangle.",
+        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/jade-bag.png",
+        "type": "balance",
+        "addresses": {
+            "1001": "0x4dDD03B3850794534e01F2C95C93a45855058e19",
+            "8217": "0xB3F5867E277798b50ba7A71C0b24FDcA03045eDF"
+        },
+        "tokenSymbol": "",
+        "isConsumable": false,
+        "isBridgeable": true,
+        "quantity": 0
+    },
+    {
         "key": "jewelBag",
         "name": "Jewel",
         "description": "You find yourself subconsciously shaking this bag, just to hear the jingle and jangle.",
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/jewel-bag.png",
-        "type": "hidden",
+        "type": "balance",
         "addresses": {
             "335": "0x602daa4Db4778Cb958b161F11574b4A206606b4B",
+            "1001": "0xbb227Fcf45F9Dc5deF87208C534EAB1006d8Cc8d",
+            "8217": "0x30C103f8f5A3A732DFe2dCE1Cc9446f545527b43",
             "53935": "0xCCb93dABD71c8Dad03Fc4CE5559dC3D89F67a260",
             "1666600000": "0x72Cb10C6bfA5624dD07Ef608027E366bd690048F",
             "1666700000": "0x63882d0438AdA0dD76ed2E6B7C2D53A55284A557"
@@ -1917,12 +1957,14 @@
         "type": "scrap",
         "addresses": {
             "335": "0xcCba062c4e110D12E1d1aC272FfaCC19dF24C709",
+            "1001": "0x1B3B7986d284762aA494dc9f177ac9605CCB9967",
+            "8217": "0xB4A516bf36e44c0CE9E3E6769D3BA87341Cd9959",
             "53935": "0x60A3810a3963f23Fa70591435bbe93BF8786E202"
         },
         "tokenSymbol": "DFKKINGPNCR",
         "salesPrice": 100,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -1933,12 +1975,14 @@
         "type": "scrap",
         "addresses": {
             "335": "0x24DEbA3A73ACF76eDCfcafD75683a6064e01E77c",
+            "1001": "0x1FFEE1384dFcD98794BB536bac2A78D28F31dDF0",
+            "8217": "0xFceFA4Abcb18a7053393526f75Ad33fac5F25dc9",
             "53935": "0xBcdD90034eB73e7Aec2598ea9082d381a285f63b"
         },
         "tokenSymbol": "DFKKNAPROOT",
         "salesPrice": 15,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -1949,6 +1993,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0xc75E787AD4249df104D5632CdC1b5C238c0FD2d8",
+            "1001": "0x59f4C8678e8359580DBE69De34e5bF12275a5fD0",
+            "8217": "0x80A42Dc2909C0873294c5E359e8DF49cf21c74E4",
             "53935": "0xc2Ff93228441Ff4DD904c60Ecbc1CfA2886C76eB",
             "1666600000": "0x8Bf4A0888451C6b5412bCaD3D9dA3DCf5c6CA7BE",
             "1666700000": "0x555174F89aF046F3972607b1a39dE8949d26c4E0"
@@ -1968,26 +2014,13 @@
         "type": "rune",
         "addresses": {
             "335": "0xe9BfCc80800EB77a1eAF6881825936770aF83Eb6",
+            "1001": "0xD438F751DfBe682875dB0A3514f9237274C5383E",
+            "8217": "0xd0223143057Eb44065e789b202E03A5869a6006C",
             "53935": "0xCd2192521BD8e33559b0CA24f3260fE6A26C28e4",
             "1666600000": "0x8F655142104478724bbC72664042EA09EBbF7B38",
             "1666700000": "0x3e36768498A678bF3b36D2aF5d3d5974dC6d209a"
         },
         "tokenSymbol": "DFKMOKSHA",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "lightRune",
-        "name": "Light Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/light-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
         "isConsumable": false,
         "isBridgeable": true,
         "quantity": 0
@@ -2000,6 +2033,8 @@
         "type": "potion",
         "addresses": {
             "335": "0xB0e402ef0cdE9387f1EC21994392f95561624d3f",
+            "1001": "0xDE05399Ba5DcAe574833Da62405425D162231EA9",
+            "8217": "0x9c8A0C6a7ad8Be153773070D434CDbeA5176D2ff",
             "53935": "0xFADCb72aAE2713975a890b59FF47231D1A552De3",
             "1666600000": "0x7e120334D9AFFc0982719A4eacC045F78BF41C68",
             "1666700000": "0x9B589B52Ed702197b4A793B435cc119AAC1c376d"
@@ -2039,6 +2074,8 @@
         "type": "potion",
         "addresses": {
             "335": "0xBed733A13D2cF00A807427a47B4556Faa649984B",
+            "1001": "0x4A437018E6aEC50e76713d1631F877E9973a87ae",
+            "8217": "0x8639d64A2088500EC4f20fB5C41A995fE4f1d85a",
             "53935": "0x240da5314B05E84392e868aC8f2b80ad6becadd4",
             "1666600000": "0x19b020001AB0C12Ffa93e1FDeF90c7C37C8C71ef",
             "1666700000": "0x7457513C38089CC565fe543268DEe85aB0C738A3"
@@ -2077,6 +2114,8 @@
         "type": "potion",
         "addresses": {
             "335": "0x7E235f17c4ec372F9DD42916Cbd19C5b73d4C22E",
+            "1001": "0xF3b3921c7b4F8e512bACb3Caf71e39E36A599469",
+            "8217": "0x108D31E23bC6540878E6532F3376b3EC982e1C58",
             "53935": "0xf17FD21bDF6713a1Dfed668b97835b21e32651e8",
             "1666600000": "0xDc2C698aF26Ff935cD1c50Eef3a4A933C62AF18D",
             "1666700000": "0xaf4cB190B6Ec0c63706B2158a0A73071C1599d18"
@@ -2120,6 +2159,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x0C735d4C724a99948b004815142482E1A7967822",
+            "1001": "0xBEDe2e252963025b7A4214F854226C5D42A675eF",
+            "8217": "0xE408814828f2b51649473c1a05B861495516B920",
             "53935": "0xA2cef1763e59198025259d76Ce8F9E60d27B17B5",
             "1666600000": "0xc0214b37FCD01511E6283Af5423CF24C96BB9808",
             "1666700000": "0x17A1d68BEDd3aBE09ddB0551baF97386fDd5dbEB"
@@ -2143,6 +2184,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x5Ee8F510c1C7E82c48b22915016f3F70fEbff3C0",
+            "1001": "0x656e6Ec534e8973a8Dc611222d3cD44F1568DE10",
+            "8217": "0xa3907dEA6f16f1918B4BcDd178c2928c7e6A571D",
             "53935": "0x234dCf10Db6817185F5A3b430a8CAF2B4a35e9E9",
             "1666600000": "0xb368f69bE6eDa74700763672AEB2Ae63f3d20AE6",
             "1666700000": "0x26b31ECe9BfdC5b1692a3D4362DB654607598236"
@@ -2164,6 +2207,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xD801Aaa938696F6b0a69BF94432436313895299a",
+            "1001": "0x2dfFf745d2c7ddCAD4E97b80DF33705B1a95A172",
+            "8217": "0x80Ab38fc9fA0a484b98d5600147e7C695627747D",
             "53935": "0x5bAC3cAd961B01Ef9510C8e6c5402A2bB1542831",
             "1666600000": "0xaB464901AFBc61bAC440a97Fa568aC42885Da58B",
             "1666700000": "0x2DE38B2cd4E76E8ff2d03515363480df69531511"
@@ -2185,6 +2230,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xf409935D9404a2FaEe43474aF254Dc8A6ef155Aa",
+            "1001": "0xfd8B140393CB8308eE739B834808998f04e6441C",
+            "8217": "0x1F93421DaE2f8de79C3Fd197a227ec5EE3Eef71b",
             "53935": "0x438A4e0673b7084D6b2379a362627789D845399c",
             "1666600000": "0xdFA5aE156AD4590A0061E9c4E8cc5bd60bc775c7",
             "1666700000": "0x026CaD2dc3d83E8D5E4390bD6e0FaE147eDda9aD"
@@ -2207,6 +2254,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x161F57A3367a06DbeF3032Bd534f9AB55805B647",
+            "1001": "0x91Ec320554C80753166513B40A842939460c1787",
+            "8217": "0x532bce28c28616552a4BcDdb5D4B4126Dea35f66",
             "53935": "0x37bAa710391c1D6e22396E4B7F78477F0fF2fFA7",
             "1666600000": "0xE7F6ea1cE7BbEbC9F2Cf080010dd938d2D8D8B1b",
             "1666700000": "0x677028bcDbdb4A5bCDc49fEa97517566b0021C0f"
@@ -2229,6 +2278,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xBe6C276C51276990C7F1d74a1402A49ff866CC33",
+            "1001": "0x88fa48c72d63e65a35A979e0d363dd167B4002a5",
+            "8217": "0xbb8ac0BB95E433204217b0478B3f6d815EcB2d8C",
             "53935": "0xf345b884eA45aEcb3E46CeEaEDB9CE993Ba3615a",
             "1666600000": "0xe4E7C0c693d8A7FC159776a993495378705464A7",
             "1666700000": "0x6382781FE94CAadC71027c0457c9CbEff06e204c"
@@ -2280,6 +2331,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xb079f4cFfCd4FCe45B07feFa4D320cD44F8F8EB1",
+            "1001": "0x468976C792B567466cD0271DDF9a03C3394F2EC9",
+            "8217": "0x468976C792B567466cD0271DDF9a03C3394F2EC9",
             "53935": "0xA0851F6368AfA693a6654e9fdaf76CB6F160B837",
             "1666600000": "0x2bc05bf05E273a2276F19a8Bd6738e742A5685b3",
             "1666700000": "0x0513f27Af88cCc9cFEB0093A3e370fE793BF0F94"
@@ -2294,23 +2347,8 @@
         "name": "",
         "description": "",
         "image": "",
-        "type": "hidden",
+        "type": "balance",
         "addresses": {},
-        "tokenSymbol": "",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "omRune",
-        "name": "Om Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/om-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
         "tokenSymbol": "",
         "isConsumable": false,
         "isBridgeable": true,
@@ -2339,6 +2377,8 @@
         "type": "pet",
         "addresses": {
             "335": "0xC6b00B4005883C1Ff09fa1351B0f49027bCAB71a",
+            "1001": "0xc9518D678Ea37488E8901b0687C02056CFe88C13",
+            "8217": "0x29ADd7D022c591D56eb4aFd262075dA900C67ab1",
             "53935": "0xa61Bac689AD6867a605633520D70C49e1dCce853",
             "1666600000": "0x9678518e04Fe02FB30b55e2D0e554E26306d0892",
             "1666700000": "0x9D9675170946eAffb3A750DB75AB4B559cC91668"
@@ -2357,6 +2397,8 @@
         "type": "pet",
         "addresses": {
             "335": "0xdbEE8C336B06f2d30a6d2bB3817a3Ae0E34f4900",
+            "1001": "0xDEe702F3a2284B8Dbd1C3f7C85E6bda967DC566D",
+            "8217": "0xc9731BE04F217543E3010cCbf903E858EFde840f",
             "53935": "0xf2D479DaEdE7F9e270a90615F8b1C52F3C487bC7",
             "1666600000": "0x9edb3Da18be4B03857f3d39F83e5C6AAD67bc148",
             "1666700000": "0x7b81c426162977525084dEe06Cb9D73F8A9fD77e"
@@ -2377,6 +2419,8 @@
         "type": "pet",
         "addresses": {
             "335": "0xA9A8cc1AC7e7505a69cAca2E068716395CebE562",
+            "1001": "0xF2143c7c8Dfca976415bDf7d37dfa63aed8Ef741",
+            "8217": "0xb1Ec534fBBfEBd4563A4B0055E744286CE490f26",
             "53935": "0x8D2bC53106063A37bb3DDFCa8CfC1D262a9BDCeB",
             "1666600000": "0x6d605303e9Ac53C59A3Da1ecE36C9660c7A71da5",
             "1666700000": "0xa5fFbff0b47B05cAd7Ab217Ea103F546a4Dae31F"
@@ -2395,6 +2439,8 @@
         "type": "pet",
         "addresses": {
             "335": "0xC2198E513A341DA3Fb26b9dAf8d5b6C5480ceAB4",
+            "1001": "0xBed733A13D2cF00A807427a47B4556Faa649984B",
+            "8217": "0xfd29ebdE0dd1331C19BBF54518df94b442ACb38C",
             "53935": "0x7E121418cC5080C96d967cf6A033B0E541935097",
             "1666600000": "0x95d02C1Dc58F05A015275eB49E107137D9Ee81Dc",
             "1666700000": "0x2dd97351F41411B2fAf0FbEb4235737815c7857b"
@@ -2413,27 +2459,14 @@
         "type": "pet",
         "addresses": {
             "335": "0x53b14727E0EdDDFc2958D65Ec6F86D1A3329e72F",
+            "1001": "0x7E235f17c4ec372F9DD42916Cbd19C5b73d4C22E",
+            "8217": "0x0A73aF98781bad9BCb80A71241F129EA877eF1b7",
             "53935": "0x72F860bF73ffa3FC42B97BbcF43Ae80280CFcdc3",
             "1666600000": "0x3dB1fd0Ad479A46216919758144FD15A21C3e93c",
             "1666700000": "0x6D02EF7f7686c3330a40A0AD9218b66A957C9405"
         },
         "tokenSymbol": "DFKYELOWEGG",
         "featuredMetric": true,
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "pureRune",
-        "name": "Pure Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/pure-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
         "isConsumable": false,
         "isBridgeable": true,
         "quantity": 0
@@ -2464,6 +2497,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0xe1b8C354BE50357c2ab90A962254526d08aF0D2D",
+            "1001": "0x46F036B26870188aD69877621815238D2b81bef1",
+            "8217": "0x4cD7025BD6e1b77105b90928362e6715101d0b5a",
             "53935": "0x137995beEEec688296B0118131C1052546475fF3",
             "1666600000": "0x043F9bd9Bb17dFc90dE3D416422695Dd8fa44486",
             "1666700000": "0xa81D367C63F3e737688337fcbF4236Ce91f05347"
@@ -2483,6 +2518,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0x67E49492717b1c9683aab85FCcB0D4f0590F0e24",
+            "1001": "0x846cf306Dee35172e597b89cF6F7894BE63845e5",
+            "8217": "0x8D2bC53106063A37bb3DDFCa8CfC1D262a9BDCeB",
             "53935": "0x68eE50dD7F1573423EE0Ed9c66Fc1A696f937e81",
             "1666600000": "0xc5891912718ccFFcC9732D1942cCD98d5934C2e1",
             "1666700000": "0x59d94005ea7E8E5d44c265Fa64de7A5A34BD6F13"
@@ -2502,6 +2539,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0xA396793Eb5895B914Cb6743E692A938325DdDeCB",
+            "1001": "0x1A03Cf9524605B3F5B1809632A6A41BE57f8B12A",
+            "8217": "0xadbF23Fe3B47857614940dF31B28179685aE9B0c",
             "53935": "0x473A41e71618dD0709Ba56518256793371427d79",
             "1666600000": "0x094243DfABfBB3E6F71814618ace53f07362a84c",
             "1666700000": "0x219f1576Ff3CaD0Eb12FC9C52E66656Db164b330"
@@ -2536,6 +2575,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x144132767a353f7485Fe09D19faAE19ca3905E61",
+            "1001": "0x5B9a6275EEdaDc91d3AFAA3462600EF75aB1EB55",
+            "8217": "0xf2D479DaEdE7F9e270a90615F8b1C52F3C487bC7",
             "53935": "0x60170664b52c035Fcb32CF5c9694b22b47882e5F",
             "1666600000": "0x6B10Ad6E3b99090De20bF9f95F960addC35eF3E2",
             "1666700000": "0x449C417faB9a54e9343Bb48667CB7A495fC7ac25"
@@ -2555,15 +2596,14 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x954296fd7563f737BD502e3DdbAdA3f5223F92f1",
+            "1001": "0x54DaD24dDc2cC6E7616438816DE0EeFCad79B625",
+            "8217": "0xc6030Afa09EDec1fd8e63a1dE10fC00E0146DaF3",
             "53935": "0x7f46E45f6e0361e7B9304f338404DA85CB94E33D",
             "1666600000": "0xb80A07e13240C31ec6dc0B5D72Af79d461dA3A70",
             "1666700000": "0x9b794f8a2E89Ad6954ACe9454E832d467121F48a"
         },
         "tokenSymbol": "DFKSAILFISH",
-        "minPrice": 100,
         "salesPrice": 50,
-        "decreaseRate": 0.01,
-        "increasePerPurchase": 0.25,
         "featuredMetric": true,
         "isConsumable": false,
         "isBridgeable": true,
@@ -2577,12 +2617,14 @@
         "type": "scrap",
         "addresses": {
             "335": "0x9CC41BD986A03bFbFeA7836e9B677dd51F466363",
+            "1001": "0x2A54e44Ade8E3077FC65A621a2216a46a3e1064D",
+            "8217": "0xCe370D379f0CCf746B3426E3BD3923f3aDF0DC1a",
             "53935": "0x80A42Dc2909C0873294c5E359e8DF49cf21c74E4"
         },
         "tokenSymbol": "DFKSHAGCAP",
         "salesPrice": 100,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -2593,6 +2635,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0x4Cb69F1385D1ec1acEF351a98f67De5a56C74226",
+            "1001": "0x6A6d815D201361C9e0a008a3d49fceF92cA592FD",
+            "8217": "0xa61Bac689AD6867a605633520D70C49e1dCce853",
             "53935": "0xd44ee492889C078934662cfeEc790883DCe245f3",
             "1666600000": "0x372CaF681353758f985597A35266f7b330a2A44D",
             "1666700000": "0xced132D80E18c8553aF415E27e9f79f32f3E4De3"
@@ -2612,6 +2656,8 @@
         "type": "rune",
         "addresses": {
             "335": "0xB5526A47A2858C2B29dCe89F3BD2B0726dcf5d18",
+            "1001": "0xCE7ac1a4ea53CCB0C9fb855c13447a932A4A4471",
+            "8217": "0x907a98319AEB249e387246637149f4B2e7D21dB7",
             "53935": "0x75E8D8676d774C9429FbB148b30E304b5542aC3d",
             "1666600000": "0x66F5BfD910cd83d3766c4B39d13730C911b2D286",
             "1666700000": "0x457A99042D3ba3b61A036f3dC801243670c87c51"
@@ -2630,6 +2676,8 @@
         "type": "scrap",
         "addresses": {
             "335": "0x9A587bBD01D5B2745b20A89ddd9B83268129fEda",
+            "1001": "0x6060759334739f1DB18BCBB92b4304a2D949d8c4",
+            "8217": "0x7E121418cC5080C96d967cf6A033B0E541935097",
             "53935": "0xA7CFd21223151700FB82684Cd9c693596267375D",
             "1666600000": "0x2493cfDAcc0f9c07240B5B1C4BE08c62b8eEff69",
             "1666700000": "0xD6a6fc0279f915BCA59bf9BCf6F8619aa9eda756"
@@ -2649,25 +2697,12 @@
         "type": "scrap",
         "addresses": {
             "335": "0xb086584f476Ad21B40aF0672f385a67334A0b294",
+            "1001": "0xd56FaEF679Dd814E552Ca3728ca11Aea80e696fB",
+            "8217": "0x874FC0015ece1d77ba3D5668F16c46ba72913239",
             "53935": "0xc6030Afa09EDec1fd8e63a1dE10fC00E0146DaF3"
         },
         "tokenSymbol": "DFKSKNSHADE",
         "salesPrice": 75,
-        "isConsumable": false,
-        "isBridgeable": false,
-        "quantity": 0
-    },
-    {
-        "key": "soulRune",
-        "name": "Soul Rune",
-        "description": "A truly astounding item.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/soul-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
         "isConsumable": false,
         "isBridgeable": true,
         "quantity": 0
@@ -2680,12 +2715,14 @@
         "type": "scrap",
         "addresses": {
             "335": "0x488D0EddbAfd98dFE97afF5187562D019bbb3245",
+            "1001": "0x52f7Cec2967B492b60CF2186067F89b4E4E245c5",
+            "8217": "0x48d9fC80A47cee2d52DE950898Bc6aBF54223F81",
             "53935": "0xE7CB27ad646C49dC1671Cb9207176D864922C431"
         },
         "tokenSymbol": "DFKSPCKLTL",
         "salesPrice": 15,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -2696,6 +2733,8 @@
         "type": "ingredient",
         "addresses": {
             "335": "0x22a20A56b9162B155BE51ACdD14051B142CF1a35",
+            "1001": "0x1fd5FCA58293856e2a70adEC9a46Ed66394FFFB3",
+            "8217": "0x08D93Db24B783F8eBb68D7604bF358F5027330A6",
             "53935": "0x3E022D84D397F18743a90155934aBAC421D5FA4C",
             "1666600000": "0x19B9F05cdE7A61ab7aae5b0ed91aA62FF51CF881",
             "1666700000": "0x8808b672760db9fFc87aB26682D8368d31d29e54"
@@ -2715,6 +2754,8 @@
         "type": "potion",
         "addresses": {
             "335": "0xe606f6548Ae34DA9065B4fee88990F239b445403",
+            "1001": "0xdb79649De0Ebf772Cd0F2AD9b9d3784e6b0a0E14",
+            "8217": "0x4546DBaAb48Bf1BF2ad7B56d04952d946Ab6e2a7",
             "53935": "0x242078edFDca25ef2A497C8D9f256Fd641472E5F",
             "1666600000": "0x959ba19508827d1ed2333B1b503Bd5ab006C710e",
             "1666700000": "0x4b8a24950c91886d49B8156B24fb3DB4f90D7930"
@@ -2796,6 +2837,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x87C15559458c7ef129a348c7eE2c6DE084aFa4Aa",
+            "1001": "0x12AFE4a36e796Dc7214ff22b1392F3FE8d3b5108",
+            "8217": "0xc2Ff16F357b51E070c977501563A01a70F3B7BF5",
             "53935": "0x3e664eB15b35783B9D3EF06702044820F08bB45B",
             "1666600000": "0x5d7f20e3B0f1406Bf038175218eA7e9B4838908c",
             "1666700000": "0x9D3180dbd920a0148e256A330bc371437A6C2Ca4"
@@ -2817,6 +2860,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x77DE6a4299441f6A2d4b96628D29E0523F9160A0",
+            "1001": "0x3A2D8173d1AFB8BE5575CA6B850245860eF5276a",
+            "8217": "0x32Cbbfd741EB7634818aa2e3E8502367cB6602BE",
             "53935": "0x6BCA53314dADdA7f4De30A95413f75a93bfAfecF",
             "1666600000": "0xf5c26F2F34E9245C3A9ea0B0e7Ea7B33E6404Da0",
             "1666700000": "0x6371C5c57C6169d39e6460891cB55b2647197785"
@@ -2838,6 +2883,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x9801F1c3d83F380054851BA3846Ee87A93f3ad24",
+            "1001": "0x0ff56FE11859E44A25ef850bD691Bb244abE3d6F",
+            "8217": "0xa5CC44e60F5a898e5c776952E66D1c9905077608",
             "53935": "0x1459c662F516D63216491DC34F7d9d35b00dF25A",
             "1666600000": "0x1e38e63227D52CBaDA2f0c11bE04feD64154ea37",
             "1666700000": "0x46f743832447f621a34472C69E0456836820520c"
@@ -2860,6 +2907,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xd2E023f86b74853FBA1C6d108D622f51aB004B00",
+            "1001": "0xeCCC54b836cD5bf114daec723de1c0d89B0C2A7b",
+            "8217": "0xf200597430eAc3e22B4566D1BCd70A3b63804B24",
             "53935": "0x4F95D51fB8eF93704aF8C39A080c794cdA08f853",
             "1666600000": "0x08f362517aD4119d93bBCd20825c2E4119abB495",
             "1666700000": "0xB33dD42899864a9C01f680f95Fb86C4bbC65e2FA"
@@ -2882,6 +2931,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x8A375fDd8c417Eb5e32503c7A88B2f2C86CC3829",
+            "1001": "0x1e09e45E35F5Dcf8028f50ED3fb13eAd16Df973f",
+            "8217": "0xAd51199B453075C73FA106aFcAAD59f705EF7872",
             "53935": "0xd37aCbAC3C25a543B30aa16208637cfa6EB97eDd",
             "1666600000": "0xd9A8abC0Ce1ADC23F1c1813986c9a9C21C9e7510",
             "1666700000": "0x9c5CED9F39C196B8d4bB1cB32d76fd18598f77cD"
@@ -2934,6 +2985,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x9248822C9F4e38EB5aF003C2520973Ae11067Bc3",
+            "1001": "0x358a399C9a600F3B375fa02E9A3e661bFb8bCafb",
+            "8217": "0x954296fd7563f737BD502e3DdbAdA3f5223F92f1",
             "53935": "0x40D2c135a3E5a6f6546626795DEc67f818f0352a",
             "1666600000": "0xA1a56D20e4ba3fd2FB91c80f611ECa43c1311Afe",
             "1666700000": "0x5686Aab9729ef000d25889c49db5EEeDF555988e"
@@ -2951,6 +3004,8 @@
         "type": "potion",
         "addresses": {
             "335": "0x74852982B2371004b97584A5AAFeF71F7A5196B9",
+            "1001": "0x3E97B4d382E2D110f22E9aB5d2Ba569eda5e9bd2",
+            "8217": "0xcb7aA7cA9357DAF9F2b78D262A4f89cDfE5abC70",
             "53935": "0x84246Ce3988742D46fC00d9b8b2AFb5CDBDaE660",
             "1666600000": "0x872dD1595544CE22ad1e0174449C7ECE6F0bb01b",
             "1666700000": "0x2724b01CcCE03e9c10B8a8Dfa4e850A22B4e908B"
@@ -2994,15 +3049,14 @@
         "type": "ingredient",
         "addresses": {
             "335": "0xd467f3cE950663b0195C25e615D6C7B2BC49699a",
+            "1001": "0x0D977329743a48b8Dc787D5fD36352B94581d9ff",
+            "8217": "0xCd2192521BD8e33559b0CA24f3260fE6A26C28e4",
             "53935": "0x97b25DE9F61BBBA2aD51F1b706D4D7C04257f33A",
             "1666600000": "0xCdfFe898E687E941b124dfB7d24983266492eF1d",
             "1666700000": "0x3dc5DbE4eB979762Bbed0C559D0bfB4778582357"
         },
         "tokenSymbol": "DFKSWFTHSL",
-        "minPrice": 200,
         "salesPrice": 75,
-        "decreaseRate": 0.035,
-        "increasePerPurchase": 0.05,
         "featuredMetric": true,
         "isConsumable": false,
         "isBridgeable": true,
@@ -3013,15 +3067,17 @@
         "name": "Three Eyed Eel",
         "description": "An eel whose gelatinous eyes can be used in various concoctions.",
         "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/threeEyedEel.png",
-        "type": "scrap",
+        "type": "ingredient",
         "addresses": {
             "335": "0x98c3ADd5c94C7d21a542107a61a2423730363F05",
+            "1001": "0x4A32c4125E8C61624EE3E4951db50B3E36023556",
+            "8217": "0x7E1298EBF3a8B259561df6E797Ff8561756E50EA",
             "53935": "0x6513757978E89e822772c16B60AE033781A29A4F"
         },
         "tokenSymbol": "DFKTHREEL",
         "salesPrice": 50,
         "isConsumable": false,
-        "isBridgeable": false,
+        "isBridgeable": true,
         "quantity": 0
     },
     {
@@ -3032,6 +3088,8 @@
         "type": "potion",
         "addresses": {
             "335": "0x542a3903c7F2dD47a7F31b08Bd1C6791e3C43784",
+            "1001": "0xBb0D45043451d0126BbA61eDF88d445465A37e01",
+            "8217": "0xf757a7F4ffF29e7F7b4aCCe6Ffb04E59e91EFDA8",
             "53935": "0x2dfFf745d2c7ddCAD4E97b80DF33705B1a95A172",
             "1666600000": "0xFb03c364969a0bB572Ce62b8Cd616A7DDEb4c09A",
             "1666700000": "0xdF0bD83eA9D7ffA04f9515383E24Cd607b0DD932"
@@ -3071,6 +3129,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x2a02cDd480861E351f02E694e864C081E94b8F48",
+            "1001": "0x3aFE9B141DC7a822dB178ED28b981F2946aBe231",
+            "8217": "0x14a9D5a75799E4C6B4BfA65C8293a75e02DD5339",
             "53935": "0xcD9201F50e5Be84ECE3D8F603dcd3e9DD5e88ea2",
             "1666600000": "0xBbA50bD111DC586Fd1f2B1476B6eC505800A3FD0",
             "1666700000": "0xFe168C31fa552a3164e1CC9914bCb7A2f6F3ee25"
@@ -3092,6 +3152,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xc82c435920043526c5a93cCd3724653EeEc86D52",
+            "1001": "0x035ebEb91c633d79f2ef665eB20f9D268cC006ec",
+            "8217": "0x6C7AF7483b050a00b5fbC4241eD06944c5f0bD77",
             "53935": "0x5e4Cf6907CB5fBe2F642E399F6d07E567155d1F8",
             "1666600000": "0x0d8403E47445DB9E316E36F476dacD5827220Bdd",
             "1666700000": "0xc4BEBAE1e32E49f5851fA20797EB5892d8FA52A0"
@@ -3113,6 +3175,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x568eaB26dA8Bfa3Cd77949E152e1e3dAC032681D",
+            "1001": "0x697FfB63c5bd3ef1F43AC7D50c08188C22FB90B1",
+            "8217": "0x697FfB63c5bd3ef1F43AC7D50c08188C22FB90B1",
             "53935": "0x8780c4aa8bd0D15493D63C884bd9D427199Cf2cf",
             "1666600000": "0x5292dbce7eC2e10dd500984A163A5aE8abA585Ce",
             "1666700000": "0x6881d8c1628C15d7BfcBe52098db175AF4eA936e"
@@ -3135,6 +3199,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xa73D3130883b458C7808dAac1b779d7B45415d09",
+            "1001": "0xc75E787AD4249df104D5632CdC1b5C238c0FD2d8",
+            "8217": "0xA0c89fB3cbb115cf86EdcB4319578312D026A07a",
             "53935": "0xA71a120931526fC98f1AcC9f769b6b0d690fB8f0",
             "1666600000": "0x9df75917aC9747B4A70fa033E4b0182d85B62857",
             "1666700000": "0xDa8a43B05196A9235c81508e90f0393c4C88201c"
@@ -3157,6 +3223,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xbA2904B8c880F1790307771F059c6E04435c9672",
+            "1001": "0xe5f337814c419FC82Fb03011f506484E68Ee26e8",
+            "8217": "0x50F683acefA41b226CEfAdc0dd2ea6fFBfED56A0",
             "53935": "0x63891e0fcfEe0cEB12dE5fb96F43ADf9DbEC20a3",
             "1666600000": "0xB00CbF5Cd5e7b321436C2D3d8078773522D2F073",
             "1666700000": "0x0ff7A912CA06607531d25F31B586822aAc997405"
@@ -3209,26 +3277,13 @@
         "type": "stone",
         "addresses": {
             "335": "0x1F2C2cC6786088C5F363c585698fBB1E00b860BF",
+            "1001": "0x614e5082CB195B3Ac55DA9Aaed9dc9AD75A24Cef",
+            "8217": "0x9A587bBD01D5B2745b20A89ddd9B83268129fEda",
             "53935": "0x0A5985574369EDE9Bd871fbdad61613D4C11Dac4",
             "1666600000": "0x00a2E2F8Feb81FDB7205992B5Abd2a801b419394",
             "1666700000": "0x9d02e773D0AAe3601c0baC2f0a8a199D50162F12"
         },
         "tokenSymbol": "DFKGVGRST",
-        "isConsumable": false,
-        "isBridgeable": true,
-        "quantity": 0
-    },
-    {
-        "key": "wisdomRune",
-        "name": "Wisdom Rune",
-        "description": "Opens your mind and expands your senses.",
-        "image": "https://defi-kingdoms.b-cdn.net/art-assets/items/wisdom-rune.png",
-        "type": "rune",
-        "addresses": {
-            "1666600000": "0x0000000000000000000000000000000000000001",
-            "1666700000": "0x0000000000000000000000000000000000000001"
-        },
-        "tokenSymbol": "",
         "isConsumable": false,
         "isBridgeable": true,
         "quantity": 0
@@ -3245,6 +3300,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x6319c563B82D04dd66318fd3067450f8d21022fB",
+            "1001": "0xC3dC34F0BeDFfaE564616271061a151Edb2950E5",
+            "8217": "0xf30214D43E55BE1cbaC712b49A75d4D3220302a7",
             "53935": "0xAeb5b59c8B90D4F078046550Cc8F9f08dC127253",
             "1666600000": "0x3619fc2386FbBC19DDC39d29A72457e758CFAD69",
             "1666700000": "0xC1bb514E55b861afEff2E9413Cd37638e3994186"
@@ -3266,6 +3323,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0x065A4A023869a1123fE17883A015eC51d6ae5Dec",
+            "1001": "0x32887A94430C9e139A8DC611b8E9208EA8DA8965",
+            "8217": "0xf15035b5eD13Feb18f63D829ABc1c3139041e7C2",
             "53935": "0xC989c916F189D2A2BE0322c020942d7c43aEa830",
             "1666600000": "0x17ff2016c9ecCFBF4Fc4DA6EF95Fe646D2c9104F",
             "1666700000": "0x436Aa99f5024DbeD2BeF82aB4B1b675ed1746A96"
@@ -3287,6 +3346,8 @@
         "type": "crystal",
         "addresses": {
             "335": "0xbdB16F223240dC103DCD179C945b4d27bF4b25FF",
+            "1001": "0x9e044d9fA05894549aEae5151a33FeDc42C2C59f",
+            "8217": "0x5F8A485ed5B4B13c1fc3c1C7fe82164E8e534060",
             "53935": "0x9d1f44b0EC7BB80656FC8Fcd65152513f29a606D",
             "1666600000": "0xbaAb8dB69a2FdC0b88B2B3F6F75Fa8899680c43B",
             "1666700000": "0x070f589f24BCCef071a99BedD1737e0CF0919DaE"
@@ -3309,6 +3370,8 @@
         "type": "stone",
         "addresses": {
             "335": "0xc32A0e963e50AAAED273A75425fC39902b0d0b3b",
+            "1001": "0x4Cb69F1385D1ec1acEF351a98f67De5a56C74226",
+            "8217": "0x3BaEFAfF21Fa2F06Ad3899903B7A899a91B5915A",
             "53935": "0x3971212Ec22147EE8808cB84F743DD852Be92f9C",
             "1666600000": "0x939Ea05C81aAC48F7C10BdB08615082B82C80c63",
             "1666700000": "0x3287a5E500E2131D972f67cB04b113483277d339"
@@ -3331,6 +3394,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x23E040b047dcD8BD3E6E2dbdB2c06e672206FEe1",
+            "1001": "0xd9E5a3dedF1E5E529102B7E76D9F9D5A1A9faCb5",
+            "8217": "0x5903F478e456DD4Ce5387caBE3984DfEf93D0A46",
             "53935": "0xFC943eBd19112D6c6098412238E4E8319641B3d8",
             "1666600000": "0x4Ff7A020ec1100D36d5C81F3D4815F2e9C704b59",
             "1666700000": "0xc8FF011e1cE1FC3F4450730FCec45c1b4CF5f00f"
@@ -3383,6 +3448,8 @@
         "type": "stone",
         "addresses": {
             "335": "0x3f7E4Eb919EEab34b478B4890c99C2d7F107afB3",
+            "1001": "0x471C15Edce14B90762E7a4903b6303C401b9961b",
+            "8217": "0x3C0B9C87b1747C47D0B73910f995A08D75D81Af1",
             "53935": "0xa1BD7683fA348e256a2de8a9dDB55E5ea01eB048",
             "1666600000": "0xa6e86F2b43Ae73cfB09A3bA779AeB8Fd48417ba0",
             "1666700000": "0xc4B03E7432FADc938994588b9f78f6667a5d0eF9"
