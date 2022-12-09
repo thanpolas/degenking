@@ -12,13 +12,15 @@ const abiProfiles = require('../abi/profile.abi.json');
 const abiJewel = require('../abi/jewel.abi.json');
 const abiConsumable = require('../abi/consumable.abi.json');
 const abiQuestCoreV1 = require('../abi/quest-core-v1.abi.json');
-const abiQuestCoreV2_1 = require('../abi/quest-core-v2.1.abi.json');
+const abiQuestCoreV2_2 = require('../abi/quest-core-v2.2.abi.json');
 
 const poolsHarmony = require('../constants/gardens-harmony.const');
 const poolsDFKN = require('../constants/gardens-dfkn.const');
+const poolsKLAYTN = require('../constants/gardens-klaytn.const');
 
 const addressesHarmony = require('../constants/addresses-harmony.const');
 const addressesDFKN = require('../constants/addresses-dfkn.const');
+const addressesKLAYTN = require('../constants/addresses-klaytn.const');
 
 const { NETWORK_IDS } = require('../constants/constants.const');
 
@@ -77,6 +79,8 @@ exports.getAddresses = (chainId) => {
       return addressesHarmony;
     case NETWORK_IDS.DFKN:
       return addressesDFKN;
+    case NETWORK_IDS.KLAYTN:
+      return addressesKLAYTN;
 
     default:
       return addressesHarmony;
@@ -96,7 +100,8 @@ exports.getPools = (chainId) => {
       return poolsHarmony;
     case NETWORK_IDS.DFKN:
       return poolsDFKN;
-
+    case NETWORK_IDS.KLAYTN:
+      return poolsKLAYTN;
     default:
       return poolsDFKN;
   }
@@ -240,7 +245,7 @@ exports.getQuestCoreV2 = (currentRPC) => {
   const addresses = exports.getAddresses(chainId);
   const contract = new ethers.Contract(
     addresses.QUEST_CORE_V2,
-    abiQuestCoreV2_1,
+    abiQuestCoreV2_2,
     provider,
   );
   return contract;
