@@ -3,6 +3,7 @@
  */
 
 const { tokenToFixed } = require('@thanpolas/crypto-utils');
+const { unixToJsDate } = require('@thanpolas/sidekick');
 
 const {
   DATA_SOURCES,
@@ -23,7 +24,6 @@ const {
   getEstJewelPerTick,
 } = require('../heroes-helpers/hero-ranking.ent');
 
-const { unixToJsDate } = require('../utils/helpers');
 const {
   heroSummonCost,
   getHeroTier,

@@ -2,12 +2,13 @@
  * @fileoverview Hero's owner profile related functions.
  */
 
+const { unixToJsDate } = require('@thanpolas/sidekick');
+
 const {
   NETWORK_IDS,
   AVAILABLE_CHAIN_IDS,
 } = require('../constants/constants.const');
 const etherEnt = require('../ether');
-const { unixToJsDate } = require('../utils/helpers');
 
 const { getProvider } = etherEnt;
 

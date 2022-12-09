@@ -63,6 +63,7 @@ assert.assertTypes = (testObj) => {
   // expect(testObj.endedAt).toBeString();
   // expect(testObj.buyerAddress).toBeString();
   // expect(testObj.buyerName).toBeString();
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   expect(testObj.open).toBeBoolean();
   // expect(testObj.purchasePrice).toBeString();
 };

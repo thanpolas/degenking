@@ -2,12 +2,13 @@
  * @fileoverview Fetches auction data from the blockchain.
  */
 
+const { unixToJsDate, delay } = require('@thanpolas/sidekick');
+
 const { getProvider, getContractAuctionSales } = require('../ether');
 const { gqlQuery } = require('../graphql/gql-query.ent');
 const {
   saleAuctionByAuctionId,
 } = require('../graphql/queries/sale-auctions.gql');
-const { unixToJsDate, delay } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
 const { NETWORK_IDS } = require('../constants/constants.const');
 

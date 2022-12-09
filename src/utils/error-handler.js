@@ -2,7 +2,7 @@
  * @fileoverview Common helper for handling errors and retrying
  */
 
-const { errorDelay } = require('./helpers');
+const { errorDelay } = require('@thanpolas/sidekick');
 
 /**
  * Common helper for handling errors and retrying

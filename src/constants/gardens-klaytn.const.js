@@ -2,7 +2,7 @@
  * @fileoverview Gardens on Klaytn
  */
 
-const { indexArrayToObject } = require('../utils/helpers');
+const { indexArrayToObject } = require('@thanpolas/sidekick');
 
 /**
  * @type {Array<Object>} Gardening Incentivised Pools.

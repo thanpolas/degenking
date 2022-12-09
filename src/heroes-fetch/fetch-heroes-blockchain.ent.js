@@ -4,6 +4,8 @@
  *    functions.
  */
 
+const { asyncMapCap } = require('@thanpolas/sidekick');
+
 const {
   DATA_SOURCES,
   AVAILABLE_CHAIN_IDS,
@@ -15,7 +17,6 @@ const {
   decodeRecessiveGenesAndNormalize,
 } = require('../heroes-helpers/recessive-genes.ent');
 
-const { asyncMapCap } = require('../utils/helpers');
 const { get: getConfig } = require('../configure');
 const { catchErrorRetry } = require('../utils/error-handler');
 const { getHeroChain } = require('./fetch-hero-chain.ent');
