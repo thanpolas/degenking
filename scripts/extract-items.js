@@ -27,7 +27,7 @@ async function run() {
     return itemRaw;
   });
 
-  console.log(JSON.stringify(allItems));
+  console.log(JSON.stringify(allItems, null, 4));
 }
 
 run();
