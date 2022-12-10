@@ -12,6 +12,8 @@
  * @fileoverview bootstrap and master exporting module.
  */
 
+const { renderParts } = require('@thanpolas/sidekick');
+
 const logService = require('./utils/log.service');
 
 const logParams = {
@@ -108,8 +110,6 @@ const {
 const {
   calculateRuneRequirements,
 } = require('./heroes-helpers/rune-requirements.ent');
-
-const { renderParts } = require('./utils/helpers');
 
 const { catchErrorRetry, parseRpcError } = require('./utils/error-handler');
 

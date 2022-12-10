@@ -1,10 +1,11 @@
 /**
  * @fileoverview Generic GraphQL Query helper.
  */
+
 const axios = require('axios');
+const { delay } = require('@thanpolas/sidekick');
 
 const configuration = require('../configure');
-const { delay } = require('../utils/helpers');
 
 /** @const {number} MAX_RECORDS_PER_PAGE How many records per page to fetch */
 const MAX_RECORDS_PER_PAGE = 1000;

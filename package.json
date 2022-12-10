@@ -53,6 +53,7 @@
     },
     "dependencies": {
         "@thanpolas/crypto-utils": "^0.4.1",
+        "@thanpolas/sidekick": "^1.1.0",
         "axios": "^0.27.2",
         "bluebird": "^3.7.2",
         "date-fns": "^2.28.0",

@@ -2,6 +2,8 @@
  * @fileoverview Item Types, formatting and sorting functions.
  */
 
+const { indexArrayToObject } = require('@thanpolas/sidekick');
+
 const ALL_ITEMS = require('./all-items.json');
 
 /** @const {string} ZERO_ONE_ADDRESS Items instead of zero address have this one */
@@ -48,6 +50,9 @@ exports.ITEM_TYPES_SORTED = [
   'collection',
   'material',
 ];
+
+/** @const {Array<Object>} ITEMS_BY_NAME index all items by name */
+exports.ITEMS_BY_NAME = indexArrayToObject(ALL_ITEMS, 'name');
 
 /**
  * Will return items sorted by type.

@@ -2,13 +2,14 @@
  * @fileoverview Stamina Potion Consumption.
  */
 
+const { delay } = require('@thanpolas/sidekick');
+
 const {
   getProvider,
   getContractConsumable,
   getAddresses,
 } = require('../ether');
 const { get: getConfig } = require('../configure');
-const { delay } = require('../utils/helpers');
 
 const {
   normalizeChainHero,

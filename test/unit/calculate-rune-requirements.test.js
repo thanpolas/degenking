@@ -1,7 +1,7 @@
 /**
  * @fileoverview Level up requirements of runes.
- *
  */
+
 const testLib = require('../lib/tester.lib');
 
 const { calculateRuneRequirements } = require('../..');

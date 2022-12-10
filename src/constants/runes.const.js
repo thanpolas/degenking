@@ -2,8 +2,9 @@
  * @fileoverview Runes contract addresses.
  */
 
+const { indexArrayToObject } = require('@thanpolas/sidekick');
+
 const { ITEM_TYPES } = require('./items.const');
-const { indexArrayToObject } = require('../utils/helpers');
 
 const allItems = require('./all-items.json');
 

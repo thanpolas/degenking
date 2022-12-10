@@ -3,6 +3,8 @@
  * @fileoverview Normalizes how Heroes are rendered as a string.
  */
 
+const { renderParts } = require('@thanpolas/sidekick');
+
 const {
   getStatEmoji,
   getProfessionEmoji,
@@ -15,7 +17,6 @@ const {
 
 const { ZERO_ADDRESS } = require('../constants/constants.const');
 const { questResolve } = require('../quests/quest-utils.ent');
-const { renderParts } = require('../utils/helpers');
 
 /**
  * Renders the hero to its string representation.

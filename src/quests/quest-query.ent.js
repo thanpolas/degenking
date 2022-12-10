@@ -4,11 +4,11 @@
  */
 
 const { ethers } = require('ethers');
+const { unixToJsDate } = require('@thanpolas/sidekick');
 
 const {
   getHeroesChain,
 } = require('../heroes-fetch/fetch-heroes-blockchain.ent');
-const { unixToJsDate } = require('../utils/helpers');
 const {
   getProvider,
   getQuestCoreV1,

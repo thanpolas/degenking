@@ -40,6 +40,8 @@ exports.getBaseTokenName = (chainId) => {
       return 'Jewel';
     case NETWORK_IDS.DFKN:
       return 'Crystal';
+    case NETWORK_IDS.KLAYTN:
+      return 'Jade';
 
     default:
       return 'Jewel';

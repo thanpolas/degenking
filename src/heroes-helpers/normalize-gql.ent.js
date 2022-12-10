@@ -3,6 +3,7 @@
  */
 
 const { tokenToFixed } = require('@thanpolas/crypto-utils');
+const { unixToJsDate } = require('@thanpolas/sidekick');
 
 const {
   JEWEL_DECIMALS,
@@ -14,7 +15,6 @@ const { calculateRemainingStamina } = require('./heroes-helpers.ent');
 const { getCurrentRank, getEstJewelPerTick } = require('./hero-ranking.ent');
 const { decodeRecessiveGeneAndNormalize } = require('./recessive-genes.ent');
 
-const { unixToJsDate } = require('../utils/helpers');
 const {
   heroSummonCost,
   getHeroTier,
