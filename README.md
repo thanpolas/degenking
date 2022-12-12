@@ -1107,6 +1107,18 @@ console.log(questData);
 
 # Maintenance and Contributing
 
+## Adding a new network
+
+Update the following modules:
+
+-   Create a new "addresses" module in `/src/constants`.
+-   Create a new "gardens" module in `/src/constants`.
+-   Populate the networks in the `/src/constants/quests.const.js` module.
+-   Update the `/src/constants/constants.const.js` module.
+-   Update the `/src/constants/all-items.const.js` module from DFK.
+-   Update the `/src/ether/ether.ent.js` module.
+-   Update the `/src/utils/network-helpers.js` module.
+
 ## Update Node Version
 
 When a new node version is available you need to updated it in the following:
@@ -1125,6 +1137,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.1** , _12/Dec/2022_
+    -   Will suppress known errors when querying for heroes on Klaytn.
+    -   Fixed quest constants for Klaytn.
 -   **v1.4.0** , _09/Dec/2022_
     -   Added support for Klaytn and Serendale 2.0.
     -   Added a new index by name for all the DFK Raw items as `ITEMS.ITEMS_BY_NAME`.

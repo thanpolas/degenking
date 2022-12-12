@@ -6,6 +6,7 @@ const { assign } = require('lodash');
 
 const addressesHarmony = require('./addresses-harmony.const');
 const addressesDFKN = require('./addresses-dfkn.const');
+const addressesKlaytn = require('./addresses-klaytn.const');
 const { PROFESSIONS } = require('./constants.const');
 
 exports.QUESTS = {
@@ -70,6 +71,7 @@ function populateQuestTypesRev(networkAddresses) {
 // Populate for networks
 populateQuestTypesRev(addressesHarmony);
 populateQuestTypesRev(addressesDFKN);
+populateQuestTypesRev(addressesKlaytn);
 
 // group quests
 exports.QUESTS_GARDENING = [exports.QUESTS.GARDENING];
@@ -100,6 +102,7 @@ exports.ALL_QUESTS_REV = assign(
   {},
   addressesHarmony.QUESTS_REV,
   addressesDFKN.QUESTS_REV,
+  addressesKlaytn.QUESTS_REV,
 );
 
 /**
@@ -111,6 +114,7 @@ exports.ALL_QUESTS_HANDLER_NEW = assign(
   {},
   addressesHarmony.QUESTS_HANDLER_NEW,
   addressesDFKN.QUESTS_HANDLER_NEW,
+  addressesKlaytn.QUESTS_HANDLER_NEW,
 );
 
 /**
@@ -120,4 +124,5 @@ exports.ALL_QUESTS_HANDLER_NEW = assign(
  */
 exports.ALL_TRAINING_QUESTS_AR = addressesHarmony.TRAINING_QUESTS_AR.concat(
   addressesDFKN.TRAINING_QUESTS_AR,
+  addressesKlaytn.TRAINING_QUESTS_AR,
 );

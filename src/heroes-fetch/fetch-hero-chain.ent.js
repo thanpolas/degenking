@@ -116,6 +116,11 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
 
     return hero;
   } catch (ex) {
+    // Catch known error cases
+    // This one is from klaytn
+    if (ex.message.includes('ERC721: owner query for nonexistent token')) {
+      return null;
+    }
     return catchErrorRetry(log, {
       ex,
       retries,
