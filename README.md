@@ -1137,6 +1137,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.1** , _12/Dec/2022_
+    -   Will suppress known errors when querying for heroes on Klaytn.
+    -   Fixed quest constants for Klaytn.
 -   **v1.4.0** , _09/Dec/2022_
     -   Added support for Klaytn and Serendale 2.0.
     -   Added a new index by name for all the DFK Raw items as `ITEMS.ITEMS_BY_NAME`.
