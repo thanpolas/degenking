@@ -1107,6 +1107,18 @@ console.log(questData);
 
 # Maintenance and Contributing
 
+## Adding a new network
+
+Update the following modules:
+
+-   Create a new "addresses" module in `/src/constants`.
+-   Create a new "gardens" module in `/src/constants`.
+-   Populate the networks in the `/src/constants/quests.const.js` module.
+-   Update the `/src/constants/constants.const.js` module.
+-   Update the `/src/constants/all-items.const.js` module from DFK.
+-   Update the `/src/ether/ether.ent.js` module.
+-   Update the `/src/utils/network-helpers.js` module.
+
 ## Update Node Version
 
 When a new node version is available you need to updated it in the following:
