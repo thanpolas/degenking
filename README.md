@@ -1137,6 +1137,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.2** , _16/Dec/2022_
+    -   Add Duels S2 contract address.
 -   **v1.4.1** , _12/Dec/2022_
     -   Will suppress known errors when querying for heroes on Klaytn.
     -   Fixed quest constants for Klaytn.
