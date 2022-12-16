@@ -18,7 +18,9 @@ exports.XCRYSTAL_TOKEN = '0x6e7185872bcdf3f7a6cbbe81356e50daffb002d2';
 exports.BANK = exports.XCRYSTAL_TOKEN;
 exports.BANKER = '';
 exports.AIRDROP = '';
-exports.DUELS_CORE = '0xf724fe22b45d519d149477aa2ec5348cee08cae3';
+exports.DUELS_CORE_S1 = '0xf724fe22b45d519d149477aa2ec5348cee08cae3';
+// Season2
+exports.DUELS_CORE = '0x9eeabbcf42f0c4900d302544cce599811c2de2b9';
 
 exports.HEROES = '0xeb9b61b145d6489be575d3603f4a704810e143df';
 exports.TEARS_TOKEN = '0x58e63a9bbb2047cd9ba7e6bb4490c238d271c278';
