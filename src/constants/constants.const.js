@@ -46,6 +46,7 @@ exports.CONSUMABLE_DECIMALS = 0;
 
 exports.Rarity = ['Common', 'Uncommon', 'Rare', 'Legendary', 'Mythic'];
 
+/** @enum {string} The hero profession classes */
 exports.PROFESSIONS = {
   MINING: 'mining',
   GARDENING: 'gardening',
@@ -72,6 +73,14 @@ exports.QUEST_TYPES = {
   TRAINING_VIT: 'QUEST_VIT_ADDRESS',
   TRAINING_INT: 'QUEST_INT_ADDRESS',
   TRAINING_LCK: 'QUEST_LCK_ADDRESS',
+};
+
+/** @enum {string} A Mapping of the professions to quest types */
+exports.PROFESSIONS_TO_QUEST_TYPES = {
+  mining: exports.QUEST_TYPES.MINING_JEWEL_v2,
+  gardening: exports.QUEST_TYPES.GARDENING,
+  foraging: exports.QUEST_TYPES.FORAGING,
+  fishing: exports.QUEST_TYPES.FISHING,
 };
 
 /** @enum {string} All quest types and how they map to a profesison */
