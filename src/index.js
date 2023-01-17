@@ -105,6 +105,7 @@ const {
   chainIdToNetwork,
   getBaseTokenName,
   chainIdToRealm,
+  TOKEN_NAMES,
 } = require('./utils/network-helpers');
 
 const {
@@ -166,6 +167,7 @@ exports.getPools = getPools;
 exports.chainIdToNetwork = chainIdToNetwork;
 exports.getBaseTokenName = getBaseTokenName;
 exports.chainIdToRealm = chainIdToRealm;
+exports.TOKEN_NAMES = TOKEN_NAMES;
 
 // New command[s] 19/Mar/2021
 exports.getProfileByAddress = getProfileByAddress;
@@ -228,6 +230,7 @@ exports.abiBridgeItems = require('./abi/bridge-items.abi.json');
 
 exports.abiHeroesV1 = require('./abi/heroes-v1.abi.json');
 exports.abiHeroesV2 = require('./abi/heroes-v2.abi.json');
+exports.abiHeroAuction = require('./abi/auction.abi.json');
 exports.abiSummonV1 = require('./abi/summon-v1.abi.json');
 exports.abiSummonV2 = require('./abi/summon-v2.abi.json');
 exports.abiMasterGardenerDfk = require('./abi/master-gardener-dfk.abi.json');
