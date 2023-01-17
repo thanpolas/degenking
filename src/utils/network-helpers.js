@@ -8,6 +8,14 @@ const {
   NETWORK_IDS,
 } = require('../constants/constants.const');
 
+/** @enum {string} Tokens used by degenking and their names */
+exports.TOKEN_NAMES = {
+  JEWEL: 'Jewel',
+  CRYSTAL: 'Crystal',
+  JADE: 'Jade',
+  USDC: 'USDC',
+};
+
 /**
  * Converts chain id to human readable.
  *
@@ -37,11 +45,11 @@ exports.chainIdToRealm = (chainId) => {
 exports.getBaseTokenName = (chainId) => {
   switch (chainId) {
     case NETWORK_IDS.HARMONY:
-      return 'Jewel';
+      return exports.TOKEN_NAMES.JEWEL;
     case NETWORK_IDS.DFKN:
-      return 'Crystal';
+      return exports.TOKEN_NAMES.CRYSTAL;
     case NETWORK_IDS.KLAYTN:
-      return 'Jade';
+      return exports.TOKEN_NAMES.JADE;
 
     default:
       return 'Jewel';

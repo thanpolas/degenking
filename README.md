@@ -1137,6 +1137,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.3** , _17/Jan/2023_
+    -   Added and exported the `abiHeroAuction` Hero Auction contract's ABI.
+    -   Added the `TOKEN_NAMES` enumeration of token names used by DegenKing.
+    -   Added the `PROFESSIONS_TO_QUEST_TYPES` enumeration on CONSTANTS that maps the PROFESSIONS enumeration to the QUEST_TYPES one.
 -   **v1.4.2** , _16/Dec/2022_
     -   Add Duels S2 contract address.
 -   **v1.4.1** , _12/Dec/2022_

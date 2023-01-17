@@ -89,6 +89,7 @@ exports.getHeroesChain = async (chainId, heroIds, params = {}, retries = 0) => {
     if (!heroIds?.length) {
       return [];
     }
+
     const heroes = await asyncMapCap(
       heroIds,
       async (heroId) => {
