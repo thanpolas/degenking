@@ -8,6 +8,13 @@ exports.DATA_SOURCES = {
   GQL_API_V7: 'gql_api_v7',
 };
 
+/** @enum {string} Enumerate all available networks */
+exports.NETWORKS = {
+  HARMONY: 'HARMONY',
+  DFKN: 'DFKN',
+  KLAYTN: 'KLAYTN',
+};
+
 /** @enum {number} EVM Network ids */
 exports.NETWORK_IDS = {
   HARMONY: 1666600000,
@@ -24,9 +31,9 @@ exports.AVAILABLE_CHAIN_IDS = [
 
 /** @enum {number} EVM Network ids in reverse */
 exports.NETWORK_IDS_REV = {
-  1666600000: 'Harmony',
-  53935: 'DFKN',
-  8217: 'KLAYTN',
+  1666600000: exports.NETWORKS.HARMONY,
+  53935: exports.NETWORKS.DFKN,
+  8217: exports.NETWORKS.KLAYTN,
 };
 
 /** @enum {number} EVM Network ids resolving in DFK Realm */

@@ -91,7 +91,7 @@ describe('Fetch Hero Blockchain', () => {
     subClassGenes: ['warrior', 'pirate', 'wizard', 'monk'],
     professionGenes: ['mining', 'gardening', 'mining', 'foraging'],
     chainId: 1666600000,
-    networkName: 'Harmony',
+    networkName: 'HARMONY',
     realm: 'SD',
   });
 
