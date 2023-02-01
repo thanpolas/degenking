@@ -1137,6 +1137,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.5** , _01/Feb/2023_
+    -   Added DUEL address for Klaytn.
 -   **v1.4.4** , _30/Jan/2023_
     -   Added the `CONSTANTS.NETWORKS` enumeration to list all available network names.
 -   **v1.4.3** , _17/Jan/2023_
