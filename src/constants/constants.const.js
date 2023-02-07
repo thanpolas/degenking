@@ -24,7 +24,6 @@ exports.NETWORK_IDS = {
 
 /** @const {Array<number>} AVAILABLE_CHAIN_IDS All available chain ids in an array */
 exports.AVAILABLE_CHAIN_IDS = [
-  exports.NETWORK_IDS.HARMONY,
   exports.NETWORK_IDS.DFKN,
   exports.NETWORK_IDS.KLAYTN,
 ];
