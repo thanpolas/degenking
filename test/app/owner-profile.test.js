@@ -23,7 +23,7 @@ describe('User Profile', () => {
     heroId: 1,
     points: 0,
   };
-  describe('Happy Path', () => {
+  describe('getProfileByAddress()', () => {
     it('should fetch profile of existing account with checksum address', async () => {
       const res = await getProfileByAddress(
         NETWORK_IDS.HARMONY,
