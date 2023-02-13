@@ -321,7 +321,6 @@ exports.processHeroChainData = (heroData, owner, ownerAddress) => {
 
   if (owner) {
     hero.owner.id = owner.id;
-    hero.owner.address = owner.owner;
     hero.owner.name = owner.name;
     hero.owner.createdAt = Number(owner.created);
   }
