@@ -19,10 +19,8 @@ describe('Fetch Hero Blockchain', () => {
   const expectedValues = () => ({
     source: 'chain',
     id: 10000,
-    // ownerId: 17214,
-    // ownerName: 'Ceebs',
-    ownerId: null,
-    ownerName: null,
+    ownerId: 17214,
+    ownerName: 'Ceebs',
     ownerAddress: '0xc0ffee254729296a45a3885639ac7e10f9d54979',
     mainClass: 'pirate',
     subClass: 'warrior',
