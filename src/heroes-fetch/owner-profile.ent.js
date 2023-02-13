@@ -65,9 +65,14 @@ exports.getProfileByAddress = async (chainId, ownerAddress) => {
  * @return {Object|null} Normalized profile data object or null if not found.
  */
 exports.getProfileByAddressAnyChain = async (ownerAddress) => {
+  // Feb 2023 hack: Legacy profile names may exist on harmony network
+  //  so add harmony to the available chain ids.
+  const allChainIdsToQuery = AVAILABLE_CHAIN_IDS.concat([NETWORK_IDS.HARMONY]);
+
   // Find on which realm the profile is
-  const allPromises = AVAILABLE_CHAIN_IDS.map((chainId) => {
-    return exports.getProfileByAddress(chainId, ownerAddress);
+  const allPromises = allChainIdsToQuery.map((chainId) => {
+    const response = exports.getProfileByAddress(chainId, ownerAddress);
+    return response;
   });
 
   const results = await Promise.allSettled(allPromises);

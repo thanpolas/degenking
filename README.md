@@ -42,6 +42,7 @@ Each supported network will have its own, dedicated addresses constants module. 
 
 -   `ADDRESSES_HARMONY`
 -   `ADDRESSES_DFKN`
+-   `ADDRESSES_KLAYTN`
 
 It is by convention, that all address constant modules maintain the exact same naming scheme so you can easily get the correct address for the network you want.
 
@@ -1137,6 +1138,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.7** , _13/Feb/2023_
+    -   Added Harmony network on the `getProfileByAddressAnyChain()` function because there are still a lot of legacy profiles that have not been migrated.
+    -   By activating Harmony network again, profiles names got restored on the hero fetching functions, however, the "owner_address" field is no longer updated from the fetched profile as legacy Harmony profiles point to non-player addresses and corrupt the owner_address field.
 -   **v1.4.6** , _07/Feb/2023_
     -   Removed Harmony from "Available networks".
 -   **v1.4.5** , _01/Feb/2023_
