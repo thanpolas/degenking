@@ -1138,6 +1138,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.7** , _13/Feb/2023_
+    -   Added Harmony network on the `getProfileByAddressAnyChain()` function because there are still a lot of legacy profiles that have not been migrated.
 -   **v1.4.6** , _07/Feb/2023_
     -   Removed Harmony from "Available networks".
 -   **v1.4.5** , _01/Feb/2023_
