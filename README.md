@@ -42,6 +42,7 @@ Each supported network will have its own, dedicated addresses constants module. 
 
 -   `ADDRESSES_HARMONY`
 -   `ADDRESSES_DFKN`
+-   `ADDRESSES_KLAYTN`
 
 It is by convention, that all address constant modules maintain the exact same naming scheme so you can easily get the correct address for the network you want.
 
