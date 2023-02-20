@@ -1138,6 +1138,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.8** , _20/Feb/2023_
+    -   Fixed the quest-query module.
 -   **v1.4.7** , _13/Feb/2023_
     -   Added Harmony network on the `getProfileByAddressAnyChain()` function because there are still a lot of legacy profiles that have not been migrated.
     -   By activating Harmony network again, profiles names got restored on the hero fetching functions, however, the "owner_address" field is no longer updated from the fetched profile as legacy Harmony profiles point to non-player addresses and corrupt the owner_address field.
