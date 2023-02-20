@@ -30,14 +30,19 @@ const { questResolve } = require('./quest-utils.ent');
  *
  * @param {number} chainId The chain id.
  * @param {number} questId THe quest id.
- * @return {Promise<Object>} Processed and normalized quest data.
+ * @return {Promise<Object|null>} Processed and normalized quest data or null
+ *    if not found.
  */
 exports.queryQuest = async (chainId, questId) => {
   const questData = await exports.fetchQuestData(chainId, questId);
 
+  if (!questData) {
+    return questData;
+  }
+
   const [, profileData] = await Promise.all([
     exports.getQuestHeroData(chainId, questData),
-    getProfileByAddress(questData.playerAddress),
+    getProfileByAddress(chainId, questData.playerAddress),
   ]);
 
   if (profileData) {
@@ -52,7 +57,7 @@ exports.queryQuest = async (chainId, questId) => {
  *
  * @param {number} chainId The chain id.
  * @param {number} questId The quest id to fetch.
- * @return {Promise<Object>} Normalized quest data.
+ * @return {Promise<Object|null>} Normalized quest data or null if not found.
  */
 exports.fetchQuestData = async (chainId, questId) => {
   const currentRPC = await getProvider(chainId);
@@ -61,13 +66,13 @@ exports.fetchQuestData = async (chainId, questId) => {
   const questsV2Contract = getQuestCoreV2(currentRPC);
 
   const [resV1, resV2] = await Promise.allSettled([
-    questsV1Contract.getQuest(questId),
+    questsV1Contract?.getQuest(questId),
     questsV2Contract.quests(questId),
   ]);
 
   let rawQuestDataV1 = {};
   let rawQuestDataV2 = {};
-  if (resV1.status === 'fulfilled') {
+  if (resV1?.status === 'fulfilled') {
     rawQuestDataV1 = resV1.value;
   }
   if (resV2.status === 'fulfilled') {
@@ -75,6 +80,11 @@ exports.fetchQuestData = async (chainId, questId) => {
   }
 
   const questIdV2 = Number(rawQuestDataV2.id);
+
+  // Check for no result...
+  if (questIdV2 === 0 && resV2.status === 'fulfilled') {
+    return null;
+  }
 
   let questData = {};
   if (questIdV2) {
