@@ -221,11 +221,15 @@ exports.getContractGameToken = (currentRPC) => {
  * Get the Quest Core V1 contract.
  *
  * @param {Object} currentRPC The current RPC to get the contract for.
- * @return {Object} An ethers.js contract instance.
+ * @return {Object|null} An ethers.js contract instance or null if v1 does not
+ *    exist.
  */
 exports.getQuestCoreV1 = (currentRPC) => {
   const { provider, chainId } = currentRPC;
   const addresses = exports.getAddresses(chainId);
+  if (!addresses.QUEST_CORE_V1) {
+    return null;
+  }
   const contract = new ethers.Contract(
     addresses.QUEST_CORE_V1,
     abiQuestCoreV1,
