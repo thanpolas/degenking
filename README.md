@@ -1138,6 +1138,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.9** , _23/Feb/2023_
+    -   Added Duels Season 3 ABI.
+    -   Replaced address of Duels on CV and SD2.
 -   **v1.4.8** , _20/Feb/2023_
     -   Fixed the quest-query module.
 -   **v1.4.7** , _13/Feb/2023_
