@@ -1138,6 +1138,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.10** , _28/Feb/2023_
+    -   Added the `ITEMS.POWER_TOKENS_PER_NETWORK` constant which is an enumeration of network ids mapped to their respective power token objects as represented from the official DFK data mapping "all-items.json".
 -   **v1.4.9** , _23/Feb/2023_
     -   Added Duels Season 3 ABI.
     -   Replaced address of Duels on CV and SD2.
