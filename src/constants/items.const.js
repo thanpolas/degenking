@@ -5,6 +5,7 @@
 const { indexArrayToObject } = require('@thanpolas/sidekick');
 
 const ALL_ITEMS = require('./all-items.json');
+const { NETWORK_IDS } = require('./constants.const');
 
 /** @const {string} ZERO_ONE_ADDRESS Items instead of zero address have this one */
 const ZERO_ONE_ADDRESS = '0x0000000000000000000000000000000000000001';
@@ -34,6 +35,7 @@ exports.ITEM_TYPES = {
   SUBCOLLECTION: 'subcollection',
   // Hidden types are tokens like jewel and crystal
   HIDDEN: 'hidden',
+  BALLANCE: 'balance',
 };
 
 /** @enum {string} All item types sorted by displaying preference */
@@ -53,6 +55,19 @@ exports.ITEM_TYPES_SORTED = [
 
 /** @const {Array<Object>} ITEMS_BY_NAME index all items by name */
 exports.ITEMS_BY_NAME = indexArrayToObject(ALL_ITEMS, 'name');
+
+/** @enum {Object} Mapping of network ids to the power token objects */
+exports.POWER_TOKENS_PER_NETWORK = {
+  [NETWORK_IDS.DFKN]: exports.ITEMS_BY_NAME.CRYSTAL,
+  [NETWORK_IDS.KLAYTN]: exports.ITEMS_BY_NAME.JADE,
+};
+
+// Augment the power tokens with the "address" property to represent their
+// address on their native network
+exports.ITEMS_BY_NAME.CRYSTAL.address =
+  exports.ITEMS_BY_NAME.CRYSTAL.addresses[NETWORK_IDS.DFKN];
+exports.ITEMS_BY_NAME.JADE.address =
+  exports.ITEMS_BY_NAME.JADE.addresses[NETWORK_IDS.KLAYTN];
 
 /**
  * Will return items sorted by type.
