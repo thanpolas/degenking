@@ -17,10 +17,10 @@ describe('Visual Stat Genes Decoding', () => {
       const visualGenesDecoded = convertGenesV1(visualGenes, VISUAL_GENE_MAP);
 
       expect(visualGenesDecoded.gender).toEqual('female');
-      expect(visualGenesDecoded.headAppendage).toEqual(6);
-      expect(visualGenesDecoded.backAppendage).toBeUndefined();
+      expect(visualGenesDecoded.headAppendage).toEqual('Minotaur Horns');
+      expect(visualGenesDecoded.backAppendage).toEqual('Skeletal Wings');
       expect(visualGenesDecoded.background).toEqual('desert');
-      expect(visualGenesDecoded.hairStyle).toBeUndefined();
+      expect(visualGenesDecoded.hairStyle).toEqual('Faded Topknot');
       expect(visualGenesDecoded.hairColor).toEqual('326988');
       expect(visualGenesDecoded.visualUnknown1).toEqual(1);
       expect(visualGenesDecoded.eyeColor).toEqual('896693');
