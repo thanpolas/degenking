@@ -1138,6 +1138,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.12** , _18/Apr/2023_
+    -   Added labels on "statsUnknown1" and "statsUnknown2" thanks to [Zelys-DFKH](https://github.com/Zelys-DFKH).
 -   **v1.4.11** , _05/Apr/2023_
     -   Added missing classes and a few other mappings of hero attributes.
 -   **v1.4.10** , _28/Feb/2023_
