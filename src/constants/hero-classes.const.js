@@ -11,7 +11,11 @@ exports.basicClasses = [
   'wizard',
   'monk',
   'pirate',
+  'berserker',
+  'seer',
+  'legionnaire',
+  'scholar'
 ];
-exports.advancedClasses = ['paladin', 'darkKnight', 'summoner', 'ninja'];
-exports.eliteClasses = ['dragoon', 'sage'];
+exports.advancedClasses = ['paladin', 'darkKnight', 'summoner', 'ninja', 'shapeshifter','bard'];
+exports.eliteClasses = ['dragoon', 'sage', 'spellbow'];
 exports.exaltedClasses = ['dreadKnight'];
