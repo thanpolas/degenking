@@ -136,7 +136,7 @@ exports.CLASS_REV = {
   summoner: 'Summoner',
   ninja: 'Ninja',
   shapeshifter: 'Shapeshifter',
-  bard: `Bard',
+  bard: 'Bard',
   dragoon: 'Dragoon',
   sage: 'Sage',
   dreadKnight: 'DreadKnight',
