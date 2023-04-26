@@ -1138,8 +1138,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.13** , _18/Apr/2023_
+    -   Added all the newly revealed labels on hero attributes thanks to [Zelys-DFKH][zelys].
 -   **v1.4.12** , _18/Apr/2023_
-    -   Added labels on "statsUnknown1" and "statsUnknown2" thanks to [Zelys-DFKH](https://github.com/Zelys-DFKH).
+    -   Added labels on "statsUnknown1" and "statsUnknown2" thanks to [Zelys-DFKH][zelys].
 -   **v1.4.11** , _05/Apr/2023_
     -   Added missing classes and a few other mappings of hero attributes.
 -   **v1.4.10** , _28/Feb/2023_
@@ -1404,3 +1406,4 @@ thanpolas.eth - 0x67221b267cee49427bAa0974ceac988682192977
 [dfk]: https://defikingdoms.com
 [ethers-signer]: https://docs.ethers.io/v5/api/signer/
 [ethers-wallet]: https://docs.ethers.io/v5/api/signer/#Wallet
+[zelys]: https://github.com/Zelys-DFKH
