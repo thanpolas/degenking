@@ -52,7 +52,7 @@ describe('Visual Stat Genes Decoding', () => {
       expect(visualGenesDecoded.backgroundDescr).toEqual('desert');
 
       expect(visualGenesDecoded.headAppendageDescr).toEqual('Minotaur Horns');
-      expect(visualGenesDecoded.headAppendageMut).toEqual('Basic7');
+      expect(visualGenesDecoded.headAppendageMut).toEqual('Critical Aim');
 
       expect(visualGenesDecoded.backAppendageDescr).toEqual('Skeletal Wings');
       expect(visualGenesDecoded.backAppendageMut).toEqual('Basic9');
@@ -64,19 +64,19 @@ describe('Visual Stat Genes Decoding', () => {
       expect(visualGenesDecoded.hairColorMut).toEqual('Basic10');
 
       expect(visualGenesDecoded.eyeColorHex).toEqual('896693');
-      expect(visualGenesDecoded.eyeColorMut).toEqual('Basic3');
+      expect(visualGenesDecoded.eyeColorMut).toEqual('Heal');
 
       expect(visualGenesDecoded.skinColorHex).toEqual('985e1c');
-      expect(visualGenesDecoded.skinColorMut).toEqual('Basic5');
+      expect(visualGenesDecoded.skinColorMut).toEqual('Iron Skin');
 
       expect(visualGenesDecoded.appendageColorHex).toEqual('a88b47');
-      expect(visualGenesDecoded.appendageColorMut).toEqual('Basic2');
+      expect(visualGenesDecoded.appendageColorMut).toEqual('Blinding Winds');
 
       expect(visualGenesDecoded.backAppendageColorHex).toEqual('566f7d');
-      expect(visualGenesDecoded.backAppendageColorMut).toEqual('Basic4');
+      expect(visualGenesDecoded.backAppendageColorMut).toEqual('Cleanse');
 
-      expect(visualGenesDecoded.visualUnknown1Mut).toEqual('Basic2');
-      expect(visualGenesDecoded.visualUnknown2Mut).toEqual('Basic3');
+      expect(visualGenesDecoded.visualUnknown1Mut).toEqual('Blinding Winds');
+      expect(visualGenesDecoded.visualUnknown2Mut).toEqual('Heal');
     });
 
     test('Will decode visual Recessive 1 genes for hero id 300094', () => {
@@ -106,31 +106,31 @@ describe('Visual Stat Genes Decoding', () => {
       expect(r1.backgroundDescr).toEqual('island');
 
       expect(r1.headAppendageDescr).toEqual('Cat Ears');
-      expect(r1.headAppendageMut).toEqual('Basic6');
+      expect(r1.headAppendageMut).toEqual('Speed');
 
       expect(r1.backAppendageDescr).toEqual('Cat Tail');
-      expect(r1.backAppendageMut).toEqual('Basic3');
+      expect(r1.backAppendageMut).toEqual('Heal');
 
       expect(r1.hairStyleDescr).toEqual('Pixel');
-      expect(r1.hairStyleMut).toEqual('Basic5');
+      expect(r1.hairStyleMut).toEqual('Iron Skin');
 
       expect(r1.hairColorHex).toEqual('62a7e6');
-      expect(r1.hairColorMut).toEqual('Basic8');
+      expect(r1.hairColorMut).toEqual('Deathmark');
 
       expect(r1.eyeColorHex).toEqual('896693');
-      expect(r1.eyeColorMut).toEqual('Basic3');
+      expect(r1.eyeColorMut).toEqual('Heal');
 
       expect(r1.skinColorHex).toEqual('f1ca9e');
-      expect(r1.skinColorMut).toEqual('Basic3');
+      expect(r1.skinColorMut).toEqual('Heal');
 
       expect(r1.appendageColorHex).toEqual('830e18');
-      expect(r1.appendageColorMut).toEqual('Basic7');
+      expect(r1.appendageColorMut).toEqual('Critical Aim');
 
       expect(r1.backAppendageColorHex).toEqual('830e18');
-      expect(r1.backAppendageColorMut).toEqual('Basic7');
+      expect(r1.backAppendageColorMut).toEqual('Critical Aim');
 
-      expect(r1.visualUnknown1Mut).toEqual('Basic5');
-      expect(r1.visualUnknown2Mut).toEqual('Basic8');
+      expect(r1.visualUnknown1Mut).toEqual('Iron Skin');
+      expect(r1.visualUnknown2Mut).toEqual('Deathmark');
     });
   });
 });
