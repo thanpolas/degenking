@@ -22,7 +22,9 @@ exports.DUELS_CORE_S1 = '0xf724fe22b45d519d149477aa2ec5348cee08cae3';
 // Season2
 exports.DUELS_CORE_S2 = '0x9eeabbcf42f0c4900d302544cce599811c2de2b9';
 // Season3
-exports.DUELS_CORE = '0x26e47585e93f354864ad2644fcac348e3db5a7f3';
+exports.DUELS_CORE_S3 = '0x26e47585e93f354864ad2644fcac348e3db5a7f3';
+// Season 4
+exports.DUELS_CORE = '0xb7fe0195808E620A71672bcCa853cD848f906621';
 
 exports.HEROES = '0xeb9b61b145d6489be575d3603f4a704810e143df';
 exports.TEARS_TOKEN = '0x58e63a9bbb2047cd9ba7e6bb4490c238d271c278';

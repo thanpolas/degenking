@@ -23,7 +23,9 @@ exports.AIRDROP = '';
 // Season 2
 exports.DUELS_CORE_S2 = '0xf719c12a5a7c0f13f3c1b71074960a25e2f9aa9e';
 // Season 3
-exports.DUELS_CORE = '0x780ab5bdd18ed8cbb45267e53b11ee72ebf65a21';
+exports.DUELS_CORE_S3 = '0x780ab5bdd18ed8cbb45267e53b11ee72ebf65a21';
+// Season 4
+exports.DUELS_CORE = '0x338D7Dfb8E44c39Bfdfe4967CB79B08188dEA3C0';
 
 exports.HEROES = '0x268CC8248FFB72Cd5F3e73A9a20Fa2FF40EfbA61';
 exports.TEARS_TOKEN = '0x8be0cba3c8c8f392408364ef21dfcf714a918234';
