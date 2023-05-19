@@ -37,6 +37,23 @@ exports.QUEST_TYPES = {
 
 exports.QUEST_TYPES_REV = {};
 
+/** @enum {string} Enumeration of the quest instance IDs used in QC3. */
+exports.QUEST_INSTANCE_IDS = {
+  1: 'Fishing',
+  2: 'Foraging',
+  3: 'Gold Mining',
+  4: 'Token Mining',
+  5: 'Gardening',
+  6: 'Training',
+};
+
+/** @enum {number} Enumeration of the skill values used in QC3. */
+exports.QUEST_LEVELS = {
+  SKILL0: 0,
+  SKILL10: 10,
+  TRAINING: 1,
+};
+
 /**
  * Assign the address --> Quest type.
  *

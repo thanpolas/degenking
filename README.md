@@ -1138,6 +1138,10 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.4.14** , _19/May/2023_
+    -   Upgraded Duels to Season 4.
+    -   Added Quest Core V3 ABI and constants.
+    -   More robust `getProfileByAddressAnyChain()` function - will now return an object even if no result was found and will also attempt a second time to fetch the profile if the first one had no results.
 -   **v1.4.13** , _18/Apr/2023_
     -   Added all the newly revealed labels on hero attributes thanks to [Zelys-DFKH][zelys].
 -   **v1.4.12** , _18/Apr/2023_
