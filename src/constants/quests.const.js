@@ -39,12 +39,46 @@ exports.QUEST_TYPES_REV = {};
 
 /** @enum {string} Enumeration of the quest instance IDs used in QC3. */
 exports.QUEST_INSTANCE_IDS = {
-  1: 'Fishing',
-  2: 'Foraging',
-  3: 'Gold Mining',
-  4: 'Token Mining',
-  5: 'Gardening',
-  6: 'Training',
+  FISHING: '1',
+  FORAGING: '2',
+  GOLD_MINING: '3',
+  TOKEN_MINING: '4',
+  GARDENING: '5',
+  TRAINING: '6',
+};
+
+/** @enum {number} Reverse enumeration of the quest instance IDs used in QC3. */
+exports.QUEST_INSTANCE_IDS_REV = {
+  1: 'FISHING',
+  2: 'FORAGING',
+  3: 'GOLD_MINING',
+  4: 'TOKEN_MINING',
+  5: 'GARDENING',
+  6: 'TRAINING',
+};
+
+/** @enum {string} Enumeration of the QC3 training quest names. */
+exports.TRAINING_QUEST_TYPE_NAMES = {
+  0: 'Strength',
+  1: 'Intelligence',
+  2: 'Wisdom',
+  3: 'Luck',
+  4: 'Agility',
+  5: 'Vitality',
+  6: 'Endurance',
+  7: 'Dexterity',
+};
+
+/** @enum {string} Enumeration of the QC3 training quest IDs. */
+exports.TRAINING_QUEST_TYPE_IDS = {
+  STRENGTH: '0',
+  INTELLIGENCE: '1',
+  WISDOM: '2',
+  LUCK: '3',
+  AGILITY: '4',
+  VITALITY: '5',
+  ENDURANCE: '6',
+  DEXTERITY: '7',
 };
 
 /** @enum {number} Enumeration of the skill values used in QC3. */
@@ -52,6 +86,31 @@ exports.QUEST_LEVELS = {
   SKILL0: 0,
   SKILL10: 10,
   TRAINING: 1,
+};
+
+/** @enum {string} A Mapping of the professions to quest types */
+exports.PROFESSIONS_TO_QUEST_TYPES = {
+  mining: exports.QUEST_INSTANCE_IDS.TOKEN_MINING,
+  gardening: exports.QUEST_INSTANCE_IDS.GARDENING,
+  foraging: exports.QUEST_INSTANCE_IDS.FORAGING,
+  fishing: exports.QUEST_INSTANCE_IDS.FISHING,
+};
+
+/**
+ * Maps the legacy enumeration CONSTANTS.QUEST_TYPES to the new Quest Core V3
+ * enumeration of Training Quest Types
+ *
+ * @enum {string}
+ */
+exports.MAP_QUEST_TYPE_TRAINING_TO_V3_ID = {
+  QUEST_STR_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.STRENGTH,
+  QUEST_AGI_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.AGILITY,
+  QUEST_END_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.ENDURANCE,
+  QUEST_WIS_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.WISDOM,
+  QUEST_DEX_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.DEXTERITY,
+  QUEST_VIT_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.VITALITY,
+  QUEST_INT_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.INTELLIGENCE,
+  QUEST_LCK_ADDRESS: exports.TRAINING_QUEST_TYPE_IDS.LUCK,
 };
 
 /**
