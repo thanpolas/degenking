@@ -45,6 +45,7 @@ exports.BRIDGE_ITEMS = '0x6d5b86eac9097ea4a94b2b69cd4854678b89f839';
 
 // Currently active quests
 exports.QUEST_CORE_V2 = '0x8dc58d6327e1f65b18b82edfb01a361f3aaef624';
+exports.QUEST_CORE_V3 = '0x1ac6cd893eddb6cac15e5a9fc549335b8b449015';
 // Populate gardening with the zero address so it no longer is undefined
 // and it can pass conditionals for usage (i.e. is gardening implemented on CV?)
 exports.QUEST_GARDENING_V1 = ZERO_ADDRESS;
