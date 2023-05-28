@@ -89,6 +89,8 @@ const {
   questResolve,
   isQuestNew,
   isTrainingQuest,
+  resolveGarden,
+  resolveTraining,
 } = require('./quests/quest-utils.ent');
 
 const {
@@ -212,6 +214,8 @@ exports.renderParts = renderParts;
 // Quests
 exports.queryQuest = queryQuest;
 exports.fetchQuestData = fetchQuestData;
+exports.resolveGarden = resolveGarden;
+exports.resolveTraining = resolveTraining;
 
 // ABIs
 exports.abiItems = require('./abi/items.abi.json');
