@@ -14,6 +14,7 @@ const {
   getQuestCoreV1,
   getQuestCoreV2,
   getAddresses,
+  getQuestCoreV3,
 } = require('../ether');
 
 const {
@@ -21,8 +22,18 @@ const {
 } = require('../constants/topics.const');
 const abiQuestCoreV2 = require('../abi/quest-core-v2.abi.json');
 const { heroQuestStr } = require('../heroes-helpers/hero-to-string.ent');
-const { getProfileByAddress } = require('../heroes-fetch/owner-profile.ent');
-const { questResolve } = require('./quest-utils.ent');
+const {
+  getProfileByAddress,
+  getProfileByAddressAnyChain,
+} = require('../heroes-fetch/owner-profile.ent');
+const {
+  questResolve,
+  questResolveLegacy,
+  resolveGarden,
+  resolveTraining,
+} = require('./quest-utils.ent');
+const { chainIdToNetwork } = require('../utils/network-helpers');
+const { QUEST_INSTANCE_IDS } = require('../constants/quests.const');
 
 /**
  * Queries the blockchain to fetch all available data of a
@@ -30,7 +41,7 @@ const { questResolve } = require('./quest-utils.ent');
  *
  * @param {number} chainId The chain id.
  * @param {number} questId THe quest id.
- * @return {Promise<Object|null>} Processed and normalized quest data or null
+ * @return {Promise<questData|null>} Processed and normalized quest data or null
  *    if not found.
  */
 exports.queryQuest = async (chainId, questId) => {
@@ -40,8 +51,35 @@ exports.queryQuest = async (chainId, questId) => {
     return questData;
   }
 
+  const [profileData] = await Promise.all([
+    getProfileByAddressAnyChain(questData.playerAddress),
+  ]);
+
+  if (profileData) {
+    questData.profileName = profileData.name;
+  }
+
+  return questData;
+};
+
+/**
+ * Queries the blockchain to fetch all available data of a
+ *    quest based on quest id for legacy Quest Core V1 and V2.
+ *
+ * @param {number} chainId The chain id.
+ * @param {number} questId THe quest id.
+ * @return {Promise<Object|null>} Processed and normalized quest data or null
+ *    if not found.
+ */
+exports.queryQuestLegacy = async (chainId, questId) => {
+  const questData = await exports.fetchQuestDataLegacy(chainId, questId);
+
+  if (!questData) {
+    return questData;
+  }
+
   const [, profileData] = await Promise.all([
-    exports.getQuestHeroData(chainId, questData),
+    exports.getQuestHeroDataLegacy(chainId, questData),
     getProfileByAddress(chainId, questData.playerAddress),
   ]);
 
@@ -53,13 +91,35 @@ exports.queryQuest = async (chainId, questId) => {
 };
 
 /**
- * Will fetch raw Quest data regardless of QuestCore version.
+ * Will fetch raw Quest data for Quest Core V3.
+ *
+ * @param {number} chainId The chain id.
+ * @param {number} questId The quest id to fetch.
+ * @return {Promise<questData|null>} Normalized quest data or null if not found.
+ */
+exports.fetchQuestData = async (chainId, questId) => {
+  const currentRPC = await getProvider(chainId);
+  const questsV3Contract = getQuestCoreV3(currentRPC);
+  const questData = await questsV3Contract.quests(questId);
+
+  const fetchedQuestId = Number(questData.id);
+  if (fetchedQuestId === 0) {
+    return null;
+  }
+
+  const questDataNormalized = exports.normalizeQuestV3(chainId, questData);
+
+  return questDataNormalized;
+};
+
+/**
+ * Will fetch raw Quest data for legacy Quest Core V1 and V2.
  *
  * @param {number} chainId The chain id.
  * @param {number} questId The quest id to fetch.
  * @return {Promise<Object|null>} Normalized quest data or null if not found.
  */
-exports.fetchQuestData = async (chainId, questId) => {
+exports.fetchQuestDataLegacy = async (chainId, questId) => {
   const currentRPC = await getProvider(chainId);
 
   const questsV1Contract = getQuestCoreV1(currentRPC);
@@ -121,7 +181,7 @@ exports.normalizeQuestV1 = (rawQuestDataV1) => {
     heroIds: rawQuestDataV1.heroes?.map((heroId) => Number(heroId)),
   };
 
-  questData.questName = questResolve(questData.questAddressLower);
+  questData.questName = questResolveLegacy(questData.questAddressLower);
 
   return questData;
 };
@@ -152,14 +212,55 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
     level: rawQuestDataV2.level,
   };
 
-  questData.questName = questResolve(questData.questAddressLower);
+  questData.questName = questResolveLegacy(questData.questAddressLower);
+
+  return questData;
+};
+
+/**
+ * Normalizes chain Quest V3 data.
+ *
+ * @param {number} chainId The chain id.
+ * @param {Object} rawQuestDataV3 The raw response from the chain.
+ * @return {questData} Normalized quest data.
+ */
+exports.normalizeQuestV3 = (chainId, rawQuestDataV3) => {
+  const questInstanceId = Number(rawQuestDataV3.questInstanceId);
+  // Resolve type
+  let questTypeName = '';
+  if (questInstanceId === QUEST_INSTANCE_IDS.GARDENING) {
+    const gardenPool = resolveGarden(chainId, rawQuestDataV3.questType);
+    questTypeName = gardenPool?.pair;
+  } else if (questInstanceId === QUEST_INSTANCE_IDS.TRAINING) {
+    questTypeName = resolveTraining(rawQuestDataV3.questType);
+  }
+
+  const questData = {
+    version: 3,
+    chainId,
+    networkName: chainIdToNetwork(chainId),
+    questId: Number(rawQuestDataV3.id),
+    questInstanceId,
+    questName: questResolve(Number(rawQuestDataV3.questInstanceId)),
+    questTypeId: rawQuestDataV3.questType,
+    questTypeName,
+    heroIds: rawQuestDataV3.heroes.map((heroId) => Number(heroId)),
+    playerAddress: rawQuestDataV3.player,
+    playerAddressLower: rawQuestDataV3.player?.toLowerCase(),
+    startBlock: Number(rawQuestDataV3.startBlock),
+    startAtTime: unixToJsDate(rawQuestDataV3.startAtTime),
+    completeAtTime: unixToJsDate(rawQuestDataV3.completeAtTime),
+    attempts: rawQuestDataV3.attempts,
+    status: rawQuestDataV3.status,
+    level: rawQuestDataV3.level,
+  };
 
   return questData;
 };
 
 /**
  * Will fetch and augment the questData input object with heroes data.
- *
+ * Legacy version for Quest Core V1 and V2.
  * Will populate:
  *    - allHeroes: Array of full hero objects.
  *    - heroesStr: Quest string rendering of heroes.
@@ -168,7 +269,7 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
  * @param {Object} questData Normnalized Quest data.
  * @return {Promise<void>} Augments questData object.
  */
-exports.getQuestHeroData = async (chainId, questData) => {
+exports.getQuestHeroDataLegacy = async (chainId, questData) => {
   if (questData.version === 2) {
     await exports.getQuestV2QuestHeroes(chainId, questData);
   }
