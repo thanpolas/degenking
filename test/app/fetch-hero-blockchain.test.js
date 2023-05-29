@@ -54,7 +54,7 @@ describe('Fetch Hero Blockchain', () => {
     staminaFullAt: new Date('2022-01-26T16:13:19.000Z'),
     hpFullAt: new Date('1970-01-01T00:00:00.000Z'),
     mpFullAt: new Date('1970-01-01T00:00:00.000Z'),
-    currentQuest: '0x0000000000000000000000000000000000000000',
+    currentQuest: 0,
     isQuesting: false,
     sp: 0,
     status: 0,

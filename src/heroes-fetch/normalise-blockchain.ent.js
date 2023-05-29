@@ -114,7 +114,8 @@ exports.normalizeChainProcessedHero = (
     staminaFullAt: unixToJsDate(hero.state.staminaFullAt),
     hpFullAt: unixToJsDate(hero.state.hpFullAt),
     mpFullAt: unixToJsDate(hero.state.mpFullAt),
-    currentQuest: hero.state.currentQuest,
+    // With Quest Core V3 the "currentQuest" is the "questInstanceId"
+    currentQuest: Number(hero.state.currentQuest),
     isQuesting: hero.state.currentQuest !== ZERO_ADDRESS,
 
     sp: hero.state.sp,

@@ -1138,6 +1138,12 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.5.0** , _28/May/2023_
+    -   Quest Core V3 general updates.
+    -   Hero's "currentQuest" now represents the questInstanceId.
+    -   Introduced the `resolveGarden(chainId, questType)` function to resolve Gardening quests from questType.
+    -   Introduced the `resolveTraining(questType)` function to resolve Training quests from questType.
+    -   Added new Quest Core V3 functions: `getQuestCoreV3()`.
 -   **v1.4.14** , _19/May/2023_
     -   Upgraded Duels to Season 4.
     -   Added Quest Core V3 ABI and constants.

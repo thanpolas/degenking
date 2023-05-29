@@ -157,7 +157,7 @@ assert.assertTypes = (testObj) => {
   expect(testObj.staminaFullAt).toBeDate();
   expect(testObj.hpFullAt).toBeDate();
   expect(testObj.mpFullAt).toBeDate();
-  expect(testObj.currentQuest).toBeString();
+  expect(testObj.currentQuest).toBeNumber();
   expect(testObj.isQuesting).toBeBoolean();
   expect(testObj.sp).toBeNumber();
   expect(testObj.status).toBeNumber();

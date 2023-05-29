@@ -15,7 +15,6 @@ const {
   calculateRequiredXp,
 } = require('./heroes-helpers.ent');
 
-const { ZERO_ADDRESS } = require('../constants/constants.const');
 const { questResolve } = require('../quests/quest-utils.ent');
 
 /**
@@ -76,7 +75,7 @@ exports.heroesTableCurrentStats = (heroes) => {
 exports.heroesCurrentStats = (heroes) => {
   return heroes.map((hero) => {
     let currentQuest = '-';
-    if (hero.currentQuest !== ZERO_ADDRESS) {
+    if (hero.isQuesting) {
       currentQuest = 'yes';
     }
 
@@ -106,7 +105,7 @@ exports.heroesCurrentStats = (heroes) => {
  * @private
  */
 exports.heroQuestStr = (hero) => {
-  const questing = hero.currentQuest === ZERO_ADDRESS ? 'N' : 'Y';
+  const questing = hero.isQuesting ? 'Y' : 'N';
   const heroStr =
     `id:${hero.id} Realm: ${hero.realm} Stam:${hero.currentStamina} ` +
     `JPT100:${hero.estJewelPer100Ticks}J R:${hero.currentRank} Q:${questing}`;
@@ -287,7 +286,7 @@ exports._getHeroParts = (hero, params) => {
   }
 
   if (params.showQuest) {
-    if (hero.currentQuest === ZERO_ADDRESS) {
+    if (!hero.isQuesting) {
       heroParts.push('Not Questing');
     } else {
       const questName = questResolve(hero.currentQuest);
