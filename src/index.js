@@ -219,6 +219,7 @@ exports.abiQuestCoreV1 = require('./abi/quest-core-v1.abi.json');
 exports.abiQuestCoreV2 = require('./abi/quest-core-v2.abi.json');
 exports.abiQuestCoreV2_1 = require('./abi/quest-core-v2.1.abi.json');
 exports.abiQuestCoreV2_2 = require('./abi/quest-core-v2.2.abi.json');
+exports.abiQuestCoreV3 = require('./abi/quest-core-v3.abi.json');
 
 exports.abiDuelsCore = require('./abi/duels-core.abi.json');
 exports.abiDuelsCoreV2 = require('./abi/duels-core-v2.abi.json');
@@ -236,8 +237,3 @@ exports.abiHeroAuction = require('./abi/auction.abi.json');
 exports.abiSummonV1 = require('./abi/summon-v1.abi.json');
 exports.abiSummonV2 = require('./abi/summon-v2.abi.json');
 exports.abiMasterGardenerDfk = require('./abi/master-gardener-dfk.abi.json');
-
-/**
- * @deprecated at 1.2.6
- */
-exports.abiQuestCoreV2U = exports.abiQuestCoreV2_1;

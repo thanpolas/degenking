@@ -18,7 +18,8 @@ const log = require('../utils/log.service').get();
  * @param {number} chainId Chain id.
  * @param {string} ownerAddress The owner's address to fetch - lowercased.
  * @param {number=} retries Retry count.
- * @return {Promise<Object>} Fetched jewel.
+ * @return {Promise<number>} How many locked game tokens
+ *    the account has in human readable format.
  */
 exports.fetchLockedTokensByOwnerChain = async (
   chainId,
