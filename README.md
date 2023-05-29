@@ -1138,7 +1138,7 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
--   **v1.5.0** , _28/May/2023_
+-   **v1.6.0** , _28/May/2023_
     -   Quest Core V3 general updates.
     -   Hero's "currentQuest" now represents the questInstanceId.
     -   Introduced the `resolveGarden(chainId, questType)` function to resolve Gardening quests from questType.
