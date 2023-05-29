@@ -5,6 +5,7 @@
 
 const { ethers } = require('ethers');
 const { unixToJsDate } = require('@thanpolas/sidekick');
+const formatDistance = require('date-fns/formatDistance');
 
 const {
   getHeroesChain,
@@ -225,7 +226,27 @@ exports.normalizeQuestV2 = (rawQuestDataV2) => {
  * @return {questData} Normalized quest data.
  */
 exports.normalizeQuestV3 = (chainId, rawQuestDataV3) => {
-  const questInstanceId = Number(rawQuestDataV3.questInstanceId);
+  const heroIds = rawQuestDataV3.heroes.map((heroId) => Number(heroId));
+
+  const questInstanceId = String(rawQuestDataV3.questInstanceId);
+  // Reverse lookup on quests to get the name
+  const questName = questResolve(questInstanceId);
+
+  // Completion dates
+  const completesAt = unixToJsDate(rawQuestDataV3.completeAtTime);
+  const now = new Date();
+  const questFinished = now > completesAt;
+  const dtDistance = formatDistance(completesAt, now, { addSuffix: true });
+
+  // Player address
+  const playerAddress = rawQuestDataV3.player;
+  const playerAddressLower = rawQuestDataV3.player.toLowerCase();
+
+  let level = '-';
+  if (Number.isInteger(rawQuestDataV3.level)) {
+    level = rawQuestDataV3.level;
+  }
+
   // Resolve type
   let questTypeName = '';
   if (questInstanceId === QUEST_INSTANCE_IDS.GARDENING) {
@@ -235,27 +256,28 @@ exports.normalizeQuestV3 = (chainId, rawQuestDataV3) => {
     questTypeName = resolveTraining(rawQuestDataV3.questType);
   }
 
-  const questData = {
+  return {
     version: 3,
     chainId,
     networkName: chainIdToNetwork(chainId),
     questId: Number(rawQuestDataV3.id),
     questInstanceId,
-    questName: questResolve(Number(rawQuestDataV3.questInstanceId)),
+    questName,
     questTypeId: rawQuestDataV3.questType,
     questTypeName,
-    heroIds: rawQuestDataV3.heroes.map((heroId) => Number(heroId)),
-    playerAddress: rawQuestDataV3.player,
-    playerAddressLower: rawQuestDataV3.player?.toLowerCase(),
+    heroIds,
+    heroIdsStr: heroIds.join(', '),
+    playerAddress,
+    playerAddressLower,
     startBlock: Number(rawQuestDataV3.startBlock),
-    startAtTime: unixToJsDate(rawQuestDataV3.startAtTime),
-    completeAtTime: unixToJsDate(rawQuestDataV3.completeAtTime),
+    startedAt: unixToJsDate(rawQuestDataV3.startAtTime),
+    completesAt,
+    completes: dtDistance,
+    questFinished,
     attempts: rawQuestDataV3.attempts,
     status: rawQuestDataV3.status,
-    level: rawQuestDataV3.level,
+    level,
   };
-
-  return questData;
 };
 
 /**
