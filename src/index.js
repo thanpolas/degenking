@@ -121,7 +121,11 @@ const { set: setConfig } = require('./configure');
 const {
   normalizeChainHero,
 } = require('./heroes-fetch/normalise-blockchain.ent');
-const { queryQuest, fetchQuestData } = require('./quests/quest-query.ent');
+const {
+  queryQuest,
+  fetchQuestData,
+  normalizeQuestV3,
+} = require('./quests/quest-query.ent');
 const { getAddresses, getPools } = require('./ether');
 
 exports.getHeroesChain = getHeroesChain;
@@ -169,6 +173,7 @@ exports.getPools = getPools;
 exports.chainIdToNetwork = chainIdToNetwork;
 exports.getBaseTokenName = getBaseTokenName;
 exports.chainIdToRealm = chainIdToRealm;
+exports.normalizeQuestV3 = normalizeQuestV3;
 exports.TOKEN_NAMES = TOKEN_NAMES;
 
 // New command[s] 19/Mar/2021
