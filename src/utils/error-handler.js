@@ -20,6 +20,7 @@ const { errorDelay } = require('@thanpolas/sidekick');
  * @param {*} params.doNotThrow Set any value to this to have error handler not
  *    throw an error after 5 retries and instead, return the value of this
  *    parameter.
+ * @param {boolean=} params.doNotLogError Do not log the error on fail.
  * @return {Promise<*>} A Promise with any returning value the "retryFunction"
  *  returns.
  */
@@ -34,6 +35,7 @@ exports.catchErrorRetry = async (log, params) => {
     retryFunction,
     retryArguments,
     doNotThrow,
+    doNotLogError,
   } = params;
 
   retries += 1;
@@ -58,10 +60,13 @@ exports.catchErrorRetry = async (log, params) => {
     if (!hasRPCError) {
       logContext.error = ex;
     }
-    await log.error(
-      `${errorMessageUse} - Maximum attempts exceeded: ${maxRetries} - Giving up`,
-      logContext,
-    );
+
+    if (!doNotLogError) {
+      await log.error(
+        `${errorMessageUse} - Maximum attempts exceeded: ${maxRetries} - Giving up`,
+        logContext,
+      );
+    }
 
     if (doNotThrow !== undefined) {
       return doNotThrow;
