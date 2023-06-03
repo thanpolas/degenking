@@ -1138,6 +1138,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.6.2** , _03/Jun/2023_
+    -   Introduced the "doNotLogError" parameter on the retry error handler
 -   **v1.6.1** , _29/May/2023_
     -   Streamlined and exported `normalizeQuestV3()`.
 -   **v1.6.0** , _29/May/2023_
