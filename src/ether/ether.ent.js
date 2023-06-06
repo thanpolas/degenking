@@ -6,7 +6,7 @@ const { ethers } = require('ethers');
 
 const configuration = require('../configure');
 
-const abiHeroes = require('../abi/heroes-v2.abi.json');
+const abiHeroes = require('../abi/heroes-v3.abi.json');
 const abiAuctionSales = require('../abi/auction.abi.json');
 const abiProfiles = require('../abi/profile.abi.json');
 const abiJewel = require('../abi/jewel.abi.json');
