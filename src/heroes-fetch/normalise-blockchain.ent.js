@@ -72,7 +72,8 @@ exports.normalizeChainProcessedHero = (
 ) => {
   const nowDateUse = params.blockMinedAt ? params.blockMinedAt : new Date();
 
-  const { mining, gardening, foraging, fishing } = hero.professions;
+  const { mining, gardening, foraging, fishing, craft1, craft2 } =
+    hero.professions;
 
   const normalizedHero = {
     rawHero: hero,
@@ -99,6 +100,8 @@ exports.normalizeChainProcessedHero = (
     gardening: gardening === 0 ? 0 : gardening / 10,
     foraging: foraging === 0 ? 0 : foraging / 10,
     fishing: fishing === 0 ? 0 : fishing / 10,
+    craft1: craft1 === 0 ? 0 : craft1 / 10,
+    craft2: craft2 === 0 ? 0 : craft2 / 10,
     shiny: hero.info.shiny,
     xp: Number(hero.state.xp),
     level: hero.state.level,
@@ -196,6 +199,16 @@ exports.normalizeChainProcessedHero = (
     normalizedHero.level,
     normalizedHero.summonMinTears,
   );
+
+  // Equipment data
+  normalizedHero.equipmentEquippedSlots = hero.equipment.equippedSlots;
+  normalizedHero.equipmentPetId = hero.equipment.petId;
+  normalizedHero.equipmentWeapon1Id = hero.equipment.weapon1Id;
+  normalizedHero.equipmentWeapon2Id = hero.equipment.weapon2Id;
+  normalizedHero.equipmentOffhand1Id = hero.equipment.offhand1Id;
+  normalizedHero.equipmentOffhand2Id = hero.equipment.offhand2Id;
+  normalizedHero.equipmentArmorId = hero.equipment.armorId;
+  normalizedHero.equipmentAccessoryId = hero.equipment.accessoryId;
 
   // Calculate remaining stamina
   normalizedHero.currentStamina = calculateRemainingStamina(
@@ -307,13 +320,24 @@ exports.processHeroChainData = (heroData, owner, ownerAddress) => {
       gardening: heroData.professions.gardening,
       foraging: heroData.professions.foraging,
       fishing: heroData.professions.fishing,
+      craft1: heroData.professions.craft1,
+      craft2: heroData.professions.craft2,
     },
-
     owner: {
       id: null,
       address: ownerAddress,
       name: null,
       createdAt: null,
+    },
+    equipment: {
+      equippedSlots: Number(heroData.equipment.equippedSlots),
+      petId: Number(heroData.equipment.petId),
+      weapon1Id: Number(heroData.equipment.weapon1Id),
+      weapon2Id: Number(heroData.equipment.weapon2Id),
+      offhand1Id: Number(heroData.equipment.offhand1Id),
+      offhand2Id: Number(heroData.equipment.offhand2Id),
+      armorId: Number(heroData.equipment.armorId),
+      accessoryId: Number(heroData.equipment.accessoryId),
     },
   };
 
