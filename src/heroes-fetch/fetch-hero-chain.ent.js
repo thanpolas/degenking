@@ -70,7 +70,7 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
 
     const heroesContract = etherEnt.getContractHeroes(currentRPC);
 
-    const heroRaw = await heroesContract.getHero(heroId, queryParams);
+    const heroRaw = await heroesContract.getHeroV2(heroId, queryParams);
 
     if (!Number(heroRaw?.id)) {
       // hero not found
