@@ -331,14 +331,14 @@ exports.processHeroChainData = (heroData, owner, ownerAddress) => {
       createdAt: null,
     },
     equipment: {
-      equippedSlots: Number(heroData.equipment.equippedSlots),
-      petId: Number(heroData.equipment.petId),
-      weapon1Id: Number(heroData.equipment.weapon1Id),
-      weapon2Id: Number(heroData.equipment.weapon2Id),
-      offhand1Id: Number(heroData.equipment.offhand1Id),
-      offhand2Id: Number(heroData.equipment.offhand2Id),
-      armorId: Number(heroData.equipment.armorId),
-      accessoryId: Number(heroData.equipment.accessoryId),
+      equippedSlots: Number(heroData?.equipment?.equippedSlots) || 0,
+      petId: Number(heroData?.equipment?.petId) || 0,
+      weapon1Id: Number(heroData?.equipment?.weapon1Id) || 0,
+      weapon2Id: Number(heroData?.equipment?.weapon2Id) || 0,
+      offhand1Id: Number(heroData?.equipment?.offhand1Id) || 0,
+      offhand2Id: Number(heroData?.equipment?.offhand2Id) || 0,
+      armorId: Number(heroData?.equipment?.armorId) || 0,
+      accessoryId: Number(heroData?.equipment?.accessoryId) || 0,
     },
   };
 
