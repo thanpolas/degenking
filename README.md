@@ -1183,7 +1183,9 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
--   **v1.7.0** , _06/Jun/2023_
+-   **v1.7.1** , _08/Jun/2023_
+    -   Made pet-profession mapping all lowercase for consistency.
+-   **v1.7.0** , _08/Jun/2023_
     -   Now uses Hero V3 contract to fetch the hero object.
     -   New function for fetching normalized Pets: `getPetChain(chainId, petId)`.
     -   New properties have been populated on the hero object for equipment and craft1 & craft2.
