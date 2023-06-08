@@ -14,6 +14,7 @@ const abiConsumable = require('../abi/consumable.abi.json');
 const abiQuestCoreV1 = require('../abi/quest-core-v1.abi.json');
 const abiQuestCoreV2_2 = require('../abi/quest-core-v2.2.abi.json');
 const abiQuestCoreV3 = require('../abi/quest-core-v3.abi.json');
+const abiPetsV2 = require('../abi/pets-v2.abi.json');
 
 const poolsHarmony = require('../constants/gardens-harmony.const');
 const poolsDFKN = require('../constants/gardens-dfkn.const');
@@ -163,6 +164,20 @@ exports.getContractProfile = (currentRPC) => {
     abiProfiles,
     provider,
   );
+  return contract;
+};
+
+/**
+ * Get Pets V2 contract.
+ *
+ * @param {Object} currentRPC The current RPC to get the contract for.
+ * @return {Object} An ethers.js contract instance.
+ */
+exports.getContractPets = (currentRPC) => {
+  const { provider, chainId } = currentRPC;
+  const addresses = exports.getAddresses(chainId);
+  const contractAddress = addresses.PETS_V2;
+  const contract = new ethers.Contract(contractAddress, abiPetsV2, provider);
   return contract;
 };
 
