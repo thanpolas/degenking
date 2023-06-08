@@ -209,6 +209,7 @@ exports.normalizeChainProcessedHero = (
   normalizedHero.equipmentOffhand2Id = hero.equipment.offhand2Id;
   normalizedHero.equipmentArmorId = hero.equipment.armorId;
   normalizedHero.equipmentAccessoryId = hero.equipment.accessoryId;
+  normalizedHero.equipedPet = hero.equipedPet;
 
   // Calculate remaining stamina
   normalizedHero.currentStamina = calculateRemainingStamina(

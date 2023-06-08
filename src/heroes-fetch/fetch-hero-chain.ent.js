@@ -22,6 +22,7 @@ const {
   chainIdToRealm,
   chainIdToNetwork,
 } = require('../utils/network-helpers');
+const { getPetChain } = require('../pets/pets-fetch.ent');
 
 const log = require('../utils/log.service').get();
 
@@ -113,6 +114,12 @@ exports.getHeroChain = async (chainId, heroId, params = {}, retries = 0) => {
     hero.chainId = chainId;
     hero.realm = chainIdToRealm(chainId);
     hero.networkName = chainIdToNetwork(chainId);
+    hero.equipedPet = null;
+
+    // Check if pet is equiped, fetch it and assign it
+    if (hero.equipment.petId) {
+      hero.equipedPet = await getPetChain(chainId, hero.equipment.petId);
+    }
 
     return hero;
   } catch (ex) {
