@@ -1183,6 +1183,12 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.7.0** , _06/Jun/2023_
+    -   Now uses Hero V3 contract to fetch the hero object.
+    -   New function for fetching normalized Pets: `getPetChain(chainId, petId)`.
+    -   New properties have been populated on the hero object for equipment and craft1 & craft2.
+    -   New ABIs are available: `abiHeroesV3` and `abiPetsV2`.
+    -   New Pet Mappings constants are available at `PET_MAPPINGS`.
 -   **v1.6.2** , _03/Jun/2023_
     -   Introduced the "doNotLogError" parameter on the retry error handler
 -   **v1.6.1** , _29/May/2023_
