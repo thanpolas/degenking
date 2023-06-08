@@ -127,6 +127,7 @@ const {
   normalizeQuestV3,
 } = require('./quests/quest-query.ent');
 const { getAddresses, getPools } = require('./ether');
+const { getPetChain } = require('./pets/pets-fetch.ent');
 
 exports.getHeroesChain = getHeroesChain;
 exports.getHeroesAnyChain = getHeroesAnyChain;
@@ -140,6 +141,9 @@ exports.heroesTableCurrentStats = heroesTableCurrentStats;
 exports.decodeRecessiveGeneAndNormalize = decodeRecessiveGeneAndNormalize;
 exports.decodeRecessiveGenesAndNormalize = decodeRecessiveGenesAndNormalize;
 exports.config = setConfig;
+
+// Pets
+exports.getPetChain = getPetChain;
 
 // New commands of 0.2.0
 exports.getStatEmoji = getStatEmoji;
@@ -167,6 +171,7 @@ exports.ITEMS = require('./constants/items.const');
 exports.CRYSTALS = require('./constants/crystals.const');
 exports.RUNES = require('./constants/runes.const');
 exports.QUESTS = require('./constants/quests.const');
+exports.PET_MAPPINGS = require('./constants/pet-mappings.const');
 
 exports.getAddresses = getAddresses;
 exports.getPools = getPools;
@@ -242,7 +247,9 @@ exports.abiBridgeItems = require('./abi/bridge-items.abi.json');
 
 exports.abiHeroesV1 = require('./abi/heroes-v1.abi.json');
 exports.abiHeroesV2 = require('./abi/heroes-v2.abi.json');
+exports.abiHeroesV3 = require('./abi/heroes-v3.abi.json');
 exports.abiHeroAuction = require('./abi/auction.abi.json');
 exports.abiSummonV1 = require('./abi/summon-v1.abi.json');
 exports.abiSummonV2 = require('./abi/summon-v2.abi.json');
 exports.abiMasterGardenerDfk = require('./abi/master-gardener-dfk.abi.json');
+exports.abiPetsV2 = require('./abi/pets-v2.abi.json');
