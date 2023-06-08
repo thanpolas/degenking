@@ -19,7 +19,7 @@ const { getContractHeroes } = etherEnt;
  */
 exports.heroesBlockchainMock = () => {
   const heroContractFunctionsMock = {
-    getHero: jest.fn(() => Promise.resolve(heroChainFix())),
+    getHeroV2: jest.fn(() => Promise.resolve(heroChainFix())),
     ownerOf: jest.fn(() => Promise.resolve(heroOwnerFix())),
     getUserHeroes: jest.fn(() => Promise.resolve(userHeroesFix())),
   };
