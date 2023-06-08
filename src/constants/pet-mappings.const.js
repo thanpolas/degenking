@@ -50,9 +50,9 @@ exports.PET_BONUS_RARITY = {
 };
 
 exports.PET_BONUS_PROFESSION = {
-  0: 'Fishing',
-  1: 'Foraging',
-  2: 'Gardening',
+  0: 'fishing',
+  1: 'foraging',
+  2: 'gardening',
 };
 
 exports.PET_BONUS_PROFESSION_TO_INSTANCE_ID = {
