@@ -11,6 +11,10 @@ const auctionsChainMock = require('../mocks/auctions-blockchain.mock');
 
 const { assert: assertHero } = require('../assert/normalised-hero.assert');
 const { NETWORK_IDS } = require('../../src/constants/constants.const');
+const {
+  getPetChainMock,
+  getPetChainMockRestore,
+} = require('../mocks/pets-blockchain.mock');
 
 describe('Fetch Hero Blockchain', () => {
   testLib.init();
@@ -97,6 +101,7 @@ describe('Fetch Hero Blockchain', () => {
 
   describe('Happy Path', () => {
     it('should fetch hero 10000', async () => {
+      getPetChainMock();
       heroesChainMock.heroesBlockchainMock();
       profileChainMock.profileBlockchainMock();
       auctionsChainMock.auctionSalesBlockchainMock();
@@ -105,12 +110,14 @@ describe('Fetch Hero Blockchain', () => {
 
       assertHero(hero, expectedValues());
 
+      getPetChainMockRestore();
       heroesChainMock.heroesBlockchainMockRestore();
       profileChainMock.profileBlockchainMockRestore();
       auctionsChainMock.auctionSalesBlockchainMockRestore();
     });
 
     it('should fetch hero that has no profile', async () => {
+      getPetChainMock();
       heroesChainMock.heroesBlockchainMock();
       profileChainMock.profileBlockchainThrowMock();
       auctionsChainMock.auctionSalesBlockchainMock();
@@ -123,6 +130,7 @@ describe('Fetch Hero Blockchain', () => {
       expectedHero.ownerAddress = null;
       assertHero(hero);
 
+      getPetChainMockRestore();
       heroesChainMock.heroesBlockchainMockRestore();
       profileChainMock.profileBlockchainMockRestore();
       auctionsChainMock.auctionSalesBlockchainMockRestore();
