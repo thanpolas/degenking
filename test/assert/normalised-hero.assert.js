@@ -106,6 +106,17 @@ assert.assertProperties = (testObj) => {
     'chainId',
     'networkName',
     'realm',
+    'equipmentEquippedSlots',
+    'equipmentPetId',
+    'equipmentWeapon1Id',
+    'equipmentWeapon2Id',
+    'equipmentOffhand1Id',
+    'equipmentOffhand2Id',
+    'equipmentArmorId',
+    'equipmentAccessoryId',
+    'equipedPet',
+    'craft1',
+    'craft2',
   ]);
 };
 

@@ -781,6 +781,8 @@ const hero = {
     gardening: 0,
     foraging: 0.7,
     fishing: 1.1,
+    craft1: 0,
+    craft2: 0,
     shiny: false,
     xp: 1298,
     level: 1,
@@ -850,6 +852,49 @@ const hero = {
     classTier: 'basic',
     summonMinTears: 10,
     summonMaxTears: 10,
+    equipmentEquippedSlots: 1,
+    equipmentPetId: 2000000022783,
+    equipmentWeapon1Id: 0,
+    equipmentWeapon2Id: 0,
+    equipmentOffhand1Id: 0,
+    equipmentOffhand2Id: 0,
+    equipmentArmorId: 0,
+    equipmentAccessoryId: 0,
+    equipedPet: {
+        id: 2000000022783,
+        originId: 0,
+        name: '',
+        season: 1,
+        eggTypeId: 2,
+        eggTypeName: 'Green Pet Egg',
+        rarityId: 4,
+        rarityName: 'Mythic',
+        elementId: 6,
+        elementName: 'Light',
+        bonusCount: 3,
+        petProfessionName: 'Gardening',
+        petProfessionInstanceId: '5',
+        petHasQuestProfessionBonus: false,
+        profBonusId: 171,
+        profBonusName: 'Innate Greenskeeper',
+        profBonusScalar: 0.1,
+        craftBonusId: 160,
+        craftBonusName: 'Unrevealed',
+        craftBonusScalar: 0,
+        combatBonusId: 80,
+        combatBonusName: 'Unrevealed',
+        combatBonusScalar: 0,
+        craftingBonusType: 'Enchanting',
+        appearanceId: 139,
+        backgroundId: 3,
+        backgroundName: 'Vithraven Outskirts',
+        shinyId: 1,
+        hungryAt: 2021-10-01T00:00:00.000Z,
+        equippableAt: 1970-01-01T00:00:00.000Z,
+        equippedTo: 1000000166827,
+        fedBy: '0x4cc6ba1127c9d84eba64fd86a2c0836b152756aa',
+        foodTypeId: 3
+    },
     currentStamina: 25,
     currentRank: 14,
     estJewelPerTick: 0.26188,
@@ -1138,6 +1183,12 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.7.0** , _06/Jun/2023_
+    -   Now uses Hero V3 contract to fetch the hero object.
+    -   New function for fetching normalized Pets: `getPetChain(chainId, petId)`.
+    -   New properties have been populated on the hero object for equipment and craft1 & craft2.
+    -   New ABIs are available: `abiHeroesV3` and `abiPetsV2`.
+    -   New Pet Mappings constants are available at `PET_MAPPINGS`.
 -   **v1.6.2** , _03/Jun/2023_
     -   Introduced the "doNotLogError" parameter on the retry error handler
 -   **v1.6.1** , _29/May/2023_
