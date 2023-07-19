@@ -1183,6 +1183,8 @@ When a new node version is available you need to updated it in the following:
 
 # Release History
 
+-   **v1.7.2** , _19/Jul/2023_
+    -   Fixed retry function of `getPetChain()`.
 -   **v1.7.1** , _08/Jun/2023_
     -   Made pet-profession mapping all lowercase for consistency.
 -   **v1.7.0** , _08/Jun/2023_
