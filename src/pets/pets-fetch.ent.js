@@ -54,7 +54,7 @@ exports.getPetChain = async (chainId, petId, params = {}, retries = 0) => {
       errorMessage:
         `getPetChain() - RPC: ${currentRPC.name} - ` +
         `Network: ${chainIdToNetwork(currentRPC.chainId)} - Pet: ${petId}`,
-      retryFunction: exports.getHeroChain,
+      retryFunction: exports.getPetChain,
       retryArguments: [chainId, petId, params],
     });
   }
